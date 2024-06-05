@@ -1,0 +1,15 @@
+---
+import '../styles/stylesheet.css'
+
+const { active } = Astro.props
+---
+
+<div class="bg-black bg-opacity-50">
+    <nav class="flex flex-row gap-6 justify-end max-w-[1280px] py-6 mx-auto px-6 text-white">
+        <a class={`text-lg relative ${active === '/' ? 'border-b-2 border-green-500 font-semibold animate-border' : ''} hover:animate-border`} href="/">Domov</a>
+        <a class={`text-lg relative ${active === '/projekty' ? 'border-b-2 border-green-500 font-semibold animate-border' : ''} hover:animate-border`} href="/projekty">Projekty</a>
+        <a class={`text-lg relative ${active === '/kalkulacka' ? 'border-b-2 border-green-500 font-semibold animate-border' : ''} hover:animate-border`} href="/kalkulacka">Kalkulačka</a>
+        <a class={`text-lg relative ${active === '/info' ? 'border-b-2 border-green-500 font-semibold animate-border' : ''} hover:animate-border`} href="/info">O Nás</a>
+        <a class={`text-lg relative ${active === '/kontakt' ? 'border-b-2 border-green-500 font-semibold animate-border' : ''} hover:animate-border`} href="/kontakt">Kontakt</a>
+    </nav>
+</div>

@@ -1,0 +1,71 @@
+@keyframes border-center {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+  
+.animate-border {
+    position: relative;
+    overflow: hidden;
+}
+  
+a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* Adjust this value to match the border width */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px; /* Adjust this value to match the border width */
+    background-color: #22c55e; /* Tailwind green-500 */
+    animation: border-center 0.3s forwards;
+}
+
+/* CSS */
+.btn-main {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: rgb(34 197 94);
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.btn-main:hover,
+.btn-main:focus {
+  background-color: rgb(22 163 74);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.btn-main:hover {
+  transform: translateY(-1px);
+}
+
+.btn-main:active {
+  background-color: rgb(22 163 74);
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
