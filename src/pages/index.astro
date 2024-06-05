@@ -77,7 +77,7 @@ import Navbar from '../components/Navbar.astro'
       const typingEffect = document.getElementById('changing-text');
 
       function typeWord() {
-        if (letterIndex < words[wordIndex].length) {
+        if (letterIndex < words[wordIndex].length && typingEffect != null) {
           typingEffect.textContent += words[wordIndex].charAt(letterIndex);
           letterIndex++;
           setTimeout(typeWord, speed);
@@ -87,7 +87,7 @@ import Navbar from '../components/Navbar.astro'
       }
 
       function eraseWord() {
-        if (letterIndex > 0) {
+        if (letterIndex > 0 && typingEffect != null) {
           typingEffect.textContent = words[wordIndex].substring(0, letterIndex - 1);
           letterIndex--;
           setTimeout(eraseWord, speed);
