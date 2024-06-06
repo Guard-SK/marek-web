@@ -23,7 +23,6 @@ import Navbar from '../components/Navbar.astro'
 		}
 		.heading-container {
 			position: relative;
-			text-align: center;
 			color: white;
 		}
 		.heading-overlay {
@@ -33,9 +32,6 @@ import Navbar from '../components/Navbar.astro'
 			width: 100%;
 			height: 88.8%;
 			background: rgba(0, 0, 0, 0.2);
-			display: flex;
-			align-items: center;
-			justify-content: center;
 		}
 		.heading-text {
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow */
@@ -61,35 +57,47 @@ import Navbar from '../components/Navbar.astro'
   <body>
     <section class="h-[700px] hero bg-cover bg-center flex flex-col heading-container">
       	<Navbar active={Astro.url.pathname}></Navbar>
-      	<div class="h-[620px] flex items-center mx-auto">
-			<div class="flex justify-center flex-col sm:gap-8 gap-16 text-white text-center heading-overlay">
-				<h1 class="text-6xl heading-text font-light"><span id="changing-text" class=" font-medium typing-effect text-[color:var(--accent-color)]"></span> obytný dom podľa vašich predstáv</h1>
-				<div class="mx-auto">
-					<button class="btn-main" role="button">Urobte to s nami!</button>
+      	<div class="h-[620px] mx-auto">
+			<div class="heading-overlay flex justify-center items-center">
+				<div class="text-white w-full max-w-[1280px] flex justify-end items-center h-full mr-6">
+					<div class="md:text-end text-center xl:w-1/2 lg:w-2/3 md:w-4/5 w-full flex flex-col gap-8">
+						<h1 class="text-6xl md:h-[120px] sm:h-[180px] h-[240px] heading-text font-light"><span id="changing-text" class=" font-medium typing-effect text-[color:var(--accent-color)]"></span> obytný dom podľa vašich predstáv</h1>
+						<h3 class="text-3xl !text-slate-200 heading-text">Máte vlastný projekt? Chcete mať váš dom naprojektovaný profesionálnym architektom?</h3>
+						<div class="">
+							<button class="btn-main" role="button">Urobte to s nami!</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
     </section>
-	<section class="mt-14 max-w-[1280px] mx-auto">
-		<h2 class="text-5xl text-center">Čo ponúkame</h2>
-		<div class="flex flex-row">
-			<div>
-				<!-- <img src="/workerNOBG.png" class="w-[20%]" alt="construction worker stock image"> -->
+	<section class="mt-14 max-w-[1280px] mx-auto bg-[color:var(--tritary-color)] p-6 rounded-lg shadow-lg">
+		<div class="flex lg:flex-row flex-col gap-6 mx-6">
+			<div class="flex flex-col items-center text-center gap-2">
+				<img class="w-14" src="/users-alt.svg" alt="Our team ">
+				<h3 class="text-3xl font-medium">Tím mladých a skúsených</h3>
+				<p>
+					Náš tím tvorí mix <b>mladých</b> novovyštudovaných a <b>skúsených</b> ľudí ktorý sú <b>entuziastický</b> k svojej práci
+				</p>
 			</div>
-			<div class="flex flex-row gap-6 mt-6 text-center">
-				<div class="bg-[color:var(--primary-color)] rounded-lg py-2 px-4">
-					<h3 class="text-3xl">Možnosť vystavby vlastneho projektu</h3>
-				</div>
-				<div class="bg-[color:var(--primary-color)] rounded-lg py-2 px-4">
-					<h3 class="text-3xl">Možnosť návrhu projektu architektom</h3>
-				</div>
-				<div class="bg-[color:var(--primary-color)] rounded-lg py-2 px-4">
-					<h3 class="text-3xl">Možnosť výberu projektu z example projektov</h3>
-				</div>
+			<div class="flex flex-col items-center text-center gap-2">
+				<img class="w-14" src="/time-fast.svg" alt="">
+				<h3 class="text-3xl font-medium">Nekonkurenčná rýchlosť</h3>
+				<p>
+					Postavíme váš dom za nekonkurenčnú rýchlosť. Čas ktorý si stanovíme <b>musíme dodržať</b>, ináč podľa našej zmluvy <b>dostanete kompenzáciu</b>!
+				</p>
+			</div>
+			<div class="flex flex-col items-center text-center gap-2">
+				<img class="w-14" src="/hr-person.svg" alt="">
+				<h3 class="text-3xl font-medium">Osobitný prístup</h3>
+				<p>
+					Ako rozrastajúca firma máme všetok priestor <b>len pre vás</b> a garantujeme <b>nadpriemerne</b> osobitný prístup
+				</p>
 			</div>
 		</div>
-
 	</section>
+
+	<section class="mb-[1000px]"></section>
 
     <script>
       const words = ["Postavíme", "Zrekonštrujeme", "Naprojektujeme"];
