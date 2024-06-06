@@ -64,7 +64,7 @@ import Navbar from '../components/Navbar.astro'
 						<h1 class="text-6xl md:h-[120px] sm:h-[180px] h-[240px] heading-text font-light"><span id="changing-text" class=" font-medium typing-effect text-[color:var(--accent-color)]"></span> obytný dom podľa vašich predstáv</h1>
 						<h3 class="text-3xl !text-slate-200 heading-text">Máte vlastný projekt? Chcete mať váš dom naprojektovaný profesionálnym architektom?</h3>
 						<div class="">
-							<button class="btn-main" role="button">Urobte to s nami!</button>
+							<button id="contactButton" class="btn-main" role="button">Urobte to s nami!</button>
 						</div>
 					</div>
 				</div>
@@ -100,38 +100,47 @@ import Navbar from '../components/Navbar.astro'
 	<section class="mb-[1000px]"></section>
 
     <script>
-      const words = ["Postavíme", "Zrekonštrujeme", "Naprojektujeme"];
-      let wordIndex = 0;
-      let letterIndex = 0;
-      const speed = 100;
-      const changeInterval = 4000;
+		const words = ["Postavíme", "Zrekonštrujeme", "Naprojektujeme"];
+		let wordIndex = 0;
+		let letterIndex = 0;
+		const speed = 100;
+		const changeInterval = 4000;
 
-      const typingEffect = document.getElementById('changing-text');
+		const typingEffect = document.getElementById('changing-text');
 
-      function typeWord() {
-        if (letterIndex < words[wordIndex].length && typingEffect != null) {
-          typingEffect.textContent += words[wordIndex].charAt(letterIndex);
-          letterIndex++;
-          setTimeout(typeWord, speed);
-        } else {
-          setTimeout(eraseWord, changeInterval);
-        }
-      }
+		function typeWord() {
+			if (letterIndex < words[wordIndex].length && typingEffect != null) {
+				typingEffect.textContent += words[wordIndex].charAt(letterIndex);
+				letterIndex++;
+				setTimeout(typeWord, speed);
+			} else {
+				setTimeout(eraseWord, changeInterval);
+			}
+		}
 
-      function eraseWord() {
-        if (letterIndex > 0 && typingEffect != null) {
-          typingEffect.textContent = words[wordIndex].substring(0, letterIndex - 1);
-          letterIndex--;
-          setTimeout(eraseWord, speed);
-        } else {
-          wordIndex = (wordIndex + 1) % words.length;
-          setTimeout(typeWord, speed);
-        }
-      }
+		function eraseWord() {
+			if (letterIndex > 0 && typingEffect != null) {
+				typingEffect.textContent = words[wordIndex].substring(0, letterIndex - 1);
+				letterIndex--;
+				setTimeout(eraseWord, speed);
+			} else {
+				wordIndex = (wordIndex + 1) % words.length;
+				setTimeout(typeWord, speed);
+			}
+		}
 
-      document.addEventListener('DOMContentLoaded', (event) => {
-        typeWord();
-      });
+		document.addEventListener('DOMContentLoaded', (event) => {
+			typeWord();
+		});
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const button = document.getElementById('contactButton');
+			if (button) {
+					button.addEventListener('click', () => {
+					window.location.href = '/kontakt';
+				});
+			}
+		});
     </script>
   </body>
 </html>
