@@ -115,6 +115,15 @@ import '../styles/stylesheet.css'
       item.addEventListener('click', (event) => {
         // Prevent click event from propagating to document
         event.stopPropagation();
+
+        // Remove active class from other items
+        document.querySelectorAll('.container > div').forEach(div => {
+          if (div !== item) {
+            div.classList.remove('active');
+          }
+        });
+
+        // Toggle active class on clicked item
         item.classList.toggle('active');
       });
     });
