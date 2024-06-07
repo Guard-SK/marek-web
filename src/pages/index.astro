@@ -1,5 +1,6 @@
 ---
 import Navbar from '../components/Navbar.astro'
+import Carousel from '../components/Carousel.astro';
 ---
 
 <html lang="en">
@@ -62,7 +63,7 @@ import Navbar from '../components/Navbar.astro'
 				<div class="text-white w-full max-w-[1280px] flex justify-end items-center h-full mx-3">
 					<div class="md:text-end text-center xl:w-1/2 lg:w-2/3 md:w-4/5 w-full flex flex-col gap-8">
 						<h1 class="text-6xl md:h-[120px] sm:h-[180px] sm:min-h-max min-h-[180px] heading-text font-light"><span id="changing-text" class=" font-medium typing-effect text-[color:var(--accent-color)]"></span> obytný dom podľa vašich predstáv</h1>
-						<h3 class="text-3xl !text-slate-200 heading-text">Máte vlastný projekt? Chcete mať váš dom naprojektovaný profesionálnym architektom?</h3>
+						<h3 class="text-3xl !text-slate-200 heading-text">Vlastný projekt <br> Hotový projekt <br> Naprojektovať architektom</h3>
 						<div class="">
 							<button id="contactButton" class="btn-main" role="button">Urobte to s nami!</button>
 						</div>
@@ -71,7 +72,7 @@ import Navbar from '../components/Navbar.astro'
 			</div>
 		</div>
     </section>
-	<section class="mt-14 max-w-[1280px] mx-auto bg-yellow-50 p-6 rounded-lg shadow-lg">
+	<section class="mt-14 max-w-[1280px] mx-auto p-6 rounded-lg shadow-lg">
 		<div class="flex lg:flex-row flex-col gap-6 mx-6">
 			<div class="flex flex-col items-center text-center gap-2">
 				<img class="w-14" src="/users-alt.svg" alt="Our team ">
@@ -95,6 +96,11 @@ import Navbar from '../components/Navbar.astro'
 				</p>
 			</div>
 		</div>
+	</section>
+
+	<section class="max-w-[1280px] mx-auto mt-14 text-center">
+		<h3 class="text-6xl pb-6">Naše projekty</h3>
+		<Carousel></Carousel>
 	</section>
 
 	<section class="mb-[1000px]"></section>

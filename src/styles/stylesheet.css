@@ -48,7 +48,6 @@ a:hover::after {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 18px;
   font-weight: 600;
   justify-content: center;
@@ -77,6 +76,48 @@ a:hover::after {
 }
 
 .btn-main:active {
+  background-color: rgb(22 163 74);
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.btn-main-outline {
+  align-items: center;
+  background-clip: padding-box;
+  border: var(--accent-color) 1px solid ;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  justify-content: center;
+  margin: 0;
+  padding: 6px calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.btn-main-outline:hover,
+.btn-main-outline:focus {
+  background-color: var(--accent-color);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.btn-main-outline:hover {
+  transform: translateY(-1px);
+}
+
+.btn-main-outline:active {
   background-color: rgb(22 163 74);
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
