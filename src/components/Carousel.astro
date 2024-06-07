@@ -2,52 +2,17 @@
 import '../styles/stylesheet.css'
 ---
 
-<div class="container">
-    <div>
-        <div class="content">
-            <h2 class="text-3xl font-medium gap-2">Bungalov Karla</h2>
-            <span class="text-[color:var(--accent-color)] items-center text-xl">138 500 € <span class="text-neutral-300 line-through text-sm">159 000 €</span></span>
-            <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 107 m²</span>
-            <button id="contactButton" class="btn-main-outline" role="button">Viac info</button>
-        </div>
-    </div>
-    <div>
-        <div class="content">
-            <h2 class="text-3xl font-medium gap-2">Bungalov Emily</h2>
-            <span class="text-[color:var(--accent-color)] items-center text-xl">63 000 € <span class="text-neutral-300 line-through text-sm">73 500 €</span></span>
-            <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 49 m²</span>
-            <button id="contactButton" class="btn-main-outline" role="button">Viac info</button>
-        </div>
-    </div>
-    <div>
-        <div class="content">
-            <h2 class="text-3xl font-medium gap-2">Bungalov Olivia</h2>
-            <span class="text-[color:var(--accent-color)] items-center text-xl">111 000 € <span class="text-neutral-300 line-through text-sm">129 000 €</span></span>
-            <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 85.9 m²</span>
-            <button id="contactButton" class="btn-main-outline" role="button">Viac info</button>
-        </div>
-    </div>
-    <div>
-        <div class="content">
-            <h2 class="text-3xl font-medium gap-2">Bungalov Scarlet</h2>
-            <span class="text-[color:var(--accent-color)] items-center text-xl">112 900 € <span class="text-neutral-300 line-through text-sm">130 500 €</span></span>
-            <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 86.9 m²</span>
-            <button id="contactButton" class="btn-main-outline" role="button">Viac info</button>
-        </div>
-    </div>
-</div>
-
 <style>
+  .container {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+    gap: 10px;
+    flex-direction: column;
+  }
 
-.container {
-  display: flex;
-  justify-content: center;
-  height: 500px;
-  width: full;
-  gap: 10px;
-  flex-direction: column;
-
-  > div {
+  .container > div {
     flex: 0 0 120px;
     border-radius: 0.5rem;
     transition: 0.5s ease-in-out;
@@ -55,62 +20,107 @@ import '../styles/stylesheet.css'
     box-shadow: 1px 5px 15px var(--primary-color);
     position: relative;
     overflow: hidden;
-
-    &:nth-of-type(1) {
-      background: url('/Karla.jpg')
-        no-repeat 50% / cover;
-    }
-    &:nth-of-type(2) {
-      background: url('/Bungalov-Scarlett-87_1.jpg')
-        no-repeat 50% / cover;
-    }
-    &:nth-of-type(3) {
-      background: url('/Bungalov-Olivia-85_6.jpg')
-        no-repeat 50% / cover;
-    }
-    &:nth-of-type(4) {
-      background: url('/Bungalov-Emily-49_1.jpg')
-        no-repeat 50% / cover;
-    }
-
-    .content {
-      color: #fff;
-      display: flex;
-      align-items: center;
-      padding: 15px;
-      opacity: 0;
-      flex-direction: column;
-      height: 100%;
-      justify-content: flex-end;
-      background: var(--primary-color);
-      background: linear-gradient(
-        0deg,
-        black 0%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: translatey(100%);
-      transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
-      visibility: hidden;
-    }
-
-    &:hover {
-      flex: 0 0 300px;
-      box-shadow: 1px 3px 15px var(--accent-color);
-      transform: translatey(-10px);
-    }
-
-    &:focus {
-      flex: 0 0 300px;
-      box-shadow: 1px 3px 15px var(--accent-color);
-      transform: translatey(-30px);
-    }
-
-    &:hover .content {
-      opacity: 1;
-      transform: translatey(0%);
-      visibility: visible;
-    }
   }
-}
 
+  @media (max-width: 666px) {
+    .container > div {
+            border-radius: 0 !important;
+        }
+    }
+
+  .container > div:nth-of-type(1) {
+    background: url('/Karla.jpg') no-repeat 50% / cover;
+  }
+  .container > div:nth-of-type(2) {
+    background: url('/Bungalov-Scarlett-87_1.jpg') no-repeat 50% / cover;
+  }
+  .container > div:nth-of-type(3) {
+    background: url('/Bungalov-Olivia-85_6.jpg') no-repeat 50% / cover;
+  }
+  .container > div:nth-of-type(4) {
+    background: url('/Bungalov-Emily-49_1.jpg') no-repeat 50% / cover;
+  }
+
+  .content {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    opacity: 0;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    background: var(--primary-color);
+    background: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 100%);
+    transform: translatey(100%);
+    transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+    visibility: hidden;
+  }
+
+  .container > div:hover,
+  .container > div.active {
+    flex: 0 0 300px;
+    box-shadow: 1px 3px 15px var(--accent-color);
+    transform: translatey(-10px);
+  }
+
+  .container > div:hover .content,
+  .container > div.active .content {
+    opacity: 1;
+    transform: translatey(0%);
+    visibility: visible;
+  }
 </style>
+
+<div class="container mx-auto">
+  <div>
+    <div class="content">
+      <h2 class="text-3xl font-medium gap-2">Bungalov Karla</h2>
+      <span class="text-[color:var(--accent-color)] items-center text-xl">138 500 € <span class="text-neutral-300 line-through text-sm">159 000 €</span></span>
+      <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 107 m²</span>
+      <button id="moreInfo" class="btn-main-outline" role="button">Viac info</button>
+    </div>
+  </div>
+  <div>
+    <div class="content">
+      <h2 class="text-3xl font-medium gap-2">Bungalov Emily</h2>
+      <span class="text-[color:var(--accent-color)] items-center text-xl">63 000 € <span class="text-neutral-300 line-through text-sm">73 500 €</span></span>
+      <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 49 m²</span>
+      <button id="moreInfo" class="btn-main-outline" role="button">Viac info</button>
+    </div>
+  </div>
+  <div>
+    <div class="content">
+      <h2 class="text-3xl font-medium gap-2">Bungalov Olivia</h2>
+      <span class="text-[color:var(--accent-color)] items-center text-xl">111 000 € <span class="text-neutral-300 line-through text-sm">129 000 €</span></span>
+      <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 85.9 m²</span>
+      <button id="moreInfo" class="btn-main-outline" role="button">Viac info</button>
+    </div>
+  </div>
+  <div>
+    <div class="content">
+      <h2 class="text-3xl font-medium gap-2">Bungalov Scarlet</h2>
+      <span class="text-[color:var(--accent-color)] items-center text-xl">112 900 € <span class="text-neutral-300 line-through text-sm">130 500 €</span></span>
+      <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 86.9 m²</span>
+      <button id="moreInfo" class="btn-main-outline" role="button">Viac info</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.container > div').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('moreInfo');
+        if (button) {
+                button.addEventListener('click', () => {
+                window.location.href = '/projekty';
+            });
+        }
+    });
+</script>
