@@ -8,7 +8,7 @@ import '../styles/stylesheet.css'
     justify-content: center;
     height: 500px;
     width: 100%;
-    gap: 10px;
+    gap: 6px;
     flex-direction: column;
   }
 
@@ -17,16 +17,16 @@ import '../styles/stylesheet.css'
     border-radius: 0.5rem;
     transition: 0.5s ease-in-out;
     cursor: pointer;
-    box-shadow: 1px 5px 15px var(--primary-color);
+    box-shadow: 1px 5px 15px black;
     position: relative;
     overflow: hidden;
   }
 
   @media (max-width: 666px) {
     .container > div {
-            border-radius: 0 !important;
-        }
+      border-radius: 0 !important;
     }
+  }
 
   .container > div:nth-of-type(1) {
     background: url('/Karla.jpg') no-repeat 50% / cover;
@@ -72,13 +72,13 @@ import '../styles/stylesheet.css'
   }
 </style>
 
-<div class="container mx-auto">
+<div class="container mx-auto" id="carousel">
   <div>
     <div class="content">
       <h2 class="text-3xl font-medium gap-2">Bungalov Karla</h2>
       <span class="text-[color:var(--accent-color)] items-center text-xl">138 500 € <span class="text-neutral-300 line-through text-sm">159 000 €</span></span>
       <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 107 m²</span>
-      <button id="moreInfo" class="btn-main-outline" role="button">Viac info</button>
+      <button id="moreInfo1" class="btn-main-outline" role="button">Viac info</button>
     </div>
   </div>
   <div>
@@ -86,7 +86,7 @@ import '../styles/stylesheet.css'
       <h2 class="text-3xl font-medium gap-2">Bungalov Emily</h2>
       <span class="text-[color:var(--accent-color)] items-center text-xl">63 000 € <span class="text-neutral-300 line-through text-sm">73 500 €</span></span>
       <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 49 m²</span>
-      <button id="moreInfo" class="btn-main-outline" role="button">Viac info</button>
+      <button id="moreInfo2" class="btn-main-outline" role="button">Viac info</button>
     </div>
   </div>
   <div>
@@ -94,7 +94,7 @@ import '../styles/stylesheet.css'
       <h2 class="text-3xl font-medium gap-2">Bungalov Olivia</h2>
       <span class="text-[color:var(--accent-color)] items-center text-xl">111 000 € <span class="text-neutral-300 line-through text-sm">129 000 €</span></span>
       <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 85.9 m²</span>
-      <button id="moreInfo" class="btn-main-outline" role="button">Viac info</button>
+      <button id="moreInfo3" class="btn-main-outline" role="button">Viac info</button>
     </div>
   </div>
   <div>
@@ -102,25 +102,37 @@ import '../styles/stylesheet.css'
       <h2 class="text-3xl font-medium gap-2">Bungalov Scarlet</h2>
       <span class="text-[color:var(--accent-color)] items-center text-xl">112 900 € <span class="text-neutral-300 line-through text-sm">130 500 €</span></span>
       <span class="text-lg text-neutral-200 pb-2">Úžitková plocha: 86.9 m²</span>
-      <button id="moreInfo" class="btn-main-outline" role="button">Viac info</button>
+      <button id="moreInfo4" class="btn-main-outline" role="button">Viac info</button>
     </div>
   </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.container > div').forEach(item => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('carousel');
+
+    document.querySelectorAll('.container > div').forEach(item => {
+      item.addEventListener('click', (event) => {
+        // Prevent click event from propagating to document
+        event.stopPropagation();
+        item.classList.toggle('active');
+      });
+    });
+
+    // Add a click event listener to the document
+    document.addEventListener('click', (event) => {
+      // Check if the click is outside the carousel
+      if (!carousel.contains(event.target)) {
+        document.querySelectorAll('.container > div').forEach(div => {
+          div.classList.remove('active');
         });
+      }
     });
-    document.addEventListener('DOMContentLoaded', () => {
-        const button = document.getElementById('moreInfo');
-        if (button) {
-                button.addEventListener('click', () => {
-                window.location.href = '/projekty';
-            });
-        }
+
+    document.querySelectorAll('#moreInfo1, #moreInfo2, #moreInfo3, #moreInfo4').forEach(button => {
+      button.addEventListener('click', () => {
+        window.location.href = '/projekty';
+      });
     });
+  });
 </script>
