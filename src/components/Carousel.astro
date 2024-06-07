@@ -122,7 +122,7 @@ import '../styles/stylesheet.css'
     // Add a click event listener to the document
     document.addEventListener('click', (event) => {
       // Check if the click is outside the carousel
-      if (!carousel.contains(event.target)) {
+      if (carousel && !carousel.contains(event.target as Node)) {
         document.querySelectorAll('.container > div').forEach(div => {
           div.classList.remove('active');
         });
