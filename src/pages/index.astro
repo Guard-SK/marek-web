@@ -1,6 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro'
 import Carousel from '../components/Carousel.astro';
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 ---
 
 <html lang="en">
@@ -54,6 +55,8 @@ import Carousel from '../components/Carousel.astro';
 		}
     </style>
   </head>
+
+  <SpeedInsights></SpeedInsights>
 
   <body>
     <section class="h-[700px] hero bg-cover bg-center flex flex-col heading-container">
