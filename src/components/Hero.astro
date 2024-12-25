@@ -1,0 +1,116 @@
+<html lang="en">
+  <head>
+    <style>
+      /* Basic styles */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        overflow: hidden;
+      }
+      .hero-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .hero-image.active {
+        opacity: 1;
+      }
+      .hero-buttons {
+        position: absolute;
+        bottom: 25%;
+        left: 25%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 16px;
+      }
+      .hero-button {
+        width: 160px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .hero-button:hover,
+      .hero-button.active {
+        background-color: rgba(255, 255, 255, 1);
+        color: black;
+        transform: scale(1.1);
+      }
+      .shadow-text {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="hero-images">
+        <div class="hero-image" style="background-image: url('/HrubeStavbyHero.jpg');"></div>
+        <div class="hero-image" style="background-image: url('/RoofHero.webp');"></div>
+        <div class="hero-image" style="background-image: url('/HolodomHero.jpg');"></div>
+      </div>
+      <div class="hero-buttons align-middle flex-col">
+        <h1 class="text-white text-5xl font-bold shadow-text">PROFESIONÁLNE RIEŠENIE</h1>
+        <div class="flex-row flex gap-6">
+          <div class="hero-button flex justify-center align-middle flex-col p-4 text-center gap-4" data-index="0">
+            <s2 class=" font-semibold text-xl">Hrubej stavby</s2>
+          </div>
+          <div class="hero-button flex justify-center align-middle flex-col p-4 text-center gap-4" data-index="1">
+            <s2 class=" font-semibold text-xl">Strechy</s2>
+          </div>
+          <div class="hero-button flex justify-center align-middle flex-col p-4 text-center gap-4" data-index="2">
+            <s2 class=" font-semibold text-xl">Holodomu</s2>
+          </div>
+        </div>
+        <h1 class="text-white text-5xl font-bold shadow-text">OD ODBORNÍKOV</h1>
+      </div>
+    </div>
+    <script>
+      const heroImages = document.querySelectorAll('.hero-image');
+      const buttons = document.querySelectorAll('.hero-button');
+
+      let currentIndex = 0;
+      let interval;
+
+      const updateHero = (index) => {
+        heroImages.forEach((img, idx) => {
+          img.classList.toggle('active', idx === index);
+        });
+        buttons.forEach((btn, idx) => {
+          btn.classList.toggle('active', idx === index);
+        });
+      };
+
+      const startCarousel = () => {
+        interval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % heroImages.length;
+          updateHero(currentIndex);
+        }, 5000);
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener('mouseover', () => {
+          clearInterval(interval);
+          currentIndex = parseInt(button.dataset.index);
+          updateHero(currentIndex);
+        });
+
+        button.addEventListener('mouseout', startCarousel);
+      });
+
+      // Initialize
+      updateHero(currentIndex);
+      startCarousel();
+    </script>
+  </body>
+</html>

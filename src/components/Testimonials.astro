@@ -1,0 +1,100 @@
+
+<style>
+.testimonial-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Skryje obsah mimo viditeľnej oblasti */
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: scroll 20s linear infinite;
+}
+
+.testimonial-card {
+  flex-shrink: 0;
+  width: 300px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.testimonial-card h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+.testimonial-card span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+</style>
+<section class="bg-gray-100 py-16 overflow-hidden">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-10 text-gray-800">Čo hovoria naši zákazníci</h2>
+      <div class="testimonial-wrapper">
+        <div class="testimonial-track">
+          <!-- Karty referencií (originál) -->
+          <div class="testimonial-card">
+            <p>"Firma odviedla skvelú prácu. Stavba bola dokončená načas a výsledok prekročil naše očakávania."</p>
+            <h4>Ján Novák</h4>
+            <span>Rodinný dom</span>
+          </div>
+          <div class="testimonial-card">
+            <p>"Spoľahliví, precízni a komunikatívni. Som veľmi spokojná so strechou, ktorú nám postavili."</p>
+            <h4>Petra Kováčová</h4>
+            <span>Rekonštrukcia strechy</span>
+          </div>
+          <div class="testimonial-card">
+            <p>"Od začiatku do konca to bola bezproblémová spolupráca. Profesionálny prístup a výborné výsledky."</p>
+            <h4>Martin Horváth</h4>
+            <span>Holodom</span>
+          </div>
+          <div class="testimonial-card">
+            <p>"Veľmi spokojní s celkovým prístupom a kvalitou práce. Môžeme len odporučiť!"</p>
+            <h4>Anna Bieliková</h4>
+            <span>Rodinný dom</span>
+          </div>
+          <div class="testimonial-card">
+            <p>"Precíznosť a dochvíľnosť. Projekt bol dokončený načas a výsledok je skvelý."</p>
+            <h4>Tomáš Šimek</h4>
+            <span>Rekonštrukcia</span>
+          </div>
+          <!-- Duplikované referencie pre nekonečný efekt -->
+          <div class="testimonial-card">
+            <p>"Firma odviedla skvelú prácu. Stavba bola dokončená načas a výsledok prekročil naše očakávania."</p>
+            <h4>Ján Novák</h4>
+            <span>Rodinný dom</span>
+          </div>
+          <div class="testimonial-card">
+            <p>"Spoľahliví, precízni a komunikatívni. Som veľmi spokojná so strechou, ktorú nám postavili."</p>
+            <h4>Petra Kováčová</h4>
+            <span>Rekonštrukcia strechy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
