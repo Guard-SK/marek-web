@@ -76,13 +76,13 @@
       </div>
     </div>
     <script>
-      const heroImages = document.querySelectorAll('.hero-image');
-      const buttons = document.querySelectorAll('.hero-button');
+      const heroImages = document.querySelectorAll<HTMLElement>('.hero-image');
+      const buttons = document.querySelectorAll<HTMLButtonElement>('.hero-button');
 
       let currentIndex = 0;
-      let interval;
+      let interval: number; // Use 'number' for browser environments.
 
-      const updateHero = (index) => {
+      const updateHero = (index: number) => {
         heroImages.forEach((img, idx) => {
           img.classList.toggle('active', idx === index);
         });
@@ -92,7 +92,7 @@
       };
 
       const startCarousel = () => {
-        interval = setInterval(() => {
+        interval = window.setInterval(() => {
           currentIndex = (currentIndex + 1) % heroImages.length;
           updateHero(currentIndex);
         }, 5000);
@@ -101,7 +101,7 @@
       buttons.forEach((button) => {
         button.addEventListener('mouseover', () => {
           clearInterval(interval);
-          currentIndex = parseInt(button.dataset.index);
+          currentIndex = parseInt((button as HTMLElement).dataset.index || '0', 10);
           updateHero(currentIndex);
         });
 
@@ -111,6 +111,7 @@
       // Initialize
       updateHero(currentIndex);
       startCarousel();
+
     </script>
   </body>
 </html>
