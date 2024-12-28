@@ -99,16 +99,22 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.testimonial-track');
-    const cards = [...track.children];
+    const track = document.querySelector('.testimonial-track') as HTMLElement | null;
+    
+    if (!track) {
+      console.error('Track element not found');
+      return; // Exit if track is null
+    }
+
+    const cards = Array.from(track.children); // Convert children to an array
 
     // Duplicate cards for endless scroll
     cards.forEach((card) => {
-      const clone = card.cloneNode(true);
+      const clone = card.cloneNode(true) as HTMLElement;
       track.appendChild(clone);
     });
 
-    let trackWidth = track.scrollWidth / 2;
+    const trackWidth = track.scrollWidth / 2;
     let currentPosition = 0;
 
     function scrollTestimonials() {
@@ -116,10 +122,13 @@
       if (Math.abs(currentPosition) >= trackWidth) {
         currentPosition = 0; // Reset position
       }
-      track.style.transform = `translateX(${currentPosition}px)`;
-      requestAnimationFrame(scrollTestimonials);
+      if (track) {
+        track.style.transform = `translateX(${currentPosition}px)`; // Safe to use style now
+        requestAnimationFrame(scrollTestimonials);
+      }
     }
 
     scrollTestimonials();
   });
+
 </script>
