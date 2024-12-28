@@ -156,10 +156,10 @@
     const heroImages = document.querySelectorAll('.hero-image');
     const buttons = document.querySelectorAll('.hero-button');
 
-    let currentIndex = 0;
-    let interval;
+    let currentIndex: number = 0; // Explicitly specify the type as number
+    let interval: number | undefined; // Explicitly specify the type for interval
 
-    const updateHero = (index) => {
+    const updateHero = (index: number) => { // Explicitly specify the parameter type
       heroImages.forEach((img, idx) => {
         img.classList.toggle('active', idx === index);
       });
@@ -178,17 +178,17 @@
     buttons.forEach((button) => {
       const btn = button as HTMLButtonElement; // Type assertion
       btn.addEventListener('mouseover', () => {
-        clearInterval(interval);
-        currentIndex = parseInt(btn.dataset.index || '0', 10);
+        clearInterval(interval); // Clear the interval
+        currentIndex = parseInt(btn.dataset.index || '0', 10); // Convert index to number
         updateHero(currentIndex);
       });
 
-      btn.addEventListener('mouseout', startCarousel);
+      btn.addEventListener('mouseout', startCarousel); // Restart carousel
     });
-
 
     // Initialize
     updateHero(currentIndex);
     startCarousel();
+
   </script>
 </body>
