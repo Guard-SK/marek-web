@@ -1,22 +1,65 @@
-<section class="py-16 bg-[#1E1E1E]">
-  <div class="container mx-auto px-6">
+<section class="py-0 lg:py-16 bg-[#1E1E1E]">
+  <div class="lg:container mx-auto px-0 lg:px-6">
     <!-- Section Heading -->
     <div class="text-center mb-12">
-      <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-[#FFC107] mb-2">
+      <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-[#FFC107] mb-2">
         Kontaktujte nás
       </h3>
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-[#E0E0E0] mb-4">
         MÁTE OTÁZKY ALEBO ZÁUJEM O NAŠE SLUŽBY?
       </h2>
       <p class="text-[#B0B0B0]">
-        Spojte sa s nami a získajte všetky potrebné informácie!
+        Spojte sa s nami cez email, Whatsapp alebo formulár a získajte viac informácií!
       </p>
     </div>
 
     <!-- Content Grid -->
-    <div class="flex flex-col lg:flex-row gap-10">
+    <div class="flex flex-col lg:flex-row gap-12">
+      <!-- Contact Form -->
+      <div class="flex-1 flex-grow lg:w-1/2 lg:px-0 px-6">
+        <form class="bg-[#242424] shadow-2xl rounded-lg p-8 h-full">
+          <h3 class="text-xl font-bold mb-4">Kontaktný formulár</h3>
+          <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-[#B0B0B0] mb-2">Meno</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Vaše meno"
+              class="w-full border border-gray-600 bg-[#1E1E1E] rounded-lg p-3 text-[#E0E0E0] focus:outline-none focus:ring-2 focus:ring-[#FFC107] focus:border-[#FFC107]"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-[#B0B0B0] mb-2">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Vaša emailová adresa"
+              class="w-full border border-gray-600 bg-[#1E1E1E] rounded-lg p-3 text-[#E0E0E0] focus:outline-none focus:ring-2 focus:ring-[#FFC107] focus:border-[#FFC107]"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="message" class="block text-sm font-medium text-[#B0B0B0] mb-2">Správa</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Vaša správa"
+              class="w-full border border-gray-600 bg-[#1E1E1E] rounded-lg p-3 text-[#E0E0E0] focus:outline-none focus:ring-2 focus:ring-[#FFC107] focus:border-[#FFC107]"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-[#FFC107] text-gray-900 font-medium py-3 rounded-lg hover:bg-[#FFB300] transition duration-300"
+          >
+            Odoslať
+          </button>
+        </form>
+      </div>
+
       <!-- Contact Info -->
-      <div class="lg:w-1/2 bg-[#242424] shadow-2xl rounded-lg p-8 text-[#E0E0E0]">
+      <div class="flex-1 flex-grow lg:w-1/2 bg-[#242424] shadow-2xl rounded-lg p-8 text-[#E0E0E0]">
         <h3 class="text-xl font-bold mb-4">Kontaktné Informácie</h3>
         <p class="mb-4 text-[#B0B0B0]">
           Ak máte otázky, neváhajte nás kontaktovať na nižšie uvedené kontaktné údaje. Ak nechcete využiť formulár, kľudne využite náš email alebo napíšte na WhatsApp.
@@ -45,16 +88,12 @@
             <strong>Email:</strong>
             <p>
               <a
-                href="mailto:info@vasafirma.sk?subject=Záujem%20o%20služby&body=Dobrý%20deň,"
+                href="mailto:marek.atletika@gmail.com?subject=Záujem%20o%20služby&body=Dobrý%20deň,"
                 class="text-[#FFC107] underline hover:text-[#FFB300]"
               >
-                info@vasafirma.sk
+                marek.atletika@gmail.com
               </a>
             </p>
-          </li>
-          <li>
-            <strong>Pracovné Hodiny:</strong>
-            <p>Pon-Pia: 9:00 - 17:00</p>
           </li>
         </ul>
         <!-- WhatsApp Button -->
@@ -68,48 +107,6 @@
             Napísať na WhatsApp
           </a>
         </div>
-      </div>
-
-      <!-- Contact Form -->
-      <div class="lg:w-1/2">
-        <form class="bg-[#242424] shadow-2xl rounded-lg p-8">
-          <div class="mb-6">
-            <label for="name" class="block text-sm font-medium text-[#B0B0B0] mb-2">Meno</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Vaše meno"
-              class="w-full border border-gray-600 bg-[#1E1E1E] rounded-lg p-3 text-[#E0E0E0] focus:outline-none focus:ring-2 focus:ring-[#FFC107] focus:border-[#FFC107]"
-            />
-          </div>
-          <div class="mb-6">
-            <label for="email" class="block text-sm font-medium text-[#B0B0B0] mb-2">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Vaša emailová adresa"
-              class="w-full border border-gray-600 bg-[#1E1E1E] rounded-lg p-3 text-[#E0E0E0] focus:outline-none focus:ring-2 focus:ring-[#FFC107] focus:border-[#FFC107]"
-            />
-          </div>
-          <div class="mb-6">
-            <label for="message" class="block text-sm font-medium text-[#B0B0B0] mb-2">Správa</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              placeholder="Vaša správa"
-              class="w-full border border-gray-600 bg-[#1E1E1E] rounded-lg p-3 text-[#E0E0E0] focus:outline-none focus:ring-2 focus:ring-[#FFC107] focus:border-[#FFC107]"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            class="w-full bg-[#FFC107] text-gray-900 font-medium py-3 rounded-lg hover:bg-[#FFB300] transition duration-300"
-          >
-            Odoslať
-          </button>
-        </form>
       </div>
     </div>
   </div>
