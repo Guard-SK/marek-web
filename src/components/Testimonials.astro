@@ -1,100 +1,125 @@
-
 <style>
-.testimonial-wrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden; /* Skryje obsah mimo viditeľnej oblasti */
-}
-
-.testimonial-track {
-  display: flex;
-  gap: 1.5rem;
-  animation: scroll 20s linear infinite;
-}
-
-.testimonial-card {
-  flex-shrink: 0;
-  width: 300px;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: left;
-}
-
-.testimonial-card p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-.testimonial-card h4 {
-  font-size: 1.2rem;
-  color: #333;
-  margin: 0;
-}
-
-.testimonial-card span {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
+  .testimonial-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
   }
-  100% {
-    transform: translateX(-100%);
+
+  .testimonial-track {
+    display: flex;
+    gap: 1.5rem;
+    will-change: transform;
   }
-}
 
+  .testimonial-card {
+    flex-shrink: 0;
+    width: 400px; /* Fixed width for cards */
+    background: #242424;
+    color: #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
 
+  .testimonial-card p {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .testimonial-card h4 {
+    font-size: 1.2rem;
+    color: #ffc107;
+    margin: 0;
+  }
+
+  .testimonial-card span {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+  }
+
+  .testimonial-title {
+    color: #ffc107;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .testimonial-header {
+    color: #e0e0e0;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
 </style>
-<section class="bg-gray-100 py-16 overflow-hidden">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-10 text-gray-800">Čo hovoria naši zákazníci</h2>
-      <div class="testimonial-wrapper">
-        <div class="testimonial-track">
-          <!-- Karty referencií (originál) -->
-          <div class="testimonial-card">
-            <p>"Firma odviedla skvelú prácu. Stavba bola dokončená načas a výsledok prekročil naše očakávania."</p>
-            <h4>Ján Novák</h4>
-            <span>Rodinný dom</span>
-          </div>
-          <div class="testimonial-card">
-            <p>"Spoľahliví, precízni a komunikatívni. Som veľmi spokojná so strechou, ktorú nám postavili."</p>
-            <h4>Petra Kováčová</h4>
-            <span>Rekonštrukcia strechy</span>
-          </div>
-          <div class="testimonial-card">
-            <p>"Od začiatku do konca to bola bezproblémová spolupráca. Profesionálny prístup a výborné výsledky."</p>
-            <h4>Martin Horváth</h4>
-            <span>Holodom</span>
-          </div>
-          <div class="testimonial-card">
-            <p>"Veľmi spokojní s celkovým prístupom a kvalitou práce. Môžeme len odporučiť!"</p>
-            <h4>Anna Bieliková</h4>
-            <span>Rodinný dom</span>
-          </div>
-          <div class="testimonial-card">
-            <p>"Precíznosť a dochvíľnosť. Projekt bol dokončený načas a výsledok je skvelý."</p>
-            <h4>Tomáš Šimek</h4>
-            <span>Rekonštrukcia</span>
-          </div>
-          <!-- Duplikované referencie pre nekonečný efekt -->
-          <div class="testimonial-card">
-            <p>"Firma odviedla skvelú prácu. Stavba bola dokončená načas a výsledok prekročil naše očakávania."</p>
-            <h4>Ján Novák</h4>
-            <span>Rodinný dom</span>
-          </div>
-          <div class="testimonial-card">
-            <p>"Spoľahliví, precízni a komunikatívni. Som veľmi spokojná so strechou, ktorú nám postavili."</p>
-            <h4>Petra Kováčová</h4>
-            <span>Rekonštrukcia strechy</span>
-          </div>
+
+
+<section class="py-16 overflow-hidden">
+  <div class="mx-auto text-center">
+    <!-- Responsive heading using Tailwind -->
+    <h3 class="text-xl md:text-xl lg:text-2xl font-bold text-[#FFC107] mb-2">
+      Referencie
+    </h3>
+    <h2 class="text-3xl md:text-3xl lg:text-4xl font-bold text-[#E0E0E0] mb-6 md:mb-8 lg:mb-10">
+      SPOKOJNÍ ZÁKAZNÍCI O NÁS
+    </h2>
+
+    <div class="testimonial-wrapper">
+      <div class="testimonial-track">
+        <div class="testimonial-card">
+          <p>"Firma odviedla skvelú prácu. Stavba bola dokončená načas a výsledok prekročil naše očakávania."</p>
+          <h4>Ján Novák</h4>
+          <span>Hrubá stavba</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Spoľahliví, precízni a komunikatívni. Som veľmi spokojná so strechou, ktorú nám postavili."</p>
+          <h4>Petra Kováčová</h4>
+          <span>Rekonštrukcia strechy</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Od začiatku do konca to bola bezproblémová spolupráca. Profesionálny prístup a výborné výsledky."</p>
+          <h4>Martin Horváth</h4>
+          <span>Holodom</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Veľmi spokojní s celkovým prístupom a kvalitou práce. Môžeme len odporučiť!"</p>
+          <h4>Anna Bieliková</h4>
+          <span>Výstavba strechy</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Precíznosť a dochvíľnosť. Projekt bol dokončený načas a výsledok je skvelý."</p>
+          <h4>Tomáš Šimek</h4>
+          <span>Hrubá stavba</span>
         </div>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.testimonial-track');
+    const cards = [...track.children];
+
+    // Duplicate cards for endless scroll
+    cards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      track.appendChild(clone);
+    });
+
+    let trackWidth = track.scrollWidth / 2;
+    let currentPosition = 0;
+
+    function scrollTestimonials() {
+      currentPosition -= 0.5; // Slow scrolling
+      if (Math.abs(currentPosition) >= trackWidth) {
+        currentPosition = 0; // Reset position
+      }
+      track.style.transform = `translateX(${currentPosition}px)`;
+      requestAnimationFrame(scrollTestimonials);
+    }
+
+    scrollTestimonials();
+  });
+</script>
