@@ -41,7 +41,7 @@
   </head>
   <body>
     <div class="container mx-auto sm:mt-24 lg:mt-18 mt-14  pb-14 px-6">
-      <div class="text-center mb-8">
+      <div class="text-center mb-8 scroll-reveal fade-in">
         <h1 class="font-bold text-5xl lg:text-4xl sm:text-5xl">
           NAŠE <span class="text-[#FFC107]">SLUŽBY</span>
         </h1>
@@ -51,19 +51,19 @@
       </div>
       <div class="flex flex-wrap gap-4 justify-center py-4">
         <!-- Card 1 -->
-        <div class="card card-1 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom">
+        <div class="card card-1 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom scroll-reveal slide-in-left" data-index="0">
           <p class="h-auto mt-auto font-semibold text-xl md:text-lg sm:text-base">
             Hrubá stavba
           </p>
         </div>
         <!-- Card 2 -->
-        <div class="card card-2 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom">
+        <div class="card card-2 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom scroll-reveal slide-in-right" data-index="1">
           <p class="h-auto mt-auto font-semibold text-xl md:text-lg sm:text-base">
             Strecha
           </p>
         </div>
         <!-- Card 3 -->
-        <div class="card card-3 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom shadow-2xl">
+        <div class="card card-3 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom shadow-2xl " data-index="2">
           <p class="h-auto mt-auto font-semibold text-xl md:text-lg sm:text-base">
             Holodom
           </p>
@@ -72,3 +72,40 @@
     </div>
   </body>
 </html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Scroll to "Hrubej stavby"
+    const hrubaStavbaButton = document.querySelector('.card[data-index="0"]');
+    if (hrubaStavbaButton) {
+      hrubaStavbaButton.addEventListener('click', () => {
+        const targetSection = document.querySelector('#hruba-stavba');
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          console.error('Target section for "Hrubej stavby" not found.');
+        }
+      });
+    } else {
+      console.error('"Hrubej stavby" button not found.');
+    }
+
+    // Scroll to "Strechy" for both buttons
+    const strechyButtons = document.querySelectorAll('.card[data-index="1"], .card[data-index="2"]');
+    if (strechyButtons.length > 0) {
+      strechyButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const targetSection = document.querySelector('#strechy');
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            console.error('Target section for "Strechy" not found.');
+          }
+        });
+      });
+    } else {
+      console.error('"Strechy" buttons not found.');
+    }
+  });
+</script>
+

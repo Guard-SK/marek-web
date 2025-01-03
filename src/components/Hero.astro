@@ -58,6 +58,7 @@
       cursor: pointer;
       text-align: center;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       transition: all 0.3s ease;
@@ -68,6 +69,9 @@
       background-color:rgba(255, 193, 7, 1);
       color: black;
       transform: scale(1.1);
+    }
+    .hero-button2.active {
+      transform: scale(1);
     }
     .shadow-text {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -142,11 +146,15 @@
         <div class="hero-button" data-index="0">
           <s2 class="font-semibold text-xl">Hrubej stavby</s2>
         </div>
-        <div class="hero-button" data-index="1">
-          <s2 class="font-semibold text-xl">Strechy</s2>
+        <div class="hero-button opacity-60 hero-button2" data-index="1">
+          <s2 class="font-semibold md:leading-7 sm:leading-5 leading-4 text-xl text-gray-600">Strechy</s2>
+          <p class=" text-gray-500 leading-none text-sm hidden md:flex">Čoskoro dostupné</p>
+          <p class=" text-gray-500 leading-none text-xs md:hidden flex">Čoskoro</p>
         </div>
-        <div class="hero-button" data-index="2">
-          <s2 class="font-semibold text-xl">Holodomu</s2>
+        <div class="hero-button opacity-60 hero-button2" data-index="2">
+          <s2 class="font-semibold md:leading-7 sm:leading-5 leading-4 text-xl text-gray-600">Holodom</s2>
+          <p class=" text-gray-500 leading-none text-sm hidden md:flex">Čoskoro dostupné</p>
+          <p class=" text-gray-500 leading-none text-xs md:hidden flex">Čoskoro</p>
         </div>
       </div>
       <h1 class="text-white text-5xl font-bold shadow-text ">OD ODBORNÍKOV</h1>
@@ -184,6 +192,40 @@
       });
 
       btn.addEventListener('mouseout', startCarousel); // Restart carousel
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Scroll to "Hrubej stavby"
+      const hrubaStavbaButton = document.querySelector('.hero-button[data-index="0"]');
+      if (hrubaStavbaButton) {
+        hrubaStavbaButton.addEventListener('click', () => {
+          const targetSection = document.querySelector('#hruba-stavba');
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            console.error('Target section for "Hrubej stavby" not found.');
+          }
+        });
+      } else {
+        console.error('"Hrubej stavby" button not found.');
+      }
+
+      // Scroll to "Strechy" for both buttons
+      const strechyButtons = document.querySelectorAll('.hero-button[data-index="1"], .hero-button[data-index="2"]');
+      if (strechyButtons.length > 0) {
+        strechyButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const targetSection = document.querySelector('#strechy');
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              console.error('Target section for "Strechy" not found.');
+            }
+          });
+        });
+      } else {
+        console.error('"Strechy" buttons not found.');
+      }
     });
 
     // Initialize

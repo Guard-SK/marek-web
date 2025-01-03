@@ -29,3 +29,107 @@ h3 {
   font-family: "Oswald", serif;
   color: #E0E0E0;
 }
+ul li {
+  font-family: "Roboto", serif;
+  color: #E0E0E0;
+}
+ul {
+  padding-left: 1.5rem; /* Adds consistent padding for all lists */
+  list-style-type: disc; /* Ensures dots (bullets) are displayed */
+}
+
+ul ul {
+  padding-left: 2rem; /* Additional padding for nested lists */
+}
+
+/* Initial state: Hidden */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Visible state: Shown */
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Additional animations */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+.fade-in.visible {
+  opacity: 1;
+}
+
+.slide-in-left {
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+.slide-in-left.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-in-right {
+  transform: translateX(50%);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+.slide-in-right.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Fade in from bottom */
+.fade-in-bottom {
+  opacity: 0;
+  transform: translateY(50px); /* Start 50px lower */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-bottom.visible {
+  opacity: 1;
+  transform: translateY(0); /* Reset position */
+}
+
+/* Fade in from top */
+.fade-in-top {
+  opacity: 0;
+  transform: translateY(-50px); /* Start 50px higher */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-top.visible {
+  opacity: 1;
+  transform: translateY(0); /* Reset position */
+}
+
+/* Slide in from bottom */
+.slide-in-bottom {
+  opacity: 0;
+  transform: translateY(100px); /* Start 100px lower */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-in-bottom.visible {
+  opacity: 1;
+  transform: translateY(0); /* Reset position */
+}
+
+/* Slide in from top */
+.slide-in-top {
+  opacity: 0;
+  transform: translateY(-100px); /* Start 100px higher */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-in-top.visible {
+  opacity: 1;
+  transform: translateY(0); /* Reset position */
+}
+
+

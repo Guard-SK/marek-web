@@ -4,6 +4,8 @@ import Hero from '../components/Hero.astro'
 import About from '../components/About.astro'
 import Services from '../components/Services.astro'
 // import Testimonials from '../components/Testimonials.astro'
+import Hruba from '../components/Hruba.astro'
+import StrechaHolodom from '../components/StrechaHolodom.astro'
 import Contact from '../components/Contact.astro'
 
 import '../styles/stylesheet.css'
@@ -24,6 +26,7 @@ import '../styles/stylesheet.css'
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+	<script src="/src/scripts/scroll-reveal.js" defer></script>
 	<meta name="generator" content={Astro.generator} />
     <title>Marek WEB</title>
   </head>
@@ -31,9 +34,35 @@ import '../styles/stylesheet.css'
   <body>
 	<!-- <Navbar active={Astro.url.pathname}></Navbar> -->
 	<Hero></Hero>
-	<About></About>
-	<Services></Services>
+	<About class="scroll-reveal fade-in"></About>
+	<Services class="scroll-reveal fade-in"></Services>
 	<!-- <Testimonials></Testimonials> -->
+	<Hruba></Hruba>
+	<StrechaHolodom></StrechaHolodom>
 	<Contact></Contact>
   </body>
 </html>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	  const scrollElements = document.querySelectorAll('.scroll-reveal');
+  
+	  const observer = new IntersectionObserver(
+		(entries) => {
+		  entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+			  entry.target.classList.add('visible');
+			} else {
+			  entry.target.classList.remove('visible'); // Remove for repeated animations
+			}
+		  });
+		},
+		{
+		  threshold: 0.2, // Trigger when 20% of the element is visible
+		}
+	  );
+  
+	  scrollElements.forEach((el) => observer.observe(el));
+	});
+  </script>
+  
