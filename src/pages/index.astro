@@ -34,35 +34,12 @@ import '../styles/stylesheet.css'
   <body>
 	<!-- <Navbar active={Astro.url.pathname}></Navbar> -->
 	<Hero></Hero>
-	<About class="scroll-reveal fade-in"></About>
-	<Services class="scroll-reveal fade-in"></Services>
+	<About></About>
+	<Services></Services>
 	<!-- <Testimonials></Testimonials> -->
 	<Hruba></Hruba>
 	<StrechaHolodom></StrechaHolodom>
 	<Contact></Contact>
   </body>
 </html>
-
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-	  const scrollElements = document.querySelectorAll('.scroll-reveal');
-  
-	  const observer = new IntersectionObserver(
-		(entries) => {
-		  entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-			  entry.target.classList.add('visible');
-			} else {
-			  entry.target.classList.remove('visible'); // Remove for repeated animations
-			}
-		  });
-		},
-		{
-		  threshold: 0.2, // Trigger when 20% of the element is visible
-		}
-	  );
-  
-	  scrollElements.forEach((el) => observer.observe(el));
-	});
-  </script>
   

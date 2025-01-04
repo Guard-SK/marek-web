@@ -75,10 +75,11 @@ ul ul {
 }
 
 .slide-in-right {
-  transform: translateX(50%);
+  transform: translateX(20vw); /* Slide in from 20% of the viewport width */
   opacity: 0;
   transition: transform 0.8s ease-out, opacity 0.8s ease-out;
 }
+
 .slide-in-right.visible {
   transform: translateX(0);
   opacity: 1;
