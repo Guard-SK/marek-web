@@ -77,7 +77,6 @@
                 Súhlasím so spracovaním mojich osobných údajov v súlade s
                 <a
                   href="/gdpr"
-                  target="_blank"
                   class="text-[#FFC107] underline hover:text-[#FFB300]"
                 >
                   pravidlami ochrany osobných údajov
@@ -100,48 +99,50 @@
         <p class="mb-4 text-[#B0B0B0]">
           Ak máte otázky, neváhajte nás kontaktovať na nižšie uvedené kontaktné údaje. Ak nechcete využiť formulár, kľudne využite náš email alebo napíšte na WhatsApp.
         </p>
-        <ul class="space-y-4">
-          <li>
-            <strong>Telefón:</strong>
-            <p>+421 123 456 789</p>
-          </li>
-          <div class="mt-6">
-            <a
-              href="https://wa.me/421123456789?text=Dobrý%20deň,%20mám%20záujem%20o%20viac%20informácií%20o%20vašich%20službách."
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-block bg-[#25D366] text-white font-medium py-3 px-6 rounded-lg hover:bg-[#1EBE5A] transition duration-300"
-            >
-              Napísať na WhatsApp
-            </a>
+        <div class="space-y-2">
+          <div class="flex gap-2 items-center">
+            <img src="phone.svg" alt="phone icon" class="w-5 h-5">
+            <p><span class=" font-bold pr-1">Telefón:</span>+421 123 456 789</p>
           </div>
-          <li>
-            <strong>Email:</strong>
-            <p>
-              <a
-                href="mailto:marek.atletika@gmail.com?subject=Záujem%20o%20služby&body=Dobrý%20deň,"
-                class="text-[#FFC107] underline hover:text-[#FFB300]"
-              >
-                marek.atletika@gmail.com
-              </a>
-            </p>
-          </li>
-          <li>
-            <strong>Adresa:</strong>
-            <p>27 Nejedlého, Bratislava, Slovensko</p>
-            <div class="mt-4">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.123456789!2d17.0123456789!3d48.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8abcdef12345%3A0x123456789abcdef!2sNejedlého%2027%2C%20Bratislava!5e0!3m2!1ssk!2ssk!4v1697818513223!5m2!1ssk!2ssk"
-                width="100%"
-                height="200"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+          <a
+            href="mailto:marek.atletika@gmail.com?subject=Záujem%20o%20služby&body=Dobrý%20deň,"
+            class="flex gap-2 items-center transition cursor-pointer text-white font-medium rounded-lg"
+          >
+            <img src="email.svg" alt="phone icon" class="w-5 h-5" />
+            <span>
+              <strong>Email:</strong> <span class="text-[#FFC107] underline">marek.atletika@gmail.com</span>
+            </span>
+          </a>
+          <a
+            href="https://wa.me/421123456789?text=Dobrý%20deň,%20mám%20záujem%20o%20viac%20informácií%20o%20vašich%20službách."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div
+              class=" my-3 flex gap-2 items-center px-2 py-3 border-2 w-[220px] border-[#FFC107] hover:bg-[#FFC107] transition cursor-pointer"
+            >
+              <img src="whatsapp.svg" alt="phone icon" class="w-6 h-6" />
+              <span class="text-white font-medium rounded-lg transition duration-300">
+                Napísať na WhatsApp
+              </span>
             </div>
-          </li>
-        </ul>
+          </a> 
+          <div class="flex gap-2 items-center">
+            <img src="pin.svg" alt="phone icon" class="h-5 leading-[19px]">
+            <p><span class=" font-bold pr-1">Adresa:</span>27 Nejedlého, Bratislava, Slovensko</p>
+          </div>
+          <div class="mt-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.123456789!2d17.0123456789!3d48.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8abcdef12345%3A0x123456789abcdef!2sNejedlého%2027%2C%20Bratislava!5e0!3m2!1ssk!2ssk!4v1697818513223!5m2!1ssk!2ssk"
+              width="100%"
+              height="200"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </div>
