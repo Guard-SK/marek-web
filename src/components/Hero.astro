@@ -178,10 +178,13 @@
 
     const startCarousel = () => {
       interval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % heroImages.length;
-        updateHero(currentIndex);
+        requestAnimationFrame(() => {
+          currentIndex = (currentIndex + 1) % heroImages.length;
+          updateHero(currentIndex);
+        });
       }, 5000);
     };
+
 
     buttons.forEach((button) => {
       const btn = button as HTMLButtonElement; // Type assertion
