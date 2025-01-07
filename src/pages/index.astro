@@ -1,9 +1,7 @@
 ---
-// import Navbar from '../components/Navbar.astro'
 import Hero from '../components/Hero.astro'
 import About from '../components/About.astro'
 import Services from '../components/Services.astro'
-// import Testimonials from '../components/Testimonials.astro'
 import Hruba from '../components/Hruba.astro'
 import StrechaHolodom from '../components/StrechaHolodom.astro'
 import Contact from '../components/Contact.astro'
@@ -14,30 +12,37 @@ import '../styles/stylesheet.css'
 <!DOCTYPE html>
 <html lang="sk">
   <head>
+    <!-- Meta Tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Profesionálne stavebné riešenie hrubej stavby od odborníkov. V našej ponuke sú hrubé stavby a čoskoro aj strechy na mieru či holodom. Náš dôraz je hlavne na individuálny prístup k našim klientom a odbornom vyhotovení projektu. Hrubá stavba je naša expertíza" />
+    <meta name="generator" content="Astro" />
+  
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Profesionálne stavebné riešenie hrubej stavby od odborníkov. V našej ponuke sú hrubé stavby a čoskoro aj strechy na mieru či holodom. Náš dôraz je hlavne na individuálny prístup k našim klientom a odbornom vyhotovení projektu. Hrubá stavba je naša expertíza">
-    <title>Marek WEB | Hrubá stavba</title>
+  
+    <!-- Preload Critical Resources -->
+    <link rel="preload" as="image" href="/HolodomHero.avif" />
+    <link rel="preload" as="image" href="/HrubeStavbyHero.avif" />
+    <link rel="preload" as="image" href="/RoofHero.avif" />
+  
+    <!-- Preconnect for Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  
+    <!-- Lazy-Load Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  
+    <!-- Title -->
+    <title>Aurora construction | Stavebná firma</title>
   </head>
+  
 
   <body>
-	<!-- <Navbar active={Astro.url.pathname}></Navbar> -->
 	<Hero></Hero>
 	<About></About>
 	<Services></Services>
-	<!-- <Testimonials></Testimonials> -->
 	<Hruba></Hruba>
 	<StrechaHolodom></StrechaHolodom>
 	<Contact></Contact>

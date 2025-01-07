@@ -11,26 +11,32 @@ body {
 }
 p {
   font-family: "Roboto", serif;
+  font-display: swap;
   color: #E0E0E0;
 }
 h4 {
   font-family: "Oswald", serif;
+  font-display: swap;
   color: #E0E0E0;
 }
 h1 {
   font-family: "Oswald", serif;
+  font-display: swap;
   color: #E0E0E0;
 }
 h2 {
   font-family: "Oswald", serif;
+  font-display: swap;
   color: #E0E0E0;
 }
 h3 {
   font-family: "Oswald", serif;
+  font-display: swap;
   color: #E0E0E0;
 }
 ul li {
   font-family: "Roboto", serif;
+  font-display: swap;
   color: #E0E0E0;
 }
 ul {
