@@ -1,8 +1,8 @@
 * {
     --accent-color: #50c878;
-    --primary-color: #FFC107;
-    --secondary-color: #5c574f;
-    --tritary-color: #f5f5dc;
+    --primary-color: #7952fb; 
+    --secondary-color: #56d3f9;
+    --tritary-color: #91f4a9;
     scroll-behavior: smooth;  
 }
 
@@ -139,4 +139,29 @@ ul ul {
   transform: translateY(0); /* Reset position */
 }
 
-
+.gradient-text-1 {
+  background: linear-gradient(90deg, #d152cb, #9554d8, #8f71e8, #8f71e8); /* Adjust colors here */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+}
+.gradient-text-2 {
+  background: linear-gradient(90deg, #8f71e8, #84d3fe, #77e3fd, #88fdfe); /* Adjust colors here */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+}
+.gradient-button-1 {
+  background: linear-gradient(90deg, #d152cb, #9554d8); /* Adjust colors here */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+  
+}
+.gradient-button-2 {
+  background: linear-gradient(90deg, #9554d8, #8f71e8, #9c7ff1); /* Adjust colors here */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+}
+.gradient-button-3 {
+  background: linear-gradient(90deg, #9c7ff1, #84d3fe, #88fdfe); /* Adjust colors here */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+}
