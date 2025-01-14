@@ -3,7 +3,7 @@ import Hero from '../components/Hero.astro'
 import About from '../components/About.astro'
 import Services from '../components/Services.astro'
 import Hruba from '../components/Hruba.astro'
-import StrechaHolodom from '../components/StrechaHolodom.astro'
+import Roof from '../components/Roof.astro'
 import Contact from '../components/Contact.astro'
 import Footer from '../components/Footer.astro'
 
@@ -94,22 +94,50 @@ import '../styles/stylesheet.css'
           ]
         }
       }
-    </script>    
-      
+    </script>
+
+    <style>
+      .scroll-container {
+        overflow-y: auto;
+        height: 100vh;
+      }
+
+      .snap-section {
+        scroll-snap-align: start;
+        min-height: 100vh;
+      }
+
+      .snap-active {
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth; /* Smooth scrolling behavior */
+      }
+
+    </style>
+    
     <!-- Title -->
     <title>Aurora Constructions | Stavebná firma</title>
   </head>
   
 
   <body>
-	<Hero></Hero>
-	<About></About>
-	<Services></Services>
-	<Hruba></Hruba>
-	<StrechaHolodom></StrechaHolodom>
-	<Contact></Contact>
-  <Footer></Footer>
+    <div class="scroll-container">
+        <Hero />
+        <About />
+        <Services />
+      <div id="hruba-stavba" class="snap-section">
+        <Hruba />
+      </div>
+      <div id="roof-section" class="snap-section">
+        <Roof />
+      </div>
+      <div id="contact-section" class="snap-section">
+        <Contact />
+      </div>
+        <Footer />
+    </div>
   </body>
+  
+  
 </html>
   
 <script>
@@ -133,4 +161,62 @@ document.addEventListener('DOMContentLoaded', () => {
   
     scrollElements.forEach((el) => observer.observe(el));
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollContainer = document.querySelector('.scroll-container') as HTMLElement | null;
+  const sectionsToSnap: HTMLElement[] = [
+    document.getElementById('hruba-stavba'),
+    document.getElementById('roof-section'),
+    document.getElementById('contact-section')
+  ].filter((section): section is HTMLElement => section !== null); // Filter out null values
+
+  if (!scrollContainer || sectionsToSnap.length === 0) {
+    console.error('Scroll container or sections to snap not found.');
+    return;
+  }
+
+  const scrollToSection = (element: HTMLElement, duration: number) => {
+    const start = scrollContainer.scrollTop;
+    const end = element.offsetTop;
+    const distance = end - start;
+    const startTime = performance.now();
+
+    const smoothStep = (start: number, end: number, point: number) => {
+      if (point <= 0) return start;
+      if (point >= 1) return end;
+      return start + (end - start) * point * (2 - point); // Ease-in-out effect
+    };
+
+    const animateScroll = (currentTime: number) => {
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1); // Cap progress at 1
+      scrollContainer.scrollTop = smoothStep(start, end, progress);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          scrollToSection(entry.target as HTMLElement, 1000); // Adjust duration for smoothness
+        }
+      });
+    },
+    {
+      threshold: 0.15 // Trigger when 15% of the section is visible
+    }
+  );
+
+  sectionsToSnap.forEach((section) => {
+    observer.observe(section);
+  });
+});
+
+
 </script>

@@ -5,7 +5,9 @@
     --tritary-color: #91f4a9;
     scroll-behavior: smooth;  
 }
-
+html {
+  overflow-x: hidden;
+}
 body {
   background-color: #1E1E1E;
 }
