@@ -142,25 +142,29 @@ import '../styles/stylesheet.css'
   
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const scrollElements = document.querySelectorAll('.scroll-reveal');
-  
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible'); // Optional: Remove for repeated animations
-          }
-        });
-      },
-      {
-        threshold: 0.3, // Trigger when 20% of the element is visible
-      }
-    );
-  
-    scrollElements.forEach((el) => observer.observe(el));
+  const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+  // Intersection Observer to handle scroll reveal
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target as HTMLElement;
+
+        if (entry.isIntersecting && !target.classList.contains('visible')) {
+          // Add the 'visible' class only if it hasn't been added already
+          target.classList.add('visible');
+        }
+      });
+    },
+    {
+      threshold: 0.3, // Trigger when 30% of the element is visible
+    }
+  );
+
+  // Observe each element with the 'scroll-reveal' class
+  scrollElements.forEach((el) => observer.observe(el));
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const scrollContainer = document.querySelector('.scroll-container') as HTMLElement | null;
