@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          scrollToSection(entry.target as HTMLElement, 1000); // Adjust duration for smoothness
+          scrollToSection(entry.target as HTMLElement, 0); // Adjust duration for smoothness
         }
       });
     },
