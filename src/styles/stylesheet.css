@@ -66,7 +66,7 @@ ul ul {
 /* Additional animations */
 .fade-in {
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
 .fade-in.visible {
   opacity: 1;
@@ -75,7 +75,7 @@ ul ul {
 .slide-in-left {
   transform: translateX(-50%);
   opacity: 0;
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  transition: transform 1.5s ease-out, opacity 1.5s ease-out;
 }
 .slide-in-left.visible {
   transform: translateX(0);
@@ -85,7 +85,7 @@ ul ul {
 .slide-in-right {
   transform: translateX(20vw); /* Slide in from 20% of the viewport width */
   opacity: 0;
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  transition: transform 1.5s ease-out, opacity 1.5s ease-out;
 }
 
 .slide-in-right.visible {
@@ -97,7 +97,7 @@ ul ul {
 .fade-in-bottom {
   opacity: 0;
   transform: translateY(50px); /* Start 50px lower */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .fade-in-bottom.visible {
@@ -109,7 +109,7 @@ ul ul {
 .fade-in-top {
   opacity: 0;
   transform: translateY(-50px); /* Start 50px higher */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .fade-in-top.visible {
@@ -121,7 +121,7 @@ ul ul {
 .slide-in-bottom {
   opacity: 0;
   transform: translateY(100px); /* Start 100px lower */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .slide-in-bottom.visible {
@@ -133,7 +133,7 @@ ul ul {
 .slide-in-top {
   opacity: 0;
   transform: translateY(-100px); /* Start 100px higher */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .slide-in-top.visible {
