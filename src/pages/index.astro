@@ -297,13 +297,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener("load", () => {
-    const introAnimation = document.getElementById("intro-animation");
-    const mainContent = document.getElementById("main-content");
+  const introAnimation = document.getElementById("intro-animation");
+  const mainContent = document.getElementById("main-content");
 
-    // Wait for the animation to complete
+  if (introAnimation && mainContent) {
+  // Wait for the animation to complete
     setTimeout(() => {
       introAnimation.style.transition = "opacity 1s";
-      introAnimation.style.opacity = 0;
+      introAnimation.style.opacity = "0";
 
       // After the fade-out transition, hide the intro and show main content
       setTimeout(() => {
@@ -311,5 +312,6 @@ window.addEventListener("load", () => {
         mainContent.style.display = "block";
       }, 1000); // Match the fade-out duration
     }, 5000); // Total duration of aurora animation
-  });
+  }
+});
 </script>
