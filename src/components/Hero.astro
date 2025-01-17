@@ -190,6 +190,10 @@
     };
 
     const startCarousel = () => {
+      // Clear any existing interval to avoid duplicates
+      if (interval) clearInterval(interval);
+
+      // Set up the interval to cycle through images every 5 seconds
       interval = setInterval(() => {
         requestAnimationFrame(() => {
           currentIndex = (currentIndex + 1) % heroImages.length;
@@ -197,6 +201,21 @@
         });
       }, 5000);
     };
+
+    // Initial delay of 3 seconds before starting the carousel
+    const initializeCarousel = () => {
+      // Update the hero to show the first image initially
+      updateHero(currentIndex);
+
+      // Wait 3 seconds, then start the carousel
+      setTimeout(() => {
+        startCarousel();
+      }, 3000); // 3000 milliseconds = 3 seconds
+    };
+
+    // Call the initialize function to set up the carousel
+    initializeCarousel();
+
 
 
     buttons.forEach((button) => {
