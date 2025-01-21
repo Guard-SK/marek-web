@@ -77,37 +77,30 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Scroll to "Hrubej stavby"
-    const hrubaStavbaButton = document.querySelector('.card[data-index="0"]');
-    if (hrubaStavbaButton) {
-      hrubaStavbaButton.addEventListener('click', () => {
-        const targetSection = document.querySelector('#hruba-stavba');
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          console.error('Target section for "Hrubej stavby" not found.');
-        }
-      });
-    } else {
-      console.error('"Hrubej stavby" button not found.');
-    }
+    const buttons = [
+      { selector: '.card[data-index="0"]', target: '#hruba-stavba' },
+      { selector: '.card[data-index="1"]', target: '#strechy' },
+      { selector: '.card[data-index="2"]', target: '#strechy' }
+    ];
 
-    // Scroll to "Strechy" for both buttons
-    const strechyButtons = document.querySelectorAll('.card[data-index="1"], .card[data-index="2"]');
-    if (strechyButtons.length > 0) {
-      strechyButtons.forEach((button) => {
+    buttons.forEach(({ selector, target }) => {
+      const button = document.querySelector(selector);
+      if (button) {
         button.addEventListener('click', () => {
-          const targetSection = document.querySelector('#strechy');
+          const targetSection = document.querySelector(target);
           if (targetSection) {
+            // Dispatch custom event to notify scroll-to-snap logic
+            document.dispatchEvent(new CustomEvent('buttonScrollStart'));
+
             targetSection.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            console.error('Target section for "Strechy" not found.');
+
+            setTimeout(() => {
+              document.dispatchEvent(new CustomEvent('buttonScrollEnd'));
+            }, 1000); // Match the duration
           }
         });
-      });
-    } else {
-      console.error('"Strechy" buttons not found.');
-    }
+      }
+    });
   });
 </script>
 

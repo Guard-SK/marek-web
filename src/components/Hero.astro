@@ -150,7 +150,7 @@
 <body>
   <div class="hero scroll-reveal fade-in">
     <div class="logo flex justify-center gap-0 items-center text-4xl absolute right-[5%] w-16 h-16 z-10 top-[5%]">
-      <img src="/logo.webp" alt="Aurora constructions logo">
+      <img src="/logo.webp" alt="Aurora construction logo">
       <h1>urora</h1>
     </div>
     <div class="hero-images">
@@ -230,38 +230,31 @@
     });
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Scroll to "Hrubej stavby"
-      const hrubaStavbaButton = document.querySelector('.hero-button[data-index="0"]');
-      if (hrubaStavbaButton) {
-        hrubaStavbaButton.addEventListener('click', () => {
-          const targetSection = document.querySelector('#hruba-stavba');
+    const buttons = [
+      { selector: '.hero-button[data-index="0"]', target: '#hruba-stavba' },
+      { selector: '.hero-button[data-index="1"]', target: '#strechy' },
+      { selector: '.hero-button[data-index="2"]', target: '#strechy' }
+    ];
+
+    buttons.forEach(({ selector, target }) => {
+      const button = document.querySelector(selector);
+      if (button) {
+        button.addEventListener('click', () => {
+          const targetSection = document.querySelector(target);
           if (targetSection) {
+            // Dispatch custom event to notify scroll-to-snap logic
+            document.dispatchEvent(new CustomEvent('buttonScrollStart'));
+
             targetSection.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            console.error('Target section for "Hrubej stavby" not found.');
+
+            setTimeout(() => {
+              document.dispatchEvent(new CustomEvent('buttonScrollEnd'));
+            }, 1000); // Match the duration
           }
         });
-      } else {
-        console.error('"Hrubej stavby" button not found.');
-      }
-
-      // Scroll to "Strechy" for both buttons
-      const strechyButtons = document.querySelectorAll('.hero-button[data-index="1"], .hero-button[data-index="2"]');
-      if (strechyButtons.length > 0) {
-        strechyButtons.forEach((button) => {
-          button.addEventListener('click', () => {
-            const targetSection = document.querySelector('#strechy');
-            if (targetSection) {
-              targetSection.scrollIntoView({ behavior: 'smooth' });
-            } else {
-              console.error('Target section for "Strechy" not found.');
-            }
-          });
-        });
-      } else {
-        console.error('"Strechy" buttons not found.');
       }
     });
+  });
 
     // Initialize
     updateHero(currentIndex);

@@ -42,7 +42,7 @@ import '../styles/fonts.css'
         "@type": "LocalBusiness",
         "name": "Aurora Construction",
         "description": "Profesionálne stavebné riešenie hrubej stavby od odborníkov. V našej ponuke sú hrubé stavby a čoskoro aj strechy na mieru či holodom. Náš dôraz je hlavne na individuálny prístup k našim klientom a odbornom vyhotovení projektu. Hrubá stavba je naša expertíza.",
-        "url": "https://www.aurora-constructions.sk",
+        "url": "https://www.auroraconstruction.sk",
         "telephone": "+421 903 164 540",
         "email": "info@yourwebsite.com",
         "address": {
@@ -178,7 +178,7 @@ import '../styles/fonts.css'
     </style>
     
     <!-- Title -->
-    <title>Aurora Constructions | Stavebná firma</title>
+    <title>Aurora Construction | Stavebná firma</title>
   </head>
   
 
@@ -187,7 +187,7 @@ import '../styles/fonts.css'
       <div id="aurora"></div>
       <div id="intro-content" class="flex flex-col justify-center items-center mt-16">
         <div class="logo flex select-none justify-center gap-0 items-center text-4xl w-16 h-16 z-10 lg:h-32 lg:w-32 lg:text-7xl">
-          <img src="/logo.webp" alt="Aurora constructions logo">
+          <img src="/logo.webp" alt="Aurora construction logo">
           <h1 class="text-[#d7d8d4]">urora</h1>
         </div>
         <h1 class="text-white gradient-text text-6xl lg:text-9xl mt-1 pb-2 mb-2 font-extrabold !leading-[1.13] select-none"><span class="gradient-text-1">VAŠA STAVBA</span><br><span class="gradient-text-2">NÁŠ ZÁVÄZOK</span></h1>
@@ -241,60 +241,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const scrollContainer = document.querySelector('.scroll-container') as HTMLElement | null;
-  const sectionsToSnap: HTMLElement[] = [
-    document.getElementById('hruba-stavba'),
-    document.getElementById('roof-section'),
-    document.getElementById('contact-section')
-  ].filter((section): section is HTMLElement => section !== null); // Filter out null values
+    const scrollContainer = document.querySelector('.scroll-container');
+    const sectionsToSnap = [
+      document.getElementById('hruba-stavba'),
+      document.getElementById('roof-section'),
+      document.getElementById('contact-section')
+    ].filter(Boolean) as HTMLElement[];
 
-  if (!scrollContainer || sectionsToSnap.length === 0) {
-    console.error('Scroll container or sections to snap not found.');
-    return;
-  }
-
-  const scrollToSection = (element: HTMLElement, duration: number) => {
-    const start = scrollContainer.scrollTop;
-    const end = element.offsetTop;
-    const distance = end - start;
-    const startTime = performance.now();
-
-    const smoothStep = (start: number, end: number, point: number) => {
-      if (point <= 0) return start;
-      if (point >= 1) return end;
-      return start + (end - start) * point * (2 - point); // Ease-in-out effect
-    };
-
-    const animateScroll = (currentTime: number) => {
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1); // Cap progress at 1
-      scrollContainer.scrollTop = smoothStep(start, end, progress);
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    requestAnimationFrame(animateScroll);
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          scrollToSection(entry.target as HTMLElement, 0); // Adjust duration for smoothness
-        }
-      });
-    },
-    {
-      threshold: 0.10 // Trigger when 15% of the section is visible
+    if (!scrollContainer || sectionsToSnap.length === 0) {
+      console.error('Scroll container or sections to snap not found.');
+      return;
     }
-  );
 
-  sectionsToSnap.forEach((section) => {
-    observer.observe(section);
+    let isButtonScrolling = false;
+
+    document.addEventListener('buttonScrollStart', () => {
+      isButtonScrolling = true;
+    });
+
+    document.addEventListener('buttonScrollEnd', () => {
+      isButtonScrolling = false;
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isButtonScrolling) return;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target as HTMLElement;
+            scrollContainer.scrollTo({
+              top: target.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionsToSnap.forEach((section) => observer.observe(section));
   });
-});
 
 window.addEventListener("load", () => {
   const introAnimation = document.getElementById("intro-animation");
