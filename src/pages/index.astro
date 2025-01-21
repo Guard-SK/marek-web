@@ -153,7 +153,7 @@ import '../styles/fonts.css'
         color: white;
         text-align: center;
         opacity: 0;
-        animation: fade-in 2s 0.5s forwards;
+        animation: fade-in 1.5s 0.25s forwards;
       }
 
       @keyframes fade-in {
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     },
     {
-      threshold: 0.15 // Trigger when 15% of the section is visible
+      threshold: 0.10 // Trigger when 15% of the section is visible
     }
   );
 
@@ -310,8 +310,8 @@ window.addEventListener("load", () => {
       setTimeout(() => {
         introAnimation.style.display = "none";
         mainContent.style.display = "block";
-      }, 1000); // Match the fade-out duration
-    }, 2500); // Total duration of aurora animation
+      }, 500); // Match the fade-out duration
+    }, 1750); // Total duration of aurora animation
   }
 });
 </script>

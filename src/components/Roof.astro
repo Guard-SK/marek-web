@@ -1,101 +1,119 @@
-<html lang="sk">
-  <head>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        color: white;
-      }
+---
+import ToggleCard from './components/ToggleCard.astro';
 
-      /* Background image with black overlay and fade effect */
-      .background-container {
-        position: relative;
-        background: url('/RoofCard.avif') no-repeat center center;
-        background-size: cover;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-      }
-
-      /* Overlay with gradient fade */
-      .background-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, #1e1e1e00, transparent 50%, transparent 50%, #1E1E1E);
-        z-index: 1;
-      }
-
-      /* Content styling */
-      .content {
-        position: relative;
-        z-index: 2;
-        max-width: 1200px;
-        padding: 20px;
-      }
-
-      .hover-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-      }
-    </style>
-  </head>
-  <body class=" ">
-    <div class="background-container" id="hruba-stavba">
-      <div class="background-overlay"></div>
-      <div class="content">
-        <article class="container pt-0 lg:pt-4 px-6 md:p-0 mx-auto mt-0 lg:mt-12 text-white flex flex-col lg:flex-row gap-8">
-          <!-- Textová a kartová sekcia -->
-          <section class="w-full overflow-hidden p-6 bg-[rgba(25,25,25,0.6)] rounded-lg scroll-reveal fade-in-bottom">
-            <div class="py-6 pt-0 lg:pt-6">
-              <h1 class="text-4xl md:text-5xl font-bold text-[#E0E0E0]">
-                Strechy
-              </h1>
-            </div>
-            <p class="text-[#d1d1d1] leading-relaxed pt-0">
-              Strecha je korunou vášho domu a základom pre jeho dlhodobú ochranu pred vonkajšími vplyvmi.
-              <br>
-              Naša spoločnosť Aurora Constructions zabezpečí <span class="text-accent">celý proces</span> – od návrhu a výberu správnych materiálov až po odbornú realizáciu strechy, ktorá spĺňa najvyššie štandardy kvality.
-            </p>
-            <!-- Karty -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-              <div
-                class="bg-[rgb(36,36,36,0.9)] hover-card shadow-lg p-8 rounded-lg flex flex-col items-center text-center transition duration-300"
-              >
-                <img class="w-10 h-10 mb-4" src="/hrube-ic1.svg" alt="Hrubá stavba - kvalita ktorá vydrží" />
-                <h4 class="text-lg md:text-xl font-semibold text-[#E0E0E0] mb-3">Kvalita, ktorá vydrží</h4>
-                <p class="text-[#d1d1d1] md:text-md text-sm leading-relaxed">
-                  Pri realizácii hrubej stavby používame len certifikované materiály a osvedčené technologické postupy. Naši skúsení majstri dohliadajú na každý detail, aby sme zabezpečili maximálnu stabilitu a životnosť stavby.
+const cards = [
+  {
+    image: '/hrube-ic1.svg',
+    title: 'Kvalita, ktorá vydrží',
+    preview: 'Používame len certifikované materiály...',
+    description: 'Rekonsrukcie krovov striech  venujeme sa tiez Pokládke strešných krytín(plechova,keramicka) robime iba valbove a sedlove strechy a krovy pultovym strecham sa nevenujeme alebo su neni v nasej ponuke prac alebo nejako tak to lepsie napisat',
+  },
+  {
+    image: '/hrube-ic2.svg',
+    title: 'Rýchlosť a presnosť',
+    preview: 'Dodržujeme dohodnuté termíny...',
+    description: 'Vieme, že čas sú peniaze. Naša práca je efektívna, no zároveň nekompromisná v kvalite. Dodržujeme dohodnuté termíny a vždy vás priebežne informujeme o postupe prác. Priemerná dĺžka výstavby hrubej stavby je jeden mesiac pri prízemnom bungalove.',
+  },
+  {
+    image: '/hrube-ic3.svg',
+    title: 'Cena, ktorá vás prekvapí',
+    preview: 'Transparentné cenové ponuky...',
+    description: 'Transparentné cenové ponuky bez skrytých poplatkov a nacenenie zadarmo. Ako mladá firma ponúkame bezkonkurenčné ceny, aby sme si získali vašu dôveru. Našou prioritou je poctivá práca, s ktorou budete spokojní a radi ju odporučíte ďalej.',
+  },
+];
+---
+  <html lang="sk">
+    <head>
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          color: white;
+        }
+      
+        /* Background image with smooth blur effect on the bottom 5% */
+        .background-container {
+          position: relative;
+          background: url('/RoofCard.avif') no-repeat center center;
+          background-size: cover;
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
+      
+        /* Overlay with smooth blur gradient */
+        .background-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to bottom,
+            rgba(25, 25, 25, 1) 0%,    /* Fully blurred at the top */
+            rgba(25, 25, 25, 1) 5%,    /* Slight blur transition */
+            rgba(25, 25, 25, 0.5) 15%, /* Slight blur transition */
+            rgba(25, 25, 25, 0) 20%,   /* Fully transparent */
+            rgba(25, 25, 25, 0) 80%,   /* Fully transparent at the middle */
+            rgba(25, 25, 25, 0.5) 85%, /* Slight blur transition */
+            rgba(25, 25, 25, 1) 95%,   /* Slight blur transition */
+            rgba(25, 25, 25, 1) 100%   /* Fully blurred at the bottom */
+          );
+          z-index: 1;
+        }
+      
+        /* Content styling */
+        .content {
+          position: relative;
+          z-index: 2;
+          max-width: 1200px;
+        }
+      
+        .hover-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+      </style>
+      
+    </head>
+    <body class=" ">
+      <div class="background-container snap-start scroll-reveal fade-in bg-gradient-to-b from-transparent to-black" id="hruba-stavba">
+        <div class="background-overlay"></div>
+        <div class="content">
+          <article class="container p-0 mx-auto mt-0 lg:mt-12 text-white flex flex-col lg:flex-row gap-8">
+            <!-- Textová a kartová sekcia -->
+            <section class="w-full overflow-hidden p-6">
+              <div class=" bg-[rgb(25,25,25,0.7)] rounded-lg p-6">
+                <div class="pb-6 pt-0 scroll-reveal fade-in">
+                  <h1 class="text-4xl mt-0 md:text-5xl font-bold text-[#E0E0E0]">
+                    Strechy
+                  </h1>
+                </div>
+                
+                <p class="text-[#d1d1d1] text-sm lg:text-base leading-relaxed scroll-reveal fade-in">
+                  Strecha je korunou vášho domu a základom pre jeho dlhodobú ochranu pred vonkajšími vplyvmi.
+                  <br>
+                  Naša spoločnosť Aurora Constructions zabezpečí <span class="text-accent">celý proces</span> – od návrhu a výberu správnych materiálov až po odbornú realizáciu strechy, ktorá spĺňa najvyššie štandardy kvality.
                 </p>
               </div>
-              <div
-                class="bg-[rgb(36,36,36,0.9)] hover-card shadow-lg p-8 rounded-lg flex flex-col items-center text-center transition duration-300"
-              >
-                <img class="w-10 h-10 mb-4" src="/hrube-ic2.svg" alt="Hrubá stavba - rýchlosť a presnosť" />
-                <h4 class="text-lg md:text-xl font-semibold text-[#E0E0E0] mb-3">Rýchlosť a presnosť</h4>
-                <p class="text-[#d1d1d1] md:text-md text-sm leading-relaxed">
-                  Vieme, že čas sú peniaze. Naša práca je efektívna, no zároveň nekompromisná v kvalite. Dodržujeme dohodnuté termíny a vždy vás priebežne informujeme o postupe prác. Priemerná dĺžka výstavby hrubej stavby je <span class="text-accent">jeden mesiac</span> pri prízemnom bungalove.
-                </p>
+              <!-- Karty -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                {cards.map((card) => (
+                  <ToggleCard
+                    image={card.image}
+                    title={card.title}
+                    preview={card.preview}
+                    description={card.description}
+                  />
+                ))}
               </div>
-              <div
-                class="bg-[rgb(36,36,36,0.9)] hover-card shadow-lg p-8 rounded-lg flex flex-col items-center text-center transition duration-300"
-              >
-                <img class="w-10 h-10 mb-4" src="/hrube-ic3.svg" alt="Hrubá stavba - cena ktorá vás prekvapí" />
-                <h4 class="text-lg md:text-xl font-semibold text-[#E0E0E0] mb-3">Cena, ktorá vás prekvapí</h4>
-                <p class="text-[#d1d1d1] md:text-md text-sm leading-relaxed">
-                  Transparentné cenové ponuky bez skrytých poplatkov s <span class="text-accent">nacenením zadarmo</span>. Vďaka výborným vzťahom s dodávateľmi vám ponúkame kvalitné materiály za férové ceny.
-                </p>
               </div>
-            </div>
-          </section>
-        </article>
+            </section>
+          </article>
+        </div>
       </div>
-    </div>
-  </body>
-</html>
-  
+    </body>
+  </html>

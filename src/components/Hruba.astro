@@ -31,8 +31,8 @@ const cards = [
           font-family: Arial, sans-serif;
           color: white;
         }
-
-        /* Background image with black overlay and fade effect */
+      
+        /* Background image with smooth blur effect on the bottom 5% */
         .background-container {
           position: relative;
           background: url('/HrubaStavbaCard.avif') no-repeat center center;
@@ -43,49 +43,62 @@ const cards = [
           align-items: center;
           overflow: hidden;
         }
-
-        /* Overlay with gradient fade */
+      
+        /* Overlay with smooth blur gradient */
         .background-overlay {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(to bottom, #191919, transparent 50%, transparent 50%, #19191900);
+          background: linear-gradient(
+            to bottom,
+            rgba(25, 25, 25, 1) 0%,    /* Fully blurred at the top */
+            rgba(25, 25, 25, 1) 5%,    /* Slight blur transition */
+            rgba(25, 25, 25, 0.5) 15%, /* Slight blur transition */
+            rgba(25, 25, 25, 0) 20%,   /* Fully transparent */
+            rgba(25, 25, 25, 0) 80%,   /* Fully transparent at the middle */
+            rgba(25, 25, 25, 0.5) 85%, /* Slight blur transition */
+            rgba(25, 25, 25, 1) 95%,   /* Slight blur transition */
+            rgba(25, 25, 25, 1) 100%   /* Fully blurred at the bottom */
+          );
           z-index: 1;
         }
-
+      
         /* Content styling */
         .content {
           position: relative;
           z-index: 2;
           max-width: 1200px;
         }
-
+      
         .hover-card:hover {
           transform: scale(1.05);
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
       </style>
+      
     </head>
     <body class=" ">
       <div class="background-container snap-start scroll-reveal fade-in bg-gradient-to-b from-transparent to-black" id="hruba-stavba">
         <div class="background-overlay"></div>
         <div class="content">
-          <article class="container pt-0 lg:pt-4 px-6 md:p-0 mx-auto mt-0 lg:mt-12 text-white flex flex-col lg:flex-row gap-8">
+          <article class="container p-0 mx-auto mt-0 lg:mt-12 text-white flex flex-col lg:flex-row gap-8">
             <!-- Textová a kartová sekcia -->
             <section class="w-full overflow-hidden p-6">
-              <div class="py-6 pt-0 lg:pt-6 scroll-reveal fade-in">
-                <h1 class="text-4xl md:text-5xl font-bold text-[#E0E0E0]">
-                  Hrubá stavba
-                </h1>
+              <div class=" bg-[rgb(25,25,25,0.7)] rounded-lg p-6">
+                <div class="py-6 pt-0 lg:pt-6 scroll-reveal fade-in">
+                  <h1 class="text-4xl md:text-5xl font-bold text-[#E0E0E0]">
+                    Hrubá stavba
+                  </h1>
+                </div>
+                
+                <p class="text-[#d1d1d1] text-sm lg:text-base leading-relaxed scroll-reveal fade-in">
+                  Hrubá stavba predstavuje jeden z najdôležitejších krokov na ceste k vytvoreniu vášho vysnívaného bývania. Hrubá stavba je spoľahlivý základ, na ktorom bude váš domov stáť po celé generácie.
+                  <br>
+                  Naša spoločnosť Aurora Constructions sa postará o <span class="text-accent">celý proces</span> – od prípravy a realizácie základov, monolitickej dosky, základnej dosky, až po obvodové múry a preklady.
+                </p>
               </div>
-              
-              <p class="text-[#d1d1d1] text-sm lg:text-base leading-relaxed scroll-reveal fade-in">
-                Hrubá stavba predstavuje jeden z najdôležitejších krokov na ceste k vytvoreniu vášho vysnívaného bývania. Hrubá stavba je spoľahlivý základ, na ktorom bude váš domov stáť po celé generácie.
-                <br>
-                Naša spoločnosť Aurora Constructions sa postará o <span class="text-accent">celý proces</span> – od prípravy a realizácie základov, monolitickej dosky, základnej dosky, až po obvodové múry a preklady.
-              </p>
               <!-- Karty -->
               <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
                 {cards.map((card) => (
