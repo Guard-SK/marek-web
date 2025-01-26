@@ -82,7 +82,7 @@ const cards = [
         <div class="content">
           <article class="container p-0 mx-auto mt-0 lg:mt-12 text-white flex flex-col lg:flex-row gap-8">
             <!-- Textová a kartová sekcia -->
-            <section class="w-full overflow-hidden p-6">
+            <section class="w-full overflow-hidden lg:pt-6 pt-[112px] lg:pb-6 pb-[112px] px-6">
               <div class=" bg-[rgb(25,25,25,0.7)] rounded-lg p-6">
                 <div class="py-6 pt-0 lg:pt-6 scroll-reveal fade-in">
                   <h1 class="text-4xl md:text-5xl font-bold text-[#E0E0E0] gradient-text-2">
@@ -97,7 +97,7 @@ const cards = [
                 </p>
               </div>
               <!-- Karty -->
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
                 {cards.map((card) => (
                   <ToggleCard
                     image={card.image}
