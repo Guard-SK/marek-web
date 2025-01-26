@@ -37,6 +37,19 @@
       .card-3 {
         background-image: url('/HolodomCard.avif');
       }
+
+      .icon-arrow {
+        width: 32px; /* Adjust size as needed */
+        height: 32px; /* Adjust size as needed */
+        margin-left: auto;
+        margin-top: auto;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover .icon-arrow {
+        transform: translateX(5px); /* Smoothly move the icon to the right */
+      }
     </style>
   </head>
   <body>
@@ -51,25 +64,26 @@
       </div>
       <div class="flex flex-wrap gap-4 justify-center py-4 overflow-hidden">
         <!-- Card 1 -->
-        <div class="card card-1 w-full cursor-pointer sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom scroll-reveal slide-in-left" data-index="0">
+        <div class="card card-1 w-full cursor-pointer sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex justify-between align-bottom scroll-reveal slide-in-left" data-index="0">
           <p class="h-auto mt-auto font-semibold text-xl md:text-lg sm:text-base">
             Hrubá stavba
           </p>
-        </div>
+          <img src="/icons/arrow.svg" alt="Arrow Icon" class="icon-arrow">
+        </div>        
         <!-- Card 2 -->
-        <div class="card card-2 w-full cursor-pointer sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom scroll-reveal slide-in-right" data-index="1">
+        <div class="card card-2 w-full cursor-pointer sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex justify-between align-bottom scroll-reveal slide-in-left" data-index="1">
           <p class="h-auto mt-auto font-semibold text-xl md:text-lg sm:text-base">
             Strecha
           </p>
-        </div>
+          <img src="/icons/arrow.svg" alt="Arrow Icon" class="icon-arrow">
+        </div>        
         <!-- Card 3 -->
-        <div class="card card-3 w-full cursor-pointer sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex align-bottom shadow-2xl scroll-reveal slide-in-left" data-index="2">
+        <div class="card card-3 w-full cursor-pointer sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-8px)] bg-black h-[200px] p-4 rounded-lg flex justify-between align-bottom scroll-reveal slide-in-left" data-index="2">
           <p class="h-auto mt-auto font-semibold text-xl md:text-lg sm:text-base">
             Ďalšie práce
-            <br>
-            <span></span>
           </p>
-        </div>
+          <img src="/icons/arrow.svg" alt="Arrow Icon" class="icon-arrow">
+        </div>        
       </div>
     </div>
   </body>

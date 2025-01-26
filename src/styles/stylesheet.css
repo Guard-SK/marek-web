@@ -1,6 +1,6 @@
 * {
-    --accent-color: #88fdfe;
-    --primary-color: #8f71e8; 
+    --accent-color: hsl(181, 98%, 46%);
+    --primary-color: hsl(255, 80%, 80%); 
     --secondary-color: #88fdfe;
     --tritary-color: #91f4a9;
     scroll-behavior: smooth;  
@@ -9,7 +9,8 @@ html {
   overflow-x: hidden;
 }
 body {
-  background-color: #191919;
+  background-color: #191919; 
+  /* #191919 */
 }
 p {
   font-family: "Roboto", serif;
@@ -143,28 +144,32 @@ ul ul {
 
 .gradient-text-1 {
   background: linear-gradient(90deg, #d152cb, #9554d8, #8f71e8, #8f71e8); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
+  background-clip: text; /* Standard property for compatibility */
   -webkit-text-fill-color: transparent; /* Make the text fill transparent */
 }
 .gradient-text-2 {
   background: linear-gradient(90deg, #8f71e8, #84d3fe, #77e3fd, #88fdfe); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
+  background-clip: text; /* Standard property for compatibility */
   -webkit-text-fill-color: transparent; /* Make the text fill transparent */
 }
 .gradient-button-1 {
   background: linear-gradient(90deg, #d152cb, #9554d8); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
+  background-clip: text; /* Standard property for compatibility */
   -webkit-text-fill-color: transparent; /* Make the text fill transparent */
-  
 }
 .gradient-button-2 {
   background: linear-gradient(90deg, #9554d8, #8f71e8, #9c7ff1); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
+  background-clip: text; /* Standard property for compatibility */
   -webkit-text-fill-color: transparent; /* Make the text fill transparent */
 }
 .gradient-button-3 {
   background: linear-gradient(90deg, #9c7ff1, #84d3fe, #88fdfe); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
+  background-clip: text; /* Standard property for compatibility */
   -webkit-text-fill-color: transparent; /* Make the text fill transparent */
 }
 .gradient-bg-1 {

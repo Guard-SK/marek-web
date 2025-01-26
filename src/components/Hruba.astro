@@ -5,20 +5,17 @@ const cards = [
   {
     image: '/hrube-ic1.svg',
     title: 'Kvalita, ktorá vydrží',
-    preview: 'Používame len certifikované materiály...',
-    description: 'Pri realizácii hrubej stavby používame len certifikované materiály a osvedčené technologické postupy. Naši skúsení majstri dohliadajú na každý detail, aby sme zabezpečili maximálnu stabilitu a životnosť stavby.',
+    description: 'Pri realizácii hrubej stavby používame len <span class="text-accent">certifikované materiály</span> a osvedčené technologické postupy. Naši skúsení majstri dohliadajú na každý detail, aby sme zabezpečili maximálnu stabilitu a životnosť stavby.',
   },
   {
     image: '/hrube-ic2.svg',
     title: 'Rýchlosť a presnosť',
-    preview: 'Dodržujeme dohodnuté termíny...',
-    description: 'Vieme, že čas sú peniaze. Naša práca je efektívna, no zároveň nekompromisná v kvalite. Dodržujeme dohodnuté termíny a vždy vás priebežne informujeme o postupe prác. Priemerná dĺžka výstavby hrubej stavby je jeden mesiac pri prízemnom bungalove.',
+    description: 'Vieme, že čas sú peniaze. Naša práca je efektívna, no zároveň nekompromisná v kvalite. Dodržujeme dohodnuté termíny a vždy vás priebežne informujeme o postupe prác. Priemerná dĺžka výstavby hrubej stavby je <span class="text-accent">jeden mesiac</span> pri prízemnom bungalove.',
   },
   {
     image: '/hrube-ic3.svg',
     title: 'Cena, ktorá vás prekvapí',
-    preview: 'Transparentné cenové ponuky...',
-    description: 'Transparentné cenové ponuky bez skrytých poplatkov a nacenenie zadarmo. Ako mladá firma ponúkame bezkonkurenčné ceny, aby sme si získali vašu dôveru. Našou prioritou je poctivá práca, s ktorou budete spokojní a radi ju odporučíte ďalej.',
+    description: 'Transparentné cenové ponuky bez skrytých poplatkov a <span class="text-accent">nacenenie zadarmo</span>. Ako mladá firma ponúkame bezkonkurenčné ceny, aby sme si získali vašu dôveru. Našou prioritou je poctivá práca, s ktorou budete spokojní a radi ju odporučíte ďalej.',
   },
 ];
 ---
@@ -88,12 +85,12 @@ const cards = [
             <section class="w-full overflow-hidden p-6">
               <div class=" bg-[rgb(25,25,25,0.7)] rounded-lg p-6">
                 <div class="py-6 pt-0 lg:pt-6 scroll-reveal fade-in">
-                  <h1 class="text-4xl md:text-5xl font-bold text-[#E0E0E0]">
+                  <h1 class="text-4xl md:text-5xl font-bold text-[#E0E0E0] gradient-text-2">
                     Hrubá stavba
                   </h1>
                 </div>
                 
-                <p class="text-[#d1d1d1] text-sm lg:text-base leading-relaxed scroll-reveal fade-in">
+                <p class="text-white text-sm lg:text-base leading-relaxed scroll-reveal fade-in">
                   Hrubá stavba predstavuje jeden z najdôležitejších krokov na ceste k vytvoreniu vášho vysnívaného bývania. Hrubá stavba je spoľahlivý základ, na ktorom bude váš domov stáť po celé generácie.
                   <br>
                   Naša spoločnosť Aurora Construction sa postará o <span class="text-accent">celý proces</span> – od prípravy a realizácie základov, monolitickej dosky, základnej dosky, až po obvodové múry a preklady.
@@ -105,7 +102,6 @@ const cards = [
                   <ToggleCard
                     image={card.image}
                     title={card.title}
-                    preview={card.preview}
                     description={card.description}
                   />
                 ))}
