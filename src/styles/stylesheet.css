@@ -1,8 +1,6 @@
 * {
     --accent-color: hsl(181, 98%, 46%);
     --primary-color: hsl(255, 80%, 80%); 
-    --secondary-color: #88fdfe;
-    --tritary-color: #91f4a9;
     scroll-behavior: smooth;  
 }
 html {
