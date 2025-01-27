@@ -1,6 +1,9 @@
 * {
     --accent-color: hsl(181, 98%, 46%);
     --primary-color: hsl(255, 80%, 80%); 
+    --primary-text: hsl(0, 0%, 90%);
+    --secondary-text: hsl(0, 0%, 70%);
+    --tertiary-text: hsl(0, 0%, 10%);
     scroll-behavior: smooth;  
 }
 html {
@@ -13,32 +16,32 @@ body {
 p {
   font-family: "Roboto", serif;
   font-display: swap;
-  color: #E0E0E0;
+  color: var(--secondary-text);
 }
 h4 {
   font-family: "Oswald", serif;
   font-display: swap;
-  color: #E0E0E0;
+  color: var(--primary-text);
 }
 h1 {
   font-family: "Oswald", serif;
   font-display: swap;
-  color: #E0E0E0;
+  color: var(--primary-text);
 }
 h2 {
   font-family: "Oswald", serif;
   font-display: swap;
-  color: #E0E0E0;
+  color: var(--primary-text);
 }
 h3 {
   font-family: "Oswald", serif;
   font-display: swap;
-  color: #E0E0E0;
+  color: var(--primary-text);
 }
 ul li {
   font-family: "Roboto", serif;
   font-display: swap;
-  color: #E0E0E0;
+  color: var(--primary-text);
 }
 ul {
   padding-left: 1.5rem; /* Adds consistent padding for all lists */
