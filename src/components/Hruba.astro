@@ -5,17 +5,17 @@ const cards = [
   {
     image: '/icons/hrube-ic1.svg',
     title: 'Kvalita, ktorá vydrží',
-    description: 'Pri realizácii hrubej stavby používame len <span class="text-accent">certifikované materiály</span> a osvedčené technologické postupy. Naši skúsení majstri dohliadajú na každý detail, aby sme zabezpečili maximálnu stabilitu a životnosť stavby.',
+    description: 'Pri realizácii hrubej stavby používame certifikované materiály a overené technologické postupy. Naši majstri dbajú na maximálnu stabilitu a životnosť stavieb.',
   },
   {
     image: '/icons/hrube-ic2.svg',
     title: 'Rýchlosť a presnosť',
-    description: 'Vieme, že čas sú peniaze. Naša práca je efektívna, no zároveň nekompromisná v kvalite. Dodržujeme dohodnuté termíny a vždy vás priebežne informujeme o postupe prác. Priemerná dĺžka výstavby hrubej stavby je <span class="text-accent">jeden mesiac</span> pri prízemnom bungalove.',
+    description: 'Čas sú peniaze. Naša práca je efektívna, no bez kompromisov na kvalite. Priemerná dĺžka výstavby bungalovu je <span class="text-accent">jeden mesiac.</span>',
   },
   {
     image: '/icons/hrube-ic3.svg',
     title: 'Cena, ktorá vás prekvapí',
-    description: 'Transparentné cenové ponuky bez skrytých poplatkov a <span class="text-accent">nacenenie zadarmo</span>. Ako mladá firma ponúkame bezkonkurenčné ceny, aby sme si získali vašu dôveru. Našou prioritou je poctivá práca, s ktorou budete spokojní a radi ju odporučíte ďalej.',
+    description: 'Naším cieľom je spokojnosť, ktorú odporučíte ďalej. <span class="text-accent">Nacenenie je zadarmo</span> a orientačná cena hrubej stavby: <span class="font-semibold">150–210 €/m²</span> (závisí od komplexnosti projektu).',
   },
 ];
 ---
@@ -77,23 +77,22 @@ const cards = [
       
     </head>
     <body class=" ">
-      <div class="background-container snap-start scroll-reveal fade-in bg-gradient-to-b from-transparent to-black" id="hruba-stavba">
+      <div class="background-container snap-start scroll-reveal fade-in bg-gradient-to-b from-transparent to-black flex flex-col" id="hruba-stavba">
         <div class="background-overlay"></div>
         <div class="content">
-          <article class="container p-0 mx-auto mt-0 lg:mt-12 text-white flex flex-col lg:flex-row gap-8">
+          <article class="container mx-auto text-white flex flex-col items-center justify-center text-center">
             <!-- Textová a kartová sekcia -->
-            <section class="w-full overflow-hidden lg:pt-6 pt-[112px] lg:pb-6 pb-[112px] px-6">
+            <section class="w-full overflow-hidden lg:pt-6 pt-[8rem] lg:pb-6 pb-[8rem] px-6 flex flex-col items-center justify-center">
               <div class=" bg-[rgb(25,25,25,0.7)] rounded-lg p-6">
-                <div class="py-6 pt-0 lg:pt-6 scroll-reveal fade-in">
-                  <h1 class="text-4xl md:text-5xl font-bold text-[#E0E0E0] gradient-text-2">
-                    Hrubá stavba
-                  </h1>
-                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-[#E0E0E0] gradient-text-2">
+                  Hrubá stavba
+                </h1>
                 
-                <p class="text-white text-sm lg:text-base leading-relaxed scroll-reveal fade-in">
-                  Hrubá stavba predstavuje jeden z najdôležitejších krokov na ceste k vytvoreniu vášho vysnívaného bývania. Hrubá stavba je spoľahlivý základ, na ktorom bude váš domov stáť po celé generácie.
+                <!-- Popis -->
+                <p class="text-white text-sm lg:text-base leading-relaxed mt-4">
+                  Hrubá stavba je základným krokom na ceste k vášmu vysnívanému bývaniu.
                   <br>
-                  Naša spoločnosť Aurora Construction sa postará o <span class="text-accent">celý proces</span> – od prípravy a realizácie základov, monolitickej dosky, základnej dosky, až po obvodové múry a preklady.
+                  Naša firma Aurora Construction zabezpečuje všetko od výkopových prác cez realizáciu sietí až po výstavbu základov, obvodových múrov a striech.
                 </p>
               </div>
               <!-- Karty -->
@@ -106,6 +105,27 @@ const cards = [
                   />
                 ))}
               </div>
+              <div class="bg-[rgb(13,32,38,0.7)] shadow-lg md:p-8 p-6 rounded-lg mt-6 w-full max-w-2xl text-left">
+                <h2 class="text-4xl font-bold mb-3 text-center gradient-text-1">Ponúkame</h2>
+                  
+                <ul class="text-lg space-y-2 max-w-4xl mx-auto pl-0">
+                  <li class="flex items-left space-x-3">
+                    <span class="text-green-500 text-xl md:text-2xl">✔</span>
+                    <span class="ml-0">Výstavba základov a hrubej stavby</span>
+                  </li>
+                  <li class="flex items-left space-x-3">
+                    <span class="text-green-500 text-xl md:text-2xl">✔</span>
+                    <span class="ml-0">Jednopodlažné aj viacpodlažné budovy, vrátane podpivničenia</span>
+                  </li>
+                  <li class="flex items-left space-x-3">
+                    <span class="text-green-500 text-xl md:text-2xl">✔</span>
+                    <span class="ml-0 ">Výkopové práce a realizácia sietí (s možnosťou vlastnej montáže)</span>
+                  </li>
+                  <li class="flex items-left space-x-3">
+                    <span class="text-green-500 text-xl md:text-2xl">✔</span>
+                    <span class="ml-0">Kompletné strechy – sedlové, valbové, vrátane krovu</span>
+                  </li>
+                </ul>
               </div>
             </section>
           </article>

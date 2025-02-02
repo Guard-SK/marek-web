@@ -4,18 +4,18 @@ import ToggleCard from './components/ToggleCard.astro';
 const cards = [
   {
     image: '/icons/hrube-ic1.svg',
-    title: 'Kvalita, ktorá vydrží',
-    description: 'Rekonsrukcie krovov striech  venujeme sa tiez Pokládke strešných krytín(plechova,keramicka) robime iba valbove a sedlove strechy a krovy pultovym strecham sa nevenujeme alebo su neni v nasej ponuke prac alebo nejako tak to lepsie napisat',
+    title: 'Spoľahlivosť a precíznosť',
+    description: 'Každý krov a krytina sú inštalované s maximálnou starostlivosťou.',
   },
   {
     image: '/icons/hrube-ic2.svg',
-    title: 'Rýchlosť a presnosť',
-    description: 'Vieme, že čas sú peniaze. Naša práca je efektívna, no zároveň nekompromisná v kvalite. Dodržujeme dohodnuté termíny a vždy vás priebežne informujeme o postupe prác. Priemerná dĺžka výstavby hrubej stavby je <span class="text-accent">jeden mesiac</span> pri prízemnom bungalove.',
+    title: 'Odborné poradenstvo',
+    description: 'Pomôžeme vám vybrať najlepšie riešenie podľa vášho rozpočtu a potrieb.',
   },
   {
     image: '/icons/hrube-ic3.svg',
-    title: 'Cena, ktorá vás prekvapí',
-    description: 'Transparentné cenové ponuky bez skrytých poplatkov a <span class="text-accent">nacenenie zadarmo</span>. Ako mladá firma ponúkame bezkonkurenčné ceny, aby sme si získali vašu dôveru. Našou prioritou je poctivá práca, s ktorou budete spokojní a radi ju odporučíte ďalej.',
+    title: 'Dlhodobá ochrana',
+    description: 'Používame iba osvedčené a certifikované materiály pre čo najlepšiu životnosť vašej strechy.',
   },
 ];
 ---
@@ -91,11 +91,36 @@ const cards = [
                 </div>
                 
                 <p class="text-white text-sm lg:text-base leading-relaxed scroll-reveal fade-in">
-                  Strecha je korunou vášho domu, ktorá nielen chráni, ale dodáva celkový charakter a estetiku vášmu bývaniu. 
-                  <br>
-                  Naša spoločnosť Aurora Construction sa špecializuje na <span class="text-accent">rekonštrukcie krovov</span> a <span class="text-accent">pokládku strešných krytín</span>, pričom kladieme dôraz na kvalitu, presnosť a výhodné riešenia.
+                  Strecha je jedným z najdôležitejších prvkov vášho domu – zabezpečuje ochranu pred poveternostnými podmienkami a zároveň dotvára celkový vzhľad stavby.
+                  V Aurora Construction ponúkame kompletné riešenia pre strešné systémy, pričom sa špecializujeme na <span class="text-accent">sedlové a valbové strechy</span> vrátane profesionálnej montáže krovu.
                 </p>
               </div>
+
+              <section class="bg-[rgb(13,32,38,0.7)] shadow-lg md:p-8 p-6 rounded-lg flex flex-col items-center text-left mt-6">
+                <div class="container mx-auto px-4">
+                  <h2 class="text-4xl font-bold mb-3 text-center gradient-text-1">Naša ponuka zahŕňa</h2>
+                  
+                  <ul class="text-lg space-y-2 max-w-4xl mx-auto pl-0">
+                    <li class="flex items-left space-x-3">
+                      <span class="text-green-500 text-xl md:text-2xl">✔</span>
+                      <span class="ml-0"><strong>Montáž strešných krovov</strong> – Precízna realizácia drevených krovov s dôrazom na stabilitu a dlhú životnosť.</span>
+                    </li>
+                    <li class="flex items-left space-x-3">
+                      <span class="text-green-500 text-xl md:text-2xl">✔</span>
+                      <span class="ml-0"><strong>Sedlové a valbové strechy</strong> – Klasické a estetické riešenia vhodné pre rôzne typy budov.</span>
+                    </li>
+                    <li class="flex items-left space-x-3">
+                      <span class="text-green-500 text-xl md:text-2xl">✔</span>
+                      <span class="ml-0 "><strong>Pokládka strešných krytín</strong> – Pracujeme s kvalitnými materiálmi ako plechová a keramická krytina pre optimálnu ochranu a dlhodobú odolnosť.</span>
+                    </li>
+                    <li class="flex items-left space-x-3">
+                      <span class="text-xl md:text-2xl text-red-500">✘</span>
+                      <span class="ml-0">Pultové strechy nevykonávame – špecializujeme sa na tradičné riešenia s vyššou stabilitou a estetikou.</span>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
               <!-- Karty -->
               <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
                 {cards.map((card) => (
