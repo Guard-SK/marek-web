@@ -67,6 +67,10 @@
       transition: all 0.3s ease;
       color: rgba(0, 0, 0, 0.8);
     }
+    .hero-button a {
+      width: 160px;
+      height: 80px;
+    }
     .hero-button:hover,
     .hero-button.active {
       background-color: #0d2026;
@@ -103,6 +107,10 @@
         height: 60px;
         border-radius: 12px;
       }
+      .hero-button a {
+        width: 140px;
+        height: 60px;
+      }
       .hero-button s2 {
         font-size: 14px;
         font-weight: 600;
@@ -131,6 +139,10 @@
         height: 50px;
         border-radius: 8px;
       }
+      .hero-button a {
+        width: 100px;
+        height: 50px;
+      }
       .hero-button s2 {
         font-size: 13px;
         font-weight: 600;
@@ -151,7 +163,7 @@
   <div class="hero scroll-reveal fade-in">
     <div class="logo flex justify-center gap-0 items-center text-4xl absolute right-[5%] w-16 h-16 z-10 top-[5%]">
       <img src="/logo.webp" alt="Aurora construction logo">
-      <h1>urora</h1>
+      <h1><span style="display: none;">A</span>urora</h1>
     </div>
     <div class="hero-images">
       <div class="hero-image" style="background-image: url('/HrubeStavbyHero.avif');"></div>
@@ -162,13 +174,13 @@
       <h1 class="text-white gradient-text text-5xl pb-2 mb-2 font-extrabold"><span class="gradient-text-1 upp">Stavby žiariace</span><br><span class="gradient-text-2">eleganciou</span></h1>
       <div class="flex-row flex gap-6">
         <div class="hero-button" data-index="0">
-          <s2 class="font-semibold text-xl gradient-button-1">Hrubá stavba</s2>
+          <a href="#hruba-stavba" class="font-semibold text-xl gradient-button-1 content-center">Hrubá stavba</a>
         </div>
         <div class="hero-button" data-index="1">
-          <s2 class="font-semibold gradient-button-2 text-xl">Strechy</s2>
+          <a href="#strechy" class="font-semibold gradient-button-2 text-xl content-center">Strechy</a>
         </div>
         <div class="hero-button" data-index="2">
-          <s2 class="font-semibold gradient-button-3 text-xl">Ďalšie práce</s2>
+          <a href="#dalsie-prace" class="font-semibold gradient-button-3 text-xl content-center">Ďalšie práce</a>
         </div>
       </div>
     </div>
@@ -233,7 +245,7 @@
     const buttons = [
       { selector: '.hero-button[data-index="0"]', target: '#hruba-stavba' },
       { selector: '.hero-button[data-index="1"]', target: '#strechy' },
-      { selector: '.hero-button[data-index="2"]', target: '#other' }
+      { selector: '.hero-button[data-index="2"]', target: '#dalsie-prace' }
     ];
 
     buttons.forEach(({ selector, target }) => {
