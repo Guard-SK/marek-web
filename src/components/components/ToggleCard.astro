@@ -11,6 +11,6 @@ const { image, title, description } = Astro.props;
 
 <div class="bg-[rgb(25,25,25,0.7)] shadow-lg p-4 rounded-lg flex flex-col items-center text-center transition duration-300">
   <img class="md:w-10 md:h-10 w-8 h-8" src={image} alt={title} loading="lazy"/>
-  <h4 class="text-lg md:text-xl font-semibold text-[#E0E0E0] mb-1">{title}</h4>
+  <h3 class="text-lg md:text-xl font-semibold text-[#E0E0E0] mb-1">{title}</h3>
   <p class="text-[#d1d1d1] text-base leading-relaxed" set:html={description}></p>
 </div>
