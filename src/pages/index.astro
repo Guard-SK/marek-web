@@ -113,7 +113,7 @@ import '../styles/animations.css'
 
       .snap-active {
         scroll-snap-type: y mandatory;
-        scroll-behavior: smooth; /* Smooth scrolling behavior */
+        scroll-behavior: smooth;
       }
 
       #intro-animation {
@@ -186,8 +186,8 @@ import '../styles/animations.css'
         align-items: center;
         gap: 0.5rem;
         margin-top: 1.5rem;
-        opacity: 0; /* Start hidden */
-        animation: fade-in 0.5s ease-in-out 2.5s forwards; /* Appear after 1 second */
+        opacity: 0;
+        animation: fade-in 0.5s ease-in-out 2.5s forwards;
       }
 
       .loading-dot {
@@ -198,7 +198,6 @@ import '../styles/animations.css'
         animation: dots-animation 1.5s infinite ease-in-out;
       }
 
-      /* Individual delay for each dot */
       .loading-dot:nth-child(1) {
         animation-delay: 0s;
       }
@@ -272,25 +271,19 @@ import '../styles/animations.css'
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const scrollElements = document.querySelectorAll('.scroll-reveal');
-
-  // Intersection Observer to handle scroll reveal
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         const target = entry.target as HTMLElement;
-
         if (entry.isIntersecting && !target.classList.contains('visible')) {
-          // Add the 'visible' class only if it hasn't been added already
           target.classList.add('visible');
         }
       });
     },
     {
-      threshold: 0.3, // Trigger when 30% of the element is visible
+      threshold: 0.3,
     }
   );
-
-  // Observe each element with the 'scroll-reveal' class
   scrollElements.forEach((el) => observer.observe(el));
 });
 
@@ -342,12 +335,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById("main-content");
 
     if (introAnimation && mainContent) {
-    // Wait for the animation to complete
       setTimeout(() => {
         introAnimation.style.transition = "opacity 1s";
         introAnimation.style.opacity = "0";
-
-        // After the fade-out transition, hide the intro and show main content
         setTimeout(() => {
           introAnimation.style.display = "none";
           mainContent.style.display = "block";

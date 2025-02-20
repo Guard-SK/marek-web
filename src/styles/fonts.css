@@ -1,6 +1,6 @@
 /* roboto-regular - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -9,7 +9,7 @@
 }
 /* roboto-italic - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
@@ -18,7 +18,7 @@
 }
 /* roboto-500 - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -27,7 +27,7 @@
 }
 /* roboto-500italic - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 500;
@@ -36,7 +36,7 @@
 }
 /* roboto-600 - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 600;
@@ -45,7 +45,7 @@
 }
 /* roboto-600italic - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 600;
@@ -54,7 +54,7 @@
 }
 /* roboto-700 - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -63,7 +63,7 @@
 }
 /* roboto-700italic - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 700;
@@ -72,7 +72,7 @@
 }
 /* roboto-800 - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 800;
@@ -81,7 +81,7 @@
 }
 /* roboto-800italic - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 800;
@@ -90,7 +90,7 @@
 }
 /* oswald-regular - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 400;
@@ -99,7 +99,7 @@
 }
 /* oswald-500 - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 500;
@@ -108,7 +108,7 @@
 }
 /* oswald-600 - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 600;
@@ -117,7 +117,7 @@
 }
 /* oswald-700 - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 700;
@@ -126,7 +126,7 @@
 }
 /* roboto-condensed-800 - latin_latin-ext */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 800;

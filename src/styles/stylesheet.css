@@ -11,7 +11,6 @@ html {
 }
 body {
   background-color: #191919; 
-  /* #191919 */
 }
 p {
   font-family: "Roboto", serif;
@@ -44,51 +43,51 @@ ul li {
   color: var(--primary-text);
 }
 ul {
-  padding-left: 1.5rem; /* Adds consistent padding for all lists */
-  list-style-type: disc; /* Ensures dots (bullets) are displayed */
+  padding-left: 1.5rem;
+  list-style-type: disc;
 }
 
 ul ul {
-  padding-left: 2rem; /* Additional padding for nested lists */
+  padding-left: 2rem;
 }
 
 .gradient-text-1 {
-  background: linear-gradient(90deg, #38abd3, #38abd3, #37d4db, #37d4db); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
-  background-clip: text; /* Standard property for compatibility */
-  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+  background: linear-gradient(90deg, #38abd3, #38abd3, #37d4db, #37d4db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .gradient-text-2 {
-  background: linear-gradient(90deg, #38abd3, #7efd83, #95fe7e, #90de91); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
-  background-clip: text; /* Standard property for compatibility */
-  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+  background: linear-gradient(90deg, #38abd3, #7efd83, #95fe7e, #90de91);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .gradient-button-1 {
-  background: linear-gradient(90deg, #38abd3, #37d4db); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
-  background-clip: text; /* Standard property for compatibility */
-  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+  background: linear-gradient(90deg, #38abd3, #37d4db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .gradient-button-2 {
-  background: linear-gradient(90deg, #38abd3, #38abd3, #37d4db); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
-  background-clip: text; /* Standard property for compatibility */
-  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+  background: linear-gradient(90deg, #38abd3, #38abd3, #37d4db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .gradient-button-3 {
-  background: linear-gradient(90deg, #38abd3, #7efd83, #90de91); /* Adjust colors here */
-  -webkit-background-clip: text; /* Clip the background to the text for Webkit-based browsers */
-  background-clip: text; /* Standard property for compatibility */
-  -webkit-text-fill-color: transparent; /* Make the text fill transparent */
+  background: linear-gradient(90deg, #38abd3, #7efd83, #90de91);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .gradient-bg-1 {
   background: linear-gradient(135deg, #38abd3, #38abd3, #37d4db, #7efd83, #90de91); /* Gradient background */
   position: relative;
   z-index: 1;
   overflow: hidden;
-  border-radius: 16px; /* Smooth corners */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Glass-like shadow */
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .gradient-bg-1::before {
@@ -98,11 +97,11 @@ ul ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent overlay for glass effect */
-  backdrop-filter: blur(10px); /* Blur for the glass effect */
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  border-radius: 16px; /* Matches the parent border-radius */
-  z-index: -1; /* Places the effect behind the content */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  z-index: -1;
 }
 
 

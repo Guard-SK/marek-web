@@ -8,11 +8,11 @@
         color: white;
         z-index: 1;
         overflow: hidden;
-        transition: transform 0.3s ease; /* Smooth transition */
+        transition: transform 0.3s ease;
       }
 
       .card:hover {
-        transform: scale(1.05); /* Resizes smoothly to 1.05 times the size */
+        transform: scale(1.05);
       }
 
       .card::before {
@@ -39,8 +39,8 @@
       }
 
       .icon-arrow {
-        width: 32px; /* Adjust size as needed */
-        height: 32px; /* Adjust size as needed */
+        width: 32px;
+        height: 32px;
         margin-left: auto;
         margin-top: auto;
         object-fit: contain;
@@ -48,7 +48,7 @@
       }
 
       .card:hover .icon-arrow {
-        transform: translateX(5px); /* Smoothly move the icon to the right */
+        transform: translateX(5px);
       }
     </style>
   </head>
@@ -103,11 +103,8 @@
         button.addEventListener('click', () => {
           const targetSection = document.querySelector(target);
           if (targetSection) {
-            // Dispatch custom event to notify scroll-to-snap logic
             document.dispatchEvent(new CustomEvent('buttonScrollStart'));
-
             targetSection.scrollIntoView({ behavior: 'smooth' });
-
             setTimeout(() => {
               document.dispatchEvent(new CustomEvent('buttonScrollEnd'));
             }, 1000); // Match the duration

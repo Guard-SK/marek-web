@@ -22,14 +22,6 @@ const cards = [
   <html lang="sk">
     <head>
       <style>
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: Arial, sans-serif;
-          color: white;
-        }
-      
-        /* Background image with smooth blur effect on the bottom 5% */
         .background-container {
           position: relative;
           background: url('/HrubaStavbaCard.avif') no-repeat center center;
@@ -41,7 +33,6 @@ const cards = [
           overflow: hidden;
         }
       
-        /* Overlay with smooth blur gradient */
         .background-overlay {
           position: absolute;
           top: 0;
@@ -50,19 +41,18 @@ const cards = [
           height: 100%;
           background: linear-gradient(
             to bottom,
-            rgba(25, 25, 25, 1) 0%,    /* Fully blurred at the top */
-            rgba(25, 25, 25, 1) 5%,    /* Slight blur transition */
-            rgba(25, 25, 25, 0.5) 15%, /* Slight blur transition */
-            rgba(25, 25, 25, 0) 20%,   /* Fully transparent */
-            rgba(25, 25, 25, 0) 80%,   /* Fully transparent at the middle */
-            rgba(25, 25, 25, 0.5) 85%, /* Slight blur transition */
-            rgba(25, 25, 25, 1) 95%,   /* Slight blur transition */
-            rgba(25, 25, 25, 1) 100%   /* Fully blurred at the bottom */
+            rgba(25, 25, 25, 1) 0%,
+            rgba(25, 25, 25, 1) 5%,
+            rgba(25, 25, 25, 0.5) 15%,
+            rgba(25, 25, 25, 0) 20%,
+            rgba(25, 25, 25, 0) 80%,
+            rgba(25, 25, 25, 0.5) 85%,
+            rgba(25, 25, 25, 1) 95%,
+            rgba(25, 25, 25, 1) 100%
           );
           z-index: 1;
         }
-      
-        /* Content styling */
+
         .content {
           position: relative;
           z-index: 2;

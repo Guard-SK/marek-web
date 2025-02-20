@@ -1,14 +1,5 @@
 <head>
   <style>
-    /* Basic styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    h1 {
-      font-family: "Oswald", serif;
-      font-optical-sizing: auto;
-    }
     .hero {
       position: relative;
       width: 100%;
@@ -24,8 +15,8 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(to top, #191919, rgba(0, 0, 0, 0.555) 100%);
-      pointer-events: none; /* Ensures it doesn't block interaction with content */
-      z-index: 1; /* Overlay appears above the images */
+      pointer-events: none;
+      z-index: 1;
     }
     .hero-image {
       position: absolute;
@@ -47,7 +38,7 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
-      z-index: 2; /* Ensure buttons are above the overlay */
+      z-index: 2;
     }
     .hero-buttons h1 {
       font-family: "Roboto Condensed", serif;
@@ -163,7 +154,7 @@
   <div class="hero scroll-reveal fade-in">
     <div class="logo flex flex-col items-left text-4xl absolute right-[5%] w-16 h-16 z-10 top-[5%]">
       <div class="flex justify-center gap-0 items-center">
-        <img src="/LogoAuroraConstruction.webp" alt="Aurora construction logo">
+        <img src="/LogoAuroraConstruction.webp" alt="Aurora construction logo" class="w-16 h-16">
         <h1>
           <span style="display: none;">A</span><span class="pt-2">urora </span>
           <span style="display: none;" class="text-lg">Construction</span>
@@ -194,10 +185,10 @@
     const heroImages = document.querySelectorAll('.hero-image');
     const buttons = document.querySelectorAll('.hero-button');
 
-    let currentIndex: number = 0; // Explicitly specify the type as number
-    let interval: number | undefined; // Explicitly specify the type for interval
+    let currentIndex: number = 0;
+    let interval: number | undefined;
 
-    const updateHero = (index: number) => { // Explicitly specify the parameter type
+    const updateHero = (index: number) => {
       heroImages.forEach((img, idx) => {
         img.classList.toggle('active', idx === index);
       });
@@ -207,10 +198,7 @@
     };
 
     const startCarousel = () => {
-      // Clear any existing interval to avoid duplicates
       if (interval) clearInterval(interval);
-
-      // Set up the interval to cycle through images every 5 seconds
       interval = setInterval(() => {
         requestAnimationFrame(() => {
           currentIndex = (currentIndex + 1) % heroImages.length;
@@ -219,31 +207,25 @@
       }, 5000);
     };
 
-    // Initial delay of 3 seconds before starting the carousel
     const initializeCarousel = () => {
-      // Update the hero to show the first image initially
       updateHero(currentIndex);
-
-      // Wait 3 seconds, then start the carousel
       setTimeout(() => {
         startCarousel();
-      }, 3000); // 3000 milliseconds = 3 seconds
+      }, 3000);
     };
 
-    // Call the initialize function to set up the carousel
     initializeCarousel();
 
 
-
     buttons.forEach((button) => {
-      const btn = button as HTMLButtonElement; // Type assertion
+      const btn = button as HTMLButtonElement;
       btn.addEventListener('mouseover', () => {
-        clearInterval(interval); // Clear the interval
-        currentIndex = parseInt(btn.dataset.index || '0', 10); // Convert index to number
+        clearInterval(interval);
+        currentIndex = parseInt(btn.dataset.index || '0', 10);
         updateHero(currentIndex);
       });
 
-      btn.addEventListener('mouseout', startCarousel); // Restart carousel
+      btn.addEventListener('mouseout', startCarousel);
     });
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -259,23 +241,19 @@
         button.addEventListener('click', () => {
           const targetSection = document.querySelector(target);
           if (targetSection) {
-            // Dispatch custom event to notify scroll-to-snap logic
             document.dispatchEvent(new CustomEvent('buttonScrollStart'));
-
             targetSection.scrollIntoView({ behavior: 'smooth' });
-
             setTimeout(() => {
               document.dispatchEvent(new CustomEvent('buttonScrollEnd'));
-            }, 1000); // Match the duration
+            }, 1000);
           }
         });
       }
     });
   });
 
-    // Initialize
-    updateHero(currentIndex);
-    startCarousel();
+  updateHero(currentIndex);
+  startCarousel();
 
   </script>
 </body>
