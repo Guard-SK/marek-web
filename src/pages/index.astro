@@ -8,10 +8,6 @@ import Contact from '../components/Contact.astro'
 import Footer from '../components/Footer.astro'
 import OtherJobs from '../components/OtherJobs.astro'
 import Map from '../components/Map.astro'
-
-import '../styles/stylesheet.css'
-import '../styles/fonts.css'
-import '../styles/animations.css'
 ---
 
 <!DOCTYPE html>
@@ -30,7 +26,7 @@ import '../styles/animations.css'
     <link rel="apple-touch-icon" sizes="180x180" href="/LogoAuroraConstruction.webp">
   
     <!-- Preload Critical Resources -->
-    <link rel="preload" as="image" href="/HolodomHero.avif" />
+    <link rel="preload" as="image" href="/HrubeStavbyHero.avif" />
     <link rel="preload" as="image" href="/LogoAuroraConstruction.webp" />
     <link rel="preload" as="image" href="/AboutImg.avif" />
   
@@ -42,7 +38,20 @@ import '../styles/animations.css'
     <link rel="preload" href="/fonts/oswald-v53-latin_latin-ext-700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/fonts/oswald-v53-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
-    <link rel=”canonical” href=”https://www.auroraconstruction.sk/” />
+    <!-- Replace Astro import with this -->
+    <link rel="preload" href="/styles/stylesheet.css" as="style">
+    <link rel="stylesheet" href="/styles/stylesheet.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles/stylesheet.css"></noscript>
+    
+    <link rel="preload" href="/styles/fonts.css" as="style">
+    <link rel="stylesheet" href="/styles/fonts.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles/fonts.css"></noscript>
+    
+    <link rel="preload" href="/styles/animations.css" as="style">
+    <link rel="stylesheet" href="/styles/animations.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles/animations.css"></noscript>    
+    
+    <link rel="canonical" href="https://www.auroraconstruction.sk/" />
 
     <script type="application/ld+json">
       {
@@ -243,7 +252,7 @@ import '../styles/animations.css'
       <div id="aurora"></div>
       <div id="intro-content" class="flex flex-col justify-center items-center mt-16">
         <div class="logo flex select-none justify-center gap-0 items-center text-4xl w-16 h-16 z-10 lg:h-32 lg:w-32 lg:text-7xl">
-          <img src="/LogoAuroraConstruction.webp" alt="Aurora construction logo">
+          <img src="/LogoAuroraConstruction.webp" alt="Aurora construction logo" class="w-16 h-16 z-10 lg:h-32 lg:w-32">
           <h4 class="text-[#d7d8d4]"><span style="display: none;">A</span>urora</h4>
         </div>
         <h2 class="text-white gradient-text text-6xl lg:text-9xl mt-1 pb-2 mb-2 font-extrabold !leading-[1.13] select-none">
