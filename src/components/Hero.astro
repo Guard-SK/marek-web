@@ -44,8 +44,8 @@
       font-family: "Roboto Condensed", serif;
     }
     .hero-button {
-      width: 160px;
-      height: 80px;
+      width: clamp(160px, 5vw, 200px);
+      height: clamp(60px, 5vw, 80px);
       background-color: #1e1e1e;
       border: none;
       border-radius: 8px;
@@ -59,8 +59,8 @@
       color: rgba(0, 0, 0, 0.8);
     }
     .hero-button a {
-      width: 160px;
-      height: 80px;
+      width: clamp(160px, 5vw, 200px);
+      height: clamp(60px, 5vw, 80px);
     }
     .hero-button:hover,
     .hero-button.active {
@@ -78,7 +78,7 @@
       color: white;
     }
     .text-5xl {
-      font-size: 6rem;
+      font-size: clamp(4.5rem, 5vw, 9rem);
     }
     .font-bold {
       font-weight: bold;
@@ -94,8 +94,8 @@
         gap: 12px;
       }
       .hero-button {
-        width: 140px;
-        height: 60px;
+        width: clamp(120px, 5vw, 200px);
+        height: clamp(50px, 5vw, 80px);
         border-radius: 12px;
       }
       .hero-button a {
@@ -107,7 +107,7 @@
         font-weight: 600;
       }
       .text-5xl {
-        font-size: 4.5rem;
+        font-size: clamp(4rem, 5vw, 9rem);
       }
       .logo {
         font-size: 1.75rem;
@@ -126,20 +126,20 @@
         gap: 8px;
       }
       .hero-button {
-        width: 100px;
-        height: 50px;
+        width: clamp(100px, 5vw, 140px);
+        height: clamp(40px, 5vw, 80px);
         border-radius: 8px;
       }
       .hero-button a {
-        width: 100px;
-        height: 50px;
+        width: clamp(100px, 5vw, 140px);
+        height: clamp(40px, 5vw, 80px);
       }
       .hero-button a {
         font-size: 13px;
         font-weight: 600;
       }
       .text-5xl {
-        font-size: 3.5rem;
+        font-size: clamp(3rem, 5vw, 9rem);
       }
       .logo {
         font-size: 1.5rem;
