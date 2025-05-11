@@ -365,7 +365,9 @@ import Footer from '../components/Footer.astro';
   });
 
   // Druhá sekcia – karty
-  gsap.utils.toArray('#hruba-stavba-content .group').forEach((el, i) => {
+  const cards = gsap.utils.toArray<HTMLElement>('#hruba-stavba-content .group');
+
+  cards.forEach((el, i) => {
     gsap.to(el, {
       opacity: 1,
       y: 0,
@@ -378,7 +380,6 @@ import Footer from '../components/Footer.astro';
       }
     });
   });
-
 
   gsap.from("#approach-title", {
     y: 50,
@@ -404,18 +405,21 @@ import Footer from '../components/Footer.astro';
   });
 
   gsap.utils.toArray(["#approach-step-1", "#approach-step-2", "#approach-step-3"]).forEach((el, i) => {
-    gsap.from(el, {
+    const element = el as HTMLElement;
+
+    gsap.from(element, {
       x: -20,
       opacity: 0,
       delay: 0.3 + i * 0.2,
       duration: 0.9,
       ease: "power3.out",
       scrollTrigger: {
-        trigger: el,
+        trigger: element,
         start: "top 90%",
       }
     });
   });
+
 
   // Pricing section
   gsap.from("#pricing-title", {
@@ -474,28 +478,33 @@ import Footer from '../components/Footer.astro';
   });
 
   gsap.utils.toArray("#coverage .grid > div").forEach((el, i) => {
-    gsap.from(el, {
+    const element = el as HTMLElement;
+
+    gsap.from(element, {
       y: 20,
       opacity: 0,
       delay: 0.05 * i,
       duration: 0.6,
       scrollTrigger: {
-        trigger: el,
+        trigger: element,
         start: "top 90%",
       }
     });
   });
 
+
   // Process section
   gsap.utils.toArray("#process .md\\:w-1\\/5").forEach((el, i) => {
-    gsap.from(el, {
+    const element = el as HTMLElement;
+
+    gsap.from(element, {
       y: 60,
       opacity: 0,
       delay: 0.1 * i,
       duration: 1,
       ease: "power3.out",
       scrollTrigger: {
-        trigger: el,
+        trigger: element,
         start: "top 80%",
       }
     });

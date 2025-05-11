@@ -103,68 +103,76 @@ const currentPage = Astro.url.pathname;
     import { gsap } from 'gsap';
 
     const hamburger = document.getElementById('hamburger');
-    const lines = hamburger.querySelectorAll('.hamburger-line');
     const overlay = document.getElementById('mobile-menu-overlay');
     const navLogo = document.getElementById('nav-logo');
     const navLinks = document.getElementById('nav-links');
 
-    let logoY = 0;
-    let isMenuOpen = false;
+    if (
+      hamburger instanceof HTMLElement &&
+      overlay instanceof HTMLElement &&
+      navLogo instanceof HTMLElement &&
+      navLinks instanceof HTMLElement
+    ) {
+      const lines = hamburger.querySelectorAll('.hamburger-line');
+      let logoY = 0;
+      let isMenuOpen = false;
 
-    hamburger.addEventListener('click', () => {
-      isMenuOpen = !isMenuOpen;
+      hamburger.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
 
-      lines[0].classList.toggle('open', isMenuOpen);
-      lines[1].classList.toggle('open', isMenuOpen);
-      lines[2].classList.toggle('open', isMenuOpen);
+        lines[0].classList.toggle('open', isMenuOpen);
+        lines[1].classList.toggle('open', isMenuOpen);
+        lines[2].classList.toggle('open', isMenuOpen);
 
-      if (isMenuOpen) {
-        overlay.classList.remove('pointer-events-none');
-        overlay.classList.add('pointer-events-auto');
-        gsap.to(overlay, { opacity: 1, duration: 0.75, ease: "power2.out" });
+        if (isMenuOpen) {
+          overlay.classList.remove('pointer-events-none');
+          overlay.classList.add('pointer-events-auto');
+          gsap.to(overlay, { opacity: 1, duration: 0.75, ease: "power2.out" });
 
-        logoY = window.innerHeight / 2 - 48;
+          logoY = window.innerHeight / 2 - 48;
 
-        gsap.to(navLogo, {
-          y: logoY,
-          scale: 4,
-          duration: 1.5,
-          ease: "power3.inOut",
-          onComplete: () => {
-            gsap.to(navLogo, { opacity: 0.2, duration: 1 });
-            gsap.to(navLinks, { opacity: 1, y: 20, duration: 0.8, ease: "power3.out", delay: 0.5 });
-          }
-        });
-      } else {
-        gsap.to(navLinks, { opacity: 0, duration: 0.4 });
+          gsap.to(navLogo, {
+            y: logoY,
+            scale: 4,
+            duration: 1.5,
+            ease: "power3.inOut",
+            onComplete: () => {
+              gsap.to(navLogo, { opacity: 0.2, duration: 1 });
+              gsap.to(navLinks, { opacity: 1, y: 20, duration: 0.8, ease: "power3.out", delay: 0.5 });
+            }
+          });
+        } else {
+          gsap.to(navLinks, { opacity: 0, duration: 0.4 });
 
-        gsap.to(navLogo, {
-          opacity: 1,
-          duration: 0.5,
-          onStart: () => {
-            gsap.to(navLogo, {
-              y: 0,
-              scale: 1,
-              duration: 1,
-              delay: 0.5,
-              ease: "power3.inOut"
-            });
-          }
-        });
+          gsap.to(navLogo, {
+            opacity: 1,
+            duration: 0.5,
+            onStart: () => {
+              gsap.to(navLogo, {
+                y: 0,
+                scale: 1,
+                duration: 1,
+                delay: 0.5,
+                ease: "power3.inOut"
+              });
+            }
+          });
 
-        gsap.to(overlay, {
-          opacity: 0,
-          duration: 0.5,
-          delay: 1.6,
-          ease: "power2.in",
-          onComplete: () => {
-            overlay.classList.remove('pointer-events-auto');
-            overlay.classList.add('pointer-events-none');
-            gsap.set(navLogo, { clearProps: "all" });
-            gsap.set(navLinks, { clearProps: "all" });
-          }
-        });
-      }
-    });
+          gsap.to(overlay, {
+            opacity: 0,
+            duration: 0.5,
+            delay: 1.6,
+            ease: "power2.in",
+            onComplete: () => {
+              overlay.classList.remove('pointer-events-auto');
+              overlay.classList.add('pointer-events-none');
+              gsap.set(navLogo, { clearProps: "all" });
+              gsap.set(navLinks, { clearProps: "all" });
+            }
+          });
+        }
+      });
+    }
+
   </script>
 </body>
