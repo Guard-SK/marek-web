@@ -8,6 +8,7 @@
 }
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 body {
   background-color: #191919; 
@@ -42,6 +43,11 @@ ul li {
   font-display: swap;
   color: var(--primary-text);
 }
+li {
+  font-family: "Roboto", serif;
+  font-display: swap;
+  color: var(--primary-text);
+}
 ul {
   padding-left: 1.5rem;
   list-style-type: disc;
@@ -52,6 +58,12 @@ ul ul {
 a {
   font-family: "Roboto", serif;
   font-display: swap;
+}
+
+.oswald {
+  font-family: "Oswald", serif !important;
+  font-display: swap;
+  color: var(--primary-text);
 }
 
 .gradient-text-1 {

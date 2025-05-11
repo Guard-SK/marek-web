@@ -7,6 +7,9 @@ module.exports = {
 				accent: 'var(--accent-color)',
 				secondary_text: 'var(--secondary-text)',
 		  	},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+			}
 		},
 	},
 	plugins: [],
