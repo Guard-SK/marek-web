@@ -26,7 +26,7 @@ import Footer from '../components/Footer.astro';
   </head>
 
   <body class="text-gray-800">
-    <Navbar />
+    <Navbar />  
 
     <main id="hruba-stavba" class="relative z-10 bg-[#191919] text-white overflow-hidden">
     
@@ -151,8 +151,9 @@ import Footer from '../components/Footer.astro';
         </div>
       </section>
       
-      
-      
+      <div id="bulldozer-wrapper" class="pointer-events-none fixed top-0 left-0 z-50 w-24 rotate-180">
+        <img id="bulldozer" src="/hruba-stavba/icons/buldozer.svg" alt="Buldozér" class="w-full" />
+      </div>  
       
       <section id="our-approach" class="relative bg-[#191919] py-24 px-6 md:px-12 text-white overflow-hidden">
       
@@ -523,8 +524,50 @@ import Footer from '../components/Footer.astro';
     }
   );
 
+  const bulldozer = document.getElementById('bulldozer-wrapper');
+  const section1 = document.getElementById('our-approach');
+  const section2 = document.getElementById('process');
 
+  if (bulldozer && section1 && section2) {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section1,
+        start: "bottom bottom",
+        endTrigger: section2,
+        end: "bottom center",
+        scrub: 5,
+      }
+    });
 
+    // 1. Dolu (tieň smerom hore – svetlo zospodu)
+    tl.set(bulldozer, {
+      rotate: 180,
+      filter: "drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))"
+    });
+    tl.to(bulldozer, {
+      y: () => section1.offsetHeight - 100,
+    });
+
+    // 2. Vpravo (tieň smerom doľava – svetlo sprava)
+    tl.set(bulldozer, {
+      rotate: 90,
+      filter: "drop-shadow(-10px 0 20px rgba(57, 196, 255, 0.4))"
+    });
+    tl.to(bulldozer, {
+      x: section1.offsetWidth - 300,
+      duration: 1,
+    });
+
+    // 3. Znova dolu (tieň hore – svetlo zospodu)
+    tl.set(bulldozer, {
+      rotate: 180,
+      filter: "drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))"
+    });
+    tl.to(bulldozer, {
+      y: () => section1.offsetHeight + section2.offsetHeight - 200,
+      duration: 1,
+    });
+  }
 </script>
 
 <style>
@@ -535,6 +578,21 @@ import Footer from '../components/Footer.astro';
     background-color: #191919;
     clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
   }
+}
+
+#bulldozer-wrapper {
+  will-change: transform;
+  filter: drop-shadow(0 0 15px rgba(99, 255, 211, 0.3));
+  transition: filter 0.2s ease;
+}
+
+#bulldozer-wrapper {
+  position: absolute; /* namiesto fixed */
+  top: 1000px;
+  left: 5vw;
+  width: 100px;
+  will-change: transform;
+  z-index: 50;
 }
 
 
