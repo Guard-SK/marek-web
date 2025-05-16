@@ -23,6 +23,9 @@ import Footer from '../components/Footer.astro';
     <link rel="preload" href="/styles/animations.css" as="style">
     <link rel="stylesheet" href="/styles/animations.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/styles/animations.css"></noscript>
+
+    <link rel="preload" as="image" href="/hruba-stavba/Hero.avif" />
+    <link rel="preload" as="image" href="/hruba-stavba/Hero-mobile.avif" />
   </head>
 
   <body class="text-gray-800">
@@ -62,11 +65,22 @@ import Footer from '../components/Footer.astro';
 
       <section id="hero-hrubastavba" class="relative h-[52vh] w-full overflow-hidden text-white">
         <!-- Pozadie -->
-        <img src="/hruba-stavba/Image2.png"
-              alt="Hrubá stavba"
-                class="absolute inset-0 w-full h-full object-cover z-0 lg:translate-x-80 lg:-translate-y-5" />
-      
-        <!-- Overlay len na mobil/tablet -->
+        <img
+          src="/hruba-stavba/Hero.avif"
+          srcset="
+            /hruba-stavba/Hero-mobile.avif 768w,
+            /hruba-stavba/Hero.avif 1536w
+          "
+          sizes="(max-width: 768px) 100vw, 1536px"
+          width="1536"
+          height="800"
+          fetchpriority="high"
+          loading="eager"
+          alt="Hrubá stavba"
+          class="absolute inset-0 w-full h-full object-cover z-0 lg:ml-[25%] ml-0"
+        />
+          
+        
         <!-- Overlay len na mobil/tablet -->
         <div class="absolute inset-0 z-10 lg:hidden pointer-events-none">
           <!-- Zhora dolu tmavne -->
@@ -151,7 +165,7 @@ import Footer from '../components/Footer.astro';
         </div>
       </section>
       
-      <div id="bulldozer-wrapper" class="pointer-events-none fixed top-0 left-0 z-50 w-24 rotate-180">
+      <div id="bulldozer-wrapper" class="hidden 2xl:block pointer-events-none fixed top-0 left-0 z-50 w-24 rotate-180">
         <img id="bulldozer" src="/hruba-stavba/icons/buldozer.svg" alt="Buldozér" class="w-full" />
       </div>  
       
@@ -160,7 +174,7 @@ import Footer from '../components/Footer.astro';
         <div class="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-16 items-center">
           <!-- Left: Image -->
           <div class="relative">
-            <img src="/hruba-stavba/Image.jpg" alt="Hrubá stavba počas realizácie" class="rounded-3xl shadow-xl w-full object-cover" />
+            <img src="/hruba-stavba/Approach.avif" alt="Hrubá stavba počas realizácie" class="rounded-3xl shadow-xl w-full object-cover" />
             <div class="absolute bottom-[-20px] left-[-20px] w-16 h-16 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full blur-xl opacity-30"></div>
           </div>
       
@@ -277,7 +291,7 @@ import Footer from '../components/Footer.astro';
           </a>
       
           <!-- Optional: small reassurance note -->
-          <p class="text-sm text-gray-500 mt-4">
+          <p class="text-sm text-gray-300 mt-4">
             Cenová ponuka je nezáväzná a zdarma. Odpovieme vám do 2 pracovných dní.
           </p>
         </div>
@@ -535,7 +549,7 @@ import Footer from '../components/Footer.astro';
         start: "bottom bottom",
         endTrigger: section2,
         end: "bottom center",
-        scrub: 5,
+        scrub: 2,
       }
     });
 
@@ -545,28 +559,28 @@ import Footer from '../components/Footer.astro';
       filter: "drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))"
     });
     tl.to(bulldozer, {
-      y: () => section1.offsetHeight - 100,
+      y: () => section1.offsetHeight + section2.offsetHeight - 200,
     });
 
     // 2. Vpravo (tieň smerom doľava – svetlo sprava)
-    tl.set(bulldozer, {
-      rotate: 90,
-      filter: "drop-shadow(-10px 0 20px rgba(57, 196, 255, 0.4))"
-    });
-    tl.to(bulldozer, {
-      x: section1.offsetWidth - 300,
-      duration: 1,
-    });
+    // tl.set(bulldozer, {
+    //   rotate: 90,
+    //   filter: "drop-shadow(-10px 0 20px rgba(57, 196, 255, 0.4))"
+    // });
+    // tl.to(bulldozer, {
+    //   x: section1.offsetWidth,
+    //   duration: 1,
+    // });
 
     // 3. Znova dolu (tieň hore – svetlo zospodu)
-    tl.set(bulldozer, {
-      rotate: 180,
-      filter: "drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))"
-    });
-    tl.to(bulldozer, {
-      y: () => section1.offsetHeight + section2.offsetHeight - 200,
-      duration: 1,
-    });
+    // tl.set(bulldozer, {
+    //   rotate: 180,
+    //   filter: "drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))"
+    // });
+    // tl.to(bulldozer, {
+    //   y: () => section1.offsetHeight + section2.offsetHeight - 200,
+    //   duration: 1,
+    // });
   }
 </script>
 
