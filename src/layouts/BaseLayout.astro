@@ -1,6 +1,7 @@
 ---
 const { title } = Astro.props;
-const pathname = Astro.url.pathname;
+
+import '../../public/styles/stylesheet.css'
 ---
 
 <!DOCTYPE html>
@@ -8,26 +9,22 @@ const pathname = Astro.url.pathname;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title ? `${title} | Aurora Construction` : "Aurora Construction"}</title>
-
-    <!-- Fonts -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900&family=Oswald:wght@200..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Load only formsent chunk if we're on that page -->
-    {pathname === '/formsent' && (
-      <>
-        <link rel="preload" href="/_astro/formsent.BR7dNslN.css" as="style" />
-        <link rel="stylesheet" href="/_astro/formsent.BR7dNslN.css" media="print" onload="this.media='all'" />
-        <noscript><link rel="stylesheet" href="/_astro/formsent.BR7dNslN.css" /></noscript>
-      </>
-    )}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title ? `${title} | Aurora Construction` : "Aurora Construction"}</title>
   </head>
-  <body class="text-white">
+  <body class=" text-white">
     <slot />
   </body>
 </html>
+
+
