@@ -165,7 +165,7 @@ import Footer from '../components/Footer.astro';
       </section>
       
       <div id="bulldozer-wrapper" class="hidden 2xl:block pointer-events-none fixed top-0 left-0 z-50 w-24 rotate-180">
-        <img id="bulldozer" src="/hruba-stavba/icons/buldozer.svg" alt="Buldozér" class="w-full" />
+        <img id="bulldozer" src="/hruba-stavba/icons/buldozer.svg" alt="Buldozér" class="w-full" loading="lazy" fetchpriority="low" />
       </div>  
       
       <section id="our-approach" class="relative bg-[#191919] py-24 px-6 md:px-12 text-white overflow-hidden">
@@ -179,6 +179,7 @@ import Footer from '../components/Footer.astro';
               class="rounded-3xl shadow-xl w-full object-cover" 
               width="544"
               height="408"
+              loading="lazy"
             />
             <div class="absolute bottom-[-20px] left-[-20px] w-16 h-16 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full blur-xl opacity-30"></div>
           </div>
@@ -310,6 +311,8 @@ import Footer from '../components/Footer.astro';
             class="h-full object-cover opacity-50 blur-sm mx-auto" 
             width="1152"
             height="464"
+            loading="lazy"
+            fetchpriority="low"
           />
         </div>
       
