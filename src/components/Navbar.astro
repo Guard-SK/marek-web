@@ -53,31 +53,28 @@ const currentPage = Astro.url.pathname;
 
 <body class="relative overflow-x-hidden">
   <nav id="navbar" class="w-full fixed top-0 z-50">
-    <!-- 🗅 DESKTOP NAVBAR -->
+    <!-- DESKTOP NAVBAR -->
     <div class="hidden lg:flex h-20 px-12 items-center justify-between backdrop-blur bg-[#191919]/70 border-b border-white/10">
-      <!-- LEFT LINKS -->
       <div class="flex gap-10 text-white text-base font-medium">
         <a href="/" class={`nav-link ${currentPage === '/' ? 'nav-active' : ''}`}>Domov</a>
         <a href="/hruba-stavba" class={`nav-link ${currentPage === '/hruba-stavba' ? 'nav-active' : ''}`}>Hrubá stavba</a>
       </div>
 
-      <!-- LOGO CENTER -->
       <div class="relative z-10">
         <img src="/favicon.svg" alt="Logo" class="w-12 hover:scale-105 transition duration-300" width="48" height="48" />
         <div class="absolute inset-0 w-full h-full rounded-full blur-2xl bg-gradient-radial from-[#63ffd3]/20 to-transparent animate-pulse -z-10"></div>
       </div>
 
-      <!-- RIGHT LINKS -->
       <div class="flex gap-10 text-white text-base font-medium">
         <a href="/strechy" class={`nav-link ${currentPage === '/strechy' ? 'nav-active' : ''}`}>Strechy</a>
         <a href="/elektrika" class={`nav-link ${currentPage === '/elektrika' ? 'nav-active' : ''}`}>Elektrika</a>
       </div>
     </div>
 
-    <!-- 📱 MOBILNÝ NAVBAR -->
-    <div class="lg:hidden bg-[#191919] shadow-md flex justify-between items-center backdrop-blur bg-[#191919]/90 border-b border-white/5 h-16 px-4">
+    <!-- MOBILE NAVBAR -->
+    <div class="lg:hidden bg-[#191919] shadow-md flex justify-between items-center backdrop-blur bg-[#191919]/70 border-b border-white/10 h-16 px-4">
       <div class="flex-1 flex justify-center">
-        <img id="nav-logo" src="/favicon.svg" alt="Aurora Construction Logo" class="w-12" width="48" height="48" />
+        <img id="nav-logo" src="/favicon.svg" alt="Aurora Construction Logo" class="w-12 ml-[14px]" width="48" height="48" />
       </div>
       <div>
         <button id="hamburger" aria-label="Toggle menu" class="flex flex-col justify-center items-center gap-1 w-7 h-7">
@@ -89,7 +86,7 @@ const currentPage = Astro.url.pathname;
     </div>
   </nav>
 
-  <!-- Full screen overlay -->
+  <!-- Mobile overlay -->
   <div id="mobile-menu-overlay" class="fixed inset-0 bg-[#191919] flex flex-col items-center justify-start pt-20 space-y-8 opacity-0 pointer-events-none z-40">
     <div id="nav-links" class="flex flex-col items-center space-y-10 text-3xl text-white opacity-0">
       <a href="/" class={`nav-link ${currentPage === '/' ? 'nav-active' : ''}`}>Domov</a>
