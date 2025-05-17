@@ -34,4 +34,3 @@ export function animateServices() {
 
   ScrollTrigger.refresh();
 }
-113
