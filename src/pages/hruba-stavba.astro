@@ -2,6 +2,7 @@
 import Navbar from '../components/Global/Navbar.astro';
 import Contact from '../components/Global/Contact.astro';
 import Footer from '../components/Global/Footer.astro';
+import Map from '../components/Global/Map.astro';
 ---
 
 <html lang="sk">
@@ -9,8 +10,8 @@ import Footer from '../components/Global/Footer.astro';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Hrubá stavba | Aurora Construction</title>
-    <meta name="description" content="Hrubá stavba v Bratislave, Trnavskom kraji a okolí – spoľahlivá výstavba základov, múrov a strešných konštrukcií.">
+    <title>Hrubá stavba | Bratislava Trnava a okolie | Aurora Construction</title>
+    <meta name="description" content="Hrubá stavba v Bratislave, Trnavskom kraji a okolí – spoľahlivá výstavba základov, múrov a strešných konštrukcií presne podľa vašich predstáv." />
 
     <link rel="preload" href="/styles/stylesheet.css" as="style">
     <link rel="stylesheet" href="/styles/stylesheet.css" media="print" onload="this.media='all'">
@@ -302,44 +303,8 @@ import Footer from '../components/Global/Footer.astro';
           </p>
         </div>
       </section>
-      
-      <section id="coverage" class="relative py-24 my-24 px-6 md:px-12 bg-[#191919] text-white overflow-hidden">
-        <!-- 🔽 Background mapa -->
-        <div class="absolute inset-0 z-0">
-          <img src="/map.avif"
-            alt="Mapa pozadia"
-            class="h-full object-cover opacity-50 blur-sm mx-auto" 
-            width="1152"
-            height="464"
-            loading="lazy"
-            fetchpriority="low"
-          />
-        </div>
-      
-        <!-- 🔼 Obsah -->
-        <div class="max-w-6xl mx-auto relative z-10">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6" id="coverage-title">Pôsobíme tam, kde nás potrebujete</h2>
-            <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto" id="coverage-desc">
-              Hrubé stavby realizujeme najmä v <strong>Bratislavskom a Trnavskom kraji</strong>, no vieme pokryť aj širšie okolie.
-            </p>
-          </div>
-      
-          <!-- Grid miest -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center text-lg font-medium">
-            <div class="text-[#63ffd3]">Bratislava</div>
-            <div class="text-[#39c4ff]">Senec</div>
-            <div class="text-[#63ffd3]">Pezinok</div>
-            <div class="text-[#39c4ff]">Malacky</div>
-            <div class="text-[#63ffd3]">Trnava</div>
-            <div class="text-[#39c4ff]">Hlohovec</div>
-            <div class="text-[#63ffd3]">Modra</div>
-            <div class="text-[#39c4ff]">Šamorín</div>
-          </div>
-        </div>
-      </section>
-      
-      
+
+      <Map />
 
       <!-- CTA -->
       <Contact />
@@ -480,44 +445,6 @@ import Footer from '../components/Global/Footer.astro';
       start: "top 90%",
     }
   });
-
-  // Coverage section
-  gsap.from("#coverage-title", {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#coverage-title",
-      start: "top 85%",
-    }
-  });
-
-  gsap.from("#coverage-desc", {
-    y: 30,
-    opacity: 0,
-    delay: 0.2,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#coverage-desc",
-      start: "top 85%",
-    }
-  });
-
-  gsap.utils.toArray("#coverage .grid > div").forEach((el, i) => {
-    const element = el as HTMLElement;
-
-    gsap.from(element, {
-      y: 20,
-      opacity: 0,
-      delay: 0.05 * i,
-      duration: 0.6,
-      scrollTrigger: {
-        trigger: element,
-        start: "top 90%",
-      }
-    });
-  });
-
 
   // Process section
   gsap.utils.toArray("#process .md\\:w-1\\/5").forEach((el, i) => {

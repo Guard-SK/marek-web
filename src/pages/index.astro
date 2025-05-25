@@ -5,6 +5,7 @@ import Services from '../components/Home/Services.astro'
 import Contact from '../components/Global/Contact.astro'
 import Footer from '../components/Global/Footer.astro'
 import Navbar from '../components/Global/Navbar.astro'
+import Map from '../components/Global/Map.astro'
 ---
 
 <!DOCTYPE html>
@@ -126,11 +127,15 @@ import Navbar from '../components/Global/Navbar.astro'
   
 
   <body>
-    <div id="main-content">
+    <div id="main-content relative">
+      <div class="absolute top-[-5%] left-[-15%] w-[800px] h-[800px]
+      bg-gradient-radial from-[#63ffd3]/30 via-[#39c4ff]/10 to-transparent
+      blur-[180px] z-10 pointer-events-none lg:block hidden"></div>
       <Navbar />
       <Hero />
       <About />
       <Services />
+      <Map />
       <Contact />
       <Footer />
     </div>

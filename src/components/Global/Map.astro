@@ -1,0 +1,98 @@
+<!-- DOROBIT AKO KOMPONENT -->
+
+<section id="coverage" class="relative py-24 my-24 px-6 md:px-12 bg-[#191919] text-white overflow-hidden">
+    <!-- 🔽 Background map for lg and up -->
+    <div class="absolute inset-0 z-0 hidden lg:block">
+        <img
+        src="/map.avif"
+        alt="Mapa Bratislavského a Trnavského kraja"
+        class="h-full object-cover opacity-50 blur-sm mx-auto"
+        width="1152"
+        height="464"
+        loading="lazy"
+        fetchpriority="low"
+        />
+    </div>
+
+    <!-- 🔼 Content -->
+    <div class="max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6" id="coverage-title">
+            Pôsobíme v Bratislavskom a Trnavskom kraji
+        </h2>
+        <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto" id="coverage-desc">
+            Zameriavame sa na výstavbu a elektroinštalácie v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup.
+        </p>
+        </div>
+
+        <!-- Výhody regiónu -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-16" id="coverage-benefits">
+        <div class="p-4 bg-[#1f1f1f] rounded-xl" data-benefit>
+            <p class="text-xl font-semibold text-[#63ffd3] mb-2">Lokalita</p>
+            <p class="text-sm text-gray-400">Bratislava a okolie sú našou základňou – vieme rýchlo reagovať a plánovať.</p>
+        </div>
+        <div class="p-4 bg-[#1f1f1f] rounded-xl" data-benefit>
+            <p class="text-xl font-semibold text-[#39c4ff] mb-2">Dostupnosť</p>
+            <p class="text-sm text-gray-400">Bezproblémová dostupnosť na všetky staveniská v kraji šetrí váš čas aj náklady.</p>
+        </div>
+        <div class="p-4 bg-[#1f1f1f] rounded-xl" data-benefit>
+            <p class="text-xl font-semibold text-[#63ffd3] mb-2">Znalosť terénu</p>
+            <p class="text-sm text-gray-400">Poznáme miestne regulácie, stavebné normy aj spoľahlivých dodávateľov.</p>
+        </div>
+        <div class="p-4 bg-[#1f1f1f] rounded-xl" data-benefit>
+            <p class="text-xl font-semibold text-[#39c4ff] mb-2">Efektivita</p>
+            <p class="text-sm text-gray-400">Naša pôsobnosť je sústredená – preto dokážeme pracovať rýchlo a kvalitne.</p>
+        </div>
+        </div>
+
+        <!-- 🔽 Map below text for mobile -->
+        <img
+        src="/map.avif"
+        alt="Mapa Bratislavského a Trnavského kraja"
+        class="block lg:hidden w-full max-w-4xl mx-auto opacity-80 rounded-xl"
+        loading="lazy"
+        fetchpriority="low"
+        />
+    </div>
+</section>
+
+<script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from("#coverage-title", {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+        trigger: "#coverage-title",
+        start: "top 85%",
+    }
+});
+
+gsap.from("#coverage-desc", {
+    y: 30,
+    opacity: 0,
+    delay: 0.2,
+    duration: 1,
+    scrollTrigger: {
+        trigger: "#coverage-desc",
+        start: "top 85%",
+    }
+});
+
+gsap.utils.toArray("[data-benefit]").forEach((el, i) => {
+    gsap.from(el, {
+    y: 20,
+    opacity: 0,
+    delay: i * 0.1,
+    duration: 0.6,
+    scrollTrigger: {
+        trigger: el,
+        start: "top 90%",
+    }
+    });
+});
+</script>
+  

@@ -1,262 +1,57 @@
-<head>
-  <style>
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 55vh;
-      overflow: hidden;
-      display: flex;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 56vh;
-      background: linear-gradient(to top, #191919, rgba(0, 0, 0, 0.555) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .hero-image {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* important for <img> */
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      z-index: 0;
-    }
-    .hero-image.active {
-      opacity: 1;
-      z-index: 0;
-    }
-    .hero-buttons {
-      position: absolute;
-      bottom: 15%;
-      left: 5%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      z-index: 2;
-    }
-    .hero-buttons h1 {
-      font-family: "Roboto Condensed", serif;
-    }
-    .hero-button {
-      width: clamp(160px, 5vw, 200px);
-      height: clamp(60px, 5vw, 80px);
-      background-color: #1e1e1e;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.3s ease;
-      color: rgba(0, 0, 0, 0.8);
-    }
-    .hero-button a {
-      width: clamp(160px, 5vw, 200px);
-      height: clamp(60px, 5vw, 80px);
-    }
-    .hero-button:hover,
-    .hero-button.active {
-      background-color: #121212;
-      color: black;
-      transform: scale(1.1);
-    }
-    .hero-button2.active {
-      transform: scale(1);
-    }
-    .shadow-text {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    }
-    .text-white {
-      color: white;
-    }
-    .text-5xl {
-      font-size: clamp(4.5rem, 5vw, 9rem);
-    }
-    .font-bold {
-      font-weight: bold;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        height: 50vh;
-      }
-      .hero-buttons {
-        bottom: 25%;
-        left: 10%;
-        gap: 12px;
-      }
-      .hero-button {
-        width: clamp(120px, 5vw, 200px);
-        height: clamp(50px, 5vw, 80px);
-        border-radius: 12px;
-      }
-      .hero-button a {
-        width: 140px;
-        height: 60px;
-      }
-      .hero-button a {
-        font-size: 14px;
-        font-weight: 600;
-      }
-      .text-5xl {
-        font-size: clamp(4rem, 5vw, 9rem);
-      }
-      .logo {
-        font-size: 1.75rem;
-        width: 3rem;
-        height: 3rem;
-      }
-    }
-
-    @media (max-width: 575px) {
-      .hero {
-        height: 40vh;
-      }
-      .hero-buttons {
-        bottom: 25%;
-        left: 5%;
-        gap: 8px;
-      }
-      .hero-button {
-        width: clamp(100px, 5vw, 140px);
-        height: clamp(40px, 5vw, 80px);
-        border-radius: 8px;
-      }
-      .hero-button a {
-        width: clamp(100px, 5vw, 140px);
-        height: clamp(40px, 5vw, 80px);
-      }
-      .hero-button a {
-        font-size: 13px;
-        font-weight: 600;
-      }
-      .text-5xl {
-        font-size: clamp(3rem, 5vw, 9rem);
-      }
-      .logo {
-        font-size: 1.5rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        right: 7%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="hero">
-    <div class="logo flex flex-col items-left text-4xl absolute right-[5%] w-16 h-16 z-10 top-[5%]">
-    </div>
-    <div class="hero-images">
-      <img
-        src="/HrubeStavbyHero.avif"
-        alt="Stavba žiariaca eleganciou"
-        class="hero-image active"
-        decoding="async"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <div class="hero-image" style="background-image: url('/RoofHero.avif');"></div>
-      <div class="hero-image" style="background-image: url('/OtherHeroCard.avif');"></div>
-    </div>
-    <div class="hero-buttons">
-      <h2 class="text-white gradient-text text-5xl pb-2 mb-2 font-extrabold"><span class="gradient-text-1 upp">Stavby žiariace </span><br><span class="gradient-text-2">eleganciou</span></h2>
-      <div class="flex-row flex gap-6">
-        <div class="hero-button" data-index="0">
-          <a href="#hruba-stavba" class="font-semibold text-xl gradient-button-1 content-center">Hrubá stavba</a>
-        </div>
-        <div class="hero-button" data-index="1">
-          <a href="#strechy" class="font-semibold gradient-button-2 text-xl content-center">Strechy</a>
-        </div>
-        <div class="hero-button" data-index="2">
-          <a href="#dalsie-prace" class="font-semibold gradient-button-3 text-xl content-center">Ďalšie práce</a>
-        </div>
+<section id="hero-home" class="relative overflow-hidden bg-[hsl(0,0%,4%)] text-white flex flex-col lg:flex-row items-center lg:items-end h-auto lg:h-[60vh]">
+  <!-- Flex Container with Text -->
+  <div class="w-full mx-auto px-6 md:px-12 pt-28 pb-10 lg:pt-32 lg:pb-24 flex flex-col lg:flex-row items-center lg:items-end justify-between gap-12 lg:h-full relative z-10">
+    
+    <!-- Text Block -->
+    <div class="text-center lg:text-left w-full lg:min-w-[400px] max-w-xl z-10 flex-shrink-0">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight">
+        Spoľahlivá stavebná firma
+      </h1>
+      <p class="text-gray-300 text-base xl:text-lg mt-6">
+        Ponúkame konštrukčné riešenia na mieru v Bratislavskom a Trnavskom kraji – od základov až po elektroinštalácie.
+      </p>
+      <div class="flex flex-wrap justify-center lg:justify-start gap-2 xl:gap-4 mt-10">
+        <a href="/hruba-stavba" class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md hover:opacity-90 transition">
+          Hrubé stavby
+        </a>
+        <a href="/strechy" class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md hover:opacity-90 transition">
+          Strechy
+        </a>
+        <a href="/elektrika" class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md hover:opacity-90 transition">
+          Elektrika
+        </a>             
       </div>
     </div>
   </div>
-  <script>
-    const heroImages = document.querySelectorAll('.hero-image');
-    const buttons = document.querySelectorAll('.hero-button');
 
-    let currentIndex: number = 0;
-    let interval: number | undefined;
+  <!-- Image wrapper -->
+  <div class="relative w-full h-auto lg:h-[80%] overflow-hidden pointer-events-none z-10">
+    <img
+      src="/HeroSectionCropped.png"
+      alt="Dvaja pracovníci pri výstavbe hrubej stavby"
+      class="w-full lg:w-auto h-auto lg:h-full object-contain max-w-none"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
 
-    const updateHero = (index: number) => {
-      heroImages.forEach((img, idx) => {
-        img.classList.toggle('active', idx === index);
-      });
-      buttons.forEach((btn, idx) => {
-        btn.classList.toggle('active', idx === index);
-      });
-    };
+  <!-- Bottom fade only on lg and above -->
+  <div class="block absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#191919] z-10 pointer-events-none"></div>
 
-    const startCarousel = () => {
-      if (interval) clearInterval(interval);
-      interval = setInterval(() => {
-        requestAnimationFrame(() => {
-          currentIndex = (currentIndex + 1) % heroImages.length;
-          updateHero(currentIndex);
-        });
-      }, 5000);
-    };
+  <!-- Glow (responsive brightness and size) -->
+  <div id="glow-effect" class="opacity-0 pointer-events-none transition-opacity duration-700 absolute bottom-0 right-0 w-[550px] h-[550px] blur-[80px] from-[#63ffd3]/35 via-[#39c4ff]/10 to-transparent lg:w-[800px] lg:h-[800px] lg:blur-[100px] lg:from-[#63ffd3]/50 lg:via-[#39c4ff]/20 bg-gradient-radial z-0"></div>
+</section>
 
-    const initializeCarousel = () => {
-      updateHero(currentIndex);
-      setTimeout(() => {
-        startCarousel();
-      }, 3000);
-    };
+<script>
+  import gsap from 'gsap';
 
-    initializeCarousel();
-
-
-    buttons.forEach((button) => {
-      const btn = button as HTMLButtonElement;
-      btn.addEventListener('mouseover', () => {
-        clearInterval(interval);
-        currentIndex = parseInt(btn.dataset.index || '0', 10);
-        updateHero(currentIndex);
-      });
-
-      btn.addEventListener('mouseout', startCarousel);
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-    const buttons = [
-      { selector: '.hero-button[data-index="0"]', target: '#hruba-stavba' },
-      { selector: '.hero-button[data-index="1"]', target: '#strechy' },
-      { selector: '.hero-button[data-index="2"]', target: '#dalsie-prace' }
-    ];
-
-    buttons.forEach(({ selector, target }) => {
-      const button = document.querySelector(selector);
-      if (button) {
-        button.addEventListener('click', () => {
-          const targetSection = document.querySelector(target);
-          if (targetSection) {
-            document.dispatchEvent(new CustomEvent('buttonScrollStart'));
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => {
-              document.dispatchEvent(new CustomEvent('buttonScrollEnd'));
-            }, 1000);
-          }
-        });
-      }
+  window.addEventListener("load", () => {
+    // Wait ~500ms to allow LCP to settle
+    gsap.to("#glow-effect", {
+      opacity: 1,
+      duration: 0,
+      delay: 0.5,
+      ease: "power2.out"
     });
   });
-
-  updateHero(currentIndex);
-  startCarousel();
-
-  </script>
-</body>
+</script>
