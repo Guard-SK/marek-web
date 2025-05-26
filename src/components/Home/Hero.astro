@@ -32,6 +32,8 @@
       class="w-full lg:w-auto h-auto lg:h-full object-contain max-w-none"
       loading="eager"
       fetchpriority="high"
+      width="913"
+      height="445"
     />
   </div>
 
@@ -39,7 +41,7 @@
   <div class="block absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#191919] z-10 pointer-events-none"></div>
 
   <!-- Glow (responsive brightness and size) -->
-  <div id="glow-effect" class="opacity-0 pointer-events-none transition-opacity duration-700 absolute bottom-0 right-0 w-[550px] h-[550px] blur-[80px] from-[#63ffd3]/35 via-[#39c4ff]/10 to-transparent lg:w-[800px] lg:h-[800px] lg:blur-[100px] lg:from-[#63ffd3]/50 lg:via-[#39c4ff]/20 bg-gradient-radial z-0"></div>
+  <div id="glow-effect" class="opacity-0 pointer-events-none absolute bottom-0 right-0 w-[550px] h-[550px] blur-[80px] from-[#63ffd3]/35 via-[#39c4ff]/10 to-transparent lg:w-[800px] lg:h-[800px] lg:blur-[100px] lg:from-[#63ffd3]/50 lg:via-[#39c4ff]/20 bg-gradient-radial z-0"></div>
 </section>
 
 <script>
@@ -49,9 +51,9 @@
     // Wait ~500ms to allow LCP to settle
     gsap.to("#glow-effect", {
       opacity: 1,
-      duration: 0,
+      duration: 3, // Further increase duration for a longer reveal
       delay: 0.5,
-      ease: "power2.out"
+      ease: "power2.inOut" // Use a smoother easing function
     });
   });
 </script>
