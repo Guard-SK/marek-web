@@ -1,32 +1,25 @@
-<!-- DOROBIT AKO KOMPONENT -->
+---
+// Map.astro
+export interface Props {
+    title: string;
+    description: string;
+}
 
-<section id="coverage" class="relative py-24 my-24 px-6 md:px-12 bg-[#191919] text-white overflow-hidden">
-    <!-- 🔽 Background map for lg and up -->
-    <div class="absolute inset-0 z-0 hidden lg:block">
-        <img
-        src="/map.avif"
-        alt="Mapa Bratislavského a Trnavského kraja"
-        class="h-full object-cover opacity-50 blur-sm mx-auto"
-        width="1152"
-        height="464"
-        loading="lazy"
-        fetchpriority="low"
-        />
-    </div>
+const { title, description } = Astro.props;
+---
 
-    <!-- 🔼 Content -->
+<section id="coverage" class="relative w-full py-14 px-6 md:px-12 bg-[#191919] text-white overflow-hidden">
     <div class="max-w-6xl mx-auto relative z-10">
-        <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold mb-6" id="coverage-title">
-            Pôsobíme v Bratislavskom a Trnavskom kraji
+        <div class="text-center mb-8">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4" id="coverage-title">
+            {title}
         </h2>
         <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto" id="coverage-desc">
-            Zameriavame sa na výstavbu a elektroinštalácie v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup.
+            {description}
         </p>
         </div>
 
-        <!-- Výhody regiónu -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-16" id="coverage-benefits">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-4" id="coverage-benefits">
         <div class="p-4 bg-[#1f1f1f] rounded-xl" data-benefit>
             <p class="text-xl font-semibold text-[#63ffd3] mb-2">Lokalita</p>
             <p class="text-sm text-gray-400">Bratislava a okolie sú našou základňou – vieme rýchlo reagovať a plánovať.</p>
@@ -45,13 +38,12 @@
         </div>
         </div>
 
-        <!-- 🔽 Map below text for mobile -->
         <img
-        src="/map.avif"
-        alt="Mapa Bratislavského a Trnavského kraja"
-        class="block lg:hidden w-full max-w-4xl mx-auto opacity-80 rounded-xl"
-        loading="lazy"
-        fetchpriority="low"
+            src="/map.avif"
+            alt="Mapa Bratislavského a Trnavského kraja"
+            class="block  w-full max-w-4xl mx-auto opacity-80 rounded-xl"
+            loading="lazy"
+            fetchpriority="low"
         />
     </div>
 </section>
@@ -83,16 +75,15 @@ gsap.from("#coverage-desc", {
 });
 
 gsap.utils.toArray("[data-benefit]").forEach((el, i) => {
-    gsap.from(el, {
+    gsap.from(el as Element, {
     y: 20,
     opacity: 0,
     delay: i * 0.1,
     duration: 0.6,
     scrollTrigger: {
-        trigger: el,
+        trigger: el as Element,
         start: "top 90%",
-    }
+}
     });
 });
 </script>
-  
