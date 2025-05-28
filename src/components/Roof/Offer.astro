@@ -1,0 +1,45 @@
+---
+// src/components/Roof/RoofOffer.astro
+---
+<section id="offer" class="relative bg-[url('/RoofCard.avif')] bg-cover bg-center">
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#191919]/80 via-[#191919]/40 to-transparent"></div>
+
+  <div class="relative max-w-6xl mx-auto py-24 px-6 lg:px-0 text-white">
+    <!-- Heading -->
+    <h2 class="text-4xl md:text-5xl font-bold gradient-text-2 text-center">
+      Naša ponuka zahŕňa
+    </h2>
+    <p class="mt-4 text-center text-gray-300 text-lg max-w-2xl mx-auto">
+      Kompletné strešné služby od montáže krovu až po pokládku krytiny. Špecializujeme sa na tradičné riešenia s dôrazom na kvalitu.
+    </p>
+
+    <!-- Services List -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Item 1 -->
+      <div class="bg-[#1f1f1f]/70 p-6 rounded-2xl flex flex-col items-start gap-4 hover:bg-[#63ffd3]/10 transition">
+        <img src="/icons/other-ic1.svg" alt="Spoľahlivosť a precíznosť" class="w-12 h-12" loading="eager" />
+        <h3 class="text-2xl font-semibold">Spoľahlivosť a precíznosť</h3>
+        <p class="text-gray-300 text-base">Každý krov a krytina sú inštalované s maximálnou starostlivosťou.</p>
+      </div>
+      <!-- Item 2 -->
+      <div class="bg-[#1f1f1f]/70 p-6 rounded-2xl flex flex-col items-start gap-4 hover:bg-[#63ffd3]/10 transition">
+        <img src="/icons/other-ic2.svg" alt="Odborné poradenstvo" class="w-12 h-12" loading="eager" />
+        <h3 class="text-2xl font-semibold">Odborné poradenstvo</h3>
+        <p class="text-gray-300 text-base">Pomôžeme vám vybrať najlepšie riešenie podľa vášho rozpočtu a potrieb.</p>
+      </div>
+      <!-- Item 3 -->
+      <div class="bg-[#1f1f1f]/70 p-6 rounded-2xl flex flex-col items-start gap-4 hover:bg-[#63ffd3]/10 transition">
+        <img src="/icons/hrube-ic1.svg" alt="Dlhodobá ochrana" class="w-12 h-12" loading="eager" />
+        <h3 class="text-2xl font-semibold">Dlhodobá ochrana</h3>
+        <p class="text-gray-300 text-base">Používame iba osvedčené a certifikované materiály pre čo najlepšiu životnosť vašej strechy.</p>
+      </div>
+      <!-- Item 4 -->
+      <div class="bg-[#1f1f1f]/70 p-6 rounded-2xl flex flex-col items-start gap-4 opacity-50">
+        <img src="/icons/other-ic3.svg" alt="Pultové strechy nevykonávame" class="w-12 h-12" loading="eager" />
+        <h3 class="text-2xl font-semibold text-gray-500">Pultové strechy nevykonávame</h3>
+        <p class="text-gray-500 text-base">Špecializujeme sa na tradičné riešenia s vyššou stabilitou a estetikou.</p>
+      </div>
+    </div>
+  </div>
+</section>

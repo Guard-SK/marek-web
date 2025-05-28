@@ -52,4 +52,52 @@
 
     <section class="img_about rounded-lg w-full md:w-1/3 h-64 md:h-full shadow-lg md:my-6 my-0 bg-white"></section>
   </article>
+
+  <style>
+    article.container h3,
+    article.container h2,
+    article.container p,
+    article.container .shadow-lg,
+    .img_about {
+      opacity: 0;
+      transform: translateY(20px);
+      will-change: opacity, transform;
+    }
+  </style>
+
+  <script>
+    import gsap from 'gsap';
+    import ScrollTrigger from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1) Trigger when About comes into view
+    ScrollTrigger.create({
+      trigger: "article.container",
+      start: "top 90%",
+      once: true,
+      onEnter: () => {
+        const tl2 = gsap.timeline({ defaults: { duration: 0.7, ease: "power2.out" } });
+
+        // a) Small title
+        tl2.to("article.container h3", { opacity: 1, y: 0 });
+
+        // b) Big heading
+        tl2.to("article.container h2", { opacity: 1, y: 0 }, "-=0.4");
+
+        // c) Paragraph copy
+        tl2.to("article.container p", { opacity: 1, y: 0 }, "-=0.4");
+
+        // d) The three info cards
+        tl2.to(
+          "article.container section:first-child .shadow-lg",
+          { opacity: 1, y: 0, stagger: 0.15, duration: 0.6 },
+          "-=0.3"
+        );
+
+        // e) Side image
+        tl2.to(".img_about", { opacity: 1, y: 0, duration: 1 }, "-=0.4");
+      }
+    });
+
+  </script>
 </html>
