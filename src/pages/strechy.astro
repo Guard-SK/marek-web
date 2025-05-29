@@ -269,10 +269,11 @@ import Map from '../components/Global/Map.astro';
           document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
               const item = btn.parentElement;
+              if (!item) return;
               const answer = item.querySelector('.faq-answer');
               const icon = btn.querySelector('.faq-icon');
-              answer.classList.toggle('hidden');
-              icon.classList.toggle('rotate-180');
+              if (answer) answer.classList.toggle('hidden');
+              if (icon) icon.classList.toggle('rotate-180');
             });
           });
         </script>
@@ -325,7 +326,7 @@ import Map from '../components/Global/Map.astro';
     // Process animations
     gsap.to('#process-heading', { y: 0, opacity: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: '#process-heading', start: "top 90%" } });
     gsap.utils.toArray(['#step-1','#step-2','#step-3','#step-4','#step-5']).forEach((sel,i) => {
-      gsap.to(sel, { y: 0, opacity: 1, delay: 0.1*i, duration: 1, ease: "power3.out", scrollTrigger: { trigger: sel, start: "top 80%" } });
+      gsap.to(sel as string, { y: 0, opacity: 1, delay: 0.1*i, duration: 1, ease: "power3.out", scrollTrigger: { trigger: sel as string, start: "top 80%" } });
     });
     gsap.fromTo(".timeline-gradient-line", { width: 0 }, { width: "100%", duration: 1.5, ease: "power2.out", scrollTrigger: { trigger: "#process", start: "top 40%" } });
 
