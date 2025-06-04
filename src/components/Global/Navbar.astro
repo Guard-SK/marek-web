@@ -1,177 +1,188 @@
 ---
 const currentPage = Astro.url.pathname;
 ---
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurora Construction</title>
+    <style>
+      /* ─────────── Navigačné linky: underline efekt ─────────── */
+      .nav-active::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, #63ffd3, #39c4ff);
+        margin-top: 4px;
+        transition: width 0.3s;
+      }
 
-<head>
-  <style>
-    .nav-active::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, #63ffd3, #39c4ff);
-      margin-top: 4px;
-      transition: width 0.3s;
-    }
+      .nav-link {
+        position: relative;
+      }
 
-    .nav-link {
-      position: relative;
-    }
+      .nav-link::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #63ffd3, #39c4ff);
+        transition: width 0.3s;
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+      }
 
-    .nav-link::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(to right, #63ffd3, #39c4ff);
-      transition: width 0.3s;
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-    }
+      .nav-link:hover::after,
+      .nav-link.nav-active::after {
+        width: 100%;
+      }
 
-    .nav-link:hover::after,
-    .nav-link.nav-active::after {
-      width: 100%;
-    }
+      /* ─────────── Hamburger ikona: animácie ─────────── */
+      .hamburger-line {
+        transition: all 0.4s ease;
+      }
+      .line-1.open {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .line-2.open {
+        opacity: 0;
+      }
+      .line-3.open {
+        transform: translateY(-6px) rotate(-45deg);
+      }
 
-    .hamburger-line {
-      transition: all 0.4s ease;
-    }
+      /* ─────────── Popup slide-down animácia ─────────── */
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .animate-slideDown {
+        animation: slideDown 0.3s ease-out;
+      }
+    </style>
+  </head>
 
-    .line-1.open {
-      transform: translateY(6px) rotate(45deg);
-    }
-    .line-2.open {
-      opacity: 0;
-    }
-    .line-3.open {
-      transform: translateY(-6px) rotate(-45deg);
-    }
-  </style>
-</head>
+  <body class="relative overflow-x-hidden">
+    <nav id="navbar" class="w-full fixed top-0 z-50">
+      <!-- DESKTOP NAVBAR -->
+      <div class="hidden lg:flex h-20 px-12 items-center justify-between backdrop-blur bg-[#191919]/70 border-b border-white/10">
+        <div class="flex gap-10 text-white text-base font-medium">
+          <a href="/" class={`nav-link ${currentPage === '/' ? 'nav-active' : ''}`}>Domov</a>
+          <a href="/hruba-stavba" class={`nav-link ${currentPage === '/hruba-stavba' ? 'nav-active' : ''}`}>Hrubá stavba</a>
+        </div>
 
-<body class="relative overflow-x-hidden">
-  <nav id="navbar" class="w-full fixed top-0 z-50">
-    <!-- DESKTOP NAVBAR -->
-    <div class="hidden lg:flex h-20 px-12 items-center justify-between backdrop-blur bg-[#191919]/70 border-b border-white/10">
-      <div class="flex gap-10 text-white text-base font-medium">
+        <div class="relative z-10">
+          <img src="/favicon.svg" alt="Logo" class="w-12 hover:scale-105 transition duration-300" width="48" height="48" />
+          <div class="absolute inset-0 w-full h-full rounded-full blur-2xl bg-gradient-radial from-[#63ffd3]/20 to-transparent animate-pulse -z-10"></div>
+        </div>
+
+        <div class="flex gap-10 text-white text-base font-medium">
+          <a href="/strechy" class={`nav-link ${currentPage === '/strechy' ? 'nav-active' : ''}`}>Strechy</a>
+
+          <!-- Elektrika tlačidlo (desktop) -->
+          <button
+            id="elektrika-button"
+            class="text-gray-400 cursor-pointer focus:outline-none"
+            aria-haspopup="dialog"
+            aria-controls="elektrika-popup"
+          >
+            Elektrika
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE NAVBAR (nezmenené) -->
+      <div class="lg:hidden bg-[#191919] shadow-md flex justify-between items-center backdrop-blur bg-[#191919]/70 border-b border-white/10 h-16 px-4">
+        <div class="flex-1 flex justify-center">
+          <a href="/">
+            <img id="nav-logo" src="/favicon.svg" alt="Aurora Construction Logo" class="w-12 ml-[14px]" width="48" height="48" />
+          </a>
+        </div>
+        <div>
+          <button id="hamburger" aria-label="Toggle menu" class="flex flex-col justify-center items-center gap-1 w-7 h-7">
+            <span class="hamburger-line line-1 w-full h-0.5 bg-white"></span>
+            <span class="hamburger-line line-2 w-full h-0.5 bg-white"></span>
+            <span class="hamburger-line line-3 w-full h-0.5 bg-white"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Elektrika Popup -->
+    <div
+      id="elektrika-popup"
+      class="fixed inset-0 z-50 hidden flex justify-center items-start"
+    >
+      <div
+        class="mt-24 bg-[#1f1f1f]/40 backdrop-blur-md border border-white/10 rounded-xl shadow-lg max-w-sm mx-4 animate-slideDown relative"
+      >
+        <!-- Zatváracie tlačidlo -->
+        <button
+          id="elektrika-close"
+          class="absolute top-2 right-2 text-white hover:text-gray-300 text-2xl leading-none focus:outline-none"
+          aria-label="Zavrieť upozornenie"
+        >
+          &times;
+        </button>
+
+        <!-- Obsah popupu -->
+        <div class="p-4 text-white text-sm">
+          Pripravujeme expanziu našich služieb, táto služba je dočasne nedostupná
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- MOBILE MENU OVERLAY (nezmenené) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-[#191919] flex flex-col items-center justify-start pt-20 space-y-8 opacity-0 pointer-events-none z-40">
+      <div id="nav-links" class="flex flex-col items-center space-y-10 text-3xl text-white opacity-0">
         <a href="/" class={`nav-link ${currentPage === '/' ? 'nav-active' : ''}`}>Domov</a>
         <a href="/hruba-stavba" class={`nav-link ${currentPage === '/hruba-stavba' ? 'nav-active' : ''}`}>Hrubá stavba</a>
-      </div>
-
-      <div class="relative z-10">
-        <img src="/favicon.svg" alt="Logo" class="w-12 hover:scale-105 transition duration-300" width="48" height="48" />
-        <div class="absolute inset-0 w-full h-full rounded-full blur-2xl bg-gradient-radial from-[#63ffd3]/20 to-transparent animate-pulse -z-10"></div>
-      </div>
-
-      <div class="flex gap-10 text-white text-base font-medium">
         <a href="/strechy" class={`nav-link ${currentPage === '/strechy' ? 'nav-active' : ''}`}>Strechy</a>
-        <a href="/elektrika" class={`nav-link ${currentPage === '/elektrika' ? 'nav-active' : ''}`}>Elektrika</a>
+        <a href="/elektrika" class="text-gray-400">Elektrika</a>
       </div>
     </div>
 
-    <!-- MOBILE NAVBAR -->
-    <div class="lg:hidden bg-[#191919] shadow-md flex justify-between items-center backdrop-blur bg-[#191919]/70 border-b border-white/10 h-16 px-4">
-      <div class="flex-1 flex justify-center">
-        <a href="/">
-          <img id="nav-logo" src="/favicon.svg" alt="Aurora Construction Logo" class="w-12 ml-[14px]" width="48" height="48" />
-        </a>
-      </div>
-      <div>
-        <button id="hamburger" aria-label="Toggle menu" class="flex flex-col justify-center items-center gap-1 w-7 h-7">
-          <span class="hamburger-line line-1 w-full h-0.5 bg-white"></span>
-          <span class="hamburger-line line-2 w-full h-0.5 bg-white"></span>
-          <span class="hamburger-line line-3 w-full h-0.5 bg-white"></span>
-        </button>
-      </div>
-    </div>
-  </nav>
+    <!-- Skript musí mať type="module" a počkať na načítanie DOM -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const elekButton = document.getElementById('elektrika-button');
+        const elekPopup = document.getElementById('elektrika-popup');
+        const elekClose = document.getElementById('elektrika-close');
 
-  <!-- Mobile overlay -->
-  <div id="mobile-menu-overlay" class="fixed inset-0 bg-[#191919] flex flex-col items-center justify-start pt-20 space-y-8 opacity-0 pointer-events-none z-40">
-    <div id="nav-links" class="flex flex-col items-center space-y-10 text-3xl text-white opacity-0">
-      <a href="/" class={`nav-link ${currentPage === '/' ? 'nav-active' : ''}`}>Domov</a>
-      <a href="/hruba-stavba" class={`nav-link ${currentPage === '/hruba-stavba' ? 'nav-active' : ''}`}>Hrubá stavba</a>
-      <a href="/strechy" class={`nav-link ${currentPage === '/strechy' ? 'nav-active' : ''}`}>Strechy</a>
-      <a href="/elektrika" class={`nav-link ${currentPage === '/elektrika' ? 'nav-active' : ''}`}>Elektrika</a>
-    </div>
-  </div>
-
-  <script>
-    import { gsap } from 'gsap';
-
-    const hamburger = document.getElementById('hamburger');
-    const overlay = document.getElementById('mobile-menu-overlay');
-    const navLogo = document.getElementById('nav-logo');
-    const navLinks = document.getElementById('nav-links');
-
-    if (
-      hamburger instanceof HTMLElement &&
-      overlay instanceof HTMLElement &&
-      navLogo instanceof HTMLElement &&
-      navLinks instanceof HTMLElement
-    ) {
-      const lines = hamburger.querySelectorAll('.hamburger-line');
-      let logoY = 0;
-      let isMenuOpen = false;
-
-      hamburger.addEventListener('click', () => {
-        isMenuOpen = !isMenuOpen;
-
-        lines[0].classList.toggle('open', isMenuOpen);
-        lines[1].classList.toggle('open', isMenuOpen);
-        lines[2].classList.toggle('open', isMenuOpen);
-
-        if (isMenuOpen) {
-          overlay.classList.remove('pointer-events-none');
-          overlay.classList.add('pointer-events-auto');
-          gsap.to(overlay, { opacity: 1, duration: 0.75, ease: "power2.out" });
-
-          logoY = window.innerHeight / 2 - 48;
-
-          gsap.to(navLogo, {
-            y: logoY,
-            scale: 4,
-            duration: 1.5,
-            ease: "power3.inOut",
-            onComplete: () => {
-              gsap.to(navLogo, { opacity: 0.2, duration: 1 });
-              gsap.to(navLinks, { opacity: 1, y: 20, duration: 0.8, ease: "power3.out", delay: 0.5 });
-            }
-          });
-        } else {
-          gsap.to(navLinks, { opacity: 0, duration: 0.4 });
-
-          gsap.to(navLogo, {
-            opacity: 1,
-            duration: 0.5,
-            onStart: () => {
-              gsap.to(navLogo, {
-                y: 0,
-                scale: 1,
-                duration: 1,
-                delay: 0.5,
-                ease: "power3.inOut"
-              });
-            }
-          });
-
-          gsap.to(overlay, {
-            opacity: 0,
-            duration: 0.5,
-            delay: 1.6,
-            ease: "power2.in",
-            onComplete: () => {
-              overlay.classList.remove('pointer-events-auto');
-              overlay.classList.add('pointer-events-none');
-              gsap.set(navLogo, { clearProps: "all" });
-              gsap.set(navLinks, { clearProps: "all" });
-            }
-          });
+        if (!elekButton || !elekPopup || !elekClose) {
+          console.warn('Elektrika popup elementy nenájdené:', { elekButton, elekPopup, elekClose });
+          return;
         }
-      });
-    }
 
-  </script>
-</body>
+        // Otvoriť popup
+        elekButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          elekPopup.classList.remove('hidden');
+        });
+
+        // Zatvoriť pri kliknutí na “×”
+        elekClose.addEventListener('click', () => {
+          elekPopup.classList.add('hidden');
+        });
+
+        // Zatvoriť aj pri kliknutí mimo bielej krabičky (na priehľadnom pozadí)
+        elekPopup.addEventListener('click', (e) => {
+          if (e.target === elekPopup) {
+            elekPopup.classList.add('hidden');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
