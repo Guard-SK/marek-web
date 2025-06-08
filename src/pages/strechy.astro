@@ -72,8 +72,10 @@ import Map from '../components/Global/Map.astro';
           alt="Montáž strechy"
           class="absolute inset-0 w-full h-full object-cover z-0 lg:ml-[20%]"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#191919]/80 to-[#191919] z-10 lg:hidden"></div>
-        <div class="hidden lg:block absolute bottom-0 w-full h-40 bg-gradient-to-t from-[#191919] to-transparent z-10"></div>
+
+        <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
+          <div class="absolute bottom-0 w-full h-40 bg-gradient-to-t from-[#191919] to-transparent"></div>
+        </div>
 
         <div class="hero-diagonal-box flex items-center justify-center lg:justify-start h-full z-20">
           <div class="max-w-2xl px-6 md:px-10 lg:px-16 py-10 text-center lg:text-left" id="hero-text-block">
@@ -154,7 +156,7 @@ import Map from '../components/Global/Map.astro';
       <!-- Proces spolupráce -->
       <section id="process" class="relative py-28 px-6 md:px-12">
         <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-20 opacity-0 translate-y-6" id="process-heading">
+          <div class="text-center mb-12 opacity-0 translate-y-6" id="process-heading">
             <h2 class="text-3xl md:text-5xl font-bold mb-6">Ako prebieha spolupráca</h2>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">Od prvého kontaktu až po finálne odovzdanie strechy – všetko pod kontrolou.</p>
           </div>
@@ -213,7 +215,7 @@ import Map from '../components/Global/Map.astro';
         <div class="max-w-5xl mx-auto text-center relative z-10">
           <h2 class="text-3xl md:text-5xl font-bold mb-6">Férová cena bez prekvapení</h2>
           <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-10">
-            Orientačná cena montáže strechy rodinného domu: <strong>od 120 – 180 €/m²</strong> za prácu.
+            Orientačná cena montáže strechy rodinného domu <strong class=" text-gray-300">od 120 – 180 €/m²</strong> za prácu.
           </p>
           <a href="#kontakt" class="inline-block bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold py-4 px-8 rounded-xl shadow-xl hover:scale-105 transition">Získať cenovú ponuku</a>
           <p class="text-sm text-gray-300 mt-4">Presnú cenu pripravíme do 48 hodín od zadania parametrov.</p>
@@ -237,20 +239,28 @@ import Map from '../components/Global/Map.astro';
                 Záleží na veľkosti a type strechy, zvyčajne 3–7 dní pre rodinný dom.
               </div>
             </div>
-
-            <!-- Repeat for other items -->
             <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
               <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
-                <span class="text-lg font-semibold">Akú záruku poskytujete?</span>
+                <span class="text-lg font-semibold">Ako zistím, že moja strecha potrebuje rekonštrukciu?</span>
                 <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               <div class="faq-answer px-6 pb-6 hidden text-gray-400">
-                Na montáž a materiál poskytujeme minimálne 10-ročnú záruku.
+                Medzi hlavné signály patrí zatekanie, praskliny v krytine, deformácia krovu alebo viditeľné poškodenie strešného plášťa. Ak je strecha staršia ako 30 rokov alebo má časté problémy s izoláciou, odporúčame odbornú kontrolu.
               </div>
             </div>
-
+            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
+              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
+                <span class="text-lg font-semibold">Aký typ strešnej krytiny je najlepší pre slovenské podmienky?</span>
+                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer px-6 pb-6 hidden text-gray-400">
+                Pre slovenské podmienky sú ideálne keramické a betónové krytiny vďaka vysokej odolnosti proti mrazu a poveternostným vplyvom. Moderné plechové krytiny sú vhodné na šikmé strechy a ponúkajú dlhú životnosť pri nižšej hmotnosti.
+              </div>
+            </div>
             <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
               <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
                 <span class="text-lg font-semibold">Kedy je najlepší čas na výmenu krytiny?</span>
