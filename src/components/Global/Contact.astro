@@ -1,4 +1,12 @@
 <body>
+  <head>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        emailjs.init("RlGbH0KqxKcbUU8eo"); // Your User ID
+      })();
+    </script>
+  </head>
   <section id="kontakt" class="py-0 lg:py-16 pt-16">
     <div class="lg:container overflow-hidden mx-auto px-0 lg:px-6">
       <!-- Section Heading -->
@@ -19,21 +27,16 @@
         <!-- Contact Form -->
         <div class="flex-1 flex-grow lg:w-1/2 lg:px-0 px-6 z-50">
           <form
-            action="https://formsubmit.co/ab22cf4599c3c37c59f9c755d4965f16"
-            method="POST"
+            id="contact-form"
+
             class="gradient-bg-1 shadow-2xl rounded-lg p-8 h-full"
           >
-            <h3 class="text-2xl font-bold mb-4">Kontaktný formulár</h3>
-            <!-- Hidden Fields for FormSubmit Configuration -->
-            <input type="hidden" name="_cc" value="info@auroraconstruction.sk" />
+            <h3 class="text-2xl font-bold mb-4 text-[#ffffff]">Kontaktný formulár</h3>
             <input type="hidden" name="_next" value="https://auroraconstruction.sk//formsent" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_subject" value="Nová správa z kontaktného formulára" />
-            <input type="hidden" name="_autoresponse" value="Ďakujeme, že ste nás kontaktovali! Vaša správa bola úspešne prijatá a náš tím sa vám ozve do dvoch pracovných dní. <br><br> Prosím, neodpovedajte na tento email. Ak máte ďalšie otázky, neváhajte nás kontaktovať na emailovej adrese info@auroraconstruction.sk alebo na telefónnom čísle +421 949 105 006." />
             
             <!-- Form Fields -->
-            <div class="mb-4">
-              <label for="name" class="block text-sm font-medium font- text-[#d3d3d3] mb-2">Meno</label>
+            <div class="mb-4 z-10">
+              <label for="name" class="block text-sm font-medium font- text-[#ffffff] mb-2">Meno</label>
               <input
                 type="text"
                 id="name"
@@ -43,8 +46,8 @@
                 required
               />
             </div>
-            <div class="mb-4">
-              <label for="email" class="block text-sm font-medium text-[#d3d3d3] mb-2">Email</label>
+            <div class="mb-4 z-10">
+              <label for="email" class="block text-sm font-medium text-[#ffffff] mb-2">Email</label>
               <input
                 type="email"
                 id="email"
@@ -54,19 +57,19 @@
                 required
               />
             </div>
-            <div class="mb-4">
-              <label for="message" class="block text-sm font-medium text-[#d3d3d3] mb-2">Správa</label>
+            <div class="mb-4 z-10">
+              <label for="message" class="block text-sm font-medium text-[#ffffff] mb-2">Správa</label>
               <textarea
                 id="message"
                 name="message"
-                rows="4"
+                rows="6"
                 placeholder="Vaša správa"
                 class="w-full border border-gray-600 bg-[#1E1E1E] rounded-lg p-3 text-[#E0E0E0] focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                 required
               ></textarea>
             </div>
             <!-- Consent Checkbox -->
-            <div class="mb-4 flex gap-2 items-center justify-center">
+            <div class="mb-4 flex gap-2 items-center justify-center z-10">
               <div class="checkbox-wrapper">
                 <input type="checkbox" id="cbtest" name="concent" value="agree" required />
                 <label for="cbtest" class="check-box">
@@ -76,7 +79,7 @@
                   Súhlasím so spracovaním mojich osobných údajov v súlade s
                   <a
                     href="/gdpr"
-                    class="text-primary underline hover:text-accent"
+                    class="text-white underline hover:text-accent"
                   >
                     pravidlami ochrany osobných údajov
                   </a>.
@@ -85,7 +88,7 @@
             </div>          
             <button
               type="submit"
-              class="w-full bg-primary text-gray-900 font-medium py-3 rounded-lg hover:bg-accent transition duration-300"
+              class="w-full bg-accent text-gray-900 font-medium py-3 rounded-lg hover:bg-[#47cdfd] transition duration-300 z-10"
             >
               Odoslať
             </button>
@@ -180,3 +183,17 @@
     </div>
   </section>  
 </body>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent page reload
+
+  emailjs.sendForm('service_vwf903m', 'contact_form_template', this)
+    .then(function() {
+      alert('Message sent successfully!');
+      document.getElementById('contact-form').reset(); // Clear form
+    }, function(error) {
+      alert('FAILED... ' + JSON.stringify(error));
+    });
+});
+</script>

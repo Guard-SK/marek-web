@@ -97,29 +97,12 @@ a {
   -webkit-text-fill-color: transparent;
 }
 .gradient-bg-1 {
-  background: linear-gradient(135deg, #38abd3, #38abd3, #37d4db, #7efd83, #90de91); /* Gradient background */
+  background: linear-gradient(135deg, #38abd3, #2a91b3);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Jemnejší tieň */
   position: relative;
-  z-index: 1;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
-
-.gradient-bg-1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
-  z-index: -1;
-}
-
-
 
   .checkbox-wrapper {
     box-sizing: border-box;
