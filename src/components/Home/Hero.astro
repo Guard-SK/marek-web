@@ -5,7 +5,7 @@
         Spoľahlivá <br> stavebná firma
       </h1>
       <p class="text-gray-300 text-base md:text-lg xl:text-lg mt-2 lg:mt-6">
-        Ponúkame konštrukčné riešenia na mieru v Bratislavskom a Trnavskom kraji – od základov až po elektroinštalácie.
+        Ponúkame konštrukčné riešenia na mieru v Bratislavskom a Trnavskom kraji – od základov až po kompletné stavby.
       </p>
       <div class="flex flex-wrap z-40 justify-center lg:justify-start gap-2 xl:gap-4 mt-6 lg:mt-10">
         <a href="/hruba-stavba" class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md hover:opacity-90 transition">
@@ -14,7 +14,7 @@
         <a href="/strechy" class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md hover:opacity-90 transition">
           Strechy
         </a>
-        <a href="/elektrika" class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md hover:opacity-90 transition">
+        <a id="elektrika-button-hero" class="border-2 cursor-pointer border-[#a1a1a1] text-[#a1a1a1] font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md bg-transparent hover:bg-[#63ffd3]/10 hover:border-[#a1a1a1] hover:text-[#a1a1a1] transition">
           Elektrika
         </a>             
       </div>
@@ -31,6 +31,30 @@
         height="445"
         style="max-height: 445px;"
       />
+    </div>
+  </div>
+
+  <!-- Elektrika Popup -->
+  <div
+    id="elektrika-popup-hero"
+    class="fixed inset-0 z-50 hidden flex justify-center items-start"
+  >
+    <div
+      class="mt-24 bg-[#1f1f1f]/40 backdrop-blur-md border border-white/10 rounded-xl shadow-lg max-w-sm mx-4 animate-slideDown-hero relative"
+    >
+      <!-- Zatváracie tlačidlo -->
+      <button
+        id="elektrika-close-hero"
+        class="absolute top-2 right-2 text-white hover:text-gray-300 text-2xl leading-none focus:outline-none"
+        aria-label="Zavrieť upozornenie"
+      >
+        &times;
+      </button>
+
+      <!-- Obsah popupu -->
+      <div class="p-4 text-white text-sm">
+        Pripravujeme expanziu našich služieb, táto služba je dočasne nedostupná
+      </div>
     </div>
   </div>
 
@@ -55,7 +79,52 @@
   #glow-effect {
     opacity: 0;
   }
+  /* ─────────── Popup slide-down animácia ─────────── */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .animate-slideDown-hero {
+    animation: slideDown 0.3s ease-out;
+  }
 </style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const elekButton = document.getElementById('elektrika-button-hero');
+    const elekPopup = document.getElementById('elektrika-popup-hero');
+    const elekClose = document.getElementById('elektrika-close-hero');
+
+    if (!elekButton || !elekPopup || !elekClose) {
+      console.warn('Elektrika popup elementy nenájdené:', { elekButton, elekPopup, elekClose });
+      return;
+    }
+
+    // Otvoriť popup
+    elekButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      elekPopup.classList.remove('hidden');
+    })
+
+    // Zatvoriť pri kliknutí na “×”
+    elekClose.addEventListener('click', () => {
+      elekPopup.classList.add('hidden');
+    });
+
+    // Zatvoriť aj pri kliknutí mimo bielej krabičky (na priehľadnom pozadí)
+    elekPopup.addEventListener('click', (e) => {
+      if (e.target === elekPopup) {
+        elekPopup.classList.add('hidden');
+      }
+    });
+  });
+</script>
 
 <script>
   import gsap from 'gsap';

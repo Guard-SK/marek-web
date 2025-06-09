@@ -80,10 +80,10 @@ const currentPage = Astro.url.pathname;
           <a href="/hruba-stavba" class={`nav-link ${currentPage === '/hruba-stavba' ? 'nav-active' : ''}`}>Hrubá stavba</a>
         </div>
 
-        <div class="relative z-10">
+        <a href="/" class="relative z-10">
           <img src="/favicon.svg" alt="Logo" class="w-12 hover:scale-105 transition duration-300" width="48" height="48" />
           <div class="absolute inset-0 w-full h-full rounded-full blur-2xl bg-gradient-radial from-[#63ffd3]/20 to-transparent animate-pulse -z-10"></div>
-        </div>
+        </a>
 
         <div class="flex gap-10 text-white text-base font-medium">
           <a href="/strechy" class={`nav-link ${currentPage === '/strechy' ? 'nav-active' : ''}`}>Strechy</a>
@@ -149,7 +149,7 @@ const currentPage = Astro.url.pathname;
         <a href="/" class={`nav-link ${currentPage === '/' ? 'nav-active' : ''}`}>Domov</a>
         <a href="/hruba-stavba" class={`nav-link ${currentPage === '/hruba-stavba' ? 'nav-active' : ''}`}>Hrubá stavba</a>
         <a href="/strechy" class={`nav-link ${currentPage === '/strechy' ? 'nav-active' : ''}`}>Strechy</a>
-        <a href="/elektrika" class="text-gray-400">Elektrika</a>
+        <a id="elektrika-button-mobile" class="text-gray-400 cursor-pointer">Elektrika</a>
       </div>
     </div>
 
@@ -232,16 +232,23 @@ const currentPage = Astro.url.pathname;
 
       window.addEventListener('DOMContentLoaded', () => {
         const elekButton = document.getElementById('elektrika-button');
+        const elekButtonMobile = document.getElementById('elektrika-button-mobile')
         const elekPopup = document.getElementById('elektrika-popup');
         const elekClose = document.getElementById('elektrika-close');
 
-        if (!elekButton || !elekPopup || !elekClose) {
+        if (!elekButton || !elekPopup || !elekClose || !elekButtonMobile) {
           console.warn('Elektrika popup elementy nenájdené:', { elekButton, elekPopup, elekClose });
           return;
         }
 
         // Otvoriť popup
         elekButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          elekPopup.classList.remove('hidden');
+        })
+
+        // Otvoriť popup mobile
+        elekButtonMobile.addEventListener('click', (e) => {
           e.preventDefault();
           elekPopup.classList.remove('hidden');
         })
