@@ -20,9 +20,77 @@ import Map from '../components/Global/Map.astro';
     <link rel="stylesheet" href="/styles/fonts.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/styles/fonts.css"></noscript>
 
-
     <link rel="preload" href="/strechy/Hero.avif" as="image" />
     <link rel="preload" href="/strechy/Hero-mobile.avif" as="image" />
+
+    <link rel="canonical" href="https://www.auroraconstruction.sk/strechy" />
+
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <!-- Open Graph: -->
+    <meta property="og:title" content="Aurora Construction | Oprava a výstavba striech" />
+    <meta property="og:description" content="Oprava a výstavba striech v Bratislave a Trnavskom kraji" />
+    <meta property="og:image" content="https://auroraconstruction.sk/Social.jpg" />
+    <meta property="og:url" content="https://auroraconstruction.sk/strechy" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Cards: -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aurora Construction | Oprava a výstavba striech" />
+    <meta name="twitter:description" content="Oprava a výstavba striech v Bratislave a Trnavskom kraji" />
+    <meta name="twitter:image" content="https://auroraconstruction.sk/Social.jpg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Aurora Construction",
+      "description": "Stavebná firma situovaná v Bratislave ktorá ponúka stavebné riešenie hrubej stavby, striech, alebo iných stavebných riešení od odborníkov.",
+      "url": "https://www.auroraconstruction.sk",
+      "image": "https://www.auroraconstruction.sk/LogoBackground.png",
+      "telephone": "+421 949 105 006",
+      "email": "info@auroraconstruction.sk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nejedlého 27",
+        "addressRegion": "Bratislavský kraj",
+        "addressLocality": "Bratislava",
+        "postalCode": "84102",
+        "addressCountry": "SK"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Slovensko"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+421949105006",
+        "name": "Marek Harcek",
+        "areaServed": "Slovensko",
+        "availableLanguage": ["sk", "en"],
+        "description": "Hlavné kontaktné číslo na Mareka Harceka, spoluzakladateľa Aurora Construction."
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Stavebné služby",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Strechy na mieru",
+              "description": "Profesionálne riešenie strechy presne podľa vašich potrieb."
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/auroraconstruction_sk",
+        "https://www.facebook.com/people/Aurora-Construction/61573155748091/"
+      ]
+    }
+    </script>
+
   </head>
 
   <body class="text-gray-800 bg-[#191919]">
@@ -86,8 +154,8 @@ import Map from '../components/Global/Map.astro';
 
         <div class="hero-diagonal-box flex items-center justify-center lg:justify-start h-full z-20">
           <div class="max-w-2xl px-6 md:px-10 lg:px-16 py-10 text-center lg:text-left z-20 mt-[64px]" id="hero-text-block">
-            <h1 class="text-3xl lg:text-5xl font-bold mb-4 opacity-0 -translate-x-10">Oprava a výstavba striech na mieru</h1>
-            <p class="text-lg text-gray-300 mb-6 opacity-0 -translate-x-10">Kompletné riešenia sedlových a valbových striech – montáž krovu, pokládka plechovej aj keramickej krytiny, oprava a hydroizolácia.</p>
+            <h1 class="text-3xl lg:text-5xl font-bold mb-4 opacity-0 -translate-x-10">Oprava a výstavba strechy na mieru</h1>
+            <p class="text-lg text-gray-300 mb-6 opacity-0 -translate-x-10">Kompletné riešenia sedlových a valbových striech. Montáž krovu, pokládka plechovej aj keramickej krytiny, oprava a hydroizolácia.</p>
             <a href="#kontakt" class="inline-block bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold py-3 px-6 rounded-xl shadow-xl scale-95 opacity-0" id="hero-cta">Požiadať o nezáväznú cenovú ponuku</a>
           </div>
         </div>
@@ -177,14 +245,14 @@ import Map from '../components/Global/Map.astro';
                 <img src="/hruba-stavba/icons/phone.svg" alt="Kontakt" class="w-8 h-8" />
               </div>
               <h3 class="font-semibold text-lg mb-2">Kontakt a obhliadka</h3>
-              <p class="text-gray-400 text-sm">Zavolajte nám alebo vyplňte dopyt. Dohodneme obhliadku zdarma.</p>
+              <p class="text-gray-400 text-sm">Zavoláte nám, pošlete email alebo ináč nás kontaktujete. Spolu preberieme váš dopyt.</p>
             </div>
             <div class="relative z-10 md:w-1/5 md:min-h-[260px] opacity-0 translate-y-6" id="step-2">
               <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#63ffd3] rounded-full flex items-center justify-center shadow">
                 <img src="/hruba-stavba/icons/plan.svg" alt="Nacenenie" class="w-8 h-8" />
               </div>
               <h3 class="font-semibold text-lg mb-2">Cenová ponuka</h3>
-              <p class="text-gray-400 text-sm">Transparentná kalkulácia vrátane materiálu a práce.</p>
+              <p class="text-gray-400 text-sm">Transparentná kalkulácia zadarmo vrátane materiálu a práce.</p>
             </div>
             <div class="relative z-10 md:w-1/5 md:min-h-[260px] opacity-0 translate-y-6" id="step-3">
               <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#39c4ff] rounded-full flex items-center justify-center shadow">

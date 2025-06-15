@@ -23,6 +23,75 @@ import Map from '../components/Global/Map.astro';
 
     <link rel="preload" as="image" href="/hruba-stavba/Hero.avif" />
     <link rel="preload" as="image" href="/hruba-stavba/Hero-mobile.avif" />
+
+    <link rel="canonical" href="https://www.auroraconstruction.sk/hruba-stavba" />
+
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <!-- Open Graph: -->
+    <meta property="og:title" content="Aurora Construction | Hrubá stavba" />
+    <meta property="og:description" content="Spoľahlivá výstavba hrubých stavieb v Bratislave a Trnavskom kraji" />
+    <meta property="og:image" content="https://auroraconstruction.sk/Social.jpg" />
+    <meta property="og:url" content="https://auroraconstruction.sk/hruba-stavba" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Cards: -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aurora Construction | Hrubá stavba" />
+    <meta name="twitter:description" content="Spoľahlivá výstavba hrubých stavieb v Bratislave a Trnavskom kraji" />
+    <meta name="twitter:image" content="https://auroraconstruction.sk/Social.jpg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Aurora Construction",
+      "description": "Stavebná firma situovaná v Bratislave ktorá ponúka stavebné riešenie hrubej stavby, striech, alebo iných stavebných riešení od odborníkov.",
+      "url": "https://www.auroraconstruction.sk",
+      "image": "https://www.auroraconstruction.sk/LogoBackground.png",
+      "telephone": "+421 949 105 006",
+      "email": "info@auroraconstruction.sk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nejedlého 27",
+        "addressRegion": "Bratislavský kraj",
+        "addressLocality": "Bratislava",
+        "postalCode": "84102",
+        "addressCountry": "SK"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Slovensko"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+421949105006",
+        "name": "Marek Harcek",
+        "areaServed": "Slovensko",
+        "availableLanguage": ["sk", "en"],
+        "description": "Hlavné kontaktné číslo na Mareka Harceka, spoluzakladateľa Aurora Construction."
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Stavebné služby",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hrubé stavby",
+              "description": "Výstavba hrubej stavby od základov profesionálne a rýchlo."
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/auroraconstruction_sk",
+        "https://www.facebook.com/people/Aurora-Construction/61573155748091/"
+      ]
+    }
+    </script>
+
   </head>
 
   <body class="text-gray-800">
@@ -113,7 +182,7 @@ import Map from '../components/Global/Map.astro';
           <div id="content-heading" class="text-center mb-16 opacity-0 translate-y-6">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">Čo všetko zahŕňa hrubá stavba</h2>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-              Od výkopov až po strechu – postaráme sa o všetko, čo vaša stavba potrebuje.
+              Od výkopov až po strechu sa postaráme o všetko, čo vaša stavba potrebuje.
             </p>
           </div>
       
@@ -128,7 +197,7 @@ import Map from '../components/Global/Map.astro';
                 <h3 class="text-lg font-semibold">Základy a výkopy</h3>
               </div>
               <p class="text-sm text-gray-400">
-                Výkopy, základová doska a hydroizolácia. Všetko pripravené precízne a stabilne.
+                Výkopy, základová doska a hydroizolácia. Všetko pripravené precízne a kvalitne.
               </p>
             </div>
       
@@ -187,7 +256,7 @@ import Map from '../components/Global/Map.astro';
               Profesionálny prístup. Transparentný proces.
             </h2>
             <p class="text-gray-400 text-lg md:text-xl mb-8" id="approach-desc">
-              Výstavba hrubej stavby je komplexný proces – preto ho vedieme krok za krokom s dôrazom na dôslednosť, kvalitu a komunikáciu. 
+              Výstavba hrubej stavby je komplexný proces, preto ho vedieme krok za krokom s dôrazom na dôslednosť, kvalitu a komunikáciu. 
               Bez kompromisov a s rešpektom k vášmu času.
             </p>
       
@@ -215,7 +284,7 @@ import Map from '../components/Global/Map.astro';
           <div class="text-center mb-12">
             <h2 class="text-3xl md:text-5xl font-bold mb-6" id="process-title">Ako prebieha spolupráca</h2>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-              Od prvého kontaktu až po hotovú hrubú stavbu – vieme, čo robíme a vieme, kam smerujeme.
+              Od prvého kontaktu až po hotovú hrubú stavbu. Transparentne vám chceme poskytnúť to, čo vy potrebujete.
             </p>
           </div>
       
@@ -231,7 +300,7 @@ import Map from '../components/Global/Map.astro';
                 <img src="/hruba-stavba/icons/phone.svg" alt="Kontakt" class="w-8 h-8" />
               </div>
               <h3 class="font-semibold text-lg mb-2">Kontakt a zadanie</h3>
-              <p class="text-gray-400 text-sm">Zavoláte nám alebo pošlete dopyt. Spolu preberieme váš projekt.</p>
+              <p class="text-gray-400 text-sm">Zavoláte nám, pošlete email alebo ináč nás kontaktujete. Spolu preberieme váš projekt.</p>
             </div>
       
             <!-- Step 2 -->

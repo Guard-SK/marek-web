@@ -17,6 +17,19 @@ import Map from '../components/Global/Map.astro'
     <meta name="description" content="Stavebná firma situovaná v Bratislave ktorá ponúka stavebné riešenie hrubej stavby, striech a iných konštrukčných riešení." />
     <meta name="generator" content="Astro" />
     <meta name="msvalidate.01" content="7504EE7B8C1B641BA886A62D6F85B168" />
+
+    <!-- Open Graph: -->
+    <meta property="og:title" content="Aurora Construction | Stavebná firma - Hrubá stavba, Strechy" />
+    <meta property="og:description" content="Stavebná firma situovaná v Bratislave ktorá ponúka rôzne stavebné riešenia" />
+    <meta property="og:image" content="https://auroraconstruction.sk/Social.jpg" />
+    <meta property="og:url" content="https://auroraconstruction.sk/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Cards: -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aurora Construction | Stavebná firma - Hrubá stavba, Strechy" />
+    <meta name="twitter:description" content="Stavebná firma situovaná v Bratislave ktorá ponúka rôzne stavebné riešenia" />
+    <meta name="twitter:image" content="https://auroraconstruction.sk/Social.jpg" />
   
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -24,17 +37,13 @@ import Map from '../components/Global/Map.astro'
     <link rel="apple-touch-icon" sizes="180x180" href="/LogoAuroraConstruction.webp">
   
     <!-- Preload Critical Resources -->
-    <link rel="preload" as="image" href="/HrubeStavbyHero.avif" />
+    <link rel="preload" as="image" href="/HeroSectionCropped.avif" />
     <link rel="preload" as="image" href="/favicon.svg" />
     <link rel="preload" as="image" href="/AboutImg.avif" />
   
     <!-- Preconnect for Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  
-    <!-- Lazy-Load Fonts -->
-    <link rel="preload" href="/fonts/oswald-v53-latin_latin-ext-700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/oswald-v53-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
     <!-- Replace Astro import with this -->
     <link rel="preload" href="/styles/stylesheet.css" as="style">
@@ -46,6 +55,8 @@ import Map from '../components/Global/Map.astro'
     <noscript><link rel="stylesheet" href="/styles/fonts.css"></noscript> 
     
     <link rel="canonical" href="https://www.auroraconstruction.sk/" />
+
+    <link rel="sitemap" href="/sitemap.xml" />
 
     <script type="application/ld+json">
       {
@@ -71,10 +82,10 @@ import Map from '../components/Global/Map.astro'
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+421 949 105 006",
+          "telephone": "+421949105006",
           "name": "Marek Harcek",
           "areaServed": "Slovensko",
-          "availableLanguage": ["slovenčina", "angličtina"],
+          "availableLanguage": ["sk", "en"],
           "description": "Hlavné kontaktné číslo na Mareka Harceka, spoluzakladateľa Aurora Construction."
         },
         "hasOfferCatalog": {
@@ -86,7 +97,7 @@ import Map from '../components/Global/Map.astro'
               "itemOffered": {
                 "@type": "Service",
                 "name": "Hrubé stavby",
-                "description": "Vytvorenie hrubej stavby od základov profesionálne a rýchlo."
+                "description": "Výstavba hrubej stavby od základov profesionálne a rýchlo."
               }
             },
             {
@@ -128,7 +139,7 @@ import Map from '../components/Global/Map.astro'
 
   <body>
     <div id="main-content relative">
-      <div id="glow-effect" class="opacity-0 absolute top-[-5%] left-[-15%] w-[800px] h-[800px]
+      <div id="glow-effect" class="opacity-0 absolute top-[-5%] left-[-15%] w-[600px] h-[600px]
       bg-gradient-radial from-[#63ffd3]/30 via-[#39c4ff]/10 to-transparent
       blur-[180px] z-10 pointer-events-none "></div>
 
@@ -152,7 +163,7 @@ import Map from '../components/Global/Map.astro'
       <Hero />
       <About />
       <Services />
-      <Map title='Pôsobíme v Bratislavskom a Trnavskom kraji' description="Zameriavame sa na výstavbu a elektroinštalácie v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup." />
+      <Map title='Pôsobíme v Bratislavskom a Trnavskom kraji' description="Zameriavame sa na výstavbu a iné konštrukčné riešenia v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup." />
       <Contact />
       <Footer />
     </div>

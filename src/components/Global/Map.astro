@@ -22,7 +22,7 @@ const { title, description } = Astro.props;
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-4" id="coverage-benefits">
         <div class="p-4 bg-[#1f1f1f] rounded-xl" data-benefit>
             <p class="text-xl font-semibold text-[#63ffd3] mb-2">Lokalita</p>
-            <p class="text-sm text-gray-400">Bratislava a okolie sú našou základňou – vieme rýchlo reagovať a plánovať.</p>
+            <p class="text-sm text-gray-400">Bratislava a okolie sú našou základňou, vieme tu promptne reagovať a plánovať.</p>
         </div>
         <div class="p-4 bg-[#1f1f1f] rounded-xl" data-benefit>
             <p class="text-xl font-semibold text-[#39c4ff] mb-2">Dostupnosť</p>
@@ -34,18 +34,23 @@ const { title, description } = Astro.props;
         </div>
         <div class="p-4 bg-[#1f1f1f] rounded-xl" data-benefit>
             <p class="text-xl font-semibold text-[#39c4ff] mb-2">Efektivita</p>
-            <p class="text-sm text-gray-400">Naša pôsobnosť je sústredená – preto dokážeme pracovať rýchlo a kvalitne.</p>
+            <p class="text-sm text-gray-400">Naše pôsobenie je sústredené, preto dokážeme pracovať rýchlo a kvalitne.</p>
         </div>
         </div>
 
         <img
-            src="/map.avif"
-            alt="Mapa Bratislavského a Trnavského kraja"
-            class="block  w-full max-w-4xl mx-auto opacity-80 rounded-xl"
-            loading="lazy"
-            fetchpriority="low"
-            width="896"
-            height="369"
+          src="/map.avif"
+          srcset="
+            /map-364x182.avif 364w,
+            /map.avif 728w
+          "
+          sizes="(max-width: 400px) 364px, 728px"
+          alt="Mapa Bratislavského a Trnavského kraja"
+          class="block w-full max-w-4xl mx-auto opacity-80 rounded-xl"
+          loading="lazy"
+          fetchpriority="low"
+          width="364"
+          height="182"
         />
     </div>
 </section>
