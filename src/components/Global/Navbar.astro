@@ -82,7 +82,7 @@ const currentPage = Astro.url.pathname;
 
         <a href="/" class="relative z-10">
           <img src="/favicon.svg" alt="Logo" class="w-12 hover:scale-105 transition duration-300" width="48" height="48" />
-          <div class="absolute inset-0 w-full h-full rounded-full blur-2xl bg-gradient-radial from-[#63ffd3]/20 to-transparent animate-pulse -z-10"></div>
+          <div class="absolute inset-0 w-full h-full rounded-full blur-2xl bg-gradient-radial from-[#63ffd3]/20 to-transparent animate-pulse z-50"></div>
         </a>
 
         <div class="flex gap-10 text-white text-base font-medium">
@@ -101,7 +101,7 @@ const currentPage = Astro.url.pathname;
       </div>
 
       <!-- MOBILE NAVBAR (nezmenené) -->
-      <div class="lg:hidden bg-[#191919] shadow-md flex justify-between items-center backdrop-blur bg-[#191919]/70 border-b border-white/10 h-16 px-4">
+      <div class="lg:hidden bg-[#191919] shadow-md flex justify-between items-center backdrop-blur bg-[#191919]/70 border-b border-white/10 h-16 px-4 z-50">
         <div class="flex-1 flex justify-center">
           <a href="/">
             <img id="nav-logo" src="/favicon.svg" alt="Aurora Construction Logo" class="w-12 ml-[14px]" width="48" height="48" />
@@ -144,7 +144,7 @@ const currentPage = Astro.url.pathname;
 
 
     <!-- MOBILE MENU OVERLAY (nezmenené) -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-[#191919] flex flex-col items-center justify-start pt-20 space-y-8 opacity-0 pointer-events-none z-40">
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-[#191919] flex flex-col items-center justify-start pt-20 space-y-8 opacity-0 pointer-events-none z-[45]">
       <div id="nav-links" class="flex flex-col items-center space-y-10 text-3xl text-white opacity-0">
         <a href="/" class={`nav-link ${currentPage === '/' ? 'nav-active' : ''}`}>Domov</a>
         <a href="/hruba-stavba" class={`nav-link ${currentPage === '/hruba-stavba' ? 'nav-active' : ''}`}>Hrubá stavba</a>
@@ -182,6 +182,7 @@ const currentPage = Astro.url.pathname;
         if (isMenuOpen) {
           overlay.classList.remove('pointer-events-none');
           overlay.classList.add('pointer-events-auto');
+          navLogo.classList.add('pointer-events-none');
           gsap.to(overlay, { opacity: 1, duration: 0.75, ease: "power2.out" });
 
           logoY = window.innerHeight / 2 - 48;
