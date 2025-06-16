@@ -1,5 +1,5 @@
 ---
-import ToggleCard from './components/ToggleCard.astro';
+import Card from '../Global/Card.astro';
 
 const cards = [
   {
@@ -114,7 +114,7 @@ const cards = [
               <!-- Karty -->
               <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
                 {cards.map((card) => (
-                  <ToggleCard
+                  <Card
                     image={card.image}
                     title={card.title}
                     description={card.description}

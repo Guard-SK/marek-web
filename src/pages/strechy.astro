@@ -1,0 +1,435 @@
+---
+import Navbar from '../components/Global/Navbar.astro';
+import Contact from '../components/Global/Contact.astro';
+import Footer from '../components/Global/Footer.astro';
+import Map from '../components/Global/Map.astro';
+---
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Oprava a výstavba striech | Bratislava Trnava a okolie | Aurora Construction</title>
+    <meta name="description" content="Oprava a výstavba striech v Bratislave a Trnavskom kraji – profesionálna montáž krovu, pokládka plechovej a keramickej krytiny, kompletné riešenia sedlových a valbových striech." />
+
+    <link rel="preload" href="/styles/stylesheet.css" as="style">
+    <link rel="stylesheet" href="/styles/stylesheet.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles/stylesheet.css"></noscript>
+
+    <link rel="preload" href="/styles/fonts.css" as="style">
+    <link rel="stylesheet" href="/styles/fonts.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles/fonts.css"></noscript>
+
+    <link rel="preload" href="/strechy/Hero.avif" as="image" />
+    <link rel="preload" href="/strechy/Hero-mobile.avif" as="image" />
+
+    <link rel="canonical" href="https://www.auroraconstruction.sk/strechy" />
+
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <!-- Open Graph: -->
+    <meta property="og:title" content="Aurora Construction | Oprava a výstavba striech" />
+    <meta property="og:description" content="Oprava a výstavba striech v Bratislave a Trnavskom kraji" />
+    <meta property="og:image" content="https://auroraconstruction.sk/Social.jpg" />
+    <meta property="og:url" content="https://auroraconstruction.sk/strechy" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Cards: -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aurora Construction | Oprava a výstavba striech" />
+    <meta name="twitter:description" content="Oprava a výstavba striech v Bratislave a Trnavskom kraji" />
+    <meta name="twitter:image" content="https://auroraconstruction.sk/Social.jpg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Aurora Construction",
+      "description": "Stavebná firma situovaná v Bratislave ktorá ponúka stavebné riešenie hrubej stavby, striech, alebo iných stavebných riešení od odborníkov.",
+      "url": "https://www.auroraconstruction.sk",
+      "image": "https://www.auroraconstruction.sk/LogoBackground.png",
+      "telephone": "+421 949 105 006",
+      "email": "info@auroraconstruction.sk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nejedlého 27",
+        "addressRegion": "Bratislavský kraj",
+        "addressLocality": "Bratislava",
+        "postalCode": "84102",
+        "addressCountry": "SK"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Slovensko"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+421949105006",
+        "name": "Marek Harcek",
+        "areaServed": "Slovensko",
+        "availableLanguage": ["sk", "en"],
+        "description": "Hlavné kontaktné číslo na Mareka Harceka, spoluzakladateľa Aurora Construction."
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Stavebné služby",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Strechy na mieru",
+              "description": "Profesionálne riešenie strechy presne podľa vašich potrieb."
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/auroraconstruction_sk",
+        "https://www.facebook.com/people/Aurora-Construction/61573155748091/"
+      ]
+    }
+    </script>
+
+  </head>
+
+  <body class="text-gray-800 bg-[#191919]">
+    <Navbar />
+
+    <main id="strechy" class="relative z-10 text-white overflow-hidden">
+
+      <!-- Glow efekty -->
+            <!-- 💠 Glow 1 – horný ľavý -->
+      <div class="absolute top-[5%] left-[-15%] w-[600px] h-[600px]
+                  bg-gradient-radial from-[#63ffd3]/20 via-[#39c4ff]/10 to-transparent
+                  blur-[180px] z-10 pointer-events-none lg:block hidden"></div>
+
+      <!-- 💠 Glow 2 – spodný pravý -->
+      <div class="absolute bottom-[5%] right-[-15%] w-[700px] h-[700px]
+                  bg-gradient-radial from-[#39c4ff]/20 via-[#63ffd3]/10 to-transparent
+                  blur-[200px] z-10 pointer-events-none"></div>
+      
+      <div class="absolute top-[40%] left-[-20%] w-[400px] h-[400px]
+                  bg-gradient-radial from-[#39c4ff]/15 via-[#63ffd3]/10 to-transparent
+                  blur-[150px] z-10 pointer-events-none"></div>
+
+      <!-- 💠 Glow 3 – horný pravý -->
+      <div class="absolute top-[30%] right-[-10%] w-[500px] h-[500px]
+                  bg-gradient-radial from-[#63ffd3]/25 via-[#39c4ff]/10 to-transparent
+                  blur-[160px] z-10 pointer-events-none"></div>
+
+      <!-- 💠 Glow 4 – spodný ľavý (menší) -->
+      <div class="absolute bottom-[20%] left-[-12%] w-[400px] h-[400px]
+                  bg-gradient-radial from-[#39c4ff]/15 via-[#63ffd3]/10 to-transparent
+                  blur-[150px] z-10 pointer-events-none"></div>
+
+      <!-- 💠 Glow 5 – pravý stred -->
+      <div class="absolute top-[60%] right-[-10%] w-[550px] h-[550px]
+                  bg-gradient-radial from-[#63ffd3]/20 via-[#39c4ff]/10 to-transparent
+                  blur-[180px] z-10 pointer-events-none"></div>
+
+      <!-- Hero sekcia -->
+      <section id="hero-strechy" class="relative h-[52vh] w-full overflow-hidden">
+        <img
+          src="/RoofCard.avif"
+          srcset="/RoofCard.avif 768w, /RoofCard.avif 1536w"
+          sizes="(max-width: 768px) 100vw, 1536px"
+          width="1536" height="800"
+          fetchpriority="high"
+          loading="eager"
+          alt="Montáž strechy"
+          class="absolute inset-0 w-full h-full object-cover z-0 lg:ml-[20%]"
+        />
+
+        <!-- Overlay len na mobil/tablet -->
+        <div class="absolute inset-0 z-10 lg:hidden pointer-events-none">
+          <!-- Zhora dolu tmavne -->
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#191919]/90 to-[#191919]"></div>
+        </div>
+      
+        <!-- Dolný gradientový fade -->
+        <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
+          <div class="absolute bottom-0 w-full h-40 bg-gradient-to-t from-[#191919] to-transparent"></div>
+        </div>
+
+        <div class="hero-diagonal-box flex items-center justify-center lg:justify-start h-full z-20">
+          <div class="max-w-2xl px-6 md:px-10 lg:px-16 py-10 text-center lg:text-left z-20 mt-[64px]" id="hero-text-block">
+            <h1 class="text-3xl lg:text-5xl font-bold mb-4 opacity-0 -translate-x-10">Oprava a výstavba strechy na mieru</h1>
+            <p class="text-lg text-gray-300 mb-6 opacity-0 -translate-x-10">Kompletné riešenia sedlových a valbových striech. Montáž krovu, pokládka plechovej aj keramickej krytiny, oprava a hydroizolácia.</p>
+            <a href="#kontakt" class="inline-block bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold py-3 px-6 rounded-xl shadow-xl scale-95 opacity-0" id="hero-cta">Požiadať o nezáväznú cenovú ponuku</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ponuka služieb -->
+      <section id="strechy-content" class="relative pt-16 pb-20 px-6 md:px-12 overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+          <div class="text-center mb-12 opacity-0 translate-y-6" id="content-heading">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Naša ponuka zahŕňa</h2>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">Precízna realizácia od krovu až po krytinu. Pozrite si naše hlavné služby.</p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Karta 1 -->
+            <div class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#ffbf69]/10 opacity-0 translate-y-10" id="card-1">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <img src="/strechy/icons/build.svg" alt="Montáž krovu" class="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-semibold">Montáž strešných krovov</h3>
+              </div>
+              <p class="text-sm text-gray-400">Drevené krovy šité na mieru s dôrazom na pevnosť a dlhú životnosť.</p>
+            </div>
+
+            <!-- Karta 2 -->
+            <div class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#ffbf69]/10 opacity-0 translate-y-10" id="card-2">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <img src="/strechy/icons/gable.svg" alt="Sedlové a valbové strechy" class="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-semibold">Sedlové a valbové strechy</h3>
+              </div>
+              <p class="text-sm text-gray-400">Klasické i moderné riešenia vhodné pre rôzne typy stavieb.</p>
+            </div>
+
+            <!-- Karta 3 -->
+            <div class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#ffbf69]/10 opacity-0 translate-y-10" id="card-3">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <img src="/strechy/icons/floor-tiles.svg" alt="Pokládka krytiny" class="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-semibold">Pokládka strešných krytín</h3>
+              </div>
+              <p class="text-sm text-gray-400">Práca s keramickou aj plechovou krytinou pre maximálnu ochranu a estetiku.</p>
+            </div>
+          </div>
+
+          <!-- Upozornenie na pultové strechy -->
+          <p class="text-gray-500 text-center mt-6">Pultové strechy nevykonávame – špecializujeme sa na tradičné sedlové a valbové riešenia.</p>
+        </div>
+      </section>
+
+      <!-- Profesionálny prístup -->
+      <section id="our-approach" class="relative bg-[#191919] py-24 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div class="opacity-0 translate-y-6 relative" id="approach-image">
+            <div class="absolute bottom-[-20px] left-[-20px] w-16 h-16 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full blur-xl opacity-30"></div>
+            <img src="/strechy/RoofApproach.avif" alt="Montáž krovu detail" class="rounded-3xl shadow-xl w-full object-cover" loading="lazy" width="544" height="408" />
+          </div>
+          <div class="">
+            <h2 id="approach-text" class="opacity-0 translate-y-6 text-3xl md:text-5xl font-bold mb-6">Profesionálny prístup od prvého kroku</h2>
+            <p id="approach-text" class="opacity-0 translate-y-6 text-gray-400 text-lg md:text-xl mb-8">Každý projekt vedieme transparentne, s dôrazom na kvalitu materiálov, kontrolu detailov a jasnú komunikáciu.</p>
+            <ul class="space-y-5 text-white text-base md:text-lg font-medium">
+              <li id="approach-step-1" class="flex items-start gap-3"><span class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"></span>Presný harmonogram a fázy montáže.</li>
+              <li id="approach-step-2" class="flex items-start gap-3"><span class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"></span>Priebežné konzultácie a fotodokumentácia.</li>
+              <li id="approach-step-3" class="flex items-start gap-3"><span class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"></span>Kontrola kvality materiálov a prevedenia.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proces spolupráce -->
+      <section id="process" class="relative py-28 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-12 opacity-0 translate-y-6" id="process-heading">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ako prebieha spolupráca</h2>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">Od prvého kontaktu až po finálne odovzdanie strechy – všetko pod kontrolou.</p>
+          </div>
+
+          <div class="relative flex flex-col md:flex-row md:justify-between gap-12 md:gap-0 text-center">
+            <div class="absolute hidden md:block top-[30%] left-0 h-1 bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] opacity-40 z-0 timeline-gradient-line"></div>
+
+            <!-- Kroky timeline -->
+            <div class="relative z-10 md:w-1/5 md:min-h-[260px] opacity-0 translate-y-6" id="step-1">
+              <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center shadow-xl">
+                <img src="/hruba-stavba/icons/phone.svg" alt="Kontakt" class="w-8 h-8" />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Kontakt a obhliadka</h3>
+              <p class="text-gray-400 text-sm">Zavoláte nám, pošlete email alebo ináč nás kontaktujete. Spolu preberieme váš dopyt.</p>
+            </div>
+            <div class="relative z-10 md:w-1/5 md:min-h-[260px] opacity-0 translate-y-6" id="step-2">
+              <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#63ffd3] rounded-full flex items-center justify-center shadow">
+                <img src="/hruba-stavba/icons/plan.svg" alt="Nacenenie" class="w-8 h-8" />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Cenová ponuka</h3>
+              <p class="text-gray-400 text-sm">Transparentná kalkulácia zadarmo vrátane materiálu a práce.</p>
+            </div>
+            <div class="relative z-10 md:w-1/5 md:min-h-[260px] opacity-0 translate-y-6" id="step-3">
+              <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#39c4ff] rounded-full flex items-center justify-center shadow">
+                <img src="/hruba-stavba/icons/contract.svg" alt="Zmluva" class="w-8 h-8" />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Podpis zmluvy</h3>
+              <p class="text-gray-400 text-sm">Schvaľujeme projekt a formalizujeme podmienky.</p>
+            </div>
+            <div class="relative z-10 md:w-1/5 md:min-h-[260px] opacity-0 translate-y-6" id="step-4">
+              <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#39c4ff] rounded-full flex items-center justify-center shadow">
+                <img src="/hruba-stavba/icons/build.svg" alt="Realizácia" class="w-8 h-8" />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Realizácia montáže</h3>
+              <p class="text-gray-400 text-sm">Strecha rastie podľa harmonogramu, máte prehľad o každom kroku.</p>
+            </div>
+            <div class="relative z-10 md:w-1/5 md:min-h-[260px] opacity-0 translate-y-6" id="step-5">
+              <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center shadow-xl">
+                <img src="/hruba-stavba/icons/check.svg" alt="Odovzdanie" class="w-8 h-8" />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Finálne odovzdanie</h3>
+              <p class="text-gray-400 text-sm">Spolu skontrolujeme výsledok a strecha je pripravená slúžiť dlhé roky.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cenové rozpätie -->
+      <section id="pricing" class="relative bg-[#191919] text-white mb-24 mt-6 px-6 md:px-12">
+
+        <!-- Radial glow behind pricing text -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <div class="w-[600px] h-[600px] z-0 bg-gradient-radial from-[#63ffd3]/55 via-[#39c4ff]/20 to-transparent blur-[130px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+          <h2 class="text-3xl md:text-5xl font-bold mb-6">Férová cena bez prekvapení</h2>
+          <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-10">
+            Orientačná cena montáže strechy rodinného domu <strong class=" text-gray-300">od 120 – 180 €/m²</strong> za prácu.
+          </p>
+          <a href="#kontakt" class="inline-block bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold py-4 px-8 rounded-xl shadow-xl hover:scale-105 transition">Získať cenovú ponuku</a>
+          <p class="text-sm text-gray-300 mt-4">Presnú cenu pripravíme do 48 hodín od zadania parametrov.</p>
+        </div>
+      </section>
+
+      <section id="faq" class="py-24 px-6 md:px-12 bg-[#191919]">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-12">Často kladené otázky</h2>
+
+          <div class="space-y-4">
+            <!-- FAQ Item -->
+            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
+              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
+                <span class="text-lg font-semibold">Ako dlho trvá montáž krovu?</span>
+                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer px-6 pb-6 hidden text-gray-400">
+                Záleží na veľkosti a type strechy, zvyčajne 3–7 dní pre rodinný dom.
+              </div>
+            </div>
+            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
+              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
+                <span class="text-lg font-semibold">Ako zistím, že moja strecha potrebuje rekonštrukciu?</span>
+                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer px-6 pb-6 hidden text-gray-400">
+                Medzi hlavné signály patrí zatekanie, praskliny v krytine, deformácia krovu alebo viditeľné poškodenie strešného plášťa. Ak je strecha staršia ako 30 rokov alebo má časté problémy s izoláciou, odporúčame odbornú kontrolu.
+              </div>
+            </div>
+            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
+              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
+                <span class="text-lg font-semibold">Aký typ strešnej krytiny je najlepší pre slovenské podmienky?</span>
+                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer px-6 pb-6 hidden text-gray-400">
+                Pre slovenské podmienky sú ideálne keramické a betónové krytiny vďaka vysokej odolnosti proti mrazu a poveternostným vplyvom. Moderné plechové krytiny sú vhodné na šikmé strechy a ponúkajú dlhú životnosť pri nižšej hmotnosti.
+              </div>
+            </div>
+            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
+              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
+                <span class="text-lg font-semibold">Kedy je najlepší čas na výmenu krytiny?</span>
+                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer px-6 pb-6 hidden text-gray-400">
+                Jar a jeseň sú ideálne kvôli stabilnejším poveternostným podmienkam a lepšiemu počasiu na prácu.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const item = btn.parentElement;
+              if (!item) return;
+              const answer = item.querySelector('.faq-answer');
+              const icon = btn.querySelector('.faq-icon');
+              if (answer) answer.classList.toggle('hidden');
+              if (icon) icon.classList.toggle('rotate-180');
+            });
+          });
+        </script>
+      </section>
+
+
+      <Map title='Pôsobíme v Bratislavskom a Trnavskom kraji' description="Komplexné strechárske služby v regiónoch, ktoré dôverne poznáme." />
+      <Contact />
+      <Footer />
+
+    </main>
+  </body>
+
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero animations
+    gsap.to("#hero-text-block h1", { x: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: "#hero-text-block", start: "top 80%" } });
+    gsap.to("#hero-text-block p", { x: 0, opacity: 1, delay: 0.2, duration: 1, ease: "power2.out", scrollTrigger: { trigger: "#hero-text-block", start: "top 80%" } });
+    gsap.to("#hero-cta", { scale: 1, opacity: 1, delay: 0.4, duration: 0.8, ease: "back.out(1.7)", scrollTrigger: { trigger: "#hero-text-block", start: "top 80%" } });
+
+    // Cards animations
+    gsap.to('#content-heading', { y: 0, opacity: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: '#card-1', start: "top 90%" } });
+    ['#card-1','#card-2','#card-3'].forEach((sel,i) => {
+      gsap.to(sel, { opacity: 1, y: 0, duration: 1, delay: 0.5 + i*0.3, ease: "power2.out", scrollTrigger: { trigger: sel, start: "top 90%" } });
+    });
+
+    // Approach animations
+    gsap.to("#approach-image", { y: 0, opacity: 1, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: "#approach-image", start: "top 85%" } });
+    gsap.to("#approach-text", { y: 0, opacity: 1, delay: 0.2, duration: 1, ease: "power2.out", scrollTrigger: { trigger: "#approach-text", start: "top 85%" } });
+    gsap.utils.toArray(["#approach-step-1", "#approach-step-2", "#approach-step-3"]).forEach((el, i) => {
+      const element = el as HTMLElement;
+
+      gsap.from(element, {
+        x: -20,
+        opacity: 0,
+        delay: 0.3 + i * 0.2,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 90%",
+        }
+      });
+    });
+
+
+    // Process animations
+    gsap.to('#process-heading', { y: 0, opacity: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: '#process-heading', start: "top 90%" } });
+    gsap.utils.toArray(['#step-1','#step-2','#step-3','#step-4','#step-5']).forEach((sel,i) => {
+      gsap.to(sel as string, { y: 0, opacity: 1, delay: 0.1*i, duration: 1, ease: "power3.out", scrollTrigger: { trigger: sel as string, start: "top 80%" } });
+    });
+    gsap.fromTo(".timeline-gradient-line", { width: 0 }, { width: "100%", duration: 1.5, ease: "power2.out", scrollTrigger: { trigger: "#process", start: "top 40%" } });
+
+    // Pricing animations
+    gsap.from("#pricing h2", { y: 50, opacity: 0, duration: 1, scrollTrigger: { trigger: "#pricing h2", start: "top 85%" } });
+    gsap.from("#pricing p", { y: 30, opacity: 0, delay: 0.2, duration: 1, scrollTrigger: { trigger: "#pricing p", start: "top 85%" } });
+    gsap.from("#pricing a", { scale: 0.9, opacity: 0, delay: 0.4, duration: 0.8, ease: "back.out(1.7)", scrollTrigger: { trigger: "#pricing a", start: "top 90%" } });
+
+    // FAQ animations
+    gsap.to("#faq-heading", { y: 0, opacity: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: "#faq-heading", start: "top 85%" } });
+    ['#faq-1','#faq-2','#faq-3'].forEach((sel,i) => {
+      gsap.to(sel, { y: 0, opacity: 1, delay: 0.2 + i*0.2, duration: 1, ease: "power2.out", scrollTrigger: { trigger: sel, start: "top 85%" } });
+    });
+  </script>
+
+  <style>
+    @media (min-width: 1024px) {
+      .hero-diagonal-box { width: 45%; height: 100%; background-color: #191919; clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%); }
+    }
+  </style>
+</html>

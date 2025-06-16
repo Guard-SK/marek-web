@@ -1,0 +1,166 @@
+<section id="hero-home" class="relative overflow-hidden bg-[hsl(0,0%,4%)] text-white flex flex-col lg:flex-row items-center lg:items-end h-auto">
+  <div class="flex flex-col lg:flex-row justify-between lg:gap-24 w-full max-w-[1536px] mx-auto">
+    <div class="w-full mx-auto px-6 pt-24 lg:pt-32 pb-8 lg:pb-16 flex flex-col items-center lg:items-start justify-start relative z-10 text-center lg:text-left lg:w-[420px] xl:w-[580px] max-w-full flex-shrink-0">
+      <h1 class="text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight">
+        Spoľahlivá <br> stavebná firma
+      </h1>
+      <p class="text-gray-300 text-base md:text-lg xl:text-lg mt-2 lg:mt-6">
+        Ponúkame konštrukčné riešenia na mieru v Bratislavskom a Trnavskom kraji – od základov až po kompletné stavby.
+      </p>
+      <div class="flex flex-wrap z-40 justify-center lg:justify-start gap-2 xl:gap-4 mt-6 lg:mt-10">
+        <a href="/hruba-stavba" class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md hover:opacity-90 transition">
+          Hrubé stavby
+        </a>
+        <a href="/strechy" class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md hover:opacity-90 transition">
+          Strechy
+        </a>
+        <a id="elektrika-button-hero" class="border-2 cursor-pointer border-[#a1a1a1] text-[#a1a1a1] font-semibold text-sm sm:text-base py-[10px] sm:py-3 px-3 sm:px-4 xl:px-6 rounded-lg sm:rounded-xl shadow-md bg-transparent hover:bg-[#63ffd3]/10 hover:border-[#a1a1a1] hover:text-[#a1a1a1] transition">
+          Elektrika
+        </a>             
+      </div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-full flex items-end justify-center">
+      <img
+        id="hero-img"
+        src="/HeroSectionCropped.avif"
+        alt="Dvaja pracovníci pri výstavbe hrubej stavby"
+        class="w-full lg:h-auto object-contain max-w-none transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 scale-90"
+        loading="eager"
+        fetchpriority="high"
+        width="913"
+        height="445"
+        style="max-height: 445px;"
+      />
+    </div>
+  </div>
+
+  <!-- Elektrika Popup -->
+  <div
+    id="elektrika-popup-hero"
+    class="fixed inset-0 z-50 hidden flex justify-center items-start"
+  >
+    <div
+      class="mt-24 bg-[#1f1f1f]/40 backdrop-blur-md border border-white/10 rounded-xl shadow-lg max-w-sm mx-4 animate-slideDown-hero relative"
+    >
+      <!-- Zatváracie tlačidlo -->
+      <button
+        id="elektrika-close-hero"
+        class="absolute top-2 right-2 text-white hover:text-gray-300 text-2xl leading-none focus:outline-none"
+        aria-label="Zavrieť upozornenie"
+      >
+        &times;
+      </button>
+
+      <!-- Obsah popupu -->
+      <div class="p-4 text-white text-sm">
+        Pripravujeme expanziu našich služieb, táto služba je dočasne nedostupná
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom fade only on lg and above -->
+  <div class="block absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#191919] z-10 pointer-events-none"></div>
+
+  <!-- Glow (responsive brightness and size) -->
+  <div id="glow-effect" class="opacity-0 hidden lg:block pointer-events-none absolute bottom-0 right-0 w-[550px] h-[550px] blur-[80px] from-[#63ffd3]/35 via-[#39c4ff]/10 to-transparent lg:w-[800px] lg:h-[800px] lg:blur-[100px] lg:from-[#63ffd3]/50 lg:via-[#39c4ff]/20 bg-gradient-radial z-0"></div>
+</section>
+
+<style>
+  #hero-home h1,
+  #hero-home p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.23,1,0.32,1), transform 0.7s cubic-bezier(0.23,1,0.32,1);
+  }
+  #hero-home a {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s cubic-bezier(0.23,1,0.32,1), transform 0.5s cubic-bezier(0.23,1,0.32,1);
+  }
+  #hero-home h1.hero-animate-in,
+  #hero-home p.hero-animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #hero-home a.hero-animate-in {
+    opacity: 1;
+    transform: scale(1);
+  }
+  #hero-img.opacity-100 {
+    opacity: 1 !important;
+  }
+  #hero-img.scale-100 {
+    transform: scale(1) !important;
+  }
+  /* ─────────── Popup slide-down animácia ─────────── */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .animate-slideDown-hero {
+    animation: slideDown 0.3s ease-out;
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener("load", () => {
+    const heroImg = document.querySelector("#hero-home img");
+    if (!heroImg) return;
+
+    // Animate text/buttons with GSAP timeline (same timings as before)
+    const tl = gsap.timeline({ defaults: { duration: 0.8, ease: "power3.out" } });
+    tl.to("#hero-home h1", { y: 0, opacity: 1 });
+    tl.to("#hero-home p", { y: 0, opacity: 1 }, "-=0.4");
+    tl.to("#hero-home a", { scale: 1, opacity: 1, stagger: 0.12 }, "-=0.5");
+    tl.to("#glow-effect", { opacity: 1, duration: 2.5, ease: "power2.inOut" }, "-=1.0");
+
+    gsap.to("#glow-effect", {
+      scale: 1.8,
+      repeat: -1,
+      yoyo: true,
+      duration: 4,
+      ease: "sine.inOut",
+    });
+
+    // Custom image fade/scale in (not GSAP, but same timing)
+    function showHeroImg() {
+      if (!heroImg) return;
+        heroImg.classList.remove('opacity-0', 'scale-90');
+        heroImg.classList.add('opacity-100', 'scale-100');
+    }
+
+    // Use IntersectionObserver for scroll-in effect
+    const observer = new window.IntersectionObserver(
+      (entries, obs) => {
+        if (entries[0].isIntersecting) {
+          showHeroImg();
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(heroImg);
+
+    // Parallax stays with GSAP
+    ScrollTrigger.create({
+      trigger: "#hero-home",
+      start: "top top",
+      end: "bottom top",
+      scrub: 0.4,
+      onUpdate: self => {
+        gsap.to("#hero-img", { y: self.progress * 30, overwrite: true });
+      },
+    });
+  });
+</script>
