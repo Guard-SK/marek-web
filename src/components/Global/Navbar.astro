@@ -81,7 +81,7 @@ const currentPage = Astro.url.pathname;
         </div>
 
         <a href="/" class="relative z-10">
-          <img src="/favicon.svg" alt="Logo" class="w-12 hover:scale-105 transition duration-300" width="48" height="48" />
+          <img src="/favicon.svg" alt="Logo" class="w-12 hover:scale-105 transition duration-300" fetchpriority=high width="48" height="48" />
           <div class="absolute inset-0 w-full h-full rounded-full blur-2xl bg-gradient-radial from-[#63ffd3]/20 to-transparent animate-pulse z-50"></div>
         </a>
 
@@ -104,7 +104,7 @@ const currentPage = Astro.url.pathname;
       <div class="lg:hidden bg-[#191919] shadow-md flex justify-between items-center backdrop-blur bg-[#191919]/70 border-b border-white/10 h-16 px-4 z-50">
         <div class="flex-1 flex justify-center">
           <a href="/">
-            <img id="nav-logo" src="/favicon.svg" alt="Aurora Construction Logo" class="w-12 ml-[14px]" width="48" height="48" />
+            <img id="nav-logo" src="/favicon.svg" alt="Aurora Construction Logo" fetchpriority=high class="w-12 ml-[14px]" width="48" height="48" />
           </a>
         </div>
         <div>
