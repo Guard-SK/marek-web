@@ -22,9 +22,10 @@
 
     <div class="relative z-10 w-full max-w-full flex items-end justify-center">
       <img
+        id="hero-img"
         src="/HeroSectionCropped.avif"
         alt="Dvaja pracovníci pri výstavbe hrubej stavby"
-        class="w-full lg:h-auto object-contain max-w-none"
+        class="w-full lg:h-auto object-contain max-w-none transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 scale-90"
         loading="eager"
         fetchpriority="high"
         width="913"
@@ -70,14 +71,27 @@
   #hero-home p {
     opacity: 0;
     transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.23,1,0.32,1), transform 0.7s cubic-bezier(0.23,1,0.32,1);
   }
-  #hero-home a,
-  #hero-home img {
+  #hero-home a {
     opacity: 0;
     transform: scale(0.8);
+    transition: opacity 0.5s cubic-bezier(0.23,1,0.32,1), transform 0.5s cubic-bezier(0.23,1,0.32,1);
   }
-  #glow-effect {
-    opacity: 0;
+  #hero-home h1.hero-animate-in,
+  #hero-home p.hero-animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #hero-home a.hero-animate-in {
+    opacity: 1;
+    transform: scale(1);
+  }
+  #hero-img.opacity-100 {
+    opacity: 1 !important;
+  }
+  #hero-img.scale-100 {
+    transform: scale(1) !important;
   }
   /* ─────────── Popup slide-down animácia ─────────── */
   @keyframes slideDown {
@@ -96,75 +110,57 @@
 </style>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const elekButton = document.getElementById('elektrika-button-hero');
-    const elekPopup = document.getElementById('elektrika-popup-hero');
-    const elekClose = document.getElementById('elektrika-close-hero');
-
-    if (!elekButton || !elekPopup || !elekClose) {
-      console.warn('Elektrika popup elementy nenájdené:', { elekButton, elekPopup, elekClose });
-      return;
-    }
-
-    // Otvoriť popup
-    elekButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      elekPopup.classList.remove('hidden');
-    })
-
-    // Zatvoriť pri kliknutí na “×”
-    elekClose.addEventListener('click', () => {
-      elekPopup.classList.add('hidden');
-    });
-
-    // Zatvoriť aj pri kliknutí mimo bielej krabičky (na priehľadnom pozadí)
-    elekPopup.addEventListener('click', (e) => {
-      if (e.target === elekPopup) {
-        elekPopup.classList.add('hidden');
-      }
-    });
-  });
-</script>
-
-<script>
   import gsap from 'gsap';
   import ScrollTrigger from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
   window.addEventListener("load", () => {
-    const heroImg = document.querySelector("#hero-home img") as HTMLImageElement | null;
+    const heroImg = document.querySelector("#hero-home img");
     if (!heroImg) return;
-    if (!heroImg.complete) {
-      heroImg.addEventListener("load", runHeroAnimation);
-    } else {
-      runHeroAnimation();
+
+    // Animate text/buttons with GSAP timeline (same timings as before)
+    const tl = gsap.timeline({ defaults: { duration: 0.8, ease: "power3.out" } });
+    tl.to("#hero-home h1", { y: 0, opacity: 1 });
+    tl.to("#hero-home p", { y: 0, opacity: 1 }, "-=0.4");
+    tl.to("#hero-home a", { scale: 1, opacity: 1, stagger: 0.12 }, "-=0.5");
+    tl.to("#glow-effect", { opacity: 1, duration: 2.5, ease: "power2.inOut" }, "-=1.0");
+
+    gsap.to("#glow-effect", {
+      scale: 1.8,
+      repeat: -1,
+      yoyo: true,
+      duration: 4,
+      ease: "sine.inOut",
+    });
+
+    // Custom image fade/scale in (not GSAP, but same timing)
+    function showHeroImg() {
+      if (!heroImg) return;
+        heroImg.classList.remove('opacity-0', 'scale-90');
+        heroImg.classList.add('opacity-100', 'scale-100');
     }
 
-    function runHeroAnimation() {
-      const tl = gsap.timeline({ defaults: { duration: 0.8, ease: "power3.out" } });
-      tl.to("#hero-home h1", { y: 0, opacity: 1 });
-      tl.to("#hero-home p", { y: 0, opacity: 1 }, "-=0.4");
-      tl.to("#hero-home a", { scale: 1, opacity: 1, stagger: 0.12 }, "-=0.5");
-      tl.to("#hero-home img", { scale: 1, opacity: 1, duration: 1.2 }, "-=0.6");
-      tl.to("#glow-effect", { opacity: 1, duration: 2.5, ease: "power2.inOut" }, "-=1.0");
+    // Use IntersectionObserver for scroll-in effect
+    const observer = new window.IntersectionObserver(
+      (entries, obs) => {
+        if (entries[0].isIntersecting) {
+          showHeroImg();
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(heroImg);
 
-      gsap.to("#glow-effect", {
-        scale: 1.8,
-        repeat: -1,
-        yoyo: true,
-        duration: 4,
-        ease: "sine.inOut",
-      });
-
-      ScrollTrigger.create({
-        trigger: "#hero-home",
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.4,
-        onUpdate: self => {
-          gsap.to("#hero-home img", { y: self.progress * 30, overwrite: true });
-        },
-      });
-    }
+    // Parallax stays with GSAP
+    ScrollTrigger.create({
+      trigger: "#hero-home",
+      start: "top top",
+      end: "bottom top",
+      scrub: 0.4,
+      onUpdate: self => {
+        gsap.to("#hero-img", { y: self.progress * 30, overwrite: true });
+      },
+    });
   });
 </script>

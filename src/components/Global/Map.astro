@@ -60,37 +60,42 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.from("#coverage-title", {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-        trigger: "#coverage-title",
-        start: "top 85%",
-    }
-});
+// Animate title and description together for less layout thrash
+gsap.timeline({
+  scrollTrigger: {
+    trigger: "#coverage-title",
+    start: "top 85%",
+    toggleActions: "play none none none"
+  }
+})
+.from("#coverage-title", {
+  y: 36,
+  opacity: 0,
+  duration: 0.5,
+  ease: "power1.out"
+})
+.from("#coverage-desc", {
+  y: 24,
+  opacity: 0,
+  duration: 0.5,
+  ease: "power1.out"
+}, "-=0.3");
 
-gsap.from("#coverage-desc", {
-    y: 30,
-    opacity: 0,
-    delay: 0.2,
-    duration: 1,
-    scrollTrigger: {
-        trigger: "#coverage-desc",
-        start: "top 85%",
-    }
-});
+// Animate benefit cards in a staggered batch for best performance
+gsap.set("[data-benefit]", { opacity: 0, y: 20, willChange: "opacity, transform" });
 
-gsap.utils.toArray("[data-benefit]").forEach((el, i) => {
-    gsap.from(el as Element, {
-    y: 20,
-    opacity: 0,
-    delay: i * 0.1,
-    duration: 0.6,
-    scrollTrigger: {
-        trigger: el as Element,
-        start: "top 90%",
-}
+ScrollTrigger.batch("[data-benefit]", {
+  start: "top 85%",
+  batchMax: 4,
+  once: true,
+  onEnter: batch => {
+    gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: "power1.out",
+      stagger: { each: 0.13 }
     });
+  }
 });
 </script>

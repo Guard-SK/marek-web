@@ -42,40 +42,39 @@
   import ScrollTrigger from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  // Set initial state for all service cards
+  // Optimize: Only animate transform/opacity, reduce batch size, and use will-change only for transform/opacity
   gsap.set("[data-service-card]", {
     opacity: 0,
-    y: 30,
+    y: 24,
     willChange: "opacity, transform"
   });
 
-  // Batch animate them when they scroll into view
   ScrollTrigger.batch("[data-service-card]", {
     start: "top 85%",
-    batchMax: 3,       // animate up to 3 at once
-    interval: 0.1,     // collect entries for 0.1s before triggering
-    once: true,        // only run once per element
+    batchMax: 3, // Animate one at a time for smoother experience on mobile
+    interval: 0.05,
+    once: true,
     onEnter: batch => {
       gsap.to(batch, {
         opacity: 1,
         y: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        stagger: { each: 0.12 }
+        duration: 0.45,
+        ease: "power1.out",
+        stagger: { each: 0.14 }
       });
     }
   });
 
-  // And for the heading block:
+  // Animate the heading block with lighter animation
   gsap.from("[data-service-hero]", {
     scrollTrigger: {
       trigger: "[data-service-hero]",
-      start: "top 90%",
+      start: "top 92%",
       toggleActions: "play none none none"
     },
     opacity: 0,
-    y: 20,
-    duration: 0.6,
-    ease: "power2.out"
+    y: 16,
+    duration: 0.5,
+    ease: "power1.out"
   });
 </script>
