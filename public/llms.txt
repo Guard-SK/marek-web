@@ -1,0 +1,21 @@
+# Aurora Construction
+> Spoľahlivá stavebná firma – konštrukčné riešenia na mieru v Bratislavskom a Trnavskom kraji. :contentReference[oaicite:0]{index=0}
+
+## O nás
+- https://auroraconstruction.sk/  
+  Informácie o našich hodnotách, spoľahlivosti, odbornosti a zákazníckom prístupe. :contentReference[oaicite:1]{index=1}
+
+## Naše služby
+- https://auroraconstruction.sk/hruba-stavba  
+  Kompletná realizácia hrubej stavby od výkopov až po uzavretú strešnú konštrukciu, s dôrazom na kvalitu a transparentný proces. :contentReference[oaicite:2]{index=2}  
+- https://auroraconstruction.sk/strechy  
+  Montáž a oprava sedlových a valbových striech vrátane krovu, krytiny a hydroizolácie. :contentReference[oaicite:3]{index=3}  
+- Elektrika (plánovaná služba – čoskoro dostupná) :contentReference[oaicite:4]{index=4}
+
+## Pôsobenie
+- Bratislavský a Trnavský kraj  
+  Rýchla a efektívna realizácia projektov v regiónoch, ktoré dôverne poznáme. :contentReference[oaicite:5]{index=5}
+
+## Kontakt
+- https://auroraconstruction.sk/  
+  Telefón, e-mail, WhatsApp a adresa pre priame spojenie. :contentReference[oaicite:6]{index=6}
