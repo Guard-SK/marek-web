@@ -187,9 +187,9 @@ import Map from '../components/Global/Map.astro';
           </div>
       
           <!-- Karty -->
-          <div class="grid md:grid-cols-3 gap-8">
+          <ol class="grid md:grid-cols-3 gap-8">
             <!-- Krok 1 -->
-            <div class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
+            <li class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
               <div class="flex items-center gap-4 mb-4">
                 <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <img src="/hruba-stavba/icons/excavator.svg" alt="Výkop" class="w-7 h-7" />
@@ -199,10 +199,10 @@ import Map from '../components/Global/Map.astro';
               <p class="text-sm text-gray-400">
                 Výkopy, základová doska a hydroizolácia. Všetko pripravené precízne a kvalitne.
               </p>
-            </div>
+            </li>
       
             <!-- Krok 2 -->
-            <div class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
+            <li class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
               <div class="flex items-center gap-4 mb-4">
                 <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <img src="/hruba-stavba/icons/wall.svg" alt="Múry" class="w-7 h-7" />
@@ -212,10 +212,10 @@ import Map from '../components/Global/Map.astro';
               <p class="text-sm text-gray-400">
                 Murovanie stien a stropov podľa projektovej dokumentácie a vašich potrieb.
               </p>
-            </div>
+            </li>
       
             <!-- Krok 3 -->
-            <div class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
+            <li class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
               <div class="flex items-center gap-4 mb-4">
                 <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <img src="/hruba-stavba/icons/house.svg" alt="Strecha" class="w-7 h-7" />
@@ -225,8 +225,8 @@ import Map from '../components/Global/Map.astro';
               <p class="text-sm text-gray-400">
                 Montáž krovu, krytiny a dokončenie do fázy uzavretej hrubej stavby.
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </div>
       </section>
       
@@ -289,56 +289,56 @@ import Map from '../components/Global/Map.astro';
           </div>
       
           <!-- Timeline -->
-          <div class="relative flex flex-col md:flex-row md:justify-between gap-12 md:gap-0 text-center">
+          <ol class="relative flex flex-col md:flex-row md:justify-between gap-12 md:gap-0 text-center">
             <!-- Gradient line -->
             <div class="absolute hidden md:block top-[30%] left-0 h-1 bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] opacity-40 z-0 timeline-gradient-line"></div>
 
       
             <!-- Step 1 -->
-            <div class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
+            <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
               <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center shadow-xl">
                 <img src="/hruba-stavba/icons/phone.svg" alt="Kontakt" class="w-8 h-8" />
               </div>
               <h3 class="font-semibold text-lg mb-2">Kontakt a zadanie</h3>
               <p class="text-gray-400 text-sm">Zavoláte nám, pošlete email alebo ináč nás kontaktujete. Spolu preberieme váš projekt.</p>
-            </div>
+            </li>
       
             <!-- Step 2 -->
-            <div class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
+            <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
               <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#63ffd3] rounded-full flex items-center justify-center shadow">
                 <img src="/hruba-stavba/icons/plan.svg" alt="Nacenenie" class="w-8 h-8" />
               </div>
               <h3 class="font-semibold text-lg mb-2">Nacenenie a harmonogram</h3>
               <p class="text-gray-400 text-sm">Pripravíme transparentnú ponuku a orientačný termín. Všetko do teraz robíme úplne zadarmo.</p>
-            </div>
+            </li>
       
             <!-- Step 3 -->
-            <div class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
+            <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
               <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#39c4ff] rounded-full flex items-center justify-center shadow">
                 <img src="/hruba-stavba/icons/contract.svg" alt="Zmluva" class="w-8 h-8" />
               </div>
               <h3 class="font-semibold text-lg mb-2">Zmluva a príprava</h3>
               <p class="text-gray-400 text-sm">Po odsúhlasení podpíšeme zmluvu a pripravíme stavenisko.</p>
-            </div>
+            </li>
       
             <!-- Step 4 -->
-            <div class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
+            <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
               <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#63ffd3] rounded-full flex items-center justify-center shadow">
                 <img src="/hruba-stavba/icons/build.svg" alt="Realizácia" class="w-8 h-8" />
               </div>
               <h3 class="font-semibold text-lg mb-2">Realizácia stavby</h3>
               <p class="text-gray-400 text-sm">Hrubá stavba rastie podľa dohodnutého plánu. Máte prehľad o všetkom.</p>
-            </div>
-      
+            </li>
+
             <!-- Step 5 -->
-            <div class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
+            <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
               <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#39c4ff] to-[#63ffd3] rounded-full flex items-center justify-center shadow-xl">
                 <img src="/hruba-stavba/icons/check.svg" alt="Odovzdanie" class="w-8 h-8" />
               </div>
               <h3 class="font-semibold text-lg mb-2">Odovzdanie a ukončenie</h3>
               <p class="text-gray-400 text-sm">Spoločne prejdeme výsledok. Stavba je pripravená na ďalšie etapy.</p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </div>
       </section>
       
