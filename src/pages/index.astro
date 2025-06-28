@@ -164,6 +164,48 @@ import Map from '../components/Global/Map.astro'
       <About />
       <Services />
       <Map title='Pôsobíme v Bratislavskom a Trnavskom kraji' description="Zameriavame sa na výstavbu a iné konštrukčné riešenia v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup." />
+      <section id="faq" class="py-24 px-6 md:px-12 bg-[#191919]">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-12">Často kladené otázky</h2>
+
+          <div class="space-y-4">
+            <!-- FAQ Item -->
+            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
+              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
+                <span class="text-lg font-semibold">Ponúkate aj niečo iné ako výstavbu hrubej stavby alebo striech?</span>
+                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer px-6 pb-6 hidden text-gray-400">
+                Áno, okrem hrubej stavby a striech ponúkame aj široké spektrum stavebných prác ako sú napríklad pokládka zámkovej dlažby, murovanie priečok, sadrokartonárske práce, výstavvba plotov, debnenie alebo práca s armatúrou. Ako stavebná firma sa snažíme pokryť všetky potreby našich klientov v oblasti stavebníctva, stačí nás len bezplatne kontaktovať.
+              </div>
+            </div>
+            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
+              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
+                <span class="text-lg font-semibold">Ako skoro odpovedáte po kontakte?</span>
+                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer px-6 pb-6 hidden text-gray-400">
+                Odpovedáme do 48 hodín, ale zvyčajne sa snažíme reagovať oveľa rýchlejšie. Ak je niečo urgentné, neváhajte to aj napísať do vašej správy a skúsime vám prioritne odpovedať.
+              </div>
+            </div>
+            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
+              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
+                <span class="text-lg font-semibold">Ako začať spoluprácu alebo sa spýtať otázku?</span>
+                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-answer px-6 pb-6 hidden text-gray-400">
+                Najlepšie pre nás je, že buď vyplníte kontaktný formulár dole na našej stránke alebo napíšete na náš email <a class="text-[#7da8ba] hover:underline" href="mailto:info@auroraconstruction.sk">info@auroraconstruction.sk</a>. Ak chcete možno promptnejšiu odpoveď, môžete zavolať na naše hlavné telefónne čislo počas pracovnej doby uvedenej na Google maps, alebo napísať na Whatsapp cez link nižšie.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <Contact />
       <Footer />
     </div>
@@ -184,4 +226,15 @@ import Map from '../components/Global/Map.astro'
       ease: "power2.inOut" // Use a smoother easing function
     });
   });
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    if (!item) return;
+    const answer = item.querySelector('.faq-answer');
+    const icon = btn.querySelector('.faq-icon');
+    if (answer) answer.classList.toggle('hidden');
+    if (icon) icon.classList.toggle('rotate-180');
+  });
+});
 </script>
