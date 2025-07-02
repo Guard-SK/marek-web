@@ -66,6 +66,12 @@ a {
   color: var(--primary-text);
 }
 
+.roboto {
+  font-family: "Roboto", serif !important;
+  font-display: swap;
+  color: var(--secondary-text);
+}
+
 .gradient-text-1 {
   background: linear-gradient(90deg, #38abd3, #38abd3, #37d4db, #37d4db);
   -webkit-background-clip: text;
