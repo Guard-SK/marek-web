@@ -22,7 +22,7 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
   <div id="contact-fab-root" class="md:hidden">
     <!-- Overlay -->
     <button id="contact-fab-overlay"
-            type="button" aria-hidden="true"
+            type="button"
             class="fixed inset-0 opacity-0 pointer-events-none transition-opacity duration-150
                    bg-black/30 backdrop-blur-[1px] z-[80]"></button>
 
@@ -32,14 +32,14 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
                 transition-[transform,opacity] duration-200 ease-out
                 backdrop-blur-lg bg-white/12 border border-white/20 rounded-2xl shadow-2xl
                 ring-1 ring-white/10 z-[85]"
-         aria-label="Rýchly kontakt" aria-hidden="true">
+         aria-label="Rýchly kontakt">
       <ul class="p-2 w-[220px]">
         <li class="fab-item">
           <a href={`tel:${PRIMARY_PHONE_TEL}`}
              class="group flex items-center gap-2 w-full rounded-xl px-3 py-2
                     bg-white/10 hover:bg-white/15 active:bg-white/20 transition
                     focus:outline-none focus:ring-2 focus:ring-[#63ffd3]/60">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/></svg>
             <span class="text-[15px]">Zavolať</span>
           </a>
         </li>
@@ -49,7 +49,7 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
              class="group flex items-center gap-2 w-full rounded-xl px-3 py-2
                     bg-white/10 hover:bg-white/15 active:bg-white/20 transition
                     focus:outline-none focus:ring-2 focus:ring-[#63ffd3]/60">
-            <img src="/icons/whatsapp.svg" class="w-5 h-5" alt="WhatsApp" loading="lazy" fetchpriority="low" />
+            <img src="/icons/whatsapp.svg" class="w-5 h-5" alt="WhatsApp" loading="lazy" fetchpriority="low" alt="aurora construction whatsapp" />
             <span class="text-[15px]">WhatsApp</span>
           </a>
         </li>
@@ -76,7 +76,7 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
                    backdrop-blur-lg bg-black/10 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]
                    ring-1 ring-white/10 text-white transition-transform duration-150 active:scale-95 z-[90]">
       <svg id="fab-icon-phone" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 transition-opacity duration-150" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/></svg>
-      <svg id="fab-icon-x" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 absolute opacity-0 transition-opacity duration-150" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.225 4.811 4.811 6.225 10.586 12l-5.775 5.775 1.414 1.414L12 13.414l5.775 5.775 1.414-1.414L13.414 12l5.775-5.775-1.414-1.414L12 10.586 6.225 4.811z"/></svg>
+      <svg id="fab-icon-x" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 absolute opacity-0 transition-opacity duration-150" viewBox="0 0 24 24" fill="currentColor"><path d="M6.225 4.811 4.811 6.225 10.586 12l-5.775 5.775 1.414 1.414L12 13.414l5.775 5.775 1.414-1.414L13.414 12l5.775-5.775-1.414-1.414L12 10.586 6.225 4.811z"/></svg>
     </button>
   </div>
 
@@ -100,7 +100,8 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
             Zavolať: {PRIMARY_PHONE_DISPLAY}
           </a>
           <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=Dobrý%20deň,%20mám%20záujem%20o%20viac%20informácií.`} target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 border border-[#63ffd3] text-white py-3 px-4 rounded-xl hover:bg-neutral-800">
-            <img src="/icons/whatsapp.svg" class="w-5 h-5" alt="WhatsApp" loading="lazy" fetchpriority="low" /> WhatsApp
+            <img src="/icons/whatsapp.svg" class="w-5 h-5" alt="WhatsApp" loading="lazy" fetchpriority="low" alt="aurora construction whatsapp" /> 
+            WhatsApp
           </a>
         </div>
 
@@ -134,13 +135,13 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
             <span id="step-title">Krok 1 z 2 — Projekt</span>
             <span id="step-hint">Ďalej: Kontakt</span>
           </div>
-          <div class="flex items-center gap-3 mb-3" aria-label="Priebeh krokov">
+          <div class="flex items-center gap-3 mb-3">
             <div id="stepbar-1" class="h-2 flex-1 rounded-full bg-[#63ffd3]"></div>
             <div id="stepbar-2" class="h-2 flex-1 rounded-full bg-neutral-700"></div>
           </div>
 
           <!-- STEP 1 -->
-          <fieldset id="step-1" class="space-y-3" aria-labelledby="legend-projekt">
+          <fieldset id="step-1" class="space-y-3">
             <legend id="legend-projekt" class="sr-only">Informácie o projekte</legend>
 
             <div>
@@ -164,6 +165,7 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
               <div>
                 <label for="area" class="block text-sm mb-1">Rozsah (m²)</label>
                 <div class="flex items-center gap-3">
+                  <label for="area" class="hidden text-sm mb-1">Rozsah (m²)</label>
                   <input type="range" id="area" min="10" max="400" step="5" class="w-full accent-[#39c4ff]" />
                   <input id="area_num" name="area" type="number" inputmode="numeric" min="0" max="1000" class="w-24 bg-neutral-900 border border-neutral-700 rounded-lg p-2 text-center focus:outline-none focus:ring-2 focus:ring-[#39c4ff]" />
                 </div>
