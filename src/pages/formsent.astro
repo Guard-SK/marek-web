@@ -1,26 +1,131 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import '../../public/styles/stylesheet.css'
+import "../../public/styles/stylesheet.css";
 ---
 
 <head>
   <meta charset="utf-8" />
   <meta name="robots" content="noindex,nofollow" />
+  <title>Formulár odoslaný | Aurora Construction</title>
 </head>
+
 <BaseLayout title="Formulár odoslaný">
-  <article class="flex items-center justify-center h-screen">
-    <div class="bg-[#242424] rounded-lg shadow-lg p-8 text-center w-11/12 max-w-md">
-      <img src="LogoAuroraConstruction.webp" alt="Logo" class="w-24 h-auto mx-auto mb-4" />
-      <h1 class="text-2xl font-bold mb-4">Ďakujeme za zaslanie formulára!</h1>
-      <p class="text-lg text-gray-400 mb-6">
-        Ak vám na zdaný email prišla správa, váš formulár sa úspešne dostal k nám! <br> Odpíšeme vám do 2 pracovných dní.
-      </p>
-      <a
-        href="/"
-        class="inline-block bg-primary text-gray-900 font-semibold py-2 px-4 rounded-md hover:bg-primary transition"
-      >
-        Späť na hlavnú stránku
-      </a>
+  <section class="min-h-[92vh] flex items-center justify-center bg-[#191919] px-4 py-16">
+    <div class="w-full max-w-3xl">
+      <!-- karta -->
+      <div class="relative rounded-2xl border border-neutral-800 bg-[#1b1b1b] shadow-2xl overflow-hidden">
+        <!-- jemný glow -->
+        <div class="pointer-events-none absolute -inset-x-24 -top-24 h-48 bg-gradient-to-r from-[#63ffd3]/20 via-[#39c4ff]/20 to-transparent blur-3xl"></div>
+
+        <div class="relative p-8 md:p-10">
+          <!-- hlavička -->
+          <div class="flex items-center gap-4 mb-6">
+            <div class="shrink-0 grid place-items-center w-14 h-14 rounded-full bg-[#63ffd3] text-black shadow-lg">
+              <!-- check -->
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
+                Nacenenie vám pošleme do 48 hodín!
+              </h1>
+              <p class="text-sm md:text-base text-neutral-300">
+                Dopyt sme prijali a poslali sme aj potvrdenie na váš e-mail.
+              </p>
+            </div>
+          </div>
+
+          <!-- logo -->
+          <img src="LogoAuroraConstruction.webp" alt="Aurora Construction" class="w-24 h-auto mb-4 mx-auto" />
+
+          <!-- voliteľný krátky súhrn -->
+          <div id="lead-summary-wrap" class="hidden mb-6">
+            <div id="lead-summary" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <!-- text -->
+          <p class="text-lg text-gray-300 mb-8">
+            Ak vám na zadaný e-mail prišla správa, vaše informácie sa úspešne dostali k nám.
+            Ďakujeme za dôveru a tešíme sa na možnú spoluprácu. Odpovieme čo najskôr.
+          </p>
+
+          <!-- čo bude nasledovať -->
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5 md:p-6 mb-8">
+            <h2 class="text-lg font-semibold mb-3">Čo bude nasledovať</h2>
+            <ol class="grid md:grid-cols-3 gap-4">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-grid place-items-center w-6 h-6 rounded-full bg-[#63ffd3] text-black text-[12px] font-bold leading-none shrink-0">1</span>
+                <p><b>Skontrolujeme podklady.</b><br/><span class="text-neutral-300 text-sm">Ak niečo chýba, ozveme sa.</span></p>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-grid place-items-center w-6 h-6 rounded-full bg-[#63ffd3] text-black text-[12px] font-bold leading-none shrink-0">2</span>
+                <p><b>Pošleme orientačnú ponuku.</b><br/><span class="text-neutral-300 text-sm">Zvyčajne skôr ako 48 hodín.</span></p>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-grid place-items-center w-6 h-6 rounded-full bg-[#63ffd3] text-black text-[12px] font-bold leading-none shrink-0">3</span>
+                <p><b>Potvrdíte spoluprácu.</b><br/><span class="text-neutral-300 text-sm">Ďalšie postupy budú už podľa vášho dopytu.</span></p>
+              </li>
+            </ol>
+          </div>
+
+          <!-- CTA -->
+          <div class="grid sm:grid-cols-3 gap-3">
+            <a href="/"
+               class="w-full min-w-0 inline-flex items-center justify-center gap-2 rounded-lg bg-[#63ffd3] text-black font-semibold py-3 px-4 md:px-5 hover:opacity-90">
+              <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor"><path d="M10 19l-7-7 7-7v4h8v6h-8v4z"/></svg>
+              <span class="truncate">Hlabná stránka</span>
+            </a>
+            <a href="https://wa.me/421949105006?text=Dobrý%20deň,%20reagujem%20na%20odoslaný%20dopyt."
+               target="_blank" rel="noopener"
+               class="group flex items-center gap-3 w-full rounded-xl px-3 py-2
+                    hover:bg-white/15 active:bg-white/20 transition
+                    focus:outline-none focus:ring-2 focus:ring-[#63ffd3]/60 border border-[#63ffd3]">
+              <img src="/icons/whatsapp.svg" class="w-5 h-5" alt="WhatsApp" />
+              <span class="truncate">WhatsApp</span>
+            </a>
+            <a href="tel:+421949105006"
+               title="Zavolať: +421 949 105 006"
+               class="w-full min-w-0 inline-flex items-center justify-center gap-2 rounded-lg border border-neutral-700 py-3 px-4 md:px-5 hover:bg-neutral-800">
+              <img src="/icons/phone.svg" class="w-5 h-5" alt="phone" />
+              <span class="truncate">Zavolať: +421&nbsp;949&nbsp;105&nbsp;006</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </article>
+  </section>
+
+  <!-- Personalizácia + confetti (ľahké, voliteľné) -->
+  <script is:inline>
+    (function(){
+      // ak máš na /kontakt ukladanie: sessionStorage.setItem('auroraLead', JSON.stringify({...}))
+      let lead = {};
+      try { lead = JSON.parse(sessionStorage.getItem('auroraLead') || '{}'); } catch(_) {}
+      // chip-y so súhrnom
+      const chips = [];
+      if(lead.service)  chips.push({k:'Typ práce', v: lead.service});
+      if(lead.location) chips.push({k:'Lokalita', v: lead.location});
+      if(lead.timeline) chips.push({k:'Termín', v: lead.timeline});
+      if(chips.length){
+        const wrap = document.getElementById('lead-summary-wrap');
+        const list = document.getElementById('lead-summary');
+        list.innerHTML = chips.map(c => `<span class="inline-flex items-center gap-2 text-sm rounded-full px-3 py-1 border border-neutral-700 bg-neutral-900/60"><b>${c.k}:</b> ${c.v}</span>`).join(' ');
+        wrap.classList.remove('hidden');
+      }
+
+      // malý confetti efekt
+      function loadConfetti(cb){
+        if(window.confetti) return cb();
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
+        s.async = true; s.onload = cb; document.body.appendChild(s);
+      }
+      loadConfetti(() => {
+        const origin = { y: 0.25 };
+        confetti({ particleCount: 60, spread: 60, origin });
+        setTimeout(()=> confetti({ particleCount: 40, spread: 80, origin }), 150);
+      });
+    })();
+  </script>
 </BaseLayout>
