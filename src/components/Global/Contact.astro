@@ -1,5 +1,5 @@
 ---
-/* Contact data (edit here) */
+/* Contact data (edit here) – bez výkonového dopadu, nechaj hore */
 const PRIMARY_PHONE_DISPLAY = '+421 949 105 006';
 const SECONDARY_PHONE_DISPLAY = '+421 919 221 760';
 const PRIMARY_PHONE_TEL = PRIMARY_PHONE_DISPLAY.replace(/\s+/g, '');
@@ -10,16 +10,21 @@ const ADDRESS = 'Nejedlého 27, 841 02 Bratislava';
 const OPENING_HOURS = 'Po–Ne 8:00–20:00';
 ---
 
-<section id="kontakt" class="pt-16 lg:pt-20 pb-20 bg-[#191919] text-white relative">
+<!-- Preconnecty urýchlia TLS a DNS pre externé CDN až keď sa použijú -->
+<link rel="preconnect" href="https://ucarecdn.com" crossorigin>
+<link rel="dns-prefetch" href="//ucarecdn.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
-  <!-- CONTACT FAB (mobile only, no GSAP, buttery smooth) -->
+<div class="pt-16 lg:pt-20 pb-20 bg-[#191919] text-white relative">
+
+  <!-- CONTACT FAB (mobile only, lightweight, bez knižníc) -->
   <div id="contact-fab-root" class="md:hidden">
     <!-- Overlay -->
     <button id="contact-fab-overlay"
-            type="button"
-            aria-hidden="true"
-            class="fixed inset-0 opacity-0 pointer-events-none transition-opacity duration-150 bg-black/30 backdrop-blur-[1px] z-[80]">
-    </button>
+            type="button" aria-hidden="true"
+            class="fixed inset-0 opacity-0 pointer-events-none transition-opacity duration-150
+                   bg-black/30 backdrop-blur-[1px] z-[80]"></button>
 
     <!-- Sheet -->
     <nav id="contact-fab-sheet"
@@ -31,28 +36,29 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
       <ul class="p-2 w-[220px]">
         <li class="fab-item">
           <a href={`tel:${PRIMARY_PHONE_TEL}`}
-             class="group flex items-center gap-3 w-full rounded-xl px-3 py-2
+             class="group flex items-center gap-2 w-full rounded-xl px-3 py-2
                     bg-white/10 hover:bg-white/15 active:bg-white/20 transition
                     focus:outline-none focus:ring-2 focus:ring-[#63ffd3]/60">
-            <img src="/icons/phone.svg" alt="Zavolať" class="w-4 h-4 opacity-90 group-hover:opacity-100 transition"/>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/></svg>
             <span class="text-[15px]">Zavolať</span>
           </a>
         </li>
         <li class="mt-1 fab-item">
           <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=Dobrý%20deň,%20mám%20záujem%20o%20viac%20informácií.`}
              target="_blank" rel="noopener"
-             class="group flex items-center gap-3 w-full rounded-xl px-3 py-2
+             class="group flex items-center gap-2 w-full rounded-xl px-3 py-2
                     bg-white/10 hover:bg-white/15 active:bg-white/20 transition
                     focus:outline-none focus:ring-2 focus:ring-[#63ffd3]/60">
-            <img src="/icons/whatsapp.svg" alt="WhatsApp" class="w-4 h-4 opacity-90 group-hover:opacity-100 transition"/>
+            <img src="/icons/whatsapp.svg" class="w-5 h-5" alt="WhatsApp" loading="lazy" fetchpriority="low" />
             <span class="text-[15px]">WhatsApp</span>
           </a>
         </li>
         <li class="mt-1 fab-item">
-          <a href="#lead-form"
+          <a href="#kontakt"
              class="group flex items-center gap-2 w-full rounded-xl px-3 py-2
                     bg-[#63ffd3] text-black hover:opacity-90 active:opacity-100 transition
                     focus:outline-none focus:ring-2 focus:ring-[#63ffd3]/60">
+            <!-- Kalkulačka – jasný signál "nacenenie" -->
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
             </svg>
@@ -64,26 +70,17 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
 
     <!-- Floating button (always on top) -->
     <button id="contact-fab"
-            aria-label="Rýchly kontakt"
-            aria-haspopup="menu"
-            aria-controls="contact-fab-sheet"
-            aria-expanded="false"
+            aria-label="Rýchly kontakt" aria-haspopup="menu"
+            aria-controls="contact-fab-sheet" aria-expanded="false"
             class="fixed bottom-5 right-5 w-14 h-14 rounded-full flex items-center justify-center select-none
                    backdrop-blur-lg bg-black/10 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]
                    ring-1 ring-white/10 text-white transition-transform duration-150 active:scale-95 z-[90]">
-      <!-- Phone icon -->
-      <svg id="fab-icon-phone" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 transition-opacity duration-150" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/>
-      </svg>
-      <!-- X icon -->
-      <svg id="fab-icon-x" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 absolute opacity-0 transition-opacity duration-150" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M6.225 4.811 4.811 6.225 10.586 12l-5.775 5.775 1.414 1.414L12 13.414l5.775 5.775 1.414-1.414L13.414 12l5.775-5.775-1.414-1.414L12 10.586 6.225 4.811z"/>
-      </svg>
+      <svg id="fab-icon-phone" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 transition-opacity duration-150" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/></svg>
+      <svg id="fab-icon-x" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 absolute opacity-0 transition-opacity duration-150" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.225 4.811 4.811 6.225 10.586 12l-5.775 5.775 1.414 1.414L12 13.414l5.775 5.775 1.414-1.414L13.414 12l5.775-5.775-1.414-1.414L12 10.586 6.225 4.811z"/></svg>
     </button>
   </div>
-  <!-- /FAB -->
 
-  <div class="lg:container mx-auto px-4 lg:px-6">
+  <section id="kontakt" class="lg:container mx-auto px-4 lg:px-6 perf-island">
     <!-- Heading -->
     <div class="text-center mb-10 flex flex-col items-center">
       <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-[#63ffd3] mb-2">Kontaktujte nás</h2>
@@ -92,41 +89,38 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-      <!-- CONTACT INFO / QUICK ACTIONS -->
+      <!-- CONTACT INFO -->
       <aside class="bg-neutral-900/40 rounded-2xl border border-neutral-800 p-6 lg:p-8 order-2 lg:order-1">
         <h3 class="text-2xl font-semibold mb-1">Sme k dispozícii</h3>
         <p class="text-sm opacity-80 mb-4">{OPENING_HOURS}</p>
 
-        <!-- Primary actions -->
         <div class="grid sm:grid-cols-2 gap-3 mb-6">
           <a href={`tel:${PRIMARY_PHONE_TEL}`} class="inline-flex items-center justify-center gap-2 border border-[#63ffd3] text-white font-semibold py-3 px-4 rounded-xl hover:opacity-90">
-            <img src="/icons/phone.svg" class="w-5 h-5" alt="phone"/> Zavolať: {PRIMARY_PHONE_DISPLAY}
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/></svg>
+            Zavolať: {PRIMARY_PHONE_DISPLAY}
           </a>
           <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=Dobrý%20deň,%20mám%20záujem%20o%20viac%20informácií.`} target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 border border-[#63ffd3] text-white py-3 px-4 rounded-xl hover:bg-neutral-800">
-            <img src="/icons/whatsapp.svg" class="w-5 h-5" alt="WhatsApp"/> WhatsApp
+            <img src="/icons/whatsapp.svg" class="w-5 h-5" alt="WhatsApp" loading="lazy" fetchpriority="low" /> WhatsApp
           </a>
         </div>
 
-        <!-- Details list -->
         <ul class="space-y-3 mb-4">
-          <li class="flex items-center gap-2"><img src="/icons/phone.svg" class="w-5 h-5" alt=""/> <span class="text-white"><b>Telefón:</b> {PRIMARY_PHONE_DISPLAY} <span class="opacity-70">|</span> {SECONDARY_PHONE_DISPLAY}</span></li>
-          <li><a href={`mailto:${CONTACT_EMAIL}?subject=Záujem%20o%20služby&body=Dobrý%20deň,`} class="flex items-center gap-2"><img src="/icons/email.svg" class="w-5 h-5" alt=""/> <span><b>E-mail:</b> <span class="text-[#39c4ff] underline">{CONTACT_EMAIL}</span></span></a></li>
-          <li class="flex items-center gap-2"><img src="/icons/pin.svg" class="w-5 h-5" alt=""/> <span><b>Adresa:</b> {ADDRESS}</span></li>
-          <li class="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M4.5 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-15Zm4.125 3a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm-3.873 8.703a4.126 4.126 0 0 1 7.746 0 .75.75 0 0 1-.351.92 7.47 7.47 0 0 1-3.522.877 7.47 7.47 0 0 1-3.522-.877.75.75 0 0 1-.351-.92ZM15 8.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15ZM14.25 12a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H15a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15Z" clip-rule="evenodd" /></svg>
-            <span><b>IČO:</b> 56770294</span>
-          </li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/></svg> <span><b>Telefón:</b> {PRIMARY_PHONE_DISPLAY} <span class="opacity-70">|</span> {SECONDARY_PHONE_DISPLAY}</span></li>
+          <li><a href={`mailto:${CONTACT_EMAIL}?subject=Záujem%20o%20služby&body=Dobrý%20deň,`} class="flex items-center gap-2"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v.35l-10 6.25L2 6.35V6z"/><path d="M2 8.24l9.4 5.87a2 2 0 002.2 0L23 8.24V18a2 2 0 01-2 2H4a2 2 0 01-2-2V8.24z"/></svg> <span><b>E-mail:</b> <span class="text-[#39c4ff] underline">{CONTACT_EMAIL}</span></span></a></li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg> <span><b>Adresa:</b> {ADDRESS}</span></li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4.5 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-15Zm4.125 3a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm-3.873 8.703a4.126 4.126 0 0 1 7.746 0 .75.75 0 0 1-.351.92 7.47 7.47 0 0 1-3.522.877 7.47 7.47 0 0 1-3.522-.877.75.75 0 0 1-.351-.92ZM15 8.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15ZM14.25 12a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H15a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15Z" clip-rule="evenodd" /></svg> <span><b>IČO:</b> 56770294</span></li>
         </ul>
 
-        <!-- Map -->
+        <!-- Map – skutočne lazy: src sa nastaví až pri dohľade -->
         <div class="rounded-xl overflow-hidden border border-neutral-800">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.687758439997!2d17.033468077055687!3d48.193367271249755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4b63380cabc0ff%3A0xff1614f8a0ff269f!2sAurora%20Construction!5e0!3m2!1ssk!2ssk!4v1744007877348!5m2!1ssk!2ssk" 
-            width="100%" height="220" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Adresa Aurora Construction">
-          </iframe>
+          <iframe id="map-embed"
+                  data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.687758439997!2d17.033468077055687!3d48.193367271249755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4b63380cabc0ff%3A0xff1614f8a0ff269f!2sAurora%20Construction!5e0!3m2!1ssk!2ssk!4v1744007877348!5m2!1ssk!2ssk"
+                  src="about:blank" width="100%" height="220" style="border:0;"
+                  allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  title="Adresa Aurora Construction"></iframe>
         </div>
 
-        <p class="text-xs opacity-70 mt-4">Poznámka: Služby aktuálne poskytujeme ako súkromný živnostník. Tým šetríme čas i náklady na byrokraciu, vďaka čomu máte garantované výhodnejšie ceny. O prechode na s.r.o. uvažujeme v budúcnosti, ďakujeme za pochopenie.</p>
+        <p class="text-xs opacity-70 mt-4">Poznámka: Služby aktuálne poskytujeme ako súkromný živnostník. Tým šetríme čas i náklady na byrokraciu, vďaka čomu máte výhodnejšie ceny. O prechode na s.r.o. uvažujeme v budúcnosti, ďakujeme za pochopenie.</p>
       </aside>
 
       <!-- LEAD FORM (2-step) -->
@@ -244,9 +238,12 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
             </div>
 
             <div>
-              <label class="block text-sm mb-1">Projektová dokumentácia <span class="text-xs text-gray-400">- (nepovinné)</span></label>
-              <input type="hidden" id="uc-uploader"
-                     data-multiple data-multiple-max="10" data-clearable data-tabs="file camera url" data-system-dialog="true" />
+              <label class="block text-sm mb-1">Projektová dokumentácia <span class="text-xs text-gray-400">– (nepovinné)</span></label>
+              <!-- skutočne laznuté: žiadny widget v DOM, kým používateľ neklikne -->
+              <button type="button" id="uc-launch"
+                      class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-700 hover:bg-neutral-800">
+                Nahrať súbory
+              </button>
               <input type="hidden" name="file_urls" id="file_urls" />
               <p class="text-xs opacity-70 mt-1">Max 10 súborov. Skúste nepridávať zbytočne veľké súbory.</p>
               <div id="uc-preview" class="mt-2 text-xs opacity-80"></div>
@@ -274,13 +271,16 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
         </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<!-- Client script (runs in browser) -->
+<!-- Client script -->
 <script is:inline>
 (function(){
-  // ====== STEP LOGIC & VALIDATION ======
+  // Helper: idle
+  const onIdle = (cb)=>('requestIdleCallback' in window) ? requestIdleCallback(cb,{timeout:1500}) : setTimeout(cb,150);
+
+  // ====== STEP LOGIC & VALIDATION (ľahké, takže hneď) ======
   const form = document.getElementById('lead-form');
   const step1 = document.getElementById('step-1');
   const step2 = document.getElementById('step-2');
@@ -292,26 +292,24 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
   const stepTitle = document.getElementById('step-title');
   const stepHint  = document.getElementById('step-hint');
 
-  const dl = (evt, extra={}) => { window.dataLayer = window.dataLayer || []; window.dataLayer.push({event: evt, ...extra}); };
   const q  = (sel) => document.querySelector(sel);
+  const dl = (evt, extra={}) => { window.dataLayer = window.dataLayer || []; window.dataLayer.push({event: evt, ...extra}); };
 
-  // range <-> number sync
+  // range <-> number sync (ľahké)
   const area = document.getElementById('area');
   const areaNum = document.getElementById('area_num');
   if (area && areaNum){
-    area.addEventListener('input', () => areaNum.value = area.value);
-    areaNum.addEventListener('input', () => area.value = areaNum.value);
+    area.addEventListener('input', () => areaNum.value = area.value, {passive:true});
+    areaNum.addEventListener('input', () => area.value = areaNum.value, {passive:true});
   }
 
   function setStep(n){
     const first = (n === 1);
     step1.classList.toggle('hidden', !first);
     step2.classList.toggle('hidden', first);
-
     bar1.classList.add('bg-[#63ffd3]');
     bar2.classList.toggle('bg-[#63ffd3]', !first);
     bar2.classList.toggle('bg-neutral-700', first);
-
     stepTitle.textContent = first ? 'Krok 1 z 2 — Projekt' : 'Krok 2 z 2 — Kontakt';
     stepHint.textContent  = first ? 'Ďalej: Kontakt' : 'Vyplňte a odošlite';
   }
@@ -326,13 +324,9 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
   }
 
   function validateStep2(){
-    // Native HTML5 constraints first
     if (!form.checkValidity()){ form.reportValidity(); return false; }
-
     const prefer  = q('input[name="preferredContact"]:checked')?.value;
     const phone   = q('#phone');
-
-    // Require phone for call/WhatsApp
     if (prefer === 'Telefonát' || prefer === 'WhatsApp'){
       const okPhone = /^\+?\d[\d\s]{7,}$/.test((phone.value||'').trim());
       phone.classList.toggle('ring-2', !okPhone);
@@ -342,24 +336,65 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
     return true;
   }
 
-  function goStep2(){
-    if(!validateStep1()) return;
-    setStep(2);
-    dl('lead_step',{step:1, service: q('#service').value});
-  }
+  function goStep2(){ if(validateStep1()){ setStep(2); dl('lead_step',{step:1, service: q('#service').value}); } }
   function backStep(){ setStep(1); }
 
   toStep2Btn?.addEventListener('click', goStep2);
   backBtn?.addEventListener('click', backStep);
 
-  // ====== EmailJS (client) ======
+  // ====== REAL lazy Google Maps iframe ======
+  onIdle(()=>{
+    const map = document.getElementById('map-embed');
+    if(!('IntersectionObserver' in window) || !map){ map?.setAttribute('src', map.dataset.src); return; }
+    const io = new IntersectionObserver((entries, obs)=>{
+      if(entries.some(e=>e.isIntersecting)){
+        map.setAttribute('src', map.dataset.src);
+        obs.disconnect();
+      }
+    }, {rootMargin: '200px 0px'});
+    io.observe(map);
+  });
+
+  // ====== Uploadcare – načítaj až pri kliknutí na tlačidlo ======
+  const ucBtn = document.getElementById('uc-launch');
+  const ucPreview = document.getElementById('uc-preview');
+  const ucHidden = document.getElementById('file_urls');
+  let ucLoaded = false;
+
+  async function ensureUploadcare(){
+    if(ucLoaded) return true;
+    await new Promise((res)=>{
+      const s = document.createElement('script');
+      s.src = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js';
+      s.async = true; s.onload = res; document.body.appendChild(s);
+    });
+    window.UPLOADCARE_PUBLIC_KEY = '28525508c60e5443a490';
+    ucLoaded = true;
+    return true;
+  }
+
+  async function openUcDialog(){
+    const ok = await ensureUploadcare();
+    if(!ok || !window.uploadcare) return;
+    const dialog = uploadcare.openDialog(null, { multiple: true, multipleMax: 10, systemDialog: true, tabs: 'file camera url' });
+    dialog.done(async (fileGroup)=>{
+      // fileGroup môže byť file alebo group; normalizuj na pole promises
+      const files = typeof fileGroup.files === 'function' ? fileGroup.files() : [Promise.resolve(fileGroup)];
+      const list = await Promise.all(files);
+      const urls = list.map(f => f.cdnUrl).filter(Boolean);
+      ucHidden.value = urls.join(', ');
+      ucPreview.innerHTML = urls.map(u => `<a href="${u}" target="_blank" class="underline text-[#39c4ff]">${u.split('/').pop()}</a>`).join('<br>');
+    });
+  }
+
+  ucBtn?.addEventListener('click', openUcDialog, {once:false});
+
+  // ====== EmailJS – načítaj iba pri odoslaní ======
   function loadEmailJs(callback){
     if(window.emailjs){ callback(); return; }
     const s = document.createElement('script');
     s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-    s.async = true;
-    s.onload = callback;
-    document.body.appendChild(s);
+    s.async = true; s.onload = callback; document.body.appendChild(s);
   }
   function ensureEmailJsInit(){
     if(!window.emailjs) return false;
@@ -368,7 +403,7 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
 
   form?.addEventListener('submit', function(e){
     e.preventDefault();
-    if(q('#hp')?.value){ return; } // honeypot
+    if(q('#hp')?.value){ return; }
     if(step2.classList.contains('hidden')){ goStep2(); return; }
     if(!validateStep2()) return;
 
@@ -406,103 +441,52 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
           alert('Ospravedlňujeme sa, odoslanie zlyhalo. Skúste znova, alebo nám zavolajte.');
         });
     });
+  }, {passive:false});
+
+  // ====== FAB (ľahký, bez knižníc) ======
+  const root    = document.getElementById('contact-fab-root');
+  const btn     = document.getElementById('contact-fab');
+  const overlay = document.getElementById('contact-fab-overlay');
+  const sheet   = document.getElementById('contact-fab-sheet');
+
+  function isOpen(){ return root?.hasAttribute('data-open'); }
+  function open(){ root?.setAttribute('data-open','true'); btn?.setAttribute('aria-expanded','true'); sheet?.setAttribute('aria-hidden','false'); }
+  function close(){ root?.removeAttribute('data-open'); btn?.setAttribute('aria-expanded','false'); sheet?.setAttribute('aria-hidden','true'); }
+  function toggle(){ isOpen() ? close() : open(); }
+
+  btn?.addEventListener('click', toggle);
+  overlay?.addEventListener('click', close, {once:false});
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen()) { e.preventDefault(); close(); }
   });
 
-  // ====== Uploadcare (preview of URLs) ======
-  (function loadUC(callback){
-    if(window.uploadcare){ callback && callback(); return; }
-    const s = document.createElement('script');
-    s.src = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js';
-    s.async = true;
-    s.onload = callback;
-    document.body.appendChild(s);
-  })(() => {
-    const ucKey = '28525508c60e5443a490'.trim();
-    if(ucKey){ window.UPLOADCARE_PUBLIC_KEY = ucKey; }
-    const input = document.getElementById('uc-uploader');
-    if(!input || !window.uploadcare) return;
-    const widget = uploadcare.Widget(input);
-    const preview = document.getElementById('uc-preview');
-    const hidden = document.getElementById('file_urls');
-
-    function setUrlsFromFiles(filesPromise){
-      Promise.all(filesPromise).then(list => {
-        const urls = list.map(f => f.cdnUrl).filter(Boolean);
-        hidden.value = urls.join(', ');
-        preview.innerHTML = urls.map(u => `<a href="${u}" target="_blank" class="underline text-[#39c4ff]">${u.split('/').pop()}</a>`).join('<br>');
-      });
-    }
-    widget.onUploadComplete(info => {
-      if(info && typeof info.files === 'function') setUrlsFromFiles(info.files());
-      else if(info) setUrlsFromFiles([Promise.resolve(info)]);
-    });
-  });
-
-  // ====== FAB (no GSAP) ======
-  (function initFAB(){
-    const root    = document.getElementById('contact-fab-root');
-    const btn     = document.getElementById('contact-fab');
-    const overlay = document.getElementById('contact-fab-overlay');
-    const sheet   = document.getElementById('contact-fab-sheet');
-    if(!root || !btn || !overlay || !sheet) return;
-
-    function isOpen(){ return root.hasAttribute('data-open'); }
-    function open(){
-      root.setAttribute('data-open','true');
-      btn.setAttribute('aria-expanded','true');
-      sheet.setAttribute('aria-hidden','false');
-      const firstLink = sheet.querySelector('a,button,[tabindex]:not([tabindex="-1"])');
-      setTimeout(()=> firstLink?.focus({preventScroll:true}), 120);
-    }
-    function close(){
-      root.removeAttribute('data-open');
-      btn.setAttribute('aria-expanded','false');
-      sheet.setAttribute('aria-hidden','true');
-      btn.focus({preventScroll:true});
-    }
-    function toggle(){ isOpen() ? close() : open(); }
-
-    btn.addEventListener('click', toggle);
-    overlay.addEventListener('click', close);
-
-    // ESC + focus trap
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen()) { e.preventDefault(); close(); }
-      if (e.key === 'Tab' && isOpen()){
-        const f = sheet.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])');
-        if (!f.length) return;
-        const first = f[0], last = f[f.length-1];
-        if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
-      }
-    });
-
-    // Close when moving to desktop
-    const mql = window.matchMedia('(min-width: 768px)');
-    const onBp = () => { if (mql.matches && isOpen()) close(); };
-    mql.addEventListener ? mql.addEventListener('change', onBp) : mql.addListener(onBp);
-  })();
+  // Desktop breakpoint – zavri, ak je otvorené
+  const mql = window.matchMedia('(min-width: 768px)');
+  const onBp = () => { if (mql.matches && isOpen()) close(); };
+  if (mql.addEventListener) mql.addEventListener('change', onBp); else mql.addListener(onBp);
 })();
 </script>
 
 <style is:global>
-  /* iOS glass vibes */
-  #contact-fab {
-    box-shadow: 0 10px 30px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.35);
-  }
-  @media (hover:hover){
-    #contact-fab:hover { transform: translateY(-2px); }
+  /* Výkon: sekciu nerenderuj kým nie je blízko view – veľký win na FCP/LCP */
+  .perf-island {
+    content-visibility: auto;
+    contain-intrinsic-size: 1200px 1200px; /* rezerva pre layout pred načítaním */
   }
 
-  /* Optional soft gradient background class */
+  #contact-fab { box-shadow: 0 10px 30px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.35); }
+  @media (hover:hover){ #contact-fab:hover { transform: translateY(-2px); } }
+
   .gradient-bg-1{
     background:
-      radial-gradient(1200px 600px at 80% -10%, rgba(99,255,211,.30), transparent),
+      radial-gradient(1100px 500px at 80% -10%, rgba(99,255,211,.35), transparent),
       radial-gradient(900px 500px at -10% 110%, rgba(57,196,255,.15), transparent),
       #1b1b1b;
+    will-change: auto; /* nenechávaj will-change trvalo, nech šetríme kompozíciu */
   }
 
-  /* Smooth enter/exit & stagger for menu items */
+  /* FAB animácie (čisté CSS, GPU-friendly) */
   #contact-fab-root .fab-item { 
     opacity: 0; transform: translateY(6px);
     transition: opacity .18s ease, transform .18s ease;
@@ -512,19 +496,15 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
   #contact-fab-root[data-open="true"] .fab-item:nth-child(2) { transition-delay: .06s; }
   #contact-fab-root[data-open="true"] .fab-item:nth-child(3) { transition-delay: .10s; }
 
-  /* Sheet & overlay open states */
   #contact-fab-root[data-open="true"] #contact-fab-sheet {
     opacity: 1; transform: translateY(0) scale(1); pointer-events: auto;
   }
   #contact-fab-root[data-open="true"] #contact-fab-overlay {
     opacity: 1; pointer-events: auto;
   }
-
-  /* Icon swap */
   #contact-fab-root[data-open="true"] #fab-icon-phone { opacity: 0; }
   #contact-fab-root[data-open="true"] #fab-icon-x     { opacity: 1; }
 
-  /* Motion safety */
   @media (prefers-reduced-motion: reduce){
     #contact-fab-sheet, #contact-fab-overlay, #contact-fab, #contact-fab-root .fab-item { 
       transition: none !important; 
