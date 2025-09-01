@@ -198,7 +198,7 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
 
             <div>
               <label for="description" class="block text-sm mb-1">Krátky popis</label>
-              <textarea id="description" name="description" rows="4" placeholder="Napr. bungalov, Ytong, strecha sedlová, cca 140 m², pripravený projekt." class="w-full bg-neutral-900 border border-neutral-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#39c4ff]"></textarea>
+              <textarea id="description" name="description" rows="4" placeholder="Napr. počet poschodí, materiál nosných stien, typ strechy ..." class="w-full bg-neutral-900 border border-neutral-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#39c4ff]"></textarea>
             </div>
 
             <div class="flex items-center justify-between pt-1">
@@ -436,7 +436,7 @@ const OPENING_HOURS = 'Po–Ne 8:00–20:00';
 
           form.reset();
           setStep(1);
-          alert('Ďakujeme, dopyt sme prijali. Ozveme sa do 48 hodín.');
+          window.location.replace('/formsent');
         })
         .catch((err) => {
           console.error('EmailJS error', err);
