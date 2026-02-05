@@ -20,8 +20,8 @@ import Map from '../components/Global/Map.astro';
     <link rel="stylesheet" href="/styles/fonts.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/styles/fonts.css"></noscript>
 
-    <link rel="preload" href="/strechy/Hero.avif" as="image" />
-    <link rel="preload" href="/strechy/Hero-mobile.avif" as="image" />
+    <link rel="preload" href="/strechy/RoofHero.avif" as="image" />
+    <link rel="preload" href="/strechy/RoofHero.avif" as="image" />
 
     <link rel="canonical" href="https://www.auroraconstruction.sk/strechy" />
 
@@ -40,57 +40,126 @@ import Map from '../components/Global/Map.astro';
     <meta name="twitter:description" content="Oprava a výstavba striech v Bratislave a Trnavskom kraji" />
     <meta name="twitter:image" content="https://auroraconstruction.sk/Social.jpg" />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Aurora Construction",
-      "description": "Stavebná firma situovaná v Bratislave ktorá ponúka stavebné riešenie hrubej stavby, striech, alebo iných stavebných riešení od odborníkov.",
-      "url": "https://www.auroraconstruction.sk",
-      "image": "https://www.auroraconstruction.sk/LogoBackground.png",
-      "telephone": "+421 949 105 006",
-      "email": "info@auroraconstruction.sk",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Nejedlého 27",
-        "addressRegion": "Bratislavský kraj",
-        "addressLocality": "Bratislava",
-        "postalCode": "84102",
-        "addressCountry": "SK"
-      },
-      "areaServed": {
-        "@type": "Place",
-        "name": "Slovensko"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+421949105006",
-        "name": "Marek Harcek",
-        "areaServed": "Slovensko",
-        "availableLanguage": ["sk", "en"],
-        "description": "Hlavné kontaktné číslo na Mareka Harceka, spoluzakladateľa Aurora Construction."
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Stavebné služby",
-        "itemListElement": [
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Strechy na mieru",
-              "description": "Profesionálne riešenie strechy presne podľa vašich potrieb."
+            "@type": "Service",
+            "@id": "https://www.auroraconstruction.sk/strechy/#service",
+            "name": "Oprava a výstavba striech",
+            "url": "https://www.auroraconstruction.sk/strechy",
+            "mainEntityOfPage": "https://www.auroraconstruction.sk/strechy",
+            "serviceType": "Roofing",
+            "provider": { "@id": "https://www.auroraconstruction.sk/#organization" },
+            "description": "Profesionálna montáž krovu, pokládka plechovej a keramickej krytiny, kompletné riešenia sedlových a valbových striech v Bratislave a Trnavskom kraji.",
+            "areaServed": [
+              { "@type": "City", "name": "Bratislava" },
+              { "@type": "AdministrativeArea", "name": "Bratislavský kraj" },
+              { "@type": "AdministrativeArea", "name": "Trnavský kraj" }
+            ],
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://www.auroraconstruction.sk/RichSnippet3.jpg",
+              "contentUrl": "https://www.auroraconstruction.sk/RichSnippet3.jpg",
+              "width": 1600,
+              "height": 1200,
+              "caption": "Montáž krovu a strešnej krytiny - Aurora Construction",
+              "encodingFormat": "image/jpeg"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Cenník strechárskych prác",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Montáž strechy (práca)"
+                  },
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "priceCurrency": "EUR",
+                    "minPrice": "120",
+                    "maxPrice": "180",
+                    "unitCode": "MTK",
+                    "referenceQuantity": {
+                      "@type": "QuantitativeValue",
+                      "value": "1",
+                      "unitCode": "MTK"
+                    },
+                    "description": "Orientačná cena za m2 (závisí od typu krytiny a zložitosti krovu)."
+                  }
+                }
+              ]
             }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.auroraconstruction.sk/strechy/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Domov",
+                "item": "https://www.auroraconstruction.sk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Strechy",
+                "item": "https://www.auroraconstruction.sk/strechy"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://www.auroraconstruction.sk/strechy/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Ako dlho trvá montáž krovu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Záleží na veľkosti a type strechy, zvyčajne 3–7 dní pre rodinný dom."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Ako zistím, že moja strecha potrebuje rekonštrukciu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Medzi hlavné signály patrí zatekanie, praskliny v krytine, deformácia krovu alebo viditeľné poškodenie strešného plášťa. Ak je strecha staršia ako 30 rokov, odporúčame odbornú kontrolu."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Aký typ strešnej krytiny je najlepší pre slovenské podmienky?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Pre slovenské podmienky sú ideálne keramické a betónové krytiny vďaka vysokej odolnosti proti mrazu. Moderné plechové krytiny sú vhodné na šikmé strechy a ponúkajú dlhú životnosť pri nižšej hmotnosti."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Kedy je najlepší čas na výmenu krytiny?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Jar a jeseň sú ideálne kvôli stabilnejším poveternostným podmienkam a lepšiemu počasiu na prácu."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "GeneralContractor",
+            "@id": "https://www.auroraconstruction.sk/#organization",
+            "name": "Aurora Construction",
+            "url": "https://www.auroraconstruction.sk",
+            "image": "https://www.auroraconstruction.sk/HeroSection.jpg"
           }
         ]
-      },
-      "sameAs": [
-        "https://www.instagram.com/auroraconstruction_sk",
-        "https://www.facebook.com/people/Aurora-Construction/61573155748091/"
-      ]
-    }
-    </script>
-
+      }
+      </script>
   </head>
 
   <body class="text-gray-800 bg-[#191919]">
@@ -131,8 +200,8 @@ import Map from '../components/Global/Map.astro';
       <!-- Hero sekcia -->
       <section id="hero-strechy" class="relative h-[52vh] w-full overflow-hidden">
         <img
-          src="/RoofCard.avif"
-          srcset="/RoofCard.avif 768w, /RoofCard.avif 1536w"
+          src="/strechy/RoofHero.avif"
+          srcset="/strechy/RoofHero.avif 768w, /strechy/RoofHero.avif 1536w"
           sizes="(max-width: 768px) 100vw, 1536px"
           width="1536" height="800"
           fetchpriority="high"
