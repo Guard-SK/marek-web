@@ -9,309 +9,457 @@ import Map from '../components/Global/Map.astro'
 import OtherJobs from '../components/Home/OtherJobs.astro'
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sk">
   <head>
     <!-- Meta Tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Stavebná firma situovaná v Bratislave ktorá ponúka stavebné riešenia hrubej stavby, stiech, alebo iných stavebných prác." />
+    <meta
+      name="description"
+      content="Stavebná firma situovaná v Bratislave ktorá ponúka stavebné riešenia hrubej stavby, stiech, alebo iných stavebných prác."
+    />
     <meta name="generator" content="Astro" />
     <meta name="msvalidate.01" content="7504EE7B8C1B641BA886A62D6F85B168" />
 
     <!-- Open Graph: -->
-    <meta property="og:title" content="Aurora Construction | Stavebná firma - Hrubá stavba, Strechy" />
-    <meta property="og:description" content="Stavebná firma situovaná v Bratislave ktorá ponúka rôzne stavebné riešenia" />
-    <meta property="og:image" content="https://auroraconstruction.sk/Social.jpg" />
+    <meta
+      property="og:title"
+      content="Aurora Construction | Stavebná firma - Hrubá stavba, Strechy"
+    />
+    <meta
+      property="og:description"
+      content="Stavebná firma situovaná v Bratislave ktorá ponúka rôzne stavebné riešenia"
+    />
+    <meta
+      property="og:image"
+      content="https://auroraconstruction.sk/Social.jpg"
+    />
     <meta property="og:url" content="https://auroraconstruction.sk/" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Cards: -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Aurora Construction | Stavebná firma - Hrubá stavba, Strechy" />
-    <meta name="twitter:description" content="Stavebná firma situovaná v Bratislave ktorá ponúka rôzne stavebné riešenia" />
-    <meta name="twitter:image" content="https://auroraconstruction.sk/Social.jpg" />
-  
+    <meta
+      name="twitter:title"
+      content="Aurora Construction | Stavebná firma - Hrubá stavba, Strechy"
+    />
+    <meta
+      name="twitter:description"
+      content="Stavebná firma situovaná v Bratislave ktorá ponúka rôzne stavebné riešenia"
+    />
+    <meta
+      name="twitter:image"
+      content="https://auroraconstruction.sk/Social.jpg"
+    />
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/LogoAuroraConstruction.webp">
-  
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/LogoAuroraConstruction.webp"
+    />
+
     <!-- Preload Critical Resources -->
     <link rel="preload" as="image" href="/HeroSectionCropped.avif" />
     <link rel="preload" as="image" href="/favicon.svg" />
     <link rel="preload" as="image" href="/AboutImg.avif" />
-  
+
     <!-- Preconnect for Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
 
     <!-- Replace Astro import with this -->
-    <link rel="preload" href="/styles/stylesheet.css" as="style">
-    <link rel="stylesheet" href="/styles/stylesheet.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/styles/stylesheet.css"></noscript>
-    
-    <link rel="preload" href="/styles/fonts.css" as="style">
-    <link rel="stylesheet" href="/styles/fonts.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/styles/fonts.css"></noscript> 
-    
+    <link rel="preload" href="/styles/stylesheet.css" as="style" />
+    <link
+      rel="stylesheet"
+      href="/styles/stylesheet.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="/styles/stylesheet.css" /></noscript>
+
+    <link rel="preload" href="/styles/fonts.css" as="style" />
+    <link
+      rel="stylesheet"
+      href="/styles/fonts.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="/styles/fonts.css" /></noscript>
+
     <link rel="canonical" href="https://www.auroraconstruction.sk/" />
 
     <link rel="sitemap" href="/sitemap.xml" />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "GeneralContractor",
-          "@id": "https://www.auroraconstruction.sk/#organization",
-          "name": "Aurora Construction",
-          "legalName": "Marek Harcek - Aurora Construction",
-          "url": "https://www.auroraconstruction.sk",
-          "logo": {
-            "@type": "ImageObject",
-            "@id": "https://www.auroraconstruction.sk/#logo",
-            "url": "https://www.auroraconstruction.sk/LogoBackground.png",
-            "contentUrl": "https://www.auroraconstruction.sk/LogoBackground.png",
-            "caption": "Aurora Construction Logo"
-          },
-          "image": {
-            "@type": "ImageObject",
-            "url": "https://www.auroraconstruction.sk/RichSnippet.jpg",
-            "contentUrl": "https://www.auroraconstruction.sk/RichSnippet.jpg",
-            "width": 2064,  
-            "height": 1170, 
-            "caption": "Tím Aurora Construction pri realizácii hrubej stavby",
-            "encodingFormat": "image/jpeg"
-          },
-          "description": "Spoľahlivá stavebná firma v Bratislave. Špecializujeme sa na hrubé stavby, strechy a iné stavebné práce s dôrazom na transparentnú cenu a kvalitu.",
-          "telephone": "+421919221760",
-          "email": "info@auroraconstruction.sk",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Nejedlého 27",
-            "addressLocality": "Bratislava",
-            "postalCode": "84102",
-            "addressCountry": "SK"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "48.193411",
-            "longitude": "17.036147"
-          },
-          "hasMap": "https://maps.app.goo.gl/24swHn8RmzE3DYtQA",
-          "vatID": "56770294",
-          "taxID": "1130050427",
-          "priceRange": "€€",
-          "currenciesAccepted": "EUR",
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-              "opens": "14:00",
-              "closes": "20:00"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "GeneralContractor",
+            "@id": "https://www.auroraconstruction.sk/#organization",
+            "name": "Aurora Construction",
+            "legalName": "Marek Harcek - Aurora Construction",
+            "url": "https://www.auroraconstruction.sk",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://www.auroraconstruction.sk/#logo",
+              "url": "https://www.auroraconstruction.sk/LogoBackground.png",
+              "contentUrl": "https://www.auroraconstruction.sk/LogoBackground.png",
+              "caption": "Aurora Construction Logo"
             },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Saturday", "Sunday"],
-              "opens": "6:00",
-              "closes": "22:00"
-            }
-          ],
-          "founder": [
-            { "@id": "https://www.auroraconstruction.sk/#marek" },
-            { "@id": "https://www.auroraconstruction.sk/#jakub" }
-          ],
-          "areaServed": [
-            { "@type": "City", "name": "Bratislava" },
-            { "@type": "AdministrativeArea", "name": "Bratislavský kraj" },
-            { "@type": "AdministrativeArea", "name": "Trnavský kraj" }
-          ],
-          "sameAs": [
-            "https://www.facebook.com/people/Aurora-Construction/61573155748091/",
-            "https://www.instagram.com/auroraconstruction_sk",
-            "https://finstat.sk/56770294",
-            "https://dodavatelia.123dopyt.sk/1802744-marek-harcek",
-            "https://www.zlatestranky.sk/firmy/Bratislava/S1498143/Marek+Harcek+-+Aurora+Construction/",
-            "https://www.azet.sk/firma/1345425/aurora-construction/",
-            "https://eurozoznam.sk/aurora-construction"
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Stavebné služby",
-            "itemListElement": [
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://www.auroraconstruction.sk/RichSnippet.jpg",
+              "contentUrl": "https://www.auroraconstruction.sk/RichSnippet.jpg",
+              "width": 2064,
+              "height": 1170,
+              "caption": "Tím Aurora Construction pri realizácii hrubej stavby",
+              "encodingFormat": "image/jpeg"
+            },
+            "description": "Spoľahlivá stavebná firma v Bratislave. Špecializujeme sa na hrubé stavby, strechy a iné stavebné práce s dôrazom na transparentnú cenu a kvalitu.",
+            "telephone": "+421919221760",
+            "email": "info@auroraconstruction.sk",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nejedlého 27",
+              "addressLocality": "Bratislava",
+              "postalCode": "84102",
+              "addressCountry": "SK"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "48.193411",
+              "longitude": "17.036147"
+            },
+            "hasMap": "https://maps.app.goo.gl/24swHn8RmzE3DYtQA",
+            "vatID": "56770294",
+            "taxID": "1130050427",
+            "priceRange": "€€",
+            "currenciesAccepted": "EUR",
+            "openingHoursSpecification": [
               {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Hrubé stavby",
-                  "url": "https://www.auroraconstruction.sk/hruba-stavba"
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "14:00",
+                "closes": "20:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday", "Sunday"],
+                "opens": "6:00",
+                "closes": "22:00"
+              }
+            ],
+            "founder": [
+              { "@id": "https://www.auroraconstruction.sk/#marek" },
+              { "@id": "https://www.auroraconstruction.sk/#jakub" }
+            ],
+            "areaServed": [
+              { "@type": "City", "name": "Bratislava" },
+              { "@type": "AdministrativeArea", "name": "Bratislavský kraj" },
+              { "@type": "AdministrativeArea", "name": "Trnavský kraj" }
+            ],
+            "sameAs": [
+              "https://www.facebook.com/people/Aurora-Construction/61573155748091/",
+              "https://www.instagram.com/auroraconstruction_sk",
+              "https://finstat.sk/56770294",
+              "https://dodavatelia.123dopyt.sk/1802744-marek-harcek",
+              "https://www.zlatestranky.sk/firmy/Bratislava/S1498143/Marek+Harcek+-+Aurora+Construction/",
+              "https://www.azet.sk/firma/1345425/aurora-construction/",
+              "https://eurozoznam.sk/aurora-construction"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Stavebné služby",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Hrubé stavby",
+                    "url": "https://www.auroraconstruction.sk/hruba-stavba"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Strechy",
+                    "url": "https://www.auroraconstruction.sk/strechy"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.auroraconstruction.sk/#marek",
+            "name": "Marek Harcek",
+            "jobTitle": "Co-founder & CEO",
+            "worksFor": {
+              "@id": "https://www.auroraconstruction.sk/#organization"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.auroraconstruction.sk/#jakub",
+            "name": "Jakub Chvála",
+            "jobTitle": "Co-founder & Stavbyvedúci",
+            "worksFor": {
+              "@id": "https://www.auroraconstruction.sk/#organization"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.auroraconstruction.sk/#website",
+            "url": "https://www.auroraconstruction.sk",
+            "name": "Aurora Construction",
+            "publisher": {
+              "@id": "https://www.auroraconstruction.sk/#organization"
+            },
+            "inLanguage": "sk-SK"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://www.auroraconstruction.sk/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Ponúkate aj niečo iné ako výstavbu hrubej stavby alebo striech?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Áno, okrem hrubej stavby a striech ponúkame aj široké spektrum stavebných prác ako sú napríklad pokládka zámkovej dlažby, murovanie priečok, sadrokartonárske práce, výstavba plotov, debnenie alebo práca s armatúrou. Ako stavebná firma sa snažíme pokryť všetky potreby našich klientov v oblasti stavebníctva, stačí nás len bezplatne a bez viazanosti kontaktovať."
                 }
               },
               {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Strechy",
-                  "url": "https://www.auroraconstruction.sk/strechy"
+                "@type": "Question",
+                "name": "Prečo by sme vám mali veriť?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Toto je úplne valídna otázka a my ju chápeme. Vieme vám ale garantovať, že ako nová firma v tomto prostredí sa snažíme robiť všetko preto, aby ste boli vy ako zákazník spokojný, aby ste nám dali pozitívnu recenziu a vedeli nás odporučiť ďalej. Sme transparentní, féroví a budeme robiť všetko pre vašu maximálnu spokojnosť. Ak máte hocijaké otázky kľudne nás bezplatne a bez viazanosti kontaktujte."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Ako skoro odpovedáte po kontakte?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Určite odpovieme do 48 hodín, ale zvyčajne sa snažíme reagovať oveľa rýchlejšie, väčšinou do niekoľkých hodín."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Ako skoro odpovedáte po kontakte?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Najlepšie pre nás je vyplnením kontaktného formulára dole na našej stránke, cez WhatsApp alebo napísaním na náš email info@auroraconstruction.sk. Ak je vám komfortnejšie, môžete aj zavolať na jedno z telefónnych čísel počas pracovnej doby uvedenej na Google maps."
                 }
               }
             ]
           }
-        },
-        {
-          "@type": "Person",
-          "@id": "https://www.auroraconstruction.sk/#marek",
-          "name": "Marek Harcek",
-          "jobTitle": "Co-founder & CEO",
-          "worksFor": { "@id": "https://www.auroraconstruction.sk/#organization" }
-        },
-        {
-          "@type": "Person",
-          "@id": "https://www.auroraconstruction.sk/#jakub",
-          "name": "Jakub Chvála",
-          "jobTitle": "Co-founder & Stavbyvedúci",
-          "worksFor": { "@id": "https://www.auroraconstruction.sk/#organization" }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://www.auroraconstruction.sk/#website",
-          "url": "https://www.auroraconstruction.sk",
-          "name": "Aurora Construction",
-          "publisher": { "@id": "https://www.auroraconstruction.sk/#organization" },
-          "inLanguage": "sk-SK"
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://www.auroraconstruction.sk/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Ponúkate aj niečo iné ako výstavbu hrubej stavby alebo striech?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Áno, okrem hrubej stavby a striech ponúkame aj široké spektrum stavebných prác ako sú napríklad pokládka zámkovej dlažby, murovanie priečok, sadrokartonárske práce, výstavba plotov, debnenie alebo práca s armatúrou. Ako stavebná firma sa snažíme pokryť všetky potreby našich klientov v oblasti stavebníctva, stačí nás len bezplatne a bez viazanosti kontaktovať."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Prečo by sme vám mali veriť?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Toto je úplne valídna otázka a my ju chápeme. Vieme vám ale garantovať, že ako nová firma v tomto prostredí sa snažíme robiť všetko preto, aby ste boli vy ako zákazník spokojný, aby ste nám dali pozitívnu recenziu a vedeli nás odporučiť ďalej. Sme transparentní, féroví a budeme robiť všetko pre vašu maximálnu spokojnosť. Ak máte hocijaké otázky kľudne nás bezplatne a bez viazanosti kontaktujte."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Ako skoro odpovedáte po kontakte?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Určite odpovieme do 48 hodín, ale zvyčajne sa snažíme reagovať oveľa rýchlejšie, väčšinou do niekoľkých hodín."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Ako skoro odpovedáte po kontakte?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Najlepšie pre nás je vyplnením kontaktného formulára dole na našej stránke, cez WhatsApp alebo napísaním na náš email info@auroraconstruction.sk. Ak je vám komfortnejšie, môžete aj zavolať na jedno z telefónnych čísel počas pracovnej doby uvedenej na Google maps."
-              }
-            }
-          ]
-        }
-      ]
-    }
+        ]
+      }
     </script>
 
-    <style>
-      #main-content {
-        overflow-y: auto;
-        height: 100vh;
-      }
-    </style>
-    
     <!-- Title -->
-    <title> Aurora Construction | Stavebná firma v Bratislave a Trnavskom kraji </title>
+    <title>
+      Aurora Construction | Stavebná firma v Bratislave a Trnavskom kraji
+    </title>
   </head>
-  
 
   <body>
-    <div id="main-content relative">
-      <div id="glow-effect" class="opacity-0 absolute top-[-5%] left-[-15%] w-[600px] h-[600px]
+    <main id="main-content" class="relative overflow-hidden">
+      <div
+        id="glow-effect"
+        class="opacity-0 absolute top-[-5%] left-[-15%] w-[600px] h-[600px]
       bg-gradient-radial from-[#63ffd3]/30 via-[#39c4ff]/10 to-transparent
-      blur-[180px] z-10 pointer-events-none "></div>
+      blur-[180px] z-10 pointer-events-none"
+      >
+      </div>
 
-      <div class="absolute lg:block hidden bottom-[5%] right-[-15%] w-[700px] h-[700px]
+      <div
+        class="absolute lg:block hidden bottom-[5%] right-[-15%] w-[700px] h-[700px]
       bg-gradient-radial from-[#39c4ff]/20 via-[#63ffd3]/10 to-transparent
-      blur-[200px] z-10 pointer-events-none"></div>
+      blur-[200px] z-10 pointer-events-none"
+      >
+      </div>
 
-      <div class="absolute top-[40%] left-[-20%] w-[400px] h-[400px]
+      <div
+        class="absolute top-[40%] left-[-20%] w-[400px] h-[400px]
       bg-gradient-radial from-[#39c4ff]/15 via-[#63ffd3]/10 to-transparent
-      blur-[150px] z-10 pointer-events-none"></div>
+      blur-[150px] z-10 pointer-events-none"
+      >
+      </div>
 
-      <div id="glow-effect" class="opacity-0 absolute top-[30%] right-[-10%] w-[500px] h-[500px]
+      <div
+        id="glow-effect"
+        class="opacity-0 absolute top-[30%] right-[-10%] w-[500px] h-[500px]
       bg-gradient-radial from-[#63ffd3]/25 via-[#39c4ff]/10 to-transparent
-      blur-[160px] z-10 pointer-events-none hidden lg:block"></div>
+      blur-[160px] z-10 pointer-events-none hidden lg:block"
+      >
+      </div>
 
-      <div class="absolute bottom-[20%] left-[-12%] w-[400px] h-[400px]
+      <div
+        class="absolute bottom-[20%] left-[-12%] w-[400px] h-[400px]
       bg-gradient-radial from-[#39c4ff]/15 via-[#63ffd3]/10 to-transparent
-      blur-[150px] z-10 pointer-events-none"></div>
+      blur-[150px] z-10 pointer-events-none"
+      >
+      </div>
 
       <Navbar />
       <Hero />
       <About />
       <Services />
       <!-- <OtherJobs /> -->
-      <Map title='Pôsobíme v Bratislavskom a Trnavskom kraji' description="Zameriavame sa na výstavbu a iné konštrukčné riešenia v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup." />
+      <Map
+        title="Pôsobíme v Bratislavskom a Trnavskom kraji"
+        description="Zameriavame sa na výstavbu a iné konštrukčné riešenia v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup."
+      />
       <section id="faq" class="py-24 px-6 md:px-12 bg-[#191919]">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-12">Často kladené otázky</h2>
+          <h2
+            class="text-3xl md:text-5xl font-bold text-center text-white mb-12"
+          >
+            Často kladené otázky
+          </h2>
 
           <div class="space-y-4">
             <!-- FAQ Item -->
-            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
-              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
-                <span class="text-lg font-semibold">Ponúkate aj niečo iné ako výstavbu hrubej stavby alebo striech?</span>
-                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <div
+              class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden"
+            >
+              <button
+                class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none"
+              >
+                <span class="text-lg font-semibold"
+                  >Ponúkate aj niečo iné ako výstavbu hrubej stavby alebo
+                  striech?</span
+                >
+                <svg
+                  class="faq-icon w-6 h-6 transform transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
               <div class="faq-answer px-6 pb-6 hidden text-gray-400">
-                Áno, okrem hrubej stavby a striech ponúkame aj široké spektrum stavebných prác ako sú napríklad pokládka zámkovej dlažby, murovanie priečok, sadrokartonárske práce, výstavba plotov, debnenie alebo práca s armatúrou. Ako stavebná firma sa snažíme pokryť všetky potreby našich klientov v oblasti stavebníctva, stačí nás len bezplatne a bez viazanosti kontaktovať.
+                Áno, okrem hrubej stavby a striech ponúkame aj široké spektrum
+                stavebných prác ako sú napríklad pokládka zámkovej dlažby,
+                murovanie priečok, sadrokartonárske práce, výstavba plotov,
+                debnenie alebo práca s armatúrou. Ako stavebná firma sa snažíme
+                pokryť všetky potreby našich klientov v oblasti stavebníctva,
+                stačí nás len bezplatne a bez viazanosti kontaktovať.
               </div>
             </div>
-            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
-              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
-                <span class="text-lg font-semibold">Prečo by sme vám mali veriť?</span>
-                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <div
+              class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden"
+            >
+              <button
+                class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none"
+              >
+                <span class="text-lg font-semibold"
+                  >Prečo by sme vám mali veriť?</span
+                >
+                <svg
+                  class="faq-icon w-6 h-6 transform transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
               <div class="faq-answer px-6 pb-6 hidden text-gray-400">
-                Toto je úplne valídna otázka a my ju chápeme. Vieme vám ale garantovať, že ako nová firma v tomto prostredí sa snažíme robiť všetko preto, aby ste boli vy ako zákazník spokojný, aby ste nám dali pozitívnu recenziu a vedeli nás odporučiť ďalej. Sme transparentní, féroví a budeme robiť všetko pre vašu maximálnu spokojnosť. Ak máte hocijaké otázky kľudne nás bezplatne a bez viazanosti kontaktujte.
+                Toto je úplne valídna otázka a my ju chápeme. Vieme vám ale
+                garantovať, že ako nová firma v tomto prostredí sa snažíme robiť
+                všetko preto, aby ste boli vy ako zákazník spokojný, aby ste nám
+                dali pozitívnu recenziu a vedeli nás odporučiť ďalej. Sme
+                transparentní, féroví a budeme robiť všetko pre vašu maximálnu
+                spokojnosť. Ak máte hocijaké otázky kľudne nás bezplatne a bez
+                viazanosti kontaktujte.
               </div>
             </div>
-            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
-              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
-                <span class="text-lg font-semibold">Ako skoro odpovedáte po kontakte?</span>
-                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <div
+              class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden"
+            >
+              <button
+                class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none"
+              >
+                <span class="text-lg font-semibold"
+                  >Ako skoro odpovedáte po kontakte?</span
+                >
+                <svg
+                  class="faq-icon w-6 h-6 transform transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
               <div class="faq-answer px-6 pb-6 hidden text-gray-400">
-                Určite odpovieme do 48 hodín, ale zvyčajne sa snažíme reagovať oveľa rýchlejšie, väčšinou do niekoľkých hodín.
+                Určite odpovieme do 48 hodín, ale zvyčajne sa snažíme reagovať
+                oveľa rýchlejšie, väčšinou do niekoľkých hodín.
               </div>
             </div>
-            <div class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden">
-              <button class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none">
-                <span class="text-lg font-semibold">Ako začať spoluprácu alebo sa spýtať otázku?</span>
-                <svg class="faq-icon w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <div
+              class="faq-item bg-[#1f1f1f] rounded-2xl shadow-md overflow-hidden"
+            >
+              <button
+                class="faq-question w-full flex justify-between items-center p-6 text-left text-white focus:outline-none"
+              >
+                <span class="text-lg font-semibold"
+                  >Ako začať spoluprácu alebo sa spýtať otázku?</span
+                >
+                <svg
+                  class="faq-icon w-6 h-6 transform transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
               <div class="faq-answer px-6 pb-6 hidden text-gray-400">
-                Najlepšie pre nás je vyplnením kontaktného formulára dole na našej stránke, cez WhatsApp alebo napísaním na náš email <a class="text-[#7da8ba] hover:underline" href="mailto:info@auroraconstruction.sk">info@auroraconstruction.sk</a>. Ak je vám komfortnejšie, môžete aj zavolať na jedno z telefónnych čísel počas pracovnej doby uvedenej na Google maps.
+                Najlepšie pre nás je vyplnením kontaktného formulára dole na
+                našej stránke, cez WhatsApp alebo napísaním na náš email <a
+                  class="text-[#7da8ba] hover:underline"
+                  href="mailto:info@auroraconstruction.sk"
+                  >info@auroraconstruction.sk</a
+                >. Ak je vám komfortnejšie, môžete aj zavolať na jedno z
+                telefónnych čísel počas pracovnej doby uvedenej na Google maps.
               </div>
             </div>
           </div>
@@ -319,33 +467,31 @@ import OtherJobs from '../components/Home/OtherJobs.astro'
       </section>
       <Contact />
       <Footer />
-    </div>
+    </main>
   </body>
-  
-  
 </html>
-  
-<script>
-  import gsap from 'gsap';
 
-  window.addEventListener("load", () => {
+<script>
+  import gsap from 'gsap'
+
+  window.addEventListener('load', () => {
     // Wait ~500ms to allow LCP to settle
-    gsap.to("#glow-effect", {
+    gsap.to('#glow-effect', {
       opacity: 1,
       duration: 3, // Further increase duration for a longer reveal
       delay: 0.5,
-      ease: "power2.inOut" // Use a smoother easing function
-    });
-  });
+      ease: 'power2.inOut', // Use a smoother easing function
+    })
+  })
 
-  document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    if (!item) return;
-    const answer = item.querySelector('.faq-answer');
-    const icon = btn.querySelector('.faq-icon');
-    if (answer) answer.classList.toggle('hidden');
-    if (icon) icon.classList.toggle('rotate-180');
-  });
-});
+  document.querySelectorAll('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement
+      if (!item) return
+      const answer = item.querySelector('.faq-answer')
+      const icon = btn.querySelector('.faq-icon')
+      if (answer) answer.classList.toggle('hidden')
+      if (icon) icon.classList.toggle('rotate-180')
+    })
+  })
 </script>

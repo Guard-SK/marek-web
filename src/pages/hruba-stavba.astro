@@ -1,8 +1,8 @@
 ---
-import Navbar from '../components/Global/Navbar.astro';
-import Contact from '../components/Global/Contact.astro';
-import Footer from '../components/Global/Footer.astro';
-import Map from '../components/Global/Map.astro';
+import Navbar from '../components/Global/Navbar.astro'
+import Contact from '../components/Global/Contact.astro'
+import Footer from '../components/Global/Footer.astro'
+import Map from '../components/Global/Map.astro'
 ---
 
 <html lang="sk">
@@ -10,167 +10,225 @@ import Map from '../components/Global/Map.astro';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Hrubá stavba | Bratislava Trnava a okolie | Aurora Construction</title>
-    <meta name="description" content="Hrubá stavba v Bratislave, Trnavskom kraji a okolí – spoľahlivá výstavba základov, múrov a strešných konštrukcií presne podľa vašich predstáv." />
+    <title>
+      Hrubá stavba | Bratislava Trnava a okolie | Aurora Construction
+    </title>
+    <meta
+      name="description"
+      content="Hrubá stavba v Bratislave, Trnavskom kraji a okolí – spoľahlivá výstavba základov, múrov a strešných konštrukcií presne podľa vašich predstáv."
+    />
 
-    <link rel="preload" href="/styles/stylesheet.css" as="style">
-    <link rel="stylesheet" href="/styles/stylesheet.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/styles/stylesheet.css"></noscript>
+    <link rel="preload" href="/styles/stylesheet.css" as="style" />
+    <link
+      rel="stylesheet"
+      href="/styles/stylesheet.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="/styles/stylesheet.css" /></noscript>
 
-    <link rel="preload" href="/styles/fonts.css" as="style">
-    <link rel="stylesheet" href="/styles/fonts.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/styles/fonts.css"></noscript>
+    <link rel="preload" href="/styles/fonts.css" as="style" />
+    <link
+      rel="stylesheet"
+      href="/styles/fonts.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="/styles/fonts.css" /></noscript>
 
     <link rel="preload" as="image" href="/hruba-stavba/Hero.avif" />
     <link rel="preload" as="image" href="/hruba-stavba/Hero-mobile.avif" />
+    <link rel="preload" as="image" href="/favicon.svg" />
+    <link rel="preload" as="image" href="/favicon.ico" />
 
-    <link rel="canonical" href="https://www.auroraconstruction.sk/hruba-stavba" />
+    <link
+      rel="canonical"
+      href="https://www.auroraconstruction.sk/hruba-stavba"
+    />
 
     <link rel="sitemap" href="/sitemap.xml" />
 
     <!-- Open Graph: -->
     <meta property="og:title" content="Aurora Construction | Hrubá stavba" />
-    <meta property="og:description" content="Spoľahlivá výstavba hrubých stavieb v Bratislave a Trnavskom kraji" />
-    <meta property="og:image" content="https://auroraconstruction.sk/Social.jpg" />
-    <meta property="og:url" content="https://auroraconstruction.sk/hruba-stavba" />
+    <meta
+      property="og:description"
+      content="Spoľahlivá výstavba hrubých stavieb v Bratislave a Trnavskom kraji"
+    />
+    <meta
+      property="og:image"
+      content="https://auroraconstruction.sk/Social.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://auroraconstruction.sk/hruba-stavba"
+    />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Cards: -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Aurora Construction | Hrubá stavba" />
-    <meta name="twitter:description" content="Spoľahlivá výstavba hrubých stavieb v Bratislave a Trnavskom kraji" />
-    <meta name="twitter:image" content="https://auroraconstruction.sk/Social.jpg" />
+    <meta
+      name="twitter:description"
+      content="Spoľahlivá výstavba hrubých stavieb v Bratislave a Trnavskom kraji"
+    />
+    <meta
+      name="twitter:image"
+      content="https://auroraconstruction.sk/Social.jpg"
+    />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Service",
-          "@id": "https://www.auroraconstruction.sk/hruba-stavba/#service",
-          "name": "Hrubá stavba na kľúč",
-          "url": "https://www.auroraconstruction.sk/hruba-stavba",
-          "mainEntityOfPage": "https://www.auroraconstruction.sk/hruba-stavba",
-          "serviceType": "ConstructionService",
-          "provider": { "@id": "https://www.auroraconstruction.sk/#organization" },
-          "image": {
-            "@type": "ImageObject",
-            "url": "https://www.auroraconstruction.sk/RichSnippet1.jpg",
-            "contentUrl": "https://www.auroraconstruction.sk/RichSnippet1.jpg",
-            "width": 1920,
-            "height": 1440,
-            "caption": "Realizácia hrubej stavby domu firmou Aurora Construction",
-            "encodingFormat": "image/jpeg"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": "https://www.auroraconstruction.sk/hruba-stavba/#service",
+            "name": "Hrubá stavba na kľúč",
+            "url": "https://www.auroraconstruction.sk/hruba-stavba",
+            "mainEntityOfPage": "https://www.auroraconstruction.sk/hruba-stavba",
+            "serviceType": "ConstructionService",
+            "provider": {
+              "@id": "https://www.auroraconstruction.sk/#organization"
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://www.auroraconstruction.sk/RichSnippet1.jpg",
+              "contentUrl": "https://www.auroraconstruction.sk/RichSnippet1.jpg",
+              "width": 1920,
+              "height": 1440,
+              "caption": "Realizácia hrubej stavby domu firmou Aurora Construction",
+              "encodingFormat": "image/jpeg"
+            },
+            "description": "Realizácia hrubej stavby rodinného domu od základov, cez murovanie až po veniec a stropy. Transparentná cena a rýchla realizácia v Bratislave a okolí.",
+            "areaServed": [
+              { "@type": "City", "name": "Bratislava" },
+              { "@type": "AdministrativeArea", "name": "Bratislavský kraj" },
+              { "@type": "AdministrativeArea", "name": "Trnavský kraj" }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Cenník hrubej stavby",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Realizácia hrubej stavby - cena za m2"
+                  },
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "priceCurrency": "EUR",
+                    "minPrice": "150",
+                    "maxPrice": "210",
+                    "unitCode": "MTK",
+                    "referenceQuantity": {
+                      "@type": "QuantitativeValue",
+                      "value": "1",
+                      "unitCode": "MTK"
+                    },
+                    "description": "Cena za m2 zastavanej plochy (orientačná, závisí od projektu)."
+                  }
+                }
+              ]
+            }
           },
-          "description": "Realizácia hrubej stavby rodinného domu od základov, cez murovanie až po veniec a stropy. Transparentná cena a rýchla realizácia v Bratislave a okolí.",
-          "areaServed": [
-            { "@type": "City", "name": "Bratislava" },
-            { "@type": "AdministrativeArea", "name": "Bratislavský kraj" },
-            { "@type": "AdministrativeArea", "name": "Trnavský kraj" }
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Cenník hrubej stavby",
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.auroraconstruction.sk/hruba-stavba/#breadcrumb",
             "itemListElement": [
               {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Realizácia hrubej stavby - cena za m2"
-                },
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "priceCurrency": "EUR",
-                  "minPrice": "150",
-                  "maxPrice": "210",
-                  "unitCode": "MTK",
-                  "referenceQuantity": {
-                    "@type": "QuantitativeValue",
-                    "value": "1",
-                    "unitCode": "MTK"
-                  },
-                  "description": "Cena za m2 zastavanej plochy (orientačná, závisí od projektu)."
-                }
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Domov",
+                "item": "https://www.auroraconstruction.sk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Hrubá stavba",
+                "item": "https://www.auroraconstruction.sk/hruba-stavba"
               }
             ]
-          }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://www.auroraconstruction.sk/hruba-stavba/#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Domov",
-              "item": "https://www.auroraconstruction.sk"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Hrubá stavba",
-              "item": "https://www.auroraconstruction.sk/hruba-stavba"
+          },
+          {
+            "@type": "GeneralContractor",
+            "@id": "https://www.auroraconstruction.sk/#organization",
+            "name": "Aurora Construction",
+            "url": "https://www.auroraconstruction.sk",
+            "image": "https://www.auroraconstruction.sk/HeroSection.jpg",
+            "telephone": "+421919221760",
+            "priceRange": "€€",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nejedlého 27",
+              "addressLocality": "Bratislava",
+              "postalCode": "84102",
+              "addressCountry": "SK"
             }
-          ]
-        },
-        {
-          "@type": "GeneralContractor",
-          "@id": "https://www.auroraconstruction.sk/#organization",
-          "name": "Aurora Construction",
-          "url": "https://www.auroraconstruction.sk",
-          "image": "https://www.auroraconstruction.sk/HeroSection.jpg",
-          "telephone": "+421919221760",
-          "priceRange": "€€",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Nejedlého 27",
-            "addressLocality": "Bratislava",
-            "postalCode": "84102",
-            "addressCountry": "SK"
           }
-        }
-      ]
-    }
+        ]
+      }
     </script>
-
   </head>
 
   <body class="text-gray-800">
-    <Navbar />  
+    <Navbar />
 
-    <main id="hruba-stavba" class="relative z-10 bg-[#191919] text-white overflow-hidden">
-    
+    <main
+      id="hruba-stavba"
+      class="relative z-10 bg-[#191919] text-white overflow-hidden"
+    >
       <!-- 💠 Glow 1 – horný ľavý -->
-      <div class="absolute top-[5%] left-[-15%] w-[600px] h-[600px]
+      <div
+        class="absolute top-[5%] left-[-15%] w-[600px] h-[600px]
                   bg-gradient-radial from-[#63ffd3]/20 via-[#39c4ff]/10 to-transparent
-                  blur-[180px] z-10 pointer-events-none lg:block hidden"></div>
+                  blur-[180px] z-10 pointer-events-none lg:block hidden"
+      >
+      </div>
 
       <!-- 💠 Glow 2 – spodný pravý -->
-      <div class="absolute lg:block hidden bottom-[5%] right-[-15%] w-[700px] h-[700px]
+      <div
+        class="absolute lg:block hidden bottom-[5%] right-[-15%] w-[700px] h-[700px]
                   bg-gradient-radial from-[#39c4ff]/20 via-[#63ffd3]/10 to-transparent
-                  blur-[200px] z-10 pointer-events-none"></div>
-      
-      <div class="absolute top-[40%] left-[-20%] w-[400px] h-[400px]
+                  blur-[200px] z-10 pointer-events-none"
+      >
+      </div>
+
+      <div
+        class="absolute top-[40%] left-[-20%] w-[400px] h-[400px]
                   bg-gradient-radial from-[#39c4ff]/15 via-[#63ffd3]/10 to-transparent
-                  blur-[150px] z-10 pointer-events-none"></div>
+                  blur-[150px] z-10 pointer-events-none"
+      >
+      </div>
 
       <!-- 💠 Glow 3 – horný pravý -->
-      <div class="absolute top-[30%] right-[-10%] w-[500px] h-[500px]
+      <div
+        class="absolute top-[30%] right-[-10%] w-[500px] h-[500px]
                   bg-gradient-radial from-[#63ffd3]/25 via-[#39c4ff]/10 to-transparent
-                  blur-[160px] z-10 pointer-events-none"></div>
+                  blur-[160px] z-10 pointer-events-none"
+      >
+      </div>
 
       <!-- 💠 Glow 4 – spodný ľavý (menší) -->
-      <div class="absolute bottom-[20%] left-[-12%] w-[400px] h-[400px]
+      <div
+        class="absolute bottom-[20%] left-[-12%] w-[400px] h-[400px]
                   bg-gradient-radial from-[#39c4ff]/15 via-[#63ffd3]/10 to-transparent
-                  blur-[150px] z-10 pointer-events-none"></div>
+                  blur-[150px] z-10 pointer-events-none"
+      >
+      </div>
 
       <!-- 💠 Glow 5 – pravý stred -->
-      <div class="absolute top-[60%] right-[-10%] w-[550px] h-[550px]
+      <div
+        class="absolute top-[60%] right-[-10%] w-[550px] h-[550px]
                   bg-gradient-radial from-[#63ffd3]/20 via-[#39c4ff]/10 to-transparent
-                  blur-[180px] z-10 pointer-events-none"></div>
+                  blur-[180px] z-10 pointer-events-none"
+      >
+      </div>
 
-
-      <section id="hero-hrubastavba" class="relative h-[52vh] w-full overflow-hidden text-white">
+      <section
+        id="hero-hrubastavba"
+        class="relative h-[52vh] w-full overflow-hidden text-white"
+      >
         <!-- Pozadie -->
         <img
           src="/hruba-stavba/Hero.avif"
@@ -186,456 +244,604 @@ import Map from '../components/Global/Map.astro';
           alt="Hrubá stavba"
           class="absolute inset-0 w-full h-full object-cover z-0 lg:ml-[25%] ml-0"
         />
-          
-        
+
         <!-- Overlay len na mobil/tablet -->
         <div class="absolute inset-0 z-10 lg:hidden pointer-events-none">
           <!-- Zhora dolu tmavne -->
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#191919]/90 to-[#191919]"></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent via-[#191919]/90 to-[#191919]"
+          >
+          </div>
         </div>
-      
+
         <!-- Dolný gradientový fade -->
         <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
-          <div class="absolute bottom-0 w-full h-40 bg-gradient-to-t from-[#191919] to-transparent"></div>
+          <div
+            class="absolute bottom-0 w-full h-40 bg-gradient-to-t from-[#191919] to-transparent"
+          >
+          </div>
         </div>
-      
+
         <!-- Textový blok -->
-        <div class="hero-diagonal-box flex items-center justify-center lg:justify-start h-full">
-          <div id="hero-text-block" class="max-w-2xl px-6 md:px-10 lg:px-16 py-10 flex flex-col justify-center items-center text-center lg:justify-start lg:items-start lg:text-left z-20 mt-[64px]">
-            <h1 class="text-3xl lg:text-5xl font-bold leading-tight mb-6 opacity-0 -translate-x-10">
+        <div
+          class="hero-diagonal-box flex items-center justify-center lg:justify-start h-full"
+        >
+          <div
+            id="hero-text-block"
+            class="max-w-2xl px-6 md:px-10 lg:px-16 py-10 flex flex-col justify-center items-center text-center lg:justify-start lg:items-start lg:text-left z-20 mt-[64px]"
+          >
+            <h1
+              class="text-3xl lg:text-5xl font-bold leading-tight mb-6 opacity-0 -translate-x-10"
+            >
               Hrubá stavba na kľúč pre váš vysnívaný dom
             </h1>
-            <p class="text-lg text-gray-300 mb-6 mr-0 lg:mr-12 opacity-0 -translate-x-8">
+            <p
+              class="text-lg text-gray-300 mb-6 mr-0 lg:mr-12 opacity-0 -translate-x-8"
+            >
               Výstavba základov, múrov a strechy. Precízne, spoľahlivo a načas.
             </p>
-            <a href="#kontakt" class="inline-block bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold py-3 px-6 rounded-xl shadow-xl opacity-0 scale-95">
+            <a
+              href="#kontakt"
+              class="inline-block bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold py-3 px-6 rounded-xl shadow-xl opacity-0 scale-95"
+            >
               Získať nezáväznú ponuku
             </a>
           </div>
         </div>
-        
-      </section>                  
-      
-      <section id="hruba-stavba-content" class="relative bg-[#191919] lg:pt-20 pt-12 pb-20 px-6 md:px-12 text-white overflow-hidden">
+      </section>
 
+      <section
+        id="hruba-stavba-content"
+        class="relative bg-[#191919] lg:pt-20 pt-12 pb-20 px-6 md:px-12 text-white overflow-hidden"
+      >
         <div class="max-w-6xl mx-auto relative z-10">
           <!-- Nadpis -->
-          <div id="content-heading" class="text-center mb-16 opacity-0 translate-y-6">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">Čo všetko zahŕňa <span class="gradient-text-1">hrubá stavba</span></h2>
+          <div
+            id="content-heading"
+            class="text-center mb-16 opacity-0 translate-y-6"
+          >
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">
+              Čo všetko zahŕňa <span class="gradient-text-1">hrubá stavba</span>
+            </h2>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-              Od výkopov až po strechu sa postaráme o všetko, čo vaša stavba potrebuje.
+              Od výkopov až po strechu sa postaráme o všetko, čo vaša stavba
+              potrebuje.
             </p>
           </div>
-      
+
           <!-- Karty -->
           <ol class="grid md:grid-cols-3 gap-8">
             <!-- Krok 1 -->
-            <li class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
+            <li
+              class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10"
+            >
               <div class="flex items-center gap-4 mb-4">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  <img src="/hruba-stavba/icons/excavator.svg" alt="Hrubá stavba - Výkop" class="w-7 h-7" />
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                >
+                  <img
+                    src="/hruba-stavba/icons/excavator.svg"
+                    alt="Hrubá stavba - Výkop"
+                    class="w-7 h-7"
+                  />
                 </div>
                 <h3 class="text-lg font-semibold">Základy a výkopy</h3>
               </div>
               <p class="text-sm text-gray-400">
-                Výkopy, základová doska a hydroizolácia. Všetko pripravené precízne a kvalitne.
+                Výkopy, základová doska a hydroizolácia. Všetko pripravené
+                precízne a kvalitne.
               </p>
             </li>
-      
+
             <!-- Krok 2 -->
-            <li class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
+            <li
+              class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10"
+            >
               <div class="flex items-center gap-4 mb-4">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  <img src="/hruba-stavba/icons/wall.svg" alt="Hrubá stavba - Múry" class="w-7 h-7" />
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                >
+                  <img
+                    src="/hruba-stavba/icons/wall.svg"
+                    alt="Hrubá stavba - Múry"
+                    class="w-7 h-7"
+                  />
                 </div>
                 <h3 class="text-lg font-semibold">Nosné múry a stropy</h3>
               </div>
               <p class="text-sm text-gray-400">
-                Murovanie stien a stropov podľa projektovej dokumentácie a vašich potrieb.
+                Murovanie stien a stropov podľa projektovej dokumentácie a
+                vašich potrieb.
               </p>
             </li>
-      
+
             <!-- Krok 3 -->
-            <li class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10">
+            <li
+              class="group bg-[#1f1f1f] rounded-2xl border border-[#2b2b2b] hover:border-[#63ffd3] transition p-6 shadow-md hover:shadow-[#63ffd3]/10 opacity-0 translate-y-10"
+            >
               <div class="flex items-center gap-4 mb-4">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  <img src="/hruba-stavba/icons/house.svg" alt="Hrubá stavba - Strecha" class="w-7 h-7" />
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                >
+                  <img
+                    src="/hruba-stavba/icons/house.svg"
+                    alt="Hrubá stavba - Strecha"
+                    class="w-7 h-7"
+                  />
                 </div>
                 <h3 class="text-lg font-semibold">Strešná konštrukcia</h3>
               </div>
               <p class="text-sm text-gray-400">
-                Montáž krovu, krytiny a dokončenie do fázy uzavretej hrubej stavby na kľúč.
+                Montáž krovu, krytiny a dokončenie do fázy uzavretej hrubej
+                stavby na kľúč.
               </p>
             </li>
           </ol>
         </div>
       </section>
-      
-      <div id="bulldozer-wrapper" class="hidden 2xl:block pointer-events-none fixed top-0 left-0 z-50 w-24 rotate-180">
-        <img id="bulldozer" src="/hruba-stavba/icons/buldozer.svg" alt="Buldozér" class="w-full" loading="lazy" fetchpriority="low" />
-      </div>  
-      
-      <section id="our-approach" class="relative bg-[#191919] py-24 px-6 md:px-12 text-white overflow-hidden">
-      
-        <div class="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-16 items-center">
+
+      <div
+        id="bulldozer-wrapper"
+        class="hidden 2xl:block pointer-events-none fixed top-0 left-0 z-50 w-24 rotate-180"
+      >
+        <img
+          id="bulldozer"
+          src="/hruba-stavba/icons/buldozer.svg"
+          alt="Buldozér"
+          class="w-full"
+          loading="lazy"
+          fetchpriority="low"
+        />
+      </div>
+
+      <section
+        id="our-approach"
+        class="relative bg-[#191919] py-24 px-6 md:px-12 text-white overflow-hidden"
+      >
+        <div
+          class="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-16 items-center"
+        >
           <!-- Left: Image -->
           <div class="relative">
-            <img 
-              src="/hruba-stavba/Approach.avif" 
-              alt="Hrubá stavba počas realizácie" 
-              class="rounded-3xl shadow-xl w-full object-cover" 
+            <img
+              src="/hruba-stavba/Approach.avif"
+              alt="Hrubá stavba počas realizácie"
+              class="rounded-3xl shadow-xl w-full object-cover"
               width="544"
               height="408"
               loading="lazy"
             />
-            <div class="absolute bottom-[-20px] left-[-20px] w-16 h-16 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full blur-xl opacity-30"></div>
+            <div
+              class="absolute bottom-[-20px] left-[-20px] w-16 h-16 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full blur-xl opacity-30"
+            >
+            </div>
           </div>
-      
+
           <!-- Right: Text -->
           <div>
             <h2 class="text-3xl md:text-5xl font-bold mb-6" id="approach-title">
               Profesionálny prístup. Transparentný proces.
             </h2>
             <p class="text-gray-400 text-lg md:text-xl mb-8" id="approach-desc">
-              Výstavba hrubej stavby je komplexný proces, preto ho vedieme krok za krokom s dôrazom na dôslednosť, kvalitu a komunikáciu. 
-              Bez kompromisov a s rešpektom k vášmu času.
+              Výstavba hrubej stavby je komplexný proces, preto ho vedieme krok
+              za krokom s dôrazom na dôslednosť, kvalitu a komunikáciu. Bez
+              kompromisov a s rešpektom k vášmu času.
             </p>
-      
+
             <ul class="space-y-5 text-white text-base md:text-lg font-medium">
               <li class="flex items-start gap-3" id="approach-step-1">
-                <span class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"></span>
+                <span
+                  class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"
+                ></span>
                 Jasne definovaný harmonogram a fázy výstavby.
               </li>
               <li class="flex items-start gap-3" id="approach-step-2">
-                <span class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"></span>
+                <span
+                  class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"
+                ></span>
                 Priebežné konzultácie, promptná komunikácia a fotodokumentácia.
               </li>
               <li class="flex items-start gap-3" id="approach-step-3">
-                <span class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"></span>
+                <span
+                  class="w-3 h-3 mt-2 rounded-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff]"
+                ></span>
                 Prísna kontrola dodávateľov, materiálov a detailov.
               </li>
             </ul>
           </div>
         </div>
       </section>
-      
-      <section id="process" class="relative py-28 px-6 md:px-12 bg-[#191919] text-white overflow-hidden">
 
+      <section
+        id="process"
+        class="relative py-28 px-6 md:px-12 bg-[#191919] text-white overflow-hidden"
+      >
         <div class="relative z-10 max-w-6xl mx-auto">
           <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6" id="process-title">Ako prebieha spolupráca</h2>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6" id="process-title">
+              Ako prebieha spolupráca
+            </h2>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-              Od prvého kontaktu až po hotovú hrubú stavbu. Transparentne vám chceme poskytnúť to, čo vy potrebujete.
+              Od prvého kontaktu až po hotovú hrubú stavbu. Transparentne vám
+              chceme poskytnúť to, čo vy potrebujete.
             </p>
           </div>
-      
-          <!-- Timeline -->
-          <ol class="relative flex flex-col md:flex-row md:justify-between gap-12 md:gap-0 text-center">
-            <!-- Gradient line -->
-            <div class="absolute hidden md:block top-[30%] left-0 h-1 bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] opacity-40 z-0 timeline-gradient-line"></div>
 
-      
+          <!-- Timeline -->
+          <ol
+            class="relative flex flex-col md:flex-row md:justify-between gap-12 md:gap-0 text-center"
+          >
+            <!-- Gradient line -->
+            <div
+              class="absolute hidden md:block top-[30%] left-0 h-1 w-full bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] opacity-40 z-0 timeline-gradient-line origin-left scale-x-0"
+            >
+            </div>
+
             <!-- Step 1 -->
             <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
-              <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center shadow-xl">
-                <img src="/hruba-stavba/icons/phone.svg" alt="Kontakt" class="w-8 h-8" />
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full flex items-center justify-center shadow-xl"
+              >
+                <img
+                  src="/hruba-stavba/icons/phone.svg"
+                  alt="Kontakt"
+                  class="w-8 h-8"
+                />
               </div>
               <h3 class="font-semibold text-lg mb-2">Kontakt a zadanie</h3>
-              <p class="text-gray-400 text-sm">Zavoláte nám, pošlete email alebo ináč nás kontaktujete. Spolu preberieme váš projekt.</p>
+              <p class="text-gray-400 text-sm">
+                Zavoláte nám, pošlete email alebo ináč nás kontaktujete. Spolu
+                preberieme váš projekt.
+              </p>
             </li>
-      
+
             <!-- Step 2 -->
             <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
-              <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#63ffd3] rounded-full flex items-center justify-center shadow">
-                <img src="/hruba-stavba/icons/plan.svg" alt="Nacenenie" class="w-8 h-8" />
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#63ffd3] rounded-full flex items-center justify-center shadow"
+              >
+                <img
+                  src="/hruba-stavba/icons/plan.svg"
+                  alt="Nacenenie"
+                  class="w-8 h-8"
+                />
               </div>
-              <h3 class="font-semibold text-lg mb-2">Nacenenie a harmonogram</h3>
-              <p class="text-gray-400 text-sm">Pripravíme transparentnú ponuku a orientačný termín. Všetko do teraz robíme úplne zadarmo.</p>
+              <h3 class="font-semibold text-lg mb-2">
+                Nacenenie a harmonogram
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Pripravíme transparentnú ponuku a orientačný termín. Všetko do
+                teraz robíme úplne zadarmo.
+              </p>
             </li>
-      
+
             <!-- Step 3 -->
             <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
-              <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#39c4ff] rounded-full flex items-center justify-center shadow">
-                <img src="/hruba-stavba/icons/contract.svg" alt="Zmluva" class="w-8 h-8" />
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#39c4ff] rounded-full flex items-center justify-center shadow"
+              >
+                <img
+                  src="/hruba-stavba/icons/contract.svg"
+                  alt="Zmluva"
+                  class="w-8 h-8"
+                />
               </div>
               <h3 class="font-semibold text-lg mb-2">Zmluva a príprava</h3>
-              <p class="text-gray-400 text-sm">Po odsúhlasení podpíšeme zmluvu a pripravíme stavenisko.</p>
+              <p class="text-gray-400 text-sm">
+                Po odsúhlasení podpíšeme zmluvu a pripravíme stavenisko.
+              </p>
             </li>
-      
+
             <!-- Step 4 -->
             <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
-              <div class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#63ffd3] rounded-full flex items-center justify-center shadow">
-                <img src="/hruba-stavba/icons/build.svg" alt="Realizácia" class="w-8 h-8" />
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-[#1f1f1f] border-2 border-[#63ffd3] rounded-full flex items-center justify-center shadow"
+              >
+                <img
+                  src="/hruba-stavba/icons/build.svg"
+                  alt="Realizácia"
+                  class="w-8 h-8"
+                />
               </div>
               <h3 class="font-semibold text-lg mb-2">Realizácia stavby</h3>
-              <p class="text-gray-400 text-sm">Hrubá stavba rastie podľa dohodnutého plánu. Máte prehľad o všetkom.</p>
+              <p class="text-gray-400 text-sm">
+                Hrubá stavba rastie podľa dohodnutého plánu. Máte prehľad o
+                všetkom.
+              </p>
             </li>
 
             <!-- Step 5 -->
             <li class="relative z-10 text-center md:w-1/5 md:min-h-[260px]">
-              <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#39c4ff] to-[#63ffd3] rounded-full flex items-center justify-center shadow-xl">
-                <img src="/hruba-stavba/icons/check.svg" alt="Odovzdanie" class="w-8 h-8" />
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#39c4ff] to-[#63ffd3] rounded-full flex items-center justify-center shadow-xl"
+              >
+                <img
+                  src="/hruba-stavba/icons/check.svg"
+                  alt="Odovzdanie"
+                  class="w-8 h-8"
+                />
               </div>
               <h3 class="font-semibold text-lg mb-2">Odovzdanie a ukončenie</h3>
-              <p class="text-gray-400 text-sm">Spoločne prejdeme výsledok. Stavba je pripravená na ďalšie etapy.</p>
+              <p class="text-gray-400 text-sm">
+                Spoločne prejdeme výsledok. Stavba je pripravená na ďalšie
+                etapy.
+              </p>
             </li>
           </ol>
         </div>
       </section>
-      
 
-      <section id="pricing" class="bg-[#191919] text-white pb-24 pt-6 px-6 md:px-12 relative overflow-hidden">
-      
+      <section
+        id="pricing"
+        class="bg-[#191919] text-white pb-24 pt-6 px-6 md:px-12 relative overflow-hidden"
+      >
         <div class="relative z-10 max-w-5xl mx-auto text-center">
           <h2 class="text-3xl md:text-5xl font-bold mb-6" id="pricing-title">
             Férová cena. Žiadne prekvapenia.
           </h2>
-          <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-6" id="pricing-desc">
-            Nacenenie každej hrubej stavby pripravujeme individuálne, ale pre lepšiu predstavu:
+          <p
+            class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-6"
+            id="pricing-desc"
+          >
+            Nacenenie každej hrubej stavby pripravujeme individuálne, ale pre
+            lepšiu predstavu:
             <br />
-            <span class="text-white font-semibold mt-2 block">Hrubá stavba rodinného domu zvyčajne od 150 – 210 €/m² zastavanej plochy za prácu.</span>
+            <span class="text-white font-semibold mt-2 block"
+              >Hrubá stavba rodinného domu zvyčajne od 150 – 210 €/m² zastavanej
+              plochy za prácu.</span
+            >
             <br />
             Presnú cenu vám pošleme do 48 hodín po zadaní parametrov.
           </p>
-      
+
           <!-- CTA Button -->
-          <a href="#kontakt" class="inline-block mt-6 bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold py-4 px-8 rounded-xl shadow-xl hover:scale-105 transition" id="pricing-cta">
+          <a
+            href="#kontakt"
+            class="inline-block mt-6 bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black font-semibold py-4 px-8 rounded-xl shadow-xl hover:scale-105 transition"
+            id="pricing-cta"
+          >
             Požiadať o nezáväzné nacenenie
           </a>
         </div>
       </section>
 
-      <Map title='Pôsobíme v Bratislavskom a Trnavskom kraji' description="Zameriavame sa na výstavbu hrubých stavieb v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup." />
+      <Map
+        title="Pôsobíme v Bratislavskom a Trnavskom kraji"
+        description="Zameriavame sa na výstavbu hrubých stavieb v regiónoch, ktoré dôverne poznáme. To nám umožňuje garantovať rýchlu realizáciu, jednoduchú logistiku a osobný prístup."
+      />
 
       <!-- CTA -->
       <Contact />
       <Footer />
-
     </main>
   </body>
 </html>
 
 <script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
+  import gsap from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  gsap.registerPlugin(ScrollTrigger)
 
-  gsap.to("#hero-text-block h1", {
-    x: 0,
-    opacity: 1,
-    duration: 1.2,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "#hero-text-block",
-      start: "top 80%",
-    }
-  });
-
-  gsap.to("#hero-text-block p", {
-    x: 0,
-    opacity: 1,
-    delay: 0.2,
-    duration: 1,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: "#hero-text-block",
-      start: "top 80%",
-    }
-  });
-
-  gsap.to("#hero-text-block a", {
-    scale: 1,
-    opacity: 1,
-    delay: 0.6,
-    duration: 0.8,
-    ease: "back.out(1.7)",
-    scrollTrigger: {
-      trigger: "#hero-text-block",
-      start: "top 80%",
-    }
-  });
-
-  // Druhá sekcia – karty
-  gsap.to('#content-heading', {
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: '#hruba-stavba-content .group:nth-child(1)',
-      start: "top 90%",
-    }
-  });
-
-  const cards = gsap.utils.toArray<HTMLElement>('#hruba-stavba-content .group');
-
-  cards.forEach((el, i) => {
-    gsap.to(el, {
+  window.addEventListener('load', () => {
+    gsap.to('#hero-text-block h1', {
+      x: 0,
       opacity: 1,
+      duration: 1.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#hero-text-block',
+        start: 'top 80%',
+      },
+    })
+
+    gsap.to('#hero-text-block p', {
+      x: 0,
+      opacity: 1,
+      delay: 0.2,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#hero-text-block',
+        start: 'top 80%',
+      },
+    })
+
+    gsap.to('#hero-text-block a', {
+      scale: 1,
+      opacity: 1,
+      delay: 0.6,
+      duration: 0.8,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '#hero-text-block',
+        start: 'top 80%',
+      },
+    })
+
+    // Druhá sekcia – karty
+    gsap.to('#content-heading', {
       y: 0,
+      opacity: 1,
       duration: 1,
-      delay: 0.5 + i * 0.3,
-      ease: "power2.out",
+      ease: 'power3.out',
       scrollTrigger: {
-        trigger: el,
-        start: "top 90%",
-      }
-    });
-  });
-  
-  gsap.from("#approach-title", {
-    y: 50,
-    opacity: 0,
-    duration: 1.1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "#approach-title",
-      start: "top 85%",
-    }
-  });
+        trigger: '#hruba-stavba-content .group:nth-child(1)',
+        start: 'top 90%',
+      },
+    })
 
-  gsap.from("#approach-desc", {
-    y: 30,
-    opacity: 0,
-    delay: 0.2,
-    duration: 1,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: "#approach-desc",
-      start: "top 85%",
-    }
-  });
+    const cards = gsap.utils.toArray<HTMLElement>(
+      '#hruba-stavba-content .group',
+    )
 
-  gsap.utils.toArray(["#approach-step-1", "#approach-step-2", "#approach-step-3"]).forEach((el, i) => {
-    const element = el as HTMLElement;
+    cards.forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5 + i * 0.3,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+        },
+      })
+    })
 
-    gsap.from(element, {
-      x: -20,
+    gsap.from('#approach-title', {
+      y: 50,
       opacity: 0,
-      delay: 0.3 + i * 0.2,
-      duration: 0.9,
-      ease: "power3.out",
+      duration: 1.1,
+      ease: 'power3.out',
       scrollTrigger: {
-        trigger: element,
-        start: "top 90%",
-      }
-    });
-  });
+        trigger: '#approach-title',
+        start: 'top 85%',
+      },
+    })
 
-
-  // Pricing section
-  gsap.from("#pricing-title", {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#pricing-title",
-      start: "top 85%",
-    }
-  });
-
-  gsap.from("#pricing-desc", {
-    y: 30,
-    opacity: 0,
-    delay: 0.2,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#pricing-desc",
-      start: "top 85%",
-    }
-  });
-
-  gsap.from("#pricing-cta", {
-    scale: 0.9,
-    opacity: 0,
-    delay: 0.4,
-    duration: 0.8,
-    ease: "back.out(1.7)",
-    scrollTrigger: {
-      trigger: "#pricing-cta",
-      start: "top 90%",
-    }
-  });
-
-  // Process section
-  gsap.utils.toArray("#process .md\\:w-1\\/5").forEach((el, i) => {
-    const element = el as HTMLElement;
-
-    gsap.from(element, {
-      y: 60,
+    gsap.from('#approach-desc', {
+      y: 30,
       opacity: 0,
-      delay: 0.1 * i,
+      delay: 0.2,
       duration: 1,
-      ease: "power3.out",
+      ease: 'power2.out',
       scrollTrigger: {
-        trigger: element,
-        start: "top 80%",
-      }
-    });
-  });
+        trigger: '#approach-desc',
+        start: 'top 85%',
+      },
+    })
 
-  gsap.fromTo(".timeline-gradient-line", 
-    { width: 0 }, 
-    {
-      width: "100%",
-      duration: 1.5,
-      ease: "power2.out",
+    gsap.utils
+      .toArray(['#approach-step-1', '#approach-step-2', '#approach-step-3'])
+      .forEach((el, i) => {
+        const element = el as HTMLElement
+
+        gsap.from(element, {
+          x: -20,
+          opacity: 0,
+          delay: 0.3 + i * 0.2,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 90%',
+          },
+        })
+      })
+
+    // Pricing section
+    gsap.from('#pricing-title', {
+      y: 50,
+      opacity: 0,
+      duration: 1,
       scrollTrigger: {
-        trigger: "#process",
-        start: "top 40%",
-      }
+        trigger: '#pricing-title',
+        start: 'top 85%',
+      },
+    })
+
+    gsap.from('#pricing-desc', {
+      y: 30,
+      opacity: 0,
+      delay: 0.2,
+      duration: 1,
+      scrollTrigger: {
+        trigger: '#pricing-desc',
+        start: 'top 85%',
+      },
+    })
+
+    gsap.from('#pricing-cta', {
+      scale: 0.9,
+      opacity: 0,
+      delay: 0.4,
+      duration: 0.8,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '#pricing-cta',
+        start: 'top 90%',
+      },
+    })
+
+    // Process section
+    gsap.utils.toArray('#process .md\\:w-1\\/5').forEach((el, i) => {
+      const element = el as HTMLElement
+
+      gsap.from(element, {
+        y: 60,
+        opacity: 0,
+        delay: 0.1 * i,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+        },
+      })
+    })
+
+    gsap.fromTo(
+      '.timeline-gradient-line',
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        duration: 1.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '#process',
+          start: 'top 40%',
+        },
+      },
+    )
+
+    const bulldozer = document.getElementById('bulldozer-wrapper')
+    const section1 = document.getElementById('our-approach')
+    const section2 = document.getElementById('process')
+
+    if (bulldozer && section1 && section2) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section1,
+          start: 'bottom bottom',
+          endTrigger: section2,
+          end: 'bottom center',
+          scrub: 2,
+        },
+      })
+
+      tl.set(bulldozer, {
+        rotate: 180,
+        filter: 'drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))',
+      })
+      tl.to(bulldozer, {
+        y: () => section1.offsetHeight + section2.offsetHeight - 200,
+      })
     }
-  );
-
-  const bulldozer = document.getElementById('bulldozer-wrapper');
-  const section1 = document.getElementById('our-approach');
-  const section2 = document.getElementById('process');
-
-  if (bulldozer && section1 && section2) {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section1,
-        start: "bottom bottom",
-        endTrigger: section2,
-        end: "bottom center",
-        scrub: 2,
-      }
-    });
-
-    tl.set(bulldozer, {
-      rotate: 180,
-      filter: "drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))"
-    });
-    tl.to(bulldozer, {
-      y: () => section1.offsetHeight + section2.offsetHeight - 200,
-    });
-  }
+  })
 </script>
 
 <style>
-@media (min-width: 1024px) {
-  .hero-diagonal-box {
-    width: 45%;
-    height: 100%;
-    background-color: #191919;
-    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  @media (min-width: 1024px) {
+    .hero-diagonal-box {
+      width: 45%;
+      height: 100%;
+      background-color: #191919;
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+    }
   }
-}
 
-#bulldozer-wrapper {
-  will-change: transform;
-  filter: drop-shadow(0 0 15px rgba(99, 255, 211, 0.3));
-  transition: filter 0.2s ease;
-}
+  #bulldozer-wrapper {
+    will-change: transform;
+    filter: drop-shadow(0 0 15px rgba(99, 255, 211, 0.3));
+    transition: filter 0.2s ease;
+  }
 
-#bulldozer-wrapper {
-  position: absolute; /* namiesto fixed */
-  top: 1000px;
-  left: 5vw;
-  width: 100px;
-  will-change: transform;
-  z-index: 50;
-}
-
-
+  #bulldozer-wrapper {
+    position: absolute; /* namiesto fixed */
+    top: 1000px;
+    left: 5vw;
+    width: 100px;
+    will-change: transform;
+    z-index: 50;
+  }
 </style>
