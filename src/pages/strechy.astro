@@ -553,7 +553,7 @@ const extraPhotos = await Promise.all(
             >
             </div>
             <Image
-              src={await resolveGalleryImage('/strechy/RoofApproach.avif')}
+              src={(await resolveGalleryImage('/strechy/RoofApproach.avif')) as any}
               alt="Montáž krovu detail"
               class="rounded-3xl shadow-xl w-full object-cover"
               width={800}
@@ -661,7 +661,7 @@ const extraPhotos = await Promise.all(
                     class={`portfolio-item portfolio-item-${i} relative overflow-hidden rounded-2xl group border border-[#2b2b2b] hover:border-[#63ffd3]/40 transition-all duration-500 shadow-lg col-span-1 md:col-span-4 ${centeringClasses}`}
                   >
                     <Image
-                      src={photo.src}
+                      src={photo.src as any}
                       alt={photo.alt}
                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       width={800}
