@@ -1,0 +1,579 @@
+---
+import { Image } from 'astro:assets'
+
+interface Stat {
+  label: string
+  value: string
+}
+
+interface Photo {
+  src: any // ImageMetadata or string
+  alt: string
+}
+
+interface Props {
+  id: string
+  badge?: string
+  title: string
+  description: string
+  stats: Stat[]
+  coverPhoto: any // ImageMetadata or string
+  coverAlt?: string
+  photos: Photo[]
+  previewCount?: number
+  testimonial: {
+    quote: string
+    author: string
+    detail: string
+  }
+}
+
+const {
+  id,
+  badge = 'Realizovaný projekt',
+  title,
+  description,
+  stats,
+  coverPhoto,
+  coverAlt,
+  photos,
+  previewCount,
+  testimonial,
+} = Astro.props
+
+const photosJson = JSON.stringify(
+  photos.map((p) => ({
+    ...p,
+    src: typeof p.src === 'string' ? p.src : p.src.src,
+  })),
+)
+
+// Bento grid column/row spans for the first 9 preview photos
+const bentoStyles = [
+  'grid-column:1/span 8;grid-row:1/span 2', // 0: big hero
+  'grid-column:9/span 4;grid-row:1/span 1', // 1: top-right A
+  'grid-column:9/span 4;grid-row:2/span 1', // 2: top-right B
+  'grid-column:1/span 4;grid-row:3/span 1', // 3: mid left
+  'grid-column:5/span 4;grid-row:3/span 1', // 4: mid center
+  'grid-column:9/span 4;grid-row:3/span 1', // 5: mid right
+  'grid-column:1/span 6;grid-row:4/span 1', // 6: wide
+  'grid-column:7/span 3;grid-row:4/span 1', // 7: narrow A
+  'grid-column:10/span 3;grid-row:4/span 1', // 8: narrow B
+]
+
+const previewPhotos = previewCount ? photos.slice(0, previewCount) : photos
+const extraPhotos = previewCount ? photos.slice(previewCount) : []
+const isBento = previewCount != null && previewCount === 9
+---
+
+<section
+  id={id}
+  class="bg-[#191919] py-24 px-6 md:px-12 relative overflow-hidden"
+  data-case-study
+>
+  <!-- Glow accent -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-[#63ffd3]/8 via-[#39c4ff]/4 to-transparent blur-[120px] pointer-events-none z-0"
+  >
+  </div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <span
+        class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest border border-[#63ffd3]/40 text-[#63ffd3] mb-5"
+      >
+        {badge}
+      </span>
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">{title}</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <!-- Cover photo -->
+    <div
+      class="relative rounded-3xl overflow-hidden shadow-2xl mb-12 h-64 md:h-[460px]"
+    >
+      <Image
+        src={coverPhoto}
+        alt={coverAlt ?? title}
+        class="w-full h-full object-cover"
+        width={1200}
+        height={600}
+        loading="lazy"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+      >
+      </div>
+      <div class="absolute bottom-5 left-5">
+        <span
+          class="bg-gradient-to-r from-[#63ffd3] to-[#39c4ff] text-black text-xs font-bold px-4 py-2 rounded-full shadow-lg"
+        >
+          {badge}
+        </span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-14">
+      {
+        stats.map((stat, i) => {
+          // Bento layout logic for mobile: 
+          // Card 0 and 2 in row 1, Card 1 (Time) full width in row 2
+          const mobileOrder = i === 1 ? 'order-3 col-span-2' : i === 2 ? 'order-2 col-span-1' : 'order-1 col-span-1'
+          
+          return (
+            <div 
+              class={`bg-[#1f1f1f]/60 backdrop-blur-md border border-[#2b2b2b] hover:border-[#63ffd3]/40 transition-all duration-500 rounded-3xl p-6 md:p-10 text-center group relative overflow-hidden ${mobileOrder} md:order-none md:col-span-1`}
+            >
+              {/* Animated subtle glow */}
+              <div class="absolute -top-10 -right-10 w-24 h-24 bg-[#63ffd3]/10 blur-[50px] rounded-full group-hover:bg-[#63ffd3]/20 transition-colors duration-500"></div>
+              
+              <div class="relative z-10 flex flex-col items-center justify-center">
+                {/* Custom SVG Icons */}
+                {i === 0 && (
+                  <svg class="w-6 h-6 mb-4 text-[#63ffd3] opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                  </svg>
+                )}
+                {i === 1 && (
+                  <svg class="w-6 h-6 mb-4 text-[#63ffd3] opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                )}
+                {i === 2 && (
+                  <svg class="w-6 h-6 mb-4 text-[#63ffd3] opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                )}
+
+                <div class="text-2xl md:text-4xl font-black text-white mb-2 tracking-tight group-hover:scale-105 transition-transform duration-300">
+                  {stat.value}
+                </div>
+                <div class="text-gray-400 text-[10px] md:text-xs uppercase tracking-[0.25em] font-bold">
+                  {stat.label}
+                </div>
+              </div>
+            </div>
+          )
+        })
+      }
+    </div>
+
+    <!-- Photo grid -->
+    <div data-gallery-id={id} data-photos={photosJson} class="mb-4">
+      <div
+        class="bento-grid grid grid-cols-2 md:grid-cols-12 gap-2 md:gap-3 mb-4 auto-rows-[150px] md:auto-rows-[200px]"
+      >
+        {
+          photos.map((photo, i) => {
+            const isExtra = i >= (previewCount ?? photos.length)
+            const isBentoPreview = i < (previewCount ?? 0) && isBento
+            
+            // CENTERING LOGIC
+            let centeringClasses = ''
+            const totalCount = photos.length
+            const isLastOfTotal = i === totalCount - 1
+            const isOddTotal = totalCount % 2 !== 0
+            
+            const prevCount = previewCount ?? totalCount
+            const isLastOfPreview = i === prevCount - 1
+            const isOddPreview = prevCount % 2 !== 0
+
+            // Mobile centering (2 columns)
+            if (isLastOfPreview && isOddPreview && !isExtra) {
+              centeringClasses += ' col-span-2 justify-self-center w-[calc(50%-6px)] md:w-full md:justify-self-stretch gallery-preview-center'
+            }
+            if (isLastOfTotal && isOddTotal && isExtra) {
+              centeringClasses += ' col-span-2 justify-self-center w-[calc(50%-6px)] md:w-full md:justify-self-stretch gallery-total-center'
+            }
+
+            // Desktop centering (12 columns, each item md:col-span-4)
+            if (!isBentoPreview) {
+              if (!isExtra) {
+                if (prevCount % 3 === 1 && isLastOfPreview) centeringClasses += ' md:col-start-5 md:col-span-4'
+                else if (prevCount % 3 === 2 && isLastOfPreview) centeringClasses += ' md:col-start-3 md:col-span-4'
+              }
+              else {
+                if (totalCount % 3 === 1 && isLastOfTotal) centeringClasses += ' md:col-start-5 md:col-span-4'
+              }
+            }
+
+            return (
+              <button
+                class={`gallery-thumb bento-cell relative overflow-hidden rounded-xl md:rounded-2xl group cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-[#63ffd3] transition-all duration-300 border border-[#2b2b2b] hover:border-[#63ffd3]/40 shadow-lg ${isExtra ? 'hidden-extra !hidden' : ''} ${!isBentoPreview ? 'col-span-1 md:col-span-4' : ''} ${centeringClasses}`}
+                style={isBentoPreview ? bentoStyles[i] : ''}
+                data-index={i}
+                data-is-preview-last={isLastOfPreview ? 'true' : 'false'}
+                data-is-total-last={isLastOfTotal ? 'true' : 'false'}
+                aria-label={`Zobraziť: ${photo.alt}`}
+                type="button"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6 pointer-events-none">
+                  <div class="text-left">
+                    <p class="text-[#63ffd3] text-[10px] uppercase tracking-widest font-bold mb-1 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                      Detail práce
+                    </p>
+                    <h3 class="text-white text-xs md:text-sm font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75 line-clamp-2">
+                      {photo.alt}
+                    </h3>
+                  </div>
+                </div>
+              </button>
+            )
+          })
+        }
+      </div>
+
+      {
+        extraPhotos.length > 0 && (
+          <div class="flex justify-center mt-6 mb-10">
+            <button
+              id={`load-more-${id}`}
+              type="button"
+              class="group flex items-center gap-3 px-7 py-3.5 rounded-full border border-[#2b2b2b] hover:border-[#63ffd3]/50 bg-[#1f1f1f] hover:bg-[#63ffd3]/10 text-sm text-gray-300 hover:text-white transition-all duration-300"
+            >
+              <svg
+                class="w-5 h-5 group-hover:rotate-12 transition-transform text-[#63ffd3]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Zobraziť ďalšie fotografie ({extraPhotos.length})
+            </button>
+          </div>
+        )
+      }
+    </div>
+
+    <!-- Testimonial -->
+    <div
+      class="relative bg-[#1f1f1f] border border-[#2b2b2b] rounded-3xl p-8 md:p-12 overflow-hidden"
+    >
+      <div
+        class="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#63ffd3] to-[#39c4ff] rounded-l-3xl"
+      >
+      </div>
+      <div
+        class="absolute top-0 left-0 w-48 h-48 bg-gradient-radial from-[#63ffd3]/6 to-transparent blur-2xl pointer-events-none"
+      >
+      </div>
+
+      <div class="relative pl-4 md:pl-6">
+        <svg
+          class="w-8 h-8 text-[#63ffd3] opacity-40 mb-5"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+          ></path>
+        </svg>
+        <blockquote
+          class="text-white text-base md:text-xl italic leading-relaxed mb-8 max-w-3xl"
+        >
+          „{testimonial.quote}"
+        </blockquote>
+        <div class="flex items-center gap-4">
+          <div
+            class="w-12 h-12 rounded-full bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] flex items-center justify-center text-black font-bold text-lg shrink-0"
+            aria-hidden="true"
+          >
+            {testimonial.author.charAt(0)}
+          </div>
+          <div>
+            <div class="text-white font-semibold">{testimonial.author}</div>
+            <div class="text-gray-400 text-sm">{testimonial.detail}</div>
+          </div>
+          <div
+            class="ml-auto hidden md:flex gap-0.5"
+            aria-label="Hodnotenie 5 hviezdičiek"
+          >
+            {
+              [1, 2, 3, 4, 5].map(() => (
+                <svg
+                  class="w-5 h-5 text-[#63ffd3]"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div
+    id={`lb-${id}`}
+    class="cs-lightbox fixed inset-0 z-[9999] bg-black/80 flex-col pt-24"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Galéria fotografií"
+    style="display:none"
+  >
+    <!-- Image fills all space above the bottom bar -->
+    <div
+      class="lb-img-wrapper flex-1 flex items-center justify-center px-2 min-h-0 !rounded-xl"
+    >
+      <img
+        class="lb-img max-h-full max-w-full object-contain !rounded-xl shadow-2xl cursor-default"
+        src=""
+        alt=""
+        width="1200"
+        height="800"
+        data-lb-safe
+      />
+    </div>
+
+    <!-- Bottom bar: prev · counter · next · | · close -->
+    <div
+      class="lb-bottom-bar flex items-center justify-center gap-4 px-4 py-4 shrink-0"
+    >
+      <button
+        class="lb-prev w-14 h-14 pb-2 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white text-3xl transition"
+        aria-label="Predchádzajúca fotografia"
+        type="button"
+        data-lb-safe>&#8249;</button
+      >
+
+      <span
+        class="lb-counter text-gray-400 text-sm font-medium w-16 text-center"
+        data-lb-safe></span>
+
+      <button
+        class="lb-next w-14 h-14 pb-2 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white text-3xl transition"
+        aria-label="Nasledujúca fotografia"
+        type="button"
+        data-lb-safe>&#8250;</button
+      >
+
+      <div class="w-px h-8 bg-white/20 mx-1" aria-hidden="true"></div>
+
+      <button
+        class="lb-close w-14 h-14 pb-2 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white text-2xl leading-none transition"
+        aria-label="Zavrieť galériu"
+        type="button"
+        data-lb-safe>&times;</button
+      >
+    </div>
+  </div>
+</section>
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>('[data-case-study]')
+    .forEach((section) => {
+      const gallery = section.querySelector<HTMLElement>('[data-gallery-id]')
+      if (!gallery) return
+
+      const id = gallery.dataset.galleryId!
+      const photos: Array<{ src: string; alt: string }> = JSON.parse(
+        gallery.dataset.photos ?? '[]',
+      )
+      const lightbox = document.getElementById(`lb-${id}`)
+      if (!lightbox) return
+
+      const lbImg = lightbox.querySelector<HTMLImageElement>('.lb-img')!
+      const lbCounter = lightbox.querySelector<HTMLElement>('.lb-counter')!
+      let current = 0
+
+      const open = (i: number) => {
+        current = i
+        update()
+        lightbox.style.display = 'flex'
+        document.body.style.overflow = 'hidden'
+        lightbox.querySelector<HTMLButtonElement>('.lb-close')?.focus()
+      }
+
+      const close = () => {
+        lightbox.style.display = 'none'
+        document.body.style.overflow = ''
+      }
+
+      const update = () => {
+        lbImg.src = photos[current].src
+        lbImg.alt = photos[current].alt
+        lbCounter.textContent = `${current + 1} / ${photos.length}`
+      }
+
+      gallery
+        .querySelectorAll<HTMLButtonElement>('.gallery-thumb')
+        .forEach((btn) => {
+          btn.addEventListener('click', () =>
+            open(parseInt(btn.dataset.index ?? '0')),
+          )
+        })
+
+      lightbox.querySelector('.lb-prev')?.addEventListener('click', () => {
+        current = (current - 1 + photos.length) % photos.length
+        update()
+      })
+      lightbox.querySelector('.lb-next')?.addEventListener('click', () => {
+        current = (current + 1) % photos.length
+        update()
+      })
+      lightbox.querySelector('.lb-close')?.addEventListener('click', close)
+
+      // Close when clicking the dark background
+      // (root div = padding zone above image, img-wrapper = dark sides beside photo)
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) close()
+      })
+      lightbox
+        .querySelector<HTMLElement>('.lb-img-wrapper')
+        ?.addEventListener('click', (e) => {
+          if (e.target === e.currentTarget) close() // only the wrapper itself, not the img
+        })
+      // Prevent bottom bar clicks bubbling to root
+      lightbox
+        .querySelector<HTMLElement>('.lb-bottom-bar')
+        ?.addEventListener('click', (e) => {
+          e.stopPropagation()
+        })
+
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'none') return
+        if (e.key === 'Escape') close()
+        if (e.key === 'ArrowLeft') {
+          current = (current - 1 + photos.length) % photos.length
+          update()
+        }
+        if (e.key === 'ArrowRight') {
+          current = (current + 1) % photos.length
+          update()
+        }
+      })
+
+      // Touch swipe support
+      let touchStartX = 0
+      lightbox.addEventListener(
+        'touchstart',
+        (e) => {
+          touchStartX = e.touches[0].clientX
+        },
+        { passive: true },
+      )
+      lightbox.addEventListener(
+        'touchend',
+        (e) => {
+          const diff = touchStartX - e.changedTouches[0].clientX
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+              current = (current + 1) % photos.length
+            } // swipe left = next
+            else {
+              current = (current - 1 + photos.length) % photos.length
+            } // swipe right = prev
+            update()
+          }
+        },
+        { passive: true },
+      )
+      // Load More Logic
+      const loadMoreBtn = lightbox
+        .closest('[data-case-study]')
+        ?.querySelector<HTMLButtonElement>(`#load-more-${id}`)
+      const extrasDiv = lightbox
+        .closest('[data-case-study]')
+        ?.querySelector<HTMLElement>(`#extras-${id}`)
+
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+          // Show hidden items
+          gallery
+            .querySelectorAll('.hidden-extra')
+            .forEach((el) => el.classList.remove('hidden-extra', '!hidden'))
+
+          // --- HANDLE CENTERING TRANSITIONS ---
+          const previewLast = gallery.querySelector<HTMLElement>('[data-is-preview-last="true"]')
+          const totalLast = gallery.querySelector<HTMLElement>('[data-is-total-last="true"]')
+          const totalCount = JSON.parse(gallery.getAttribute('data-photos') || '[]').length
+
+          if (previewLast && totalLast && previewLast !== totalLast) {
+            // 1. Remove ALL centering-related classes from the old preview end
+            previewLast.classList.remove(
+              'col-span-2', 
+              'justify-self-center', 
+              'w-[calc(50%-6px)]', 
+              'gallery-preview-center', 
+              'md:col-start-5', 
+              'md:col-start-3',
+              'md:justify-self-stretch'
+            )
+            
+            // 2. Apply centering to the NEW total end
+            // Mobile (2-column)
+            if (totalCount % 2 !== 0) {
+              totalLast.classList.add('col-span-2', 'justify-self-center', 'w-[calc(50%-6px)]')
+            }
+            // Desktop (12-column with 4-span items)
+            if (totalCount % 3 === 1) {
+              totalLast.classList.add('md:col-start-5')
+            } else if (totalCount % 3 === 2) {
+              const totalPenultimate = gallery.querySelector<HTMLElement>(`[data-index="${totalCount - 2}"]`)
+              if (totalPenultimate) totalPenultimate.classList.add('md:col-start-3')
+            }
+          }
+
+          loadMoreBtn.parentElement?.style.setProperty('display', 'none')
+        })
+      }
+    })
+</script>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  /* Reset bento styles for mobile */
+  @media (max-width: 767px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-auto-rows: auto !important;
+      gap: 0.5rem !important;
+    }
+    .bento-cell {
+      grid-column: auto / span 1 !important;
+      grid-row: auto / span 1 !important;
+      height: auto !important;
+      aspect-ratio: 4 / 3; /* Standard aspect ratio for construction photos */
+    }
+    .bento-cell.col-span-2 {
+      grid-column: auto / span 2 !important;
+    }
+  }
+</style>

@@ -3,6 +3,112 @@ import Navbar from '../components/Global/Navbar.astro'
 import Contact from '../components/Global/Contact.astro'
 import Footer from '../components/Global/Footer.astro'
 import Map from '../components/Global/Map.astro'
+import CaseStudy from '../components/Global/CaseStudy.astro'
+import { Image } from 'astro:assets'
+
+const galleryImages = import.meta.glob<ImageMetadata>(
+  '../assets/gallery/*.{jpeg,jpg,png,gif,avif,webp}',
+  { import: 'default' },
+)
+
+async function resolveGalleryImage(path: string) {
+  const filename = path.split('/').pop()
+  const fullPath = `../assets/gallery/${filename}`
+  if (galleryImages[fullPath]) {
+    return await galleryImages[fullPath]()
+  }
+  return path
+}
+
+const hradokCover = await resolveGalleryImage('/gallery/main-hradok.avif')
+
+const hradokPhotosRaw = [
+  { src: '/gallery/fotka3-hradok.avif', alt: 'Základy a zemné práce' },
+  {
+    src: '/gallery/fotka1-hradok.avif',
+    alt: 'Debnenie a armovanie stropov',
+  },
+  {
+    src: '/gallery/fotka8-hradok.avif',
+    alt: 'Hrubá stavba — celkový pohľad',
+  },
+  {
+    src: '/gallery/fotka11-strecha-hradok.avif',
+    alt: 'Kontralaty a latovanie',
+  },
+  {
+    src: '/gallery/fotka13-strecha-hradok.avif',
+    alt: 'Pokládka strešnej krytiny',
+  },
+  {
+    src: '/gallery/fotka15-strecha-hradok.avif',
+    alt: 'Detail strešnej krytiny',
+  },
+  {
+    src: '/gallery/fotka19-strecha-hradok.avif',
+    alt: 'Interiér — obývacia izba',
+  },
+  {
+    src: '/gallery/fotka21-interier-hradok.avif',
+    alt: 'Interiér — stropná konštrukcia',
+  },
+  {
+    src: '/gallery/fotka24-strecha-hradok.avif',
+    alt: 'Dokončený dom — exteriér',
+  },
+  // Remaining photos
+  {
+    src: '/gallery/fotka2-hradok.avif',
+    alt: 'Murovanie nosných stien — 1. podlažie',
+  },
+  {
+    src: '/gallery/fotka18-strecha-hradok.avif',
+    alt: 'Dokončená strecha — celkový pohľad',
+  },
+  { src: '/gallery/fotka4-hradok.avif', alt: 'Betonáž stropnej dosky' },
+  { src: '/gallery/fotka6-hradok.avif', alt: 'Veniec and preklady' },
+  { src: '/gallery/fotka7-hradok.avif', alt: 'Montáž krovu' },
+  {
+    src: '/gallery/fotka8-strecha-hradok.avif',
+    alt: 'Krov — začiatok montáže',
+  },
+  {
+    src: '/gallery/fotka9-strecha-hradok.avif',
+    alt: 'Krov — väzbová konštrukcia',
+  },
+  {
+    src: '/gallery/fotka10-strecha-hradok.avif',
+    alt: 'Krov — pohľad zdola',
+  },
+  { src: '/gallery/fotka12-strecha-hradok.avif', alt: 'Strešná fólia' },
+  {
+    src: '/gallery/fotka14-strecha-hradok.avif',
+    alt: 'Strecha v pokročilej fáze',
+  },
+  {
+    src: '/gallery/fotka16-strecha-hradok.avif',
+    alt: 'Strecha — pohľad z boku',
+  },
+  {
+    src: '/gallery/fotka17-strecha-hradok.avif',
+    alt: 'Strecha — pohľad z diaľky',
+  },
+  {
+    src: '/gallery/fotka20-interier-hradok.avif',
+    alt: 'Interiér — chodba a schodisko',
+  },
+  {
+    src: '/gallery/fotka23-interier-hradok.avif',
+    alt: 'Strecha — finálny pohľad',
+  },
+]
+
+const hradokPhotos = await Promise.all(
+  hradokPhotosRaw.map(async (p) => ({
+    ...p,
+    src: await resolveGalleryImage(p.src),
+  })),
+)
 ---
 
 <html lang="sk">
@@ -476,6 +582,28 @@ import Map from '../components/Global/Map.astro'
           </div>
         </div>
       </section>
+
+      <CaseStudy
+        id="case-study-hradok"
+        badge="Realizovaný projekt · Hrubá stavba"
+        title="Rodinný dom Hrádok"
+        description="Kompletná realizácia hrubej stavby moderného rodinného domu v malebnej obci Hrádok. Projekt zahŕňal všetky fázy od výkopových prác až po položenie strešnej krytiny a uzavretie stavby."
+        coverPhoto={hradokCover}
+        coverAlt="Hrubá stavba v Hrádku — pohľad na stavbu"
+        stats={[
+          { label: 'Zastavaná plocha', value: '50 m²' },
+          { label: 'Doba realizácie', value: '7 týždňov' },
+          { label: 'Cena práce', value: '20 500 €' },
+        ]}
+        previewCount={9}
+        photos={hradokPhotos}
+        testimonial={{
+          quote:
+            'S prácou tímu Aurora Construction sme boli nadmieru spokojní. Od začiatku komunikovali otvorene, termíny dodržali na deň presne a kvalita prevedenia predčila naše očakávania. Dnes stojíme pred dokončeným domom a nevieme si to vynachváliť.',
+          author: 'Tomáš H.',
+          detail: 'Majiteľ nehnuteľnosti, Hrádok',
+        }}
+      />
 
       <section
         id="process"

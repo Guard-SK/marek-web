@@ -3,6 +3,105 @@ import Navbar from '../components/Global/Navbar.astro'
 import Contact from '../components/Global/Contact.astro'
 import Footer from '../components/Global/Footer.astro'
 import Map from '../components/Global/Map.astro'
+import CaseStudy from '../components/Global/CaseStudy.astro'
+import { Image } from 'astro:assets'
+
+const galleryImages = import.meta.glob<ImageMetadata>(
+  '../assets/gallery/*.{jpeg,jpg,png,gif,avif,webp}',
+  { import: 'default' },
+)
+
+async function resolveGalleryImage(path: string) {
+  const filename = path.split('/').pop()
+  const fullPath = `../assets/gallery/${filename}`
+  if (galleryImages[fullPath]) {
+    return await galleryImages[fullPath]()
+  }
+  return path
+}
+
+// Case Study Photos
+const strechyCover = await resolveGalleryImage(
+  '/gallery/fotka1-strechatyp1.avif',
+)
+const strechyPhotos = await Promise.all(
+  [
+    {
+      src: '/gallery/fotka1-strechatyp1.avif',
+      alt: 'Strešná krytina — pohľad 1',
+    },
+    {
+      src: '/gallery/fotka2-strechatyp1.avif',
+      alt: 'Strešná krytina — pohľad 2',
+    },
+    {
+      src: '/gallery/fotka3-strechatyp1.avif',
+      alt: 'Strešná krytina — celkový pohľad',
+    },
+  ].map(async (p) => ({
+    ...p,
+    src: await resolveGalleryImage(p.src),
+  })),
+)
+
+// Extra Roofing Projects photos
+const extraPhotosRaw = [
+  {
+    src: '/gallery/fotka1-strechatyp5.avif',
+    alt: 'Montáž krovu — detail',
+  },
+  {
+    src: '/gallery/fotka2-strechatyp5.avif',
+    alt: 'Pokládka krytiny — začiatok',
+  },
+  {
+    src: '/gallery/fotka3-strechatyp5.avif',
+    alt: 'Krov — spájanie väzákov',
+  },
+  {
+    src: '/gallery/fotka1-strechatyp4.avif',
+    alt: 'Latovanie a kontralatovanie',
+  },
+  {
+    src: '/gallery/fotka2-strechatyp4.avif',
+    alt: 'Krytina Bramac — detail',
+  },
+  {
+    src: '/gallery/fotka1-strechatyp3.avif',
+    alt: 'Krov po dokončení montáže',
+  },
+  {
+    src: '/gallery/fotka8-strecha-hradok.avif',
+    alt: 'Krov — Hrádok, začiatok',
+  },
+  {
+    src: '/gallery/fotka10-strecha-hradok.avif',
+    alt: 'Krov — pohľad zdola',
+  },
+  {
+    src: '/gallery/fotka13-strecha-hradok.avif',
+    alt: 'Pokládka krytiny — Hrádok',
+  },
+  {
+    src: '/gallery/fotka15-strecha-hradok.avif',
+    alt: 'Detail strešnej krytiny',
+  },
+  {
+    src: '/gallery/fotka17-strecha-hradok.avif',
+    alt: 'Strecha — pohľad z diaľky',
+  },
+  {
+    src: '/gallery/fotka24-strecha-hradok.avif',
+    alt: 'Dokončený dom — exteriér',
+  },
+]
+
+const extraPhotos = await Promise.all(
+  extraPhotosRaw.map(async (p) => ({
+    ...p,
+    src: await resolveGalleryImage(p.src),
+  })),
+)
 ---
 
 <html lang="sk">
@@ -453,13 +552,13 @@ import Map from '../components/Global/Map.astro'
               class="absolute bottom-[-20px] left-[-20px] w-16 h-16 bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] rounded-full blur-xl opacity-30"
             >
             </div>
-            <img
-              src="/strechy/RoofApproach.avif"
+            <Image
+              src={await resolveGalleryImage('/strechy/RoofApproach.avif')}
               alt="Montáž krovu detail"
               class="rounded-3xl shadow-xl w-full object-cover"
+              width={800}
+              height={600}
               loading="lazy"
-              width="544"
-              height="408"
             />
           </div>
           <div class="">
@@ -493,6 +592,96 @@ import Map from '../components/Global/Map.astro'
                 ></span>Kontrola kvality materiálov a prevedenia.
               </li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <CaseStudy
+        id="case-study-strechy"
+        badge="Realizovaný projekt · Montáž strešnej krytiny"
+        title="Pokládka strešnej krytiny"
+        description="Realizácia pokládky strešnej krytiny na rodinnom dome. Projekt zahŕňal prípravu podkladu, foliáciu, latovanie a finálnu pokládku betónovej krytiny vrátane oplechovania a odkvapového systému."
+        coverPhoto={strechyCover}
+        coverAlt="Pokládka strešnej krytiny"
+        stats={[
+          { label: 'Strešná plocha', value: '224 m²' },
+          { label: 'Dĺžka realizácie', value: '8 dní' },
+          { label: 'Cena práce', value: '27 800 €' },
+        ]}
+        photos={strechyPhotos}
+        testimonial={{
+          quote:
+            'Strecha vyzerala skvelo už po prvých dvoch dňoch práce. Chlapci vedeli, čo robia — žiadne prázdne reči, len čistá práca. Dom dostal strechu, akú sme si želali, a bez jediného problému.',
+          author: 'Tomáš H.',
+          detail: 'Majiteľ nehnuteľnosti, Hrádok',
+        }}
+      />
+
+      <!-- Ďalšie realizácie strešných prác -->
+      <section
+        class="bg-[#191919] pb-32 px-6 md:px-12 relative overflow-hidden"
+      >
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#63ffd3]/5 blur-[120px] pointer-events-none"
+        >
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">
+              Ďalšie realizácie strešných prác
+            </h2>
+          </div>
+
+          <div
+            class="grid grid-cols-2 md:grid-cols-12 gap-3 auto-rows-[200px] md:auto-rows-[220px]"
+          >
+            {
+              extraPhotos.map((photo, i) => {
+                const totalItems = extraPhotos.length
+                const isLast = i === totalItems - 1
+                const isOddTotal = totalItems % 2 !== 0
+
+                let centeringClasses = ''
+                // Mobile centering
+                if (isLast && isOddTotal) {
+                  centeringClasses =
+                    'col-span-2 justify-self-center w-[calc(50%-6px)] md:w-full'
+                }
+
+                // Desktop centering (3 per row)
+                if (totalItems % 3 === 1 && i === totalItems - 1) {
+                  centeringClasses += ' md:col-start-5 md:col-span-4'
+                } else if (totalItems % 3 === 2 && i === totalItems - 2) {
+                  centeringClasses += ' md:col-start-3 md:col-span-4'
+                }
+
+                return (
+                  <div
+                    class={`portfolio-item portfolio-item-${i} relative overflow-hidden rounded-2xl group border border-[#2b2b2b] hover:border-[#63ffd3]/40 transition-all duration-500 shadow-lg col-span-1 md:col-span-4 ${centeringClasses}`}
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                      <div>
+                        <p class="text-[#63ffd3] text-[10px] uppercase tracking-widest font-bold mb-1 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                          Detail práce
+                        </p>
+                        <h3 class="text-white text-sm md:text-base font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                          {photo.alt}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
       </section>
@@ -967,6 +1156,57 @@ import Map from '../components/Global/Map.astro'
         height: 100%;
         background-color: #191919;
         clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .portfolio-item-0 {
+        grid-column: span 6;
+        grid-row: span 2;
+      }
+      .portfolio-item-1 {
+        grid-column: span 6;
+        grid-row: span 1;
+      }
+      .portfolio-item-2 {
+        grid-column: span 3;
+        grid-row: span 1;
+      }
+      .portfolio-item-3 {
+        grid-column: span 3;
+        grid-row: span 1;
+      }
+      .portfolio-item-4 {
+        grid-column: span 4;
+        grid-row: span 1;
+      }
+      .portfolio-item-5 {
+        grid-column: span 4;
+        grid-row: span 1;
+      }
+      .portfolio-item-6 {
+        grid-column: span 4;
+        grid-row: span 1;
+      }
+      .portfolio-item-7 {
+        grid-column: span 3;
+        grid-row: span 2;
+      }
+      .portfolio-item-8 {
+        grid-column: span 9;
+        grid-row: span 1;
+      }
+      .portfolio-item-9 {
+        grid-column: span 5;
+        grid-row: span 1;
+      }
+      .portfolio-item-10 {
+        grid-column: span 4;
+        grid-row: span 1;
+      }
+      .portfolio-item-11 {
+        grid-column: span 12;
+        grid-row: span 1;
       }
     }
   </style>
