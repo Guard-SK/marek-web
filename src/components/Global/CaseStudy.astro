@@ -21,11 +21,6 @@ interface Props {
   coverAlt?: string
   photos: Photo[]
   previewCount?: number
-  testimonial: {
-    quote: string
-    author: string
-    detail: string
-  }
 }
 
 const {
@@ -38,7 +33,6 @@ const {
   coverAlt,
   photos,
   previewCount,
-  testimonial,
 } = Astro.props
 
 const photosJson = JSON.stringify(
@@ -219,16 +213,6 @@ const isBento = previewCount != null && previewCount === 9
                   height={600}
                   loading="lazy"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6 pointer-events-none">
-                  <div class="text-left">
-                    <p class="text-[#63ffd3] text-[10px] uppercase tracking-widest font-bold mb-1 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                      Detail práce
-                    </p>
-                    <h3 class="text-white text-xs md:text-sm font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75 line-clamp-2">
-                      {photo.alt}
-                    </h3>
-                  </div>
-                </div>
               </button>
             )
           })
@@ -262,84 +246,26 @@ const isBento = previewCount != null && previewCount === 9
         )
       }
     </div>
-
-    <!-- Testimonial -->
-    <div
-      class="relative bg-[#1f1f1f] border border-[#2b2b2b] rounded-3xl p-8 md:p-12 overflow-hidden"
-    >
-      <div
-        class="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#63ffd3] to-[#39c4ff] rounded-l-3xl"
-      >
-      </div>
-      <div
-        class="absolute top-0 left-0 w-48 h-48 bg-gradient-radial from-[#63ffd3]/6 to-transparent blur-2xl pointer-events-none"
-      >
-      </div>
-
-      <div class="relative pl-4 md:pl-6">
-        <svg
-          class="w-8 h-8 text-[#63ffd3] opacity-40 mb-5"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-          ></path>
-        </svg>
-        <blockquote
-          class="text-white text-base md:text-xl italic leading-relaxed mb-8 max-w-3xl"
-        >
-          „{testimonial.quote}"
-        </blockquote>
-        <div class="flex items-center gap-4">
-          <div
-            class="w-12 h-12 rounded-full bg-gradient-to-br from-[#63ffd3] to-[#39c4ff] flex items-center justify-center text-black font-bold text-lg shrink-0"
-            aria-hidden="true"
-          >
-            {testimonial.author.charAt(0)}
-          </div>
-          <div>
-            <div class="text-white font-semibold">{testimonial.author}</div>
-            <div class="text-gray-400 text-sm">{testimonial.detail}</div>
-          </div>
-          <div
-            class="ml-auto hidden md:flex gap-0.5"
-            aria-label="Hodnotenie 5 hviezdičiek"
-          >
-            {
-              [1, 2, 3, 4, 5].map(() => (
-                <svg
-                  class="w-5 h-5 text-[#63ffd3]"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <!-- Lightbox -->
+  <!-- Unified Lightbox -->
   <div
     id={`lb-${id}`}
-    class="cs-lightbox fixed inset-0 z-[9999] bg-black/80 flex-col pt-24"
+    class="cs-lightbox fixed inset-0 z-[9999] bg-black/90 backdrop-blur-md flex-col items-center justify-between p-3 md:p-6 transition-all duration-300 select-none"
     role="dialog"
     aria-modal="true"
     aria-label="Galéria fotografií"
     style="display:none"
   >
-    <!-- Image fills all space above the bottom bar -->
+    <!-- Top Spacer for symmetry -->
+    <div class="w-full h-6"></div>
+
+    <!-- Center Image Canvas -->
     <div
-      class="lb-img-wrapper flex-1 flex items-center justify-center px-2 min-h-0 !rounded-xl"
+      class="lb-img-wrapper flex-1 flex items-center justify-center px-2 py-3 min-h-0 w-full cursor-pointer"
     >
       <img
-        class="lb-img max-h-full max-w-full object-contain !rounded-xl shadow-2xl cursor-default"
+        class="lb-img max-h-full max-w-full object-contain rounded-2xl shadow-2xl transition-all duration-200 cursor-default"
         src=""
         alt=""
         width="1200"
@@ -348,36 +274,51 @@ const isBento = previewCount != null && previewCount === 9
       />
     </div>
 
-    <!-- Bottom bar: prev · counter · next · | · close -->
-    <div
-      class="lb-bottom-bar flex items-center justify-center gap-4 px-4 py-4 shrink-0"
-    >
-      <button
-        class="lb-prev w-14 h-14 pb-2 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white text-3xl transition"
-        aria-label="Predchádzajúca fotografia"
-        type="button"
-        data-lb-safe>&#8249;</button
+    <!-- Bottom Floating Glassy Control Bar -->
+    <div class="z-20 pb-3">
+      <div
+        class="lb-bottom-bar bg-[#191919]/90 backdrop-blur-xl border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-3 shadow-2xl"
       >
+        <button
+          class="lb-prev w-10 h-10 rounded-full bg-white/10 hover:bg-[#63ffd3] hover:text-black text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+          aria-label="Predchádzajúca fotografia"
+          type="button"
+          data-lb-safe
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
 
-      <span
-        class="lb-counter text-gray-400 text-sm font-medium w-16 text-center"
-        data-lb-safe></span>
+        <span
+          class="lb-counter text-xs font-mono text-gray-300 min-w-[50px] text-center"
+          data-lb-safe
+        ></span>
 
-      <button
-        class="lb-next w-14 h-14 pb-2 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white text-3xl transition"
-        aria-label="Nasledujúca fotografia"
-        type="button"
-        data-lb-safe>&#8250;</button
-      >
+        <button
+          class="lb-next w-10 h-10 rounded-full bg-white/10 hover:bg-[#63ffd3] hover:text-black text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+          aria-label="Nasledujúca fotografia"
+          type="button"
+          data-lb-safe
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
 
-      <div class="w-px h-8 bg-white/20 mx-1" aria-hidden="true"></div>
+        <div class="w-px h-5 bg-white/20 mx-0.5" aria-hidden="true"></div>
 
-      <button
-        class="lb-close w-14 h-14 pb-2 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white text-2xl leading-none transition"
-        aria-label="Zavrieť galériu"
-        type="button"
-        data-lb-safe>&times;</button
-      >
+        <button
+          class="lb-close w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+          aria-label="Zavrieť galériu"
+          type="button"
+          data-lb-safe
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -400,23 +341,46 @@ const isBento = previewCount != null && previewCount === 9
       const lbCounter = lightbox.querySelector<HTMLElement>('.lb-counter')!
       let current = 0
 
+      const preload = (src: string) => {
+        if (!src) return
+        const img = new Image()
+        img.src = src
+      }
+
       const open = (i: number) => {
         current = i
         update()
         lightbox.style.display = 'flex'
         document.body.style.overflow = 'hidden'
+        const navbar = document.getElementById('navbar')
+        if (navbar) navbar.style.display = 'none'
         lightbox.querySelector<HTMLButtonElement>('.lb-close')?.focus()
       }
 
       const close = () => {
         lightbox.style.display = 'none'
         document.body.style.overflow = ''
+        if (lbImg) lbImg.src = ''
+        const navbar = document.getElementById('navbar')
+        if (navbar) navbar.style.display = ''
       }
 
       const update = () => {
+        lbImg.style.opacity = '0.4'
+        lbImg.style.transform = 'scale(0.98)'
         lbImg.src = photos[current].src
         lbImg.alt = photos[current].alt
+        lbImg.onload = () => {
+          lbImg.style.opacity = '1'
+          lbImg.style.transform = 'scale(1)'
+        }
         lbCounter.textContent = `${current + 1} / ${photos.length}`
+
+        // Preload next and prev images
+        const nextIdx = (current + 1) % photos.length
+        const prevIdx = (current - 1 + photos.length) % photos.length
+        preload(photos[nextIdx].src)
+        preload(photos[prevIdx].src)
       }
 
       gallery
@@ -438,16 +402,14 @@ const isBento = previewCount != null && previewCount === 9
       lightbox.querySelector('.lb-close')?.addEventListener('click', close)
 
       // Close when clicking the dark background
-      // (root div = padding zone above image, img-wrapper = dark sides beside photo)
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) close()
       })
       lightbox
         .querySelector<HTMLElement>('.lb-img-wrapper')
         ?.addEventListener('click', (e) => {
-          if (e.target === e.currentTarget) close() // only the wrapper itself, not the img
+          if (e.target === e.currentTarget) close()
         })
-      // Prevent bottom bar clicks bubbling to root
       lightbox
         .querySelector<HTMLElement>('.lb-bottom-bar')
         ?.addEventListener('click', (e) => {
@@ -480,13 +442,12 @@ const isBento = previewCount != null && previewCount === 9
         'touchend',
         (e) => {
           const diff = touchStartX - e.changedTouches[0].clientX
-          if (Math.abs(diff) > 50) {
+          if (Math.abs(diff) > 45) {
             if (diff > 0) {
               current = (current + 1) % photos.length
-            } // swipe left = next
-            else {
+            } else {
               current = (current - 1 + photos.length) % photos.length
-            } // swipe right = prev
+            }
             update()
           }
         },

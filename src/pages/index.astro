@@ -1,12 +1,12 @@
 ---
-import Hero from '../components/Home/Hero.astro'
-import About from '../components/Home/About.astro'
-import Services from '../components/Home/Services.astro'
-import Referencie from '../components/Home/Referencie.astro'
-import Contact from '../components/Global/Contact.astro'
-import Footer from '../components/Global/Footer.astro'
-import Navbar from '../components/Global/Navbar.astro'
-import Map from '../components/Global/Map.astro'
+import Hero from "../components/Home/Hero.astro";
+import About from "../components/Home/About.astro";
+import Services from "../components/Home/Services.astro";
+import Referencie from "../components/Home/Referencie.astro";
+import Contact from "../components/Global/Contact.astro";
+import Footer from "../components/Global/Footer.astro";
+import Navbar from "../components/Global/Navbar.astro";
+import Map from "../components/Global/Map.astro";
 ---
 
 <!doctype html>
@@ -65,7 +65,7 @@ import Map from '../components/Global/Map.astro'
     <!-- Preload Critical Resources -->
     <link rel="preload" as="image" href="/HeroSectionCropped.avif" />
     <link rel="preload" as="image" href="/favicon.svg" />
-    <link rel="preload" as="image" href="/AboutImg.avif" />
+    <link rel="preload" as="image" href="/hruba-stavba/Approach.avif" />
 
     <!-- Preconnect for Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -498,26 +498,26 @@ import Map from '../components/Global/Map.astro'
 </html>
 
 <script>
-  import gsap from 'gsap'
+  import gsap from "gsap";
 
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     // Wait ~500ms to allow LCP to settle
-    gsap.to('#glow-effect', {
+    gsap.to("#glow-effect", {
       opacity: 1,
       duration: 3, // Further increase duration for a longer reveal
       delay: 0.5,
-      ease: 'power2.inOut', // Use a smoother easing function
-    })
-  })
+      ease: "power2.inOut", // Use a smoother easing function
+    });
+  });
 
-  document.querySelectorAll('.faq-question').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement
-      if (!item) return
-      const answer = item.querySelector('.faq-answer')
-      const icon = btn.querySelector('.faq-icon')
-      if (answer) answer.classList.toggle('hidden')
-      if (icon) icon.classList.toggle('rotate-180')
-    })
-  })
+  document.querySelectorAll(".faq-question").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.parentElement;
+      if (!item) return;
+      const answer = item.querySelector(".faq-answer");
+      const icon = btn.querySelector(".faq-icon");
+      if (answer) answer.classList.toggle("hidden");
+      if (icon) icon.classList.toggle("rotate-180");
+    });
+  });
 </script>

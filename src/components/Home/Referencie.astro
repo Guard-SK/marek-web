@@ -1,42 +1,43 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 
-// Homepage section: 2 project teaser cards + misc photos strip
+// Homepage section: 2 project teaser cards + categorized photo gallery
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '../../assets/gallery/*.{jpeg,jpg,png,gif,avif,webp}',
-)
+  "../../assets/gallery/*.{jpeg,jpg,png,gif,avif,webp}",
+);
 
-const mainHradok = (await images['../../assets/gallery/main-hradok.avif']())
-  .default
+const mainHradok = (await images["../../assets/gallery/main-hradok.avif"]())
+  .default;
 const fotka1Strechatyp1 = (
-  await images['../../assets/gallery/fotka1-strechatyp1.avif']()
-).default
+  await images["../../assets/gallery/fotka1-strechatyp1.avif"]()
+).default;
 
-const stripPhotosRaw = [
+const galleryCategories = [
   {
-    src: '../../assets/gallery/fotka1-debnenietyp1.avif',
-    alt: 'Debnenie a betonáž',
+    id: "betonaz",
+    name: "Betonáž a debnenie",
+    photos: Array.from({ length: 9 }, (_, i) => ({
+      src: `/gallery/betonaz/${i + 1}.avif`,
+      alt: `Betonáž a debnenie - realizácia ${i + 1}`,
+    })),
   },
   {
-    src: '../../assets/gallery/fotka2-debnenietyp1.avif',
-    alt: 'Debnenie — detail',
+    id: "murovanie",
+    name: "Murovanie",
+    photos: Array.from({ length: 11 }, (_, i) => ({
+      src: `/gallery/murovanie/${i + 1}.avif`,
+      alt: `Murovanie - realizácia ${i + 1}`,
+    })),
   },
   {
-    src: '../../assets/gallery/fotka1-murovanietyp1.avif',
-    alt: 'Murovanie nosných stien',
+    id: "strechy",
+    name: "Strechy a krovy",
+    photos: Array.from({ length: 15 }, (_, i) => ({
+      src: `/gallery/strechy/${i + 1}.avif`,
+      alt: `Strechy a krovy - realizácia ${i + 1}`,
+    })),
   },
-  {
-    src: '../../assets/gallery/fotka1-murovanietyp2.avif',
-    alt: 'Murovanie — priečky',
-  },
-]
-
-const stripPhotos = await Promise.all(
-  stripPhotosRaw.map(async (p) => ({
-    ...p,
-    src: (await images[p.src]()).default,
-  })),
-)
+];
 ---
 
 <section
@@ -66,11 +67,11 @@ const stripPhotos = await Promise.all(
     </div>
 
     <!-- Project cards -->
-    <div class="grid md:grid-cols-2 gap-6 mb-16">
+    <div class="grid md:grid-cols-2 gap-6 mb-20">
       <!-- Card 1: Hrubá stavba -->
       <a
         href="/hruba-stavba#case-study-hradok"
-        class="group block bg-[#1f1f1f] border border-[#2b2b2b] hover:border-[#63ffd3]/50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(99,255,211,0.07)]"
+        class="group flex flex-col bg-[#1f1f1f] border border-[#2b2b2b] hover:border-[#63ffd3]/50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(99,255,211,0.07)]"
         aria-label="Pozrieť projekt: Hrubá stavba v Hrádku"
       >
         <div class="relative aspect-video overflow-hidden">
@@ -92,17 +93,17 @@ const stripPhotos = await Promise.all(
             Hrubá stavba
           </span>
         </div>
-        <div class="p-6">
+        <div class="p-6 flex flex-col flex-1">
           <h3
             class="text-white text-xl font-bold mb-2 group-hover:text-[#63ffd3] transition-colors duration-200"
           >
             Hrubá stavba v Hrádku
           </h3>
-          <p class="text-gray-400 text-sm mb-5 leading-relaxed">
-            Kompletná realizácia hrubej stavby rodinného domu — od základov, cez
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed md:min-h-[44px]">
+            Kompletná realizácia hrubej stavby rodinného domu - od základov, cez
             murovanie nosných stien, až po uzavretý krov.
           </p>
-          <div class="flex flex-wrap gap-4 text-sm mb-5 text-gray-300">
+          <div class="flex flex-wrap gap-4 text-sm mb-5 text-gray-300 mt-auto">
             <span
               ><span class="text-[#63ffd3] font-semibold">50 m²</span> zastavaná plocha</span
             >
@@ -138,7 +139,7 @@ const stripPhotos = await Promise.all(
       <!-- Card 2: Strechy -->
       <a
         href="/strechy#case-study-strechy"
-        class="group block bg-[#1f1f1f] border border-[#2b2b2b] hover:border-[#39c4ff]/50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(57,196,255,0.07)]"
+        class="group flex flex-col bg-[#1f1f1f] border border-[#2b2b2b] hover:border-[#39c4ff]/50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(57,196,255,0.07)]"
         aria-label="Pozrieť projekt: Sedlová strecha Vinosady"
       >
         <div class="relative aspect-video overflow-hidden">
@@ -157,20 +158,19 @@ const stripPhotos = await Promise.all(
           <span
             class="absolute bottom-4 left-4 bg-gradient-to-r from-[#39c4ff] to-[#63ffd3] text-black text-[10px] font-bold px-3 py-1.5 rounded-full z-10"
           >
-            Montáž strechy
+            Montáž krytiny
           </span>
         </div>
-        <div class="p-6">
+        <div class="p-6 flex flex-col flex-1">
           <h3
             class="text-white text-xl font-bold mb-2 group-hover:text-[#39c4ff] transition-colors duration-200"
           >
-            Sedlová strecha — Vinosady
+            Sedlová strecha - Vinosady
           </h3>
-          <p class="text-gray-400 text-sm mb-5 leading-relaxed">
-            Kompletná montáž sedlovej strechy vrátane krovu z KVH hranolu,
-            latovanie, kontralát a pokládky betónovej krytiny Bramac.
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed md:min-h-[44px]">
+            Demontáž starej krytiny a pokládka novej krytiny.
           </p>
-          <div class="flex flex-wrap gap-4 text-sm mb-5 text-gray-300">
+          <div class="flex flex-wrap gap-4 text-sm mb-5 text-gray-300 mt-auto">
             <span
               ><span class="text-[#39c4ff] font-semibold">224 m²</span> strešná plocha</span
             >
@@ -178,8 +178,7 @@ const stripPhotos = await Promise.all(
               ><span class="text-[#39c4ff] font-semibold">8 dní</span> realizácia</span
             >
             <span
-              ><span class="text-[#39c4ff] font-semibold">od 27 800 €</span> cena
-              práce</span
+              ><span class="text-[#39c4ff] font-semibold">7 000€</span> cena práce</span
             >
           </div>
           <span
@@ -204,34 +203,80 @@ const stripPhotos = await Promise.all(
       </a>
     </div>
 
-    <!-- Misc work strip -->
-    <div class="border-t border-[#2b2b2b] pt-12">
-      <p
-        class="text-center text-gray-400 text-sm uppercase tracking-widest mb-6"
-      >
-        Ukážky ďalších prác
-      </p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <!-- Categorized Gallery Showcase -->
+    <div id="ukazky-prac" class="border-t border-[#2b2b2b] pt-20 mt-12">
+      <div class="text-center mb-14">
+        <h3 class="text-3xl md:text-[42px] font-bold text-white tracking-tight leading-tight">
+          Ukážky ďalších prác
+        </h3>
+      </div>
+
+      <!-- Categories Section -->
+      <div class="space-y-20">
         {
-          stripPhotos.map((photo) => (
-            <div class="relative aspect-square overflow-hidden rounded-2xl group border border-[#2b2b2b] hover:border-[#63ffd3]/40 transition-all duration-500 shadow-lg">
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                width={300}
-                height={300}
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 pointer-events-none">
-                <div class="text-left">
-                  <p class="text-[#63ffd3] text-[9px] uppercase tracking-widest font-bold mb-0.5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    Detail práce
-                  </p>
-                  <h3 class="text-white text-[11px] font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75 leading-tight">
-                    {photo.alt}
-                  </h3>
-                </div>
+          galleryCategories.map((cat) => (
+            <div id={`kat-${cat.id}`} class="gallery-category-section">
+              <!-- Category Header -->
+              <div class="flex items-center gap-4 mb-6">
+                <div class="h-6 md:h-7 w-1 rounded-full bg-gradient-to-b from-[#63ffd3] to-[#39c4ff]"></div>
+                <h4 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                  {cat.name}
+                </h4>
+                <div class="flex-1 h-[1px] bg-gradient-to-r from-[#2b2b2b] to-transparent"></div>
+              </div>
+
+              <!-- Balanced Grid: No empty slots or orphan photos -->
+              <div class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">
+                {cat.photos.map((photo, idx) => {
+                  let itemClass =
+                    "col-span-1 aspect-square md:col-span-2 md:aspect-[4/3]";
+
+                  if (idx === 0) {
+                    itemClass =
+                      "col-span-2 aspect-[16/10] md:col-span-2 md:aspect-[4/3]";
+                  } else if (cat.id === "murovanie" && idx === 9) {
+                    itemClass =
+                      "col-span-1 aspect-square md:col-start-2 md:col-span-2 md:aspect-[4/3]";
+                  }
+
+                  return (
+                    <button
+                      type="button"
+                      class={`gallery-item-btn relative overflow-hidden rounded-2xl group border border-[#2b2b2b] hover:border-[#63ffd3]/60 transition-all duration-300 shadow-md bg-[#1f1f1f] text-left block w-full focus:outline-none focus:ring-2 focus:ring-[#63ffd3] ${itemClass}`}
+                      data-photo-src={photo.src}
+                      data-category={cat.name}
+                      aria-label={`Zväčšiť fotografiu: ${cat.name}`}
+                    >
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                        width="500"
+                        height="400"
+                      />
+                      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="w-10 h-10 rounded-full bg-black/75 backdrop-blur-sm border border-white/20 text-[#63ffd3] flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                          <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ))
@@ -240,3 +285,205 @@ const stripPhotos = await Promise.all(
     </div>
   </div>
 </section>
+
+<!-- Unified High-Performance Lightbox Modal -->
+<div
+  id="gallery-lightbox"
+  class="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-md hidden flex-col items-center justify-between p-3 md:p-6 transition-all duration-300 select-none"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Prehliadač fotografií"
+>
+  <!-- Top Bar: Category Indicator Only -->
+  <div class="w-full max-w-6xl flex items-center justify-center z-20 px-2 pt-2">
+    <div class="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
+      <div class="w-1.5 h-1.5 rounded-full bg-[#63ffd3]"></div>
+      <span
+        id="lightbox-category"
+        class="text-xs md:text-sm font-semibold text-white tracking-wide uppercase"
+      >
+        Kategória
+      </span>
+    </div>
+  </div>
+
+  <!-- Center Image Canvas -->
+  <div
+    id="lightbox-img-wrapper"
+    class="flex-1 flex items-center justify-center min-h-0 w-full px-2 py-3 cursor-pointer"
+  >
+    <img
+      id="lightbox-img"
+      src=""
+      alt="Zväčšená fotografia"
+      class="max-h-full max-w-full object-contain rounded-2xl shadow-2xl transition-all duration-200 cursor-default"
+    />
+  </div>
+
+  <!-- Bottom Floating Glassy Control Bar -->
+  <div class="z-20 pb-3">
+    <div class="bg-[#191919]/90 backdrop-blur-xl border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-3 shadow-2xl">
+      <button
+        id="lightbox-prev"
+        type="button"
+        class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#63ffd3] hover:text-black text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+        aria-label="Predchádzajúca fotografia"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        id="lightbox-next"
+        type="button"
+        class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#63ffd3] hover:text-black text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+        aria-label="Nasledujúca fotografia"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <div class="w-px h-5 bg-white/20 mx-0.5" aria-hidden="true"></div>
+
+      <button
+        id="lightbox-close"
+        type="button"
+        class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+        aria-label="Zavrieť galériu"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initGallery() {
+    const lightbox = document.getElementById("gallery-lightbox");
+    const lightboxImg = document.getElementById(
+      "lightbox-img",
+    ) as HTMLImageElement | null;
+    const lightboxWrapper = document.getElementById("lightbox-img-wrapper");
+    const lightboxCategory = document.getElementById("lightbox-category");
+    const closeBtn = document.getElementById("lightbox-close");
+    const prevBtn = document.getElementById("lightbox-prev");
+    const nextBtn = document.getElementById("lightbox-next");
+
+    const itemButtons = Array.from(
+      document.querySelectorAll<HTMLButtonElement>(".gallery-item-btn"),
+    );
+
+    if (!lightbox || !lightboxImg || itemButtons.length === 0) return;
+
+    let currentIndex = 0;
+    const allPhotos = itemButtons.map((btn) => ({
+      src: btn.dataset.photoSrc || "",
+      category: btn.dataset.category || "",
+    }));
+
+    function preload(src: string) {
+      if (!src) return;
+      const img = new Image();
+      img.src = src;
+    }
+
+    function showPhoto(index: number) {
+      if (index < 0) index = allPhotos.length - 1;
+      if (index >= allPhotos.length) index = 0;
+      currentIndex = index;
+
+      const photo = allPhotos[currentIndex];
+      lightboxImg!.style.opacity = "0.4";
+      lightboxImg!.style.transform = "scale(0.98)";
+      lightboxImg!.src = photo.src;
+
+      lightboxImg!.onload = () => {
+        if (lightboxImg) {
+          lightboxImg.style.opacity = "1";
+          lightboxImg.style.transform = "scale(1)";
+        }
+      };
+
+      if (lightboxCategory) lightboxCategory.textContent = photo.category;
+
+      // Preload next and prev images for instant zero-lag switching
+      const nextIdx = (currentIndex + 1) % allPhotos.length;
+      const prevIdx = (currentIndex - 1 + allPhotos.length) % allPhotos.length;
+      preload(allPhotos[nextIdx].src);
+      preload(allPhotos[prevIdx].src);
+    }
+
+    function openLightbox(index: number) {
+      showPhoto(index);
+      lightbox!.classList.remove("hidden");
+      lightbox!.classList.add("flex");
+      document.body.style.overflow = "hidden";
+      const navbar = document.getElementById("navbar");
+      if (navbar) navbar.style.display = "none";
+    }
+
+    function closeLightbox() {
+      lightbox!.classList.add("hidden");
+      lightbox!.classList.remove("flex");
+      document.body.style.overflow = "";
+      if (lightboxImg) lightboxImg.src = "";
+      const navbar = document.getElementById("navbar");
+      if (navbar) navbar.style.display = "";
+    }
+
+    itemButtons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => openLightbox(idx));
+    });
+
+    closeBtn?.addEventListener("click", closeLightbox);
+    prevBtn?.addEventListener("click", () => showPhoto(currentIndex - 1));
+    nextBtn?.addEventListener("click", () => showPhoto(currentIndex + 1));
+
+    // Close when clicking dark wrapper background (outside the image)
+    lightboxWrapper?.addEventListener("click", (e) => {
+      if (e.target === lightboxWrapper) closeLightbox();
+    });
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard navigation
+    window.addEventListener("keydown", (e) => {
+      if (lightbox.classList.contains("hidden")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPhoto(currentIndex - 1);
+      if (e.key === "ArrowRight") showPhoto(currentIndex + 1);
+    });
+
+    // Touch swipe navigation for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    lightbox.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true },
+    );
+    lightbox.addEventListener(
+      "touchend",
+      (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > 45) {
+          if (diff > 0) showPhoto(currentIndex - 1);
+          else showPhoto(currentIndex + 1);
+        }
+      },
+      { passive: true },
+    );
+  }
+
+  // Support Astro page transitions or direct load
+  initGallery();
+  document.addEventListener("astro:page-load", initGallery);
+</script>

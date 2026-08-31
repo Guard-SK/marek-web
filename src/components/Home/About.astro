@@ -1,6 +1,6 @@
 <style>
   .img_about {
-    background-image: url('/AboutImg.avif');
+    background-image: url("/hruba-stavba/Approach.avif");
     background-size: cover;
     background-position: center;
     flex-grow: 1;
@@ -107,38 +107,38 @@
 </article>
 
 <script>
-  import gsap from 'gsap'
-  import ScrollTrigger from 'gsap/ScrollTrigger'
-  gsap.registerPlugin(ScrollTrigger)
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
 
   // 1) Trigger when About comes into view
   ScrollTrigger.create({
-    trigger: 'article.container',
-    start: 'top 90%',
+    trigger: "article.container",
+    start: "top 90%",
     once: true,
     onEnter: () => {
       const tl2 = gsap.timeline({
-        defaults: { duration: 0.7, ease: 'power2.out' },
-      })
+        defaults: { duration: 0.7, ease: "power2.out" },
+      });
 
       // a) Small title
-      tl2.to('article.container h3', { opacity: 1, y: 0 })
+      tl2.to("article.container h3", { opacity: 1, y: 0 });
 
       // b) Big heading
-      tl2.to('article.container h2', { opacity: 1, y: 0 }, '-=0.4')
+      tl2.to("article.container h2", { opacity: 1, y: 0 }, "-=0.4");
 
       // c) Paragraph copy
-      tl2.to('article.container p', { opacity: 1, y: 0 }, '-=0.4')
+      tl2.to("article.container p", { opacity: 1, y: 0 }, "-=0.4");
 
       // d) The three info cards
       tl2.to(
-        'article.container section:first-child .shadow-lg',
+        "article.container section:first-child .shadow-lg",
         { opacity: 1, y: 0, stagger: 0.15, duration: 0.6 },
-        '-=0.3',
-      )
+        "-=0.3",
+      );
 
       // e) Side image
-      tl2.to('.img_about', { opacity: 1, y: 0, duration: 1 }, '-=0.4')
+      tl2.to(".img_about", { opacity: 1, y: 0, duration: 1 }, "-=0.4");
     },
-  })
+  });
 </script>

@@ -1,107 +1,107 @@
 ---
-import Navbar from '../components/Global/Navbar.astro'
-import Contact from '../components/Global/Contact.astro'
-import Footer from '../components/Global/Footer.astro'
-import Map from '../components/Global/Map.astro'
-import CaseStudy from '../components/Global/CaseStudy.astro'
-import { Image } from 'astro:assets'
+import Navbar from "../components/Global/Navbar.astro";
+import Contact from "../components/Global/Contact.astro";
+import Footer from "../components/Global/Footer.astro";
+import Map from "../components/Global/Map.astro";
+import CaseStudy from "../components/Global/CaseStudy.astro";
+import { Image } from "astro:assets";
 
 const galleryImages = import.meta.glob<ImageMetadata>(
-  '../assets/gallery/*.{jpeg,jpg,png,gif,avif,webp}',
-  { import: 'default' },
-)
+  "../assets/gallery/*.{jpeg,jpg,png,gif,avif,webp}",
+  { import: "default" },
+);
 
 async function resolveGalleryImage(path: string) {
-  const filename = path.split('/').pop()
-  const fullPath = `../assets/gallery/${filename}`
+  const filename = path.split("/").pop();
+  const fullPath = `../assets/gallery/${filename}`;
   if (galleryImages[fullPath]) {
-    return await galleryImages[fullPath]()
+    return await galleryImages[fullPath]();
   }
-  return path
+  return path;
 }
 
 // Case Study Photos
 const strechyCover = await resolveGalleryImage(
-  '/gallery/fotka1-strechatyp1.avif',
-)
+  "/gallery/fotka1-strechatyp1.avif",
+);
 const strechyPhotos = await Promise.all(
   [
     {
-      src: '/gallery/fotka1-strechatyp1.avif',
-      alt: 'Strešná krytina — pohľad 1',
+      src: "/gallery/fotka1-strechatyp1.avif",
+      alt: "Strešná krytina — pohľad 1",
     },
     {
-      src: '/gallery/fotka2-strechatyp1.avif',
-      alt: 'Strešná krytina — pohľad 2',
+      src: "/gallery/fotka2-strechatyp1.avif",
+      alt: "Strešná krytina — pohľad 2",
     },
     {
-      src: '/gallery/fotka3-strechatyp1.avif',
-      alt: 'Strešná krytina — celkový pohľad',
+      src: "/gallery/fotka3-strechatyp1.avif",
+      alt: "Strešná krytina — celkový pohľad",
     },
   ].map(async (p) => ({
     ...p,
     src: await resolveGalleryImage(p.src),
   })),
-)
+);
 
 // Extra Roofing Projects photos
 const extraPhotosRaw = [
   {
-    src: '/gallery/fotka1-strechatyp5.avif',
-    alt: 'Montáž krovu — detail',
+    src: "/gallery/fotka1-strechatyp5.avif",
+    alt: "Montáž krovu — detail",
   },
   {
-    src: '/gallery/fotka2-strechatyp5.avif',
-    alt: 'Pokládka krytiny — začiatok',
+    src: "/gallery/fotka2-strechatyp5.avif",
+    alt: "Pokládka krytiny — začiatok",
   },
   {
-    src: '/gallery/fotka3-strechatyp5.avif',
-    alt: 'Krov — spájanie väzákov',
+    src: "/gallery/fotka3-strechatyp5.avif",
+    alt: "Krov — spájanie väzákov",
   },
   {
-    src: '/gallery/fotka1-strechatyp4.avif',
-    alt: 'Latovanie a kontralatovanie',
+    src: "/gallery/fotka1-strechatyp4.avif",
+    alt: "Latovanie a kontralatovanie",
   },
   {
-    src: '/gallery/fotka2-strechatyp4.avif',
-    alt: 'Krytina Bramac — detail',
+    src: "/gallery/fotka2-strechatyp4.avif",
+    alt: "Krytina Bramac — detail",
   },
   {
-    src: '/gallery/fotka1-strechatyp3.avif',
-    alt: 'Krov po dokončení montáže',
+    src: "/gallery/fotka1-strechatyp3.avif",
+    alt: "Krov po dokončení montáže",
   },
   {
-    src: '/gallery/fotka8-strecha-hradok.avif',
-    alt: 'Krov — Hrádok, začiatok',
+    src: "/gallery/fotka8-strecha-hradok.avif",
+    alt: "Krov — Hrádok, začiatok",
   },
   {
-    src: '/gallery/fotka10-strecha-hradok.avif',
-    alt: 'Krov — pohľad zdola',
+    src: "/gallery/fotka10-strecha-hradok.avif",
+    alt: "Krov — pohľad zdola",
   },
   {
-    src: '/gallery/fotka13-strecha-hradok.avif',
-    alt: 'Pokládka krytiny — Hrádok',
+    src: "/gallery/fotka13-strecha-hradok.avif",
+    alt: "Pokládka krytiny — Hrádok",
   },
   {
-    src: '/gallery/fotka15-strecha-hradok.avif',
-    alt: 'Detail strešnej krytiny',
+    src: "/gallery/fotka15-strecha-hradok.avif",
+    alt: "Detail strešnej krytiny",
   },
   {
-    src: '/gallery/fotka17-strecha-hradok.avif',
-    alt: 'Strecha — pohľad z diaľky',
+    src: "/gallery/fotka17-strecha-hradok.avif",
+    alt: "Strecha — pohľad z diaľky",
   },
   {
-    src: '/gallery/fotka24-strecha-hradok.avif',
-    alt: 'Dokončený dom — exteriér',
+    src: "/gallery/fotka24-strecha-hradok.avif",
+    alt: "Dokončený dom — exteriér",
   },
-]
+];
 
 const extraPhotos = await Promise.all(
   extraPhotosRaw.map(async (p) => ({
     ...p,
     src: await resolveGalleryImage(p.src),
   })),
-)
+);
 ---
 
 <html lang="sk">
@@ -336,7 +336,7 @@ const extraPhotos = await Promise.all(
   <body class="text-white bg-[#191919]">
     <Navbar />
 
-    <main id="strechy" class="relative z-10 text-white overflow-hidden">
+    <main id="strechy" class="relative text-white overflow-hidden">
       <!-- Glow efekty -->
       <!-- 💠 Glow 1 – horný ľavý -->
       <div
@@ -553,7 +553,9 @@ const extraPhotos = await Promise.all(
             >
             </div>
             <Image
-              src={(await resolveGalleryImage('/strechy/RoofApproach.avif')) as any}
+              src={(await resolveGalleryImage(
+                "/strechy/RoofApproach.avif",
+              )) as any}
               alt="Montáž krovu detail"
               class="rounded-3xl shadow-xl w-full object-cover"
               width={800}
@@ -604,17 +606,11 @@ const extraPhotos = await Promise.all(
         coverPhoto={strechyCover}
         coverAlt="Pokládka strešnej krytiny"
         stats={[
-          { label: 'Strešná plocha', value: '224 m²' },
-          { label: 'Dĺžka realizácie', value: '8 dní' },
-          { label: 'Cena práce', value: '27 800 €' },
+          { label: "Strešná plocha", value: "224 m²" },
+          { label: "Dĺžka realizácie", value: "8 dní" },
+          { label: "Cena práce", value: "7 000 €" },
         ]}
         photos={strechyPhotos}
-        testimonial={{
-          quote:
-            'Strecha vyzerala skvelo už po prvých dvoch dňoch práce. Chlapci vedeli, čo robia — žiadne prázdne reči, len čistá práca. Dom dostal strechu, akú sme si želali, a bez jediného problému.',
-          author: 'Tomáš H.',
-          detail: 'Majiteľ nehnuteľnosti, Hrádok',
-        }}
       />
 
       <!-- Ďalšie realizácie strešných prác -->
@@ -638,22 +634,22 @@ const extraPhotos = await Promise.all(
           >
             {
               extraPhotos.map((photo, i) => {
-                const totalItems = extraPhotos.length
-                const isLast = i === totalItems - 1
-                const isOddTotal = totalItems % 2 !== 0
+                const totalItems = extraPhotos.length;
+                const isLast = i === totalItems - 1;
+                const isOddTotal = totalItems % 2 !== 0;
 
-                let centeringClasses = ''
+                let centeringClasses = "";
                 // Mobile centering
                 if (isLast && isOddTotal) {
                   centeringClasses =
-                    'col-span-2 justify-self-center w-[calc(50%-6px)] md:w-full'
+                    "col-span-2 justify-self-center w-[calc(50%-6px)] md:w-full";
                 }
 
                 // Desktop centering (3 per row)
                 if (totalItems % 3 === 1 && i === totalItems - 1) {
-                  centeringClasses += ' md:col-start-5 md:col-span-4'
+                  centeringClasses += " md:col-start-5 md:col-span-4";
                 } else if (totalItems % 3 === 2 && i === totalItems - 2) {
-                  centeringClasses += ' md:col-start-3 md:col-span-4'
+                  centeringClasses += " md:col-start-3 md:col-span-4";
                 }
 
                 return (
@@ -668,18 +664,8 @@ const extraPhotos = await Promise.all(
                       height={600}
                       loading="lazy"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                      <div>
-                        <p class="text-[#63ffd3] text-[10px] uppercase tracking-widest font-bold mb-1 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                          Detail práce
-                        </p>
-                        <h3 class="text-white text-sm md:text-base font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                          {photo.alt}
-                        </h3>
-                      </div>
-                    </div>
                   </div>
-                )
+                );
               })
             }
           </div>
@@ -968,16 +954,16 @@ const extraPhotos = await Promise.all(
         </div>
 
         <script>
-          document.querySelectorAll('.faq-question').forEach((btn) => {
-            btn.addEventListener('click', () => {
-              const item = btn.parentElement
-              if (!item) return
-              const answer = item.querySelector('.faq-answer')
-              const icon = btn.querySelector('.faq-icon')
-              if (answer) answer.classList.toggle('hidden')
-              if (icon) icon.classList.toggle('rotate-180')
-            })
-          })
+          document.querySelectorAll(".faq-question").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const item = btn.parentElement;
+              if (!item) return;
+              const answer = item.querySelector(".faq-answer");
+              const icon = btn.querySelector(".faq-icon");
+              if (answer) answer.classList.toggle("hidden");
+              if (icon) icon.classList.toggle("rotate-180");
+            });
+          });
         </script>
       </section>
 
@@ -991,162 +977,162 @@ const extraPhotos = await Promise.all(
   </body>
 
   <script>
-    import gsap from 'gsap'
-    import { ScrollTrigger } from 'gsap/ScrollTrigger'
-    gsap.registerPlugin(ScrollTrigger)
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
 
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
       // Hero animations
-      gsap.to('#hero-text-block h1', {
+      gsap.to("#hero-text-block h1", {
         x: 0,
         opacity: 1,
         duration: 1.2,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '#hero-text-block', start: 'top 80%' },
-      })
-      gsap.to('#hero-text-block p', {
+        ease: "power3.out",
+        scrollTrigger: { trigger: "#hero-text-block", start: "top 80%" },
+      });
+      gsap.to("#hero-text-block p", {
         x: 0,
         opacity: 1,
         delay: 0.2,
         duration: 1,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '#hero-text-block', start: 'top 80%' },
-      })
-      gsap.to('#hero-cta', {
+        ease: "power2.out",
+        scrollTrigger: { trigger: "#hero-text-block", start: "top 80%" },
+      });
+      gsap.to("#hero-cta", {
         scale: 1,
         opacity: 1,
         delay: 0.4,
         duration: 0.8,
-        ease: 'back.out(1.7)',
-        scrollTrigger: { trigger: '#hero-text-block', start: 'top 80%' },
-      })
+        ease: "back.out(1.7)",
+        scrollTrigger: { trigger: "#hero-text-block", start: "top 80%" },
+      });
 
       // Cards animations
-      gsap.to('#content-heading', {
+      gsap.to("#content-heading", {
         y: 0,
         opacity: 1,
         duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '#card-1', start: 'top 90%' },
-      })
-      ;['#card-1', '#card-2', '#card-3'].forEach((sel, i) => {
+        ease: "power3.out",
+        scrollTrigger: { trigger: "#card-1", start: "top 90%" },
+      });
+      ["#card-1", "#card-2", "#card-3"].forEach((sel, i) => {
         gsap.to(sel, {
           opacity: 1,
           y: 0,
           duration: 1,
           delay: 0.5 + i * 0.3,
-          ease: 'power2.out',
-          scrollTrigger: { trigger: sel, start: 'top 90%' },
-        })
-      })
+          ease: "power2.out",
+          scrollTrigger: { trigger: sel, start: "top 90%" },
+        });
+      });
 
       // Approach animations
-      gsap.to('#approach-image', {
+      gsap.to("#approach-image", {
         y: 0,
         opacity: 1,
         duration: 1.1,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '#approach-image', start: 'top 85%' },
-      })
-      gsap.to('#approach-text', {
+        ease: "power3.out",
+        scrollTrigger: { trigger: "#approach-image", start: "top 85%" },
+      });
+      gsap.to("#approach-text", {
         y: 0,
         opacity: 1,
         delay: 0.2,
         duration: 1,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '#approach-text', start: 'top 85%' },
-      })
+        ease: "power2.out",
+        scrollTrigger: { trigger: "#approach-text", start: "top 85%" },
+      });
       gsap.utils
-        .toArray(['#approach-step-1', '#approach-step-2', '#approach-step-3'])
+        .toArray(["#approach-step-1", "#approach-step-2", "#approach-step-3"])
         .forEach((el, i) => {
-          const element = el as HTMLElement
+          const element = el as HTMLElement;
 
           gsap.from(element, {
             x: -20,
             opacity: 0,
             delay: 0.3 + i * 0.2,
             duration: 0.9,
-            ease: 'power3.out',
+            ease: "power3.out",
             scrollTrigger: {
               trigger: element,
-              start: 'top 90%',
+              start: "top 90%",
             },
-          })
-        })
+          });
+        });
 
       // Process animations
-      gsap.to('#process-heading', {
+      gsap.to("#process-heading", {
         y: 0,
         opacity: 1,
         duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '#process-heading', start: 'top 90%' },
-      })
+        ease: "power3.out",
+        scrollTrigger: { trigger: "#process-heading", start: "top 90%" },
+      });
       gsap.utils
-        .toArray(['#step-1', '#step-2', '#step-3', '#step-4', '#step-5'])
+        .toArray(["#step-1", "#step-2", "#step-3", "#step-4", "#step-5"])
         .forEach((sel, i) => {
           gsap.to(sel as string, {
             y: 0,
             opacity: 1,
             delay: 0.1 * i,
             duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: sel as string, start: 'top 80%' },
-          })
-        })
+            ease: "power3.out",
+            scrollTrigger: { trigger: sel as string, start: "top 80%" },
+          });
+        });
       gsap.fromTo(
-        '.timeline-gradient-line',
+        ".timeline-gradient-line",
         { scaleX: 0 },
         {
           scaleX: 1,
           duration: 1.5,
-          ease: 'power2.out',
-          scrollTrigger: { trigger: '#process', start: 'top 40%' },
+          ease: "power2.out",
+          scrollTrigger: { trigger: "#process", start: "top 40%" },
         },
-      )
+      );
 
       // Pricing animations
-      gsap.from('#pricing h2', {
+      gsap.from("#pricing h2", {
         y: 50,
         opacity: 0,
         duration: 1,
-        scrollTrigger: { trigger: '#pricing h2', start: 'top 85%' },
-      })
-      gsap.from('#pricing p', {
+        scrollTrigger: { trigger: "#pricing h2", start: "top 85%" },
+      });
+      gsap.from("#pricing p", {
         y: 30,
         opacity: 0,
         delay: 0.2,
         duration: 1,
-        scrollTrigger: { trigger: '#pricing p', start: 'top 85%' },
-      })
-      gsap.from('#pricing a', {
+        scrollTrigger: { trigger: "#pricing p", start: "top 85%" },
+      });
+      gsap.from("#pricing a", {
         scale: 0.9,
         opacity: 0,
         delay: 0.4,
         duration: 0.8,
-        ease: 'back.out(1.7)',
-        scrollTrigger: { trigger: '#pricing a', start: 'top 90%' },
-      })
+        ease: "back.out(1.7)",
+        scrollTrigger: { trigger: "#pricing a", start: "top 90%" },
+      });
 
       // FAQ animations
-      gsap.to('#faq-heading', {
+      gsap.to("#faq-heading", {
         y: 0,
         opacity: 1,
         duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '#faq-heading', start: 'top 85%' },
-      })
-      ;['#faq-1', '#faq-2', '#faq-3'].forEach((sel, i) => {
+        ease: "power3.out",
+        scrollTrigger: { trigger: "#faq-heading", start: "top 85%" },
+      });
+      ["#faq-1", "#faq-2", "#faq-3"].forEach((sel, i) => {
         gsap.to(sel, {
           y: 0,
           opacity: 1,
           delay: 0.2 + i * 0.2,
           duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: { trigger: sel, start: 'top 85%' },
-        })
-      })
-    })
+          ease: "power2.out",
+          scrollTrigger: { trigger: sel, start: "top 85%" },
+        });
+      });
+    });
   </script>
 
   <style>
