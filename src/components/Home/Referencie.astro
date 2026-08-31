@@ -40,6 +40,20 @@ const galleryCategories = [
 ];
 ---
 
+<style>
+  @keyframes skeletonShimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  .animate-shimmer {
+    animation: skeletonShimmer 1.8s infinite ease-in-out;
+  }
+</style>
+
 <section
   id="referencie"
   class="bg-[#191919] py-24 px-6 md:px-12 relative overflow-hidden"
@@ -242,21 +256,27 @@ const galleryCategories = [
                   return (
                     <button
                       type="button"
-                      class={`gallery-item-btn relative overflow-hidden rounded-2xl group border border-[#2b2b2b] hover:border-[#63ffd3]/60 transition-all duration-300 shadow-md bg-[#1f1f1f] text-left block w-full focus:outline-none focus:ring-2 focus:ring-[#63ffd3] ${itemClass}`}
+                      class={`gallery-item-btn relative overflow-hidden rounded-2xl group border border-[#2b2b2b] hover:border-[#63ffd3]/60 transition-all duration-300 shadow-md bg-[#1a1a1a] text-left block w-full focus:outline-none focus:ring-2 focus:ring-[#63ffd3] ${itemClass}`}
                       data-photo-src={photo.src}
                       data-category={cat.name}
                       aria-label={`Zväčšiť fotografiu: ${cat.name}`}
                     >
+                      <!-- Lightweight Skeleton Loader -->
+                      <div class="absolute inset-0 bg-[#222] pointer-events-none overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent animate-shimmer" />
+                      </div>
+
                       <img
                         src={photo.src}
                         alt={photo.alt}
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 relative z-10 opacity-0 transition-opacity duration-300"
                         loading="lazy"
                         decoding="async"
                         width="500"
                         height="400"
+                        onload="this.classList.remove('opacity-0')"
                       />
-                      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
                         <div class="w-10 h-10 rounded-full bg-black/75 backdrop-blur-sm border border-white/20 text-[#63ffd3] flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300">
                           <svg
                             class="w-5 h-5"
@@ -320,13 +340,17 @@ const galleryCategories = [
     />
   </div>
 
-  <!-- Bottom Floating Glassy Control Bar -->
-  <div class="z-20 pb-3">
-    <div class="bg-[#191919]/90 backdrop-blur-xl border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-3 shadow-2xl">
+  <!-- Bottom Floating Glassy Control Bar (with touch-action: manipulation to prevent double-tap zoom on buttons) -->
+  <div class="z-20 pb-3" style="touch-action: manipulation; user-select: none;">
+    <div
+      class="bg-[#191919]/90 backdrop-blur-xl border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-3 shadow-2xl"
+      style="touch-action: manipulation;"
+    >
       <button
         id="lightbox-prev"
         type="button"
         class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#63ffd3] hover:text-black text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+        style="touch-action: manipulation;"
         aria-label="Predchádzajúca fotografia"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -338,6 +362,7 @@ const galleryCategories = [
         id="lightbox-next"
         type="button"
         class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#63ffd3] hover:text-black text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+        style="touch-action: manipulation;"
         aria-label="Nasledujúca fotografia"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -351,6 +376,7 @@ const galleryCategories = [
         id="lightbox-close"
         type="button"
         class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
+        style="touch-action: manipulation;"
         aria-label="Zavrieť galériu"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

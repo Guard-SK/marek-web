@@ -275,15 +275,17 @@ const isBento = previewCount != null && previewCount === 9
     </div>
 
     <!-- Bottom Floating Glassy Control Bar -->
-    <div class="z-20 pb-3">
+    <div class="z-20 pb-3" style="touch-action: manipulation; user-select: none;">
       <div
         class="lb-bottom-bar bg-[#191919]/90 backdrop-blur-xl border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-3 shadow-2xl"
+        style="touch-action: manipulation;"
       >
         <button
           class="lb-prev w-10 h-10 rounded-full bg-white/10 hover:bg-[#63ffd3] hover:text-black text-white active:scale-90 flex items-center justify-center transition-all duration-200 focus:outline-none"
           aria-label="Predchádzajúca fotografia"
           type="button"
           data-lb-safe
+          style="touch-action: manipulation;"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -300,6 +302,7 @@ const isBento = previewCount != null && previewCount === 9
           aria-label="Nasledujúca fotografia"
           type="button"
           data-lb-safe
+          style="touch-action: manipulation;"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -313,6 +316,7 @@ const isBento = previewCount != null && previewCount === 9
           aria-label="Zavrieť galériu"
           type="button"
           data-lb-safe
+          style="touch-action: manipulation;"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
