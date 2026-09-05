@@ -1,114 +1,122 @@
 ---
-import Navbar from '../components/Global/Navbar.astro'
-import Contact from '../components/Global/Contact.astro'
-import Footer from '../components/Global/Footer.astro'
-import Map from '../components/Global/Map.astro'
-import CaseStudy from '../components/Global/CaseStudy.astro'
-import { Image } from 'astro:assets'
+import Navbar from "../components/Global/Navbar.astro";
+import Contact from "../components/Global/Contact.astro";
+import Footer from "../components/Global/Footer.astro";
+import Map from "../components/Global/Map.astro";
+import CaseStudy from "../components/Global/CaseStudy.astro";
+import { Image } from "astro:assets";
 
 const galleryImages = import.meta.glob<ImageMetadata>(
-  '../assets/gallery/*.{jpeg,jpg,png,gif,avif,webp}',
-  { import: 'default' },
-)
+  "../assets/gallery/*.{jpeg,jpg,png,gif,avif,webp}",
+  { import: "default" },
+);
 
 async function resolveGalleryImage(path: string) {
-  const filename = path.split('/').pop()
-  const fullPath = `../assets/gallery/${filename}`
+  const filename = path.split("/").pop();
+  const fullPath = `../assets/gallery/${filename}`;
   if (galleryImages[fullPath]) {
-    return await galleryImages[fullPath]()
+    return await galleryImages[fullPath]();
   }
-  return path
+  return path;
 }
 
-const hradokCover = await resolveGalleryImage('/gallery/main-hradok.avif')
+const hradokCover = await resolveGalleryImage("/gallery/main-hradok.avif");
 
 const hradokPhotosRaw = [
-  { src: '/gallery/fotka3-hradok.avif', alt: 'Základy a zemné práce' },
+  { src: "/gallery/fotka3-hradok.avif", alt: "Základy a zemné práce" },
   {
-    src: '/gallery/fotka1-hradok.avif',
-    alt: 'Debnenie a armovanie stropov',
+    src: "/gallery/fotka1-hradok.avif",
+    alt: "Debnenie a armovanie stropov",
   },
   {
-    src: '/gallery/fotka8-hradok.avif',
-    alt: 'Hrubá stavba — celkový pohľad',
+    src: "/gallery/fotka8-hradok.avif",
+    alt: "Hrubá stavba — celkový pohľad",
   },
   {
-    src: '/gallery/fotka11-strecha-hradok.avif',
-    alt: 'Kontralaty a latovanie',
+    src: "/gallery/fotka11-strecha-hradok.avif",
+    alt: "Kontralaty a latovanie",
   },
   {
-    src: '/gallery/fotka13-strecha-hradok.avif',
-    alt: 'Pokládka strešnej krytiny',
+    src: "/gallery/fotka13-strecha-hradok.avif",
+    alt: "Pokládka strešnej krytiny",
   },
   {
-    src: '/gallery/fotka15-strecha-hradok.avif',
-    alt: 'Detail strešnej krytiny',
+    src: "/gallery/fotka15-strecha-hradok.avif",
+    alt: "Detail strešnej krytiny",
   },
   {
-    src: '/gallery/fotka19-strecha-hradok.avif',
-    alt: 'Interiér — obývacia izba',
+    src: "/gallery/fotka19-strecha-hradok.avif",
+    alt: "Interiér — obývacia izba",
   },
   {
-    src: '/gallery/fotka21-interier-hradok.avif',
-    alt: 'Interiér — stropná konštrukcia',
+    src: "/gallery/fotka21-interier-hradok.avif",
+    alt: "Interiér — stropná konštrukcia",
   },
   {
-    src: '/gallery/fotka24-strecha-hradok.avif',
-    alt: 'Dokončený dom — exteriér',
+    src: "/gallery/fotka24-strecha-hradok.avif",
+    alt: "Dokončený dom — exteriér",
   },
   // Remaining photos
   {
-    src: '/gallery/fotka2-hradok.avif',
-    alt: 'Murovanie nosných stien — 1. podlažie',
+    src: "/gallery/fotka2-hradok.avif",
+    alt: "Murovanie nosných stien — 1. podlažie",
   },
   {
-    src: '/gallery/fotka18-strecha-hradok.avif',
-    alt: 'Dokončená strecha — celkový pohľad',
+    src: "/gallery/fotka18-strecha-hradok.avif",
+    alt: "Dokončená strecha — celkový pohľad",
   },
-  { src: '/gallery/fotka4-hradok.avif', alt: 'Betonáž stropnej dosky' },
-  { src: '/gallery/fotka6-hradok.avif', alt: 'Veniec and preklady' },
-  { src: '/gallery/fotka7-hradok.avif', alt: 'Montáž krovu' },
+  { src: "/gallery/fotka4-hradok.avif", alt: "Betonáž stropnej dosky" },
+  { src: "/gallery/fotka6-hradok.avif", alt: "Veniec and preklady" },
+  { src: "/gallery/fotka7-hradok.avif", alt: "Montáž krovu" },
   {
-    src: '/gallery/fotka8-strecha-hradok.avif',
-    alt: 'Krov — začiatok montáže',
-  },
-  {
-    src: '/gallery/fotka9-strecha-hradok.avif',
-    alt: 'Krov — väzbová konštrukcia',
+    src: "/gallery/fotka8-strecha-hradok.avif",
+    alt: "Krov — začiatok montáže",
   },
   {
-    src: '/gallery/fotka10-strecha-hradok.avif',
-    alt: 'Krov — pohľad zdola',
-  },
-  { src: '/gallery/fotka12-strecha-hradok.avif', alt: 'Strešná fólia' },
-  {
-    src: '/gallery/fotka14-strecha-hradok.avif',
-    alt: 'Strecha v pokročilej fáze',
+    src: "/gallery/fotka9-strecha-hradok.avif",
+    alt: "Krov — väzbová konštrukcia",
   },
   {
-    src: '/gallery/fotka16-strecha-hradok.avif',
-    alt: 'Strecha — pohľad z boku',
+    src: "/gallery/fotka10-strecha-hradok.avif",
+    alt: "Krov — pohľad zdola",
+  },
+  { src: "/gallery/fotka12-strecha-hradok.avif", alt: "Strešná fólia" },
+  {
+    src: "/gallery/fotka14-strecha-hradok.avif",
+    alt: "Strecha v pokročilej fáze",
   },
   {
-    src: '/gallery/fotka17-strecha-hradok.avif',
-    alt: 'Strecha — pohľad z diaľky',
+    src: "/gallery/fotka16-strecha-hradok.avif",
+    alt: "Strecha — pohľad z boku",
   },
   {
-    src: '/gallery/fotka20-interier-hradok.avif',
-    alt: 'Interiér — chodba a schodisko',
+    src: "/gallery/fotka17-strecha-hradok.avif",
+    alt: "Strecha — pohľad z diaľky",
   },
   {
-    src: '/gallery/fotka23-interier-hradok.avif',
-    alt: 'Strecha — finálny pohľad',
+    src: "/gallery/fotka20-interier-hradok.avif",
+    alt: "Interiér — chodba a schodisko",
   },
-]
+  {
+    src: "/gallery/fotka23-interier-hradok.avif",
+    alt: "Strecha — finálny pohľad",
+  },
+  {
+    src: "/gallery/fotka25-strecha-hradok.avif",
+    alt: "Dokončená strecha — detail",
+  },
+  {
+    src: "/gallery/fotka26-strecha-hradok.avif",
+    alt: "Dokončená strecha — pohľad na dom",
+  },
+];
 
 const hradokPhotos = await Promise.all(
   hradokPhotosRaw.map(async (p) => ({
     ...p,
     src: await resolveGalleryImage(p.src),
   })),
-)
+);
 ---
 
 <html lang="sk">
@@ -591,9 +599,9 @@ const hradokPhotos = await Promise.all(
         coverPhoto={hradokCover}
         coverAlt="Hrubá stavba v Hrádku — pohľad na stavbu"
         stats={[
-          { label: 'Zastavaná plocha', value: '50 m²' },
-          { label: 'Doba realizácie', value: '7 týždňov' },
-          { label: 'Cena práce', value: '20 500 €' },
+          { label: "Zastavaná plocha", value: "50 m²" },
+          { label: "Doba realizácie", value: "7 týždňov" },
+          { label: "Cena práce", value: "20 500 €" },
         ]}
         previewCount={9}
         photos={hradokPhotos}
@@ -765,61 +773,61 @@ const hradokPhotos = await Promise.all(
 </html>
 
 <script>
-  import gsap from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
-  gsap.registerPlugin(ScrollTrigger)
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
 
-  window.addEventListener('load', () => {
-    gsap.to('#hero-text-block h1', {
+  window.addEventListener("load", () => {
+    gsap.to("#hero-text-block h1", {
       x: 0,
       opacity: 1,
       duration: 1.2,
-      ease: 'power3.out',
+      ease: "power3.out",
       scrollTrigger: {
-        trigger: '#hero-text-block',
-        start: 'top 80%',
+        trigger: "#hero-text-block",
+        start: "top 80%",
       },
-    })
+    });
 
-    gsap.to('#hero-text-block p', {
+    gsap.to("#hero-text-block p", {
       x: 0,
       opacity: 1,
       delay: 0.2,
       duration: 1,
-      ease: 'power2.out',
+      ease: "power2.out",
       scrollTrigger: {
-        trigger: '#hero-text-block',
-        start: 'top 80%',
+        trigger: "#hero-text-block",
+        start: "top 80%",
       },
-    })
+    });
 
-    gsap.to('#hero-text-block a', {
+    gsap.to("#hero-text-block a", {
       scale: 1,
       opacity: 1,
       delay: 0.6,
       duration: 0.8,
-      ease: 'back.out(1.7)',
+      ease: "back.out(1.7)",
       scrollTrigger: {
-        trigger: '#hero-text-block',
-        start: 'top 80%',
+        trigger: "#hero-text-block",
+        start: "top 80%",
       },
-    })
+    });
 
     // Druhá sekcia – karty
-    gsap.to('#content-heading', {
+    gsap.to("#content-heading", {
       y: 0,
       opacity: 1,
       duration: 1,
-      ease: 'power3.out',
+      ease: "power3.out",
       scrollTrigger: {
-        trigger: '#hruba-stavba-content .group:nth-child(1)',
-        start: 'top 90%',
+        trigger: "#hruba-stavba-content .group:nth-child(1)",
+        start: "top 90%",
       },
-    })
+    });
 
     const cards = gsap.utils.toArray<HTMLElement>(
-      '#hruba-stavba-content .group',
-    )
+      "#hruba-stavba-content .group",
+    );
 
     cards.forEach((el, i) => {
       gsap.to(el, {
@@ -827,144 +835,144 @@ const hradokPhotos = await Promise.all(
         y: 0,
         duration: 1,
         delay: 0.5 + i * 0.3,
-        ease: 'power2.out',
+        ease: "power2.out",
         scrollTrigger: {
           trigger: el,
-          start: 'top 90%',
+          start: "top 90%",
         },
-      })
-    })
+      });
+    });
 
-    gsap.from('#approach-title', {
+    gsap.from("#approach-title", {
       y: 50,
       opacity: 0,
       duration: 1.1,
-      ease: 'power3.out',
+      ease: "power3.out",
       scrollTrigger: {
-        trigger: '#approach-title',
-        start: 'top 85%',
+        trigger: "#approach-title",
+        start: "top 85%",
       },
-    })
+    });
 
-    gsap.from('#approach-desc', {
+    gsap.from("#approach-desc", {
       y: 30,
       opacity: 0,
       delay: 0.2,
       duration: 1,
-      ease: 'power2.out',
+      ease: "power2.out",
       scrollTrigger: {
-        trigger: '#approach-desc',
-        start: 'top 85%',
+        trigger: "#approach-desc",
+        start: "top 85%",
       },
-    })
+    });
 
     gsap.utils
-      .toArray(['#approach-step-1', '#approach-step-2', '#approach-step-3'])
+      .toArray(["#approach-step-1", "#approach-step-2", "#approach-step-3"])
       .forEach((el, i) => {
-        const element = el as HTMLElement
+        const element = el as HTMLElement;
 
         gsap.from(element, {
           x: -20,
           opacity: 0,
           delay: 0.3 + i * 0.2,
           duration: 0.9,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: element,
-            start: 'top 90%',
+            start: "top 90%",
           },
-        })
-      })
+        });
+      });
 
     // Pricing section
-    gsap.from('#pricing-title', {
+    gsap.from("#pricing-title", {
       y: 50,
       opacity: 0,
       duration: 1,
       scrollTrigger: {
-        trigger: '#pricing-title',
-        start: 'top 85%',
+        trigger: "#pricing-title",
+        start: "top 85%",
       },
-    })
+    });
 
-    gsap.from('#pricing-desc', {
+    gsap.from("#pricing-desc", {
       y: 30,
       opacity: 0,
       delay: 0.2,
       duration: 1,
       scrollTrigger: {
-        trigger: '#pricing-desc',
-        start: 'top 85%',
+        trigger: "#pricing-desc",
+        start: "top 85%",
       },
-    })
+    });
 
-    gsap.from('#pricing-cta', {
+    gsap.from("#pricing-cta", {
       scale: 0.9,
       opacity: 0,
       delay: 0.4,
       duration: 0.8,
-      ease: 'back.out(1.7)',
+      ease: "back.out(1.7)",
       scrollTrigger: {
-        trigger: '#pricing-cta',
-        start: 'top 90%',
+        trigger: "#pricing-cta",
+        start: "top 90%",
       },
-    })
+    });
 
     // Process section
-    gsap.utils.toArray('#process .md\\:w-1\\/5').forEach((el, i) => {
-      const element = el as HTMLElement
+    gsap.utils.toArray("#process .md\\:w-1\\/5").forEach((el, i) => {
+      const element = el as HTMLElement;
 
       gsap.from(element, {
         y: 60,
         opacity: 0,
         delay: 0.1 * i,
         duration: 1,
-        ease: 'power3.out',
+        ease: "power3.out",
         scrollTrigger: {
           trigger: element,
-          start: 'top 80%',
+          start: "top 80%",
         },
-      })
-    })
+      });
+    });
 
     gsap.fromTo(
-      '.timeline-gradient-line',
+      ".timeline-gradient-line",
       { scaleX: 0 },
       {
         scaleX: 1,
         duration: 1.5,
-        ease: 'power2.out',
+        ease: "power2.out",
         scrollTrigger: {
-          trigger: '#process',
-          start: 'top 40%',
+          trigger: "#process",
+          start: "top 40%",
         },
       },
-    )
+    );
 
-    const bulldozer = document.getElementById('bulldozer-wrapper')
-    const section1 = document.getElementById('our-approach')
-    const section2 = document.getElementById('process')
+    const bulldozer = document.getElementById("bulldozer-wrapper");
+    const section1 = document.getElementById("our-approach");
+    const section2 = document.getElementById("process");
 
     if (bulldozer && section1 && section2) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section1,
-          start: 'bottom bottom',
+          start: "bottom bottom",
           endTrigger: section2,
-          end: 'bottom center',
+          end: "bottom center",
           scrub: 2,
         },
-      })
+      });
 
       tl.set(bulldozer, {
         rotate: 180,
-        filter: 'drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))',
-      })
+        filter: "drop-shadow(0 -10px 20px rgba(99, 255, 211, 0.4))",
+      });
       tl.to(bulldozer, {
         y: () => section1.offsetHeight + section2.offsetHeight - 200,
-      })
+      });
     }
-  })
+  });
 </script>
 
 <style>
